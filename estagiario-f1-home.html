@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estagiário da F1</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f4f4f4;
+      color: #0b0b0b;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .page {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 14px;
+    }
+    .header {
+      background: #050505;
+      color: white;
+      border-radius: 0 0 18px 18px;
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    .left-head {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .hamburger {
+      width: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .hamburger span {
+      height: 3px;
+      background: white;
+      border-radius: 20px;
+      display: block;
+    }
+    .logo {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-style: italic;
+      font-size: 26px;
+      line-height: .82;
+      letter-spacing: .2px;
+      text-transform: uppercase;
+    }
+    .logo .red { color: #ff2b2b; }
+    nav {
+      display: flex;
+      gap: 32px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .icons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-weight: 900;
+    }
+    .search {
+      width: 18px;
+      height: 18px;
+      border: 2px solid white;
+      border-radius: 50%;
+      position: relative;
+    }
+    .search:after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 2px;
+      background: white;
+      right: -6px;
+      bottom: -3px;
+      transform: rotate(45deg);
+      border-radius: 10px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 330px;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .hero {
+      min-height: 455px;
+      background: #050505;
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      color: white;
+    }
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.96) 0%, rgba(0,0,0,.70) 42%, rgba(0,0,0,.10) 100%),
+        url("https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1600&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 38px;
+      max-width: 520px;
+      height: 455px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .tag {
+      background: #ff2b2b;
+      color: white;
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 900;
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 22px;
+    }
+    h1 {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 54px;
+      line-height: .98;
+      text-transform: uppercase;
+      margin: 0;
+      letter-spacing: .2px;
+    }
+    .hero p {
+      color: #e3e3e3;
+      font-size: 18px;
+      line-height: 1.35;
+      margin: 20px 0 0;
+    }
+    .button {
+      margin-top: 26px;
+      width: fit-content;
+      border: 2px solid #ff2b2b;
+      color: white;
+      border-radius: 10px;
+      padding: 13px 18px;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .black-card {
+      background: #050505;
+      color: white;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .black-card h3 {
+      color: #ff2b2b;
+      font-size: 14px;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+    }
+    .race-title {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 25px;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .muted { color: #a8a8a8; }
+    .info-row, .ranking-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 14px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .ranking-row:last-child { border-bottom: 0; }
+    .rank-num { color: #ff2b2b; font-weight: 900; margin-right: 10px; }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 24px;
+      text-transform: uppercase;
+      margin: 0;
+      border-left: 4px solid #ff2b2b;
+      padding-left: 10px;
+      line-height: 1;
+    }
+    .see-more {
+      color: #ff2b2b;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .schedule {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+    .schedule-card {
+      background: white;
+      border-radius: 12px;
+      padding: 18px;
+      min-height: 160px;
+      box-shadow: 0 1px 10px rgba(0,0,0,.06);
+    }
+    .category-logo {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      color: #ff2b2b;
+      font-size: 26px;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .schedule-card strong {
+      display: block;
+      font-size: 13px;
+      text-transform: uppercase;
+      line-height: 1.15;
+    }
+    .schedule-card .date {
+      color: #777;
+      font-size: 12px;
+      margin: 16px 0 12px;
+    }
+    .time-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 900;
+      font-size: 12px;
+      margin-top: 7px;
+      text-transform: uppercase;
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .news-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 10px rgba(0,0,0,.06);
+    }
+    .thumb {
+      height: 160px;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+    .thumb .tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      margin: 0;
+      font-size: 10px;
+      padding: 5px 8px;
+    }
+    .news-body {
+      padding: 15px;
+    }
+    .news-body h3 {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 22px;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin: 0;
+    }
+    .news-body p {
+      color: #666;
+      font-size: 13px;
+      line-height: 1.35;
+      margin: 10px 0 0;
+    }
+    .center-f1 {
+      background: #050505;
+      color: white;
+      border-radius: 14px;
+      padding: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .center-f1 h3 {
+      color: white;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin: 0 0 14px;
+    }
+    .chronicles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .chron-card {
+      min-height: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+    }
+    .chron-card:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,.9));
+    }
+    .chron-card div {
+      position: relative;
+      z-index: 2;
+    }
+    .chron-card h3 {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 28px;
+      line-height: 1;
+      margin: 0 0 12px;
+    }
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .social-card {
+      background: #050505;
+      color: white;
+      border-radius: 12px;
+      padding: 16px;
+      min-height: 230px;
+    }
+    .social-card p {
+      font-size: 14px;
+      line-height: 1.35;
+      color: #e5e5e5;
+    }
+    .play-thumb {
+      height: 120px;
+      border-radius: 10px;
+      background: url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?q=80&w=1200&auto=format&fit=crop") center/cover;
+      display: grid;
+      place-items: center;
+      margin-top: 12px;
+    }
+    .play {
+      width: 52px;
+      height: 52px;
+      background: rgba(255,255,255,.9);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #ff2b2b;
+      font-weight: 900;
+    }
+    footer {
+      background: #050505;
+      color: white;
+      border-radius: 12px 12px 0 0;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    @media (max-width: 900px) {
+      .page { padding: 0; }
+      .header {
+        border-radius: 0 0 18px 18px;
+        height: 82px;
+        margin-bottom: 12px;
+      }
+      nav, .icons { display: none; }
+      .logo { font-size: 22px; }
+      .hero-grid {
+        display: block;
+        padding: 0 12px;
+      }
+      .hero {
+        min-height: 315px;
+        border-radius: 14px;
+        margin-bottom: 12px;
+      }
+      .hero:before {
+        background:
+          linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.96) 100%),
+          url("https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1600&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+      }
+      .hero-content {
+        height: 315px;
+        padding: 18px;
+        justify-content: flex-end;
+      }
+      h1 {
+        font-size: 30px;
+      }
+      .hero p { font-size: 14px; margin-top: 10px; }
+      .button { display: none; }
+      .sidebar { margin-bottom: 22px; }
+      .black-card {
+        border-radius: 12px;
+        padding: 18px;
+      }
+      .sidebar .black-card:nth-child(2) {
+        display: none;
+      }
+      .section {
+        padding: 0 12px;
+        margin-bottom: 24px;
+      }
+      .section-title {
+        font-size: 18px;
+      }
+      .schedule {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
+      .schedule-card {
+        min-width: 130px;
+        padding: 14px;
+      }
+      .category-logo { font-size: 22px; }
+      .news-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .news-card {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        min-height: 96px;
+      }
+      .thumb {
+        height: 100%;
+      }
+      .news-body {
+        padding: 10px;
+      }
+      .news-body h3 {
+        font-size: 16px;
+      }
+      .news-body p {
+        display: none;
+      }
+      .center-f1 {
+        grid-template-columns: 1fr;
+        padding: 18px;
+      }
+      .chronicles {
+        display: flex;
+        overflow-x: auto;
+        gap: 12px;
+      }
+      .chron-card {
+        min-width: 310px;
+        min-height: 210px;
+      }
+      .social-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 12px;
+      }
+      .social-card {
+        min-width: 300px;
+      }
+      footer {
+        border-radius: 12px 12px 0 0;
+        margin: 0 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="left-head">
+        <div class="hamburger"><span></span><span></span><span></span></div>
+        <div class="logo">
+          <div>Estagiário</div>
+          <div>Da <span class="red">F1</span></div>
+        </div>
+      </div>
+      <nav>
+        <span>F1</span><span>Agenda</span><span>Notícias</span><span>Crônicas</span><span>Resultados</span><span>Entrevistas</span>
+      </nav>
+      <div class="icons"><div class="search"></div><span>◎</span><span>X</span><span>▶</span></div>
+    </header>
+
+    <main class="hero-grid">
+      <section class="hero">
+        <div class="hero-content">
+          <span class="tag">F1</span>
+          <h1>Bortoleto mostra ritmo forte no treino livre e anima torcida brasileira</h1>
+          <p>Brasileiro ficou em 12º no TL2 em Ímola e elogiou evolução do carro.</p>
+          <a href="#" class="button">Ler matéria completa</a>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="black-card">
+          <h3>Próxima corrida</h3>
+          <div class="race-title">GP da Emília-Romanha</div>
+          <div class="muted">Ímola</div>
+          <div style="margin-top:16px">
+            <div class="info-row"><span>Data</span><strong>18 Mai 2025</strong></div>
+            <div class="info-row"><span>Horário</span><strong>10:00</strong></div>
+            <div class="info-row"><span>Transmissão</span><strong>Band / F1 TV</strong></div>
+          </div>
+        </div>
+        <div class="black-card">
+          <h3>Classificação pilotos</h3>
+          <div class="ranking-row"><span><b class="rank-num">1</b>M. Verstappen</span><strong>136</strong></div>
+          <div class="ranking-row"><span><b class="rank-num">2</b>L. Norris</span><strong>115</strong></div>
+          <div class="ranking-row"><span><b class="rank-num">3</b>C. Leclerc</span><strong>104</strong></div>
+          <div class="ranking-row"><span><b class="rank-num">4</b>O. Piastri</span><strong>97</strong></div>
+          <div class="ranking-row"><span><b class="rank-num">5</b>G. Russell</span><strong>93</strong></div>
+        </div>
+      </aside>
+    </main>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">Agenda do fim de semana</h2>
+        <span class="see-more">Ver agenda completa ›</span>
+      </div>
+      <div class="schedule">
+        <div class="schedule-card"><div class="category-logo">F1</div><strong>Fórmula 1<br>GP da Emília-Romanha</strong><div class="date">18 Mai · Dom</div><div class="time-row"><span>TL3</span><span>07:30</span></div><div class="time-row"><span>Classificação</span><span>11:00</span></div><div class="time-row"><span>Corrida</span><span>10:00</span></div></div>
+        <div class="schedule-card"><div class="category-logo" style="color:#1e8bff">F2</div><strong>Fórmula 2<br>GP da Emília-Romanha</strong><div class="date">17 Mai · Sáb</div><div class="time-row"><span>Corrida 1</span><span>06:15</span></div><div class="time-row"><span>Corrida 2</span><span>02:25</span></div></div>
+        <div class="schedule-card"><div class="category-logo" style="color:#e22">F3</div><strong>Fórmula 3<br>GP da Emília-Romanha</strong><div class="date">17 Mai · Sáb</div><div class="time-row"><span>Corrida 1</span><span>05:05</span></div><div class="time-row"><span>Corrida 2</span><span>01:15</span></div></div>
+        <div class="schedule-card"><div class="category-logo">INDY</div><strong>IndyCar<br>GP de Indianápolis</strong><div class="date">18 Mai · Dom</div><div class="time-row"><span>Corrida</span><span>13:30</span></div></div>
+        <div class="schedule-card"><div class="category-logo" style="color:#2159b8">WEC</div><strong>WEC<br>6 horas de Spa</strong><div class="date">10 Mai · Sáb</div><div class="time-row"><span>Corrida</span><span>08:00</span></div></div>
+        <div class="schedule-card"><div class="category-logo" style="color:#5036ff">FE</div><strong>Fórmula E<br>Berlin E-Prix</strong><div class="date">11 Mai · Dom</div><div class="time-row"><span>Corrida</span><span>09:00</span></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2 class="section-title">Últimas notícias</h2><span class="see-more">Ver todas ›</span></div>
+      <div class="news-grid">
+        <article class="news-card"><div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1542144582-1ba00456b5e3?q=80&w=1200&auto=format&fit=crop')"><span class="tag">F1</span></div><div class="news-body"><h3>Chefe da Ferrari admite problemas com desgaste de pneus em Ímola</h3><p>Leclerc e Sainz reclamaram do comportamento do carro no TL2.</p></div></article>
+        <article class="news-card"><div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop')"><span class="tag">F1</span></div><div class="news-body"><h3>Verstappen minimiza mudanças e diz: “Não estamos tão atrás”</h3><p>Holandês foi o mais rápido no TL2 e mostrou confiança para a corrida.</p></div></article>
+        <article class="news-card"><div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop')"><span class="tag">INDYCAR</span></div><div class="news-body"><h3>Pato O’Ward larga na primeira fila nas 500 Milhas de Indianápolis</h3><p>Mexicano faz grande classificação e fica ao lado de Alex Palou.</p></div></article>
+        <article class="news-card"><div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200&auto=format&fit=crop')"><span class="tag">F1</span></div><div class="news-body"><h3>Mercedes testa nova asa em Ímola e promete atualizações na Europa</h3><p>Equipe busca diminuir diferença para Red Bull e McLaren.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2 class="section-title">Centro F1</h2></div>
+      <div class="center-f1">
+        <div><h3>Resultado da última corrida</h3><div class="ranking-row"><span>1 O. Piastri</span><span>McLaren</span></div><div class="ranking-row"><span>2 L. Norris</span><span>McLaren</span></div><div class="ranking-row"><span>3 G. Russell</span><span>Mercedes</span></div><p class="see-more">Ver resultado completo ›</p></div>
+        <div><h3>Calendário 2025</h3><div class="ranking-row"><span>18 Mai</span><span>GP Emília-Romanha</span></div><div class="ranking-row"><span>25 Mai</span><span>GP de Mônaco</span></div><div class="ranking-row"><span>01 Jun</span><span>GP da Espanha</span></div><p class="see-more">Ver calendário completo ›</p></div>
+        <div><h3>Pneus para Ímola</h3><p class="muted">Fornecedor oficial: Pirelli</p><p>C3 duro · C4 médio · C5 macio</p><p class="see-more">Saiba mais sobre os pneus ›</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2 class="section-title">Crônicas</h2><span class="see-more">Ver todas ›</span></div>
+      <div class="chronicles">
+        <article class="chron-card" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop')"><div><h3>Ímola não perdoa. E a F1 não esquece.</h3><small>Por Gabriel Prado</small></div></article>
+        <article class="chron-card" style="background-image:url('https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=1200&auto=format&fit=crop')"><div><h3>Ayrton Senna, 31 anos. E Ímola ainda dói aqui.</h3><small>Por Gabriel Prado</small></div></article>
+        <article class="chron-card" style="background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop')"><div><h3>Quando o carro é rápido, mas a cabeça não.</h3><small>Por Gabriel Prado</small></div></article>
+        <article class="chron-card" style="background-image:url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?q=80&w=1200&auto=format&fit=crop')"><div><h3>Paciência é o combustível das temporadas longas.</h3><small>Por Gabriel Prado</small></div></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2 class="section-title">Nas redes</h2><span class="see-more">Ver mais ›</span></div>
+      <div class="social-grid">
+        <div class="social-card"><strong>Estagiário da F1</strong><p>VERSTAPPEN NA RÁDIO: “Esse carro está impossível de pilotar” 😬😬 #F1 #ImolaGP</p><div class="play-thumb"><div class="play">▶</div></div></div>
+        <div class="social-card"><strong>@estagiariodaf1</strong><p>BORTOLETO P12 NO TL2! 🇧🇷 Seguimos! #F1 #ImolaGP</p><div class="play-thumb"><div class="play">▶</div></div></div>
+        <div class="social-card"><strong>YouTube</strong><p>Novo vídeo no canal: ANÁLISE COMPLETA DO TL2 EM ÍMOLA</p><div class="play-thumb"><div class="play">▶</div></div></div>
+        <div class="social-card"><strong>TikTok</strong><p>Bortoleto no rádio depois do TL2 😂 #F1 #ImolaGP</p><div class="play-thumb"><div class="play">▶</div></div></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="logo" style="font-size:20px"><div>Estagiário</div><div>Da <span class="red">F1</span></div></div>
+      <div>Quem somos</div><div>Expediente</div><div>Política de privacidade</div><div>Contato</div>
+    </footer>
+  </div>
+</body>
+</html>
