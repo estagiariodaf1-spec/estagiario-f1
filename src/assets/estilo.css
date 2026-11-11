@@ -80,7 +80,12 @@ a.hero { color: white; }
 .vitrine-topo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
 .vitrine-topo b { font-family: Impact, Haettenschweiler, sans-serif; text-transform: uppercase; font-size: 20px; letter-spacing: .3px; }
 .vitrine-topo a { color: #ff2b2b; font-size: 12px; font-weight: 900; text-transform: uppercase; text-decoration: none; }
-.vitrine-janela { overflow: hidden; border-radius: 10px; display: none; }
+.vitrine-janela { overflow: hidden; border-radius: 10px; display: none; position: relative; }
+.vitrine-seta { position: absolute; top: 0; bottom: 60px; margin: auto 0; height: 44px; width: 44px; border-radius: 50%;
+  border: 0; background: rgba(5,5,5,.75); color: white; font-size: 28px; line-height: 1; cursor: pointer; z-index: 2; }
+.vitrine-seta:hover { background: #ff2b2b; }
+.vitrine-seta-anterior { left: 10px; }
+.vitrine-seta-proximo { right: 10px; }
 .vitrine-caixa.com-posts .vitrine-janela { display: block; }
 .vitrine-caixa.com-posts .vitrine-convite { display: none; }
 .vitrine-trilho { display: flex; transition: transform .5s ease; }

@@ -34,6 +34,29 @@
     function reiniciar() { clearInterval(relogio); relogio = setInterval(function () { ir(atual + 1); }, 5000); }
     caixa.addEventListener('mouseenter', function () { clearInterval(relogio); });
     caixa.addEventListener('mouseleave', reiniciar);
+
+    // setas para avançar e voltar na hora
+    var janela = caixa.querySelector('.vitrine-janela');
+    [['anterior', '‹', -1], ['proximo', '›', 1]].forEach(function (s) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'vitrine-seta vitrine-seta-' + s[0];
+      b.setAttribute('aria-label', s[2] < 0 ? 'Post anterior' : 'Próximo post');
+      b.textContent = s[1];
+      b.addEventListener('click', function (e) { e.preventDefault(); ir(atual + s[2]); reiniciar(); });
+      janela.appendChild(b);
+    });
+
+    // no celular: arrastar com o dedo
+    var inicioX = null;
+    janela.addEventListener('touchstart', function (e) { inicioX = e.touches[0].clientX; clearInterval(relogio); }, { passive: true });
+    janela.addEventListener('touchend', function (e) {
+      if (inicioX === null) return;
+      var dx = e.changedTouches[0].clientX - inicioX;
+      if (Math.abs(dx) > 40) ir(atual + (dx < 0 ? 1 : -1));
+      inicioX = null;
+      reiniciar();
+    });
     reiniciar();
     caixa.classList.add('com-posts');
   }
