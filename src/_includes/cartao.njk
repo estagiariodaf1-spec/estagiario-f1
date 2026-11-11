@@ -1,0 +1,12 @@
+<a class="news-card" href="{{ m.url }}">
+  {% if m.data.imagem %}
+  <div class="thumb" style="background-image:url('{{ m.data.imagem }}')"><span class="tag">{{ m.data.categoria }}</span></div>
+  {% else %}
+  <div class="thumb sem-foto">F1<span class="tag">{{ m.data.categoria }}</span></div>
+  {% endif %}
+  <div class="news-body">
+    <h3>{{ m.data.title }}</h3>
+    {% if m.data.linha_fina %}<p>{{ m.data.linha_fina }}</p>{% endif %}
+    <time datetime="{{ m.date | iso }}">{{ m.date | dataLonga }}</time>
+  </div>
+</a>

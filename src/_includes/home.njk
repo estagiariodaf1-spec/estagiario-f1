@@ -1,0 +1,55 @@
+{%- set materias = collections.materias -%}
+{%- set capa = materias[0] -%}
+<main class="hero-grid">
+  {% if capa %}
+  <a class="hero" href="{{ capa.url }}">
+    {% if capa.data.imagem %}<div class="hero-img" style="background-image:url('{{ capa.data.imagem }}')"></div>{% endif %}
+    <div class="hero-content">
+      <span class="tag">{{ capa.data.categoria }}</span>
+      <h1>{{ capa.data.title }}</h1>
+      {% if capa.data.linha_fina %}<p>{{ capa.data.linha_fina }}</p>{% endif %}
+      <span class="button">Ler matéria completa</span>
+    </div>
+  </a>
+  {% else %}
+  <div class="hero">
+    <div class="hero-content">
+      <span class="tag">F1</span>
+      <h1>A primeira matéria está chegando</h1>
+      <p>O Estagiário está terminando a apuração.</p>
+    </div>
+  </div>
+  {% endif %}
+
+  <aside class="sidebar">
+    <div class="black-card">
+      <h3>Também no Estagiário</h3>
+      {% for m in materias | depois(1) | primeiros(5) %}
+      <a class="ranking-row" href="{{ m.url }}"><span><b class="rank-num">{{ loop.index }}</b>{{ m.data.title }}</span></a>
+      {% else %}
+      <p>Ainda não temos matérias suficientes.</p>
+      {% endfor %}
+    </div>
+    <div class="black-card">
+      <h3>Siga o Estagiário</h3>
+      <p>As notícias da F1 com deboche na forma e rigor no conteúdo.</p>
+      <a class="ranking-row" href="{{ site.redes.instagram }}" rel="noopener"><span>Instagram</span><strong>›</strong></a>
+      <a class="ranking-row" href="{{ site.redes.x }}" rel="noopener"><span>X</span><strong>›</strong></a>
+    </div>
+  </aside>
+</main>
+
+<section class="section">
+  <div class="section-head">
+    <h2 class="section-title">Últimas notícias</h2>
+    <a class="see-more" href="/noticias/">Ver todas ›</a>
+  </div>
+  {% set lista = materias | depois(1) | primeiros(8) %}
+  {% if lista.length %}
+  <div class="news-grid">
+    {% for m in lista %}{% include "cartao.njk" %}{% endfor %}
+  </div>
+  {% else %}
+  <div class="vazio">Em breve, mais notícias por aqui.</div>
+  {% endif %}
+</section>

@@ -1,0 +1,24 @@
+---
+layout: base.njk
+title: Notícias
+pagination:
+  data: collections.materias
+  size: 20
+  alias: lista
+permalink: "/noticias/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
+eleventyExcludeFromCollections: true
+---
+<section class="section">
+  <div class="section-head"><h1 class="section-title">Notícias</h1></div>
+  {% if lista.length %}
+  <div class="news-grid">
+    {% for m in lista %}{% include "cartao.njk" %}{% endfor %}
+  </div>
+  <div class="paginas">
+    {% if pagination.href.previous %}<a class="see-more" href="{{ pagination.href.previous }}">‹ Mais recentes</a>{% else %}<span></span>{% endif %}
+    {% if pagination.href.next %}<a class="see-more" href="{{ pagination.href.next }}">Mais antigas ›</a>{% endif %}
+  </div>
+  {% else %}
+  <div class="vazio">A primeira matéria está chegando.</div>
+  {% endif %}
+</section>

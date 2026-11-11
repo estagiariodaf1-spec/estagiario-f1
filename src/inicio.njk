@@ -1,0 +1,8 @@
+---
+layout: base.njk
+permalink: "{{ '/' if site.lancado else '/previa/' }}"
+eleventyExcludeFromCollections: true
+eleventyComputed:
+  noindex: "{{ 'sim' if not site.lancado else '' }}"
+---
+{% include "home.njk" %}

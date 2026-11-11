@@ -1,0 +1,42 @@
+---
+layout: base.njk
+---
+<article class="materia">
+  <span class="tag">{{ categoria }}</span>
+  <h1>{{ title }}</h1>
+  {% if linha_fina %}<p class="linha-fina">{{ linha_fina }}</p>{% endif %}
+  <div class="assinatura">
+    Por <b>{{ autor }}</b> · <time datetime="{{ page.date | iso }}">{{ page.date | dataHora }}</time>
+    {% if atualizado %} · atualizado em <time datetime="{{ atualizado | iso }}">{{ atualizado | dataHora }}</time>{% endif %}
+  </div>
+  {% if imagem %}
+  <figure class="foto">
+    <img src="{{ imagem }}" alt="{{ imagem_descricao or title }}">
+    {% if credito_imagem %}<figcaption>{{ credito_imagem }}</figcaption>{% endif %}
+  </figure>
+  {% endif %}
+  <div class="texto">
+    {{ content | safe }}
+  </div>
+  {% if fontes and fontes.length %}
+  <div class="fontes">
+    <h2>Fontes</h2>
+    <ul>
+      {% for f in fontes %}<li><a href="{{ f }}" rel="noopener">{{ f }}</a></li>{% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</article>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": {{ title | dump | safe }},
+  "datePublished": "{{ page.date | iso }}",
+  {% if atualizado %}"dateModified": "{{ atualizado | iso }}",{% endif %}
+  "author": { "@type": "Person", "name": {{ autor | dump | safe }} },
+  "publisher": { "@type": "Organization", "name": {{ site.nome | dump | safe }} },
+  {% if imagem %}"image": ["{{ imagem | absoluta(site.url) }}"],{% endif %}
+  "mainEntityOfPage": "{{ page.url | absoluta(site.url) }}"
+}
+</script>

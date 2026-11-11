@@ -1,0 +1,15 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{{ site.url }}/</loc></url>
+  <url><loc>{{ site.url }}/noticias/</loc></url>
+  {%- for p in ["/quem-somos/", "/expediente/", "/contato/", "/privacidade/"] %}
+  <url><loc>{{ site.url }}{{ p }}</loc></url>
+  {%- endfor %}
+  {%- for m in collections.materias %}
+  <url><loc>{{ m.url | absoluta(site.url) }}</loc><lastmod>{{ (m.data.atualizado or m.date) | iso }}</lastmod></url>
+  {%- endfor %}
+</urlset>

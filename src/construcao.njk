@@ -1,0 +1,21 @@
+---
+permalink: "{{ '/em-construcao/' if site.lancado else '/' }}"
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paddock em construção | {{ site.nome }}</title>
+  <meta name="description" content="{{ site.descricao }}">
+  <link rel="stylesheet" href="/assets/estilo.css">
+</head>
+<body class="construcao">
+  <div>
+    <h1>Paddock em construção</h1>
+    <p>Em breve um novo circuito para vocês.</p>
+    <img src="/assets/estagiario.gif" alt="Estagiário trabalhando">
+  </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/images/uploads"
+public_folder: "/images/uploads"
+locale: "pt"
+
+collections:
+  - name: "materias"
+    label: "Matérias"
+    folder: "src/materias"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Linha fina", name: "linha_fina", widget: "string", required: false }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Categoria", name: "categoria", widget: "string", default: "F1" }
+      - { label: "Autor", name: "autor", widget: "string", default: "Pedro Lopes" }
+      - { label: "Imagem", name: "imagem", widget: "image", required: false }
+      - { label: "Crédito da imagem", name: "credito_imagem", widget: "string", required: false }
+      - { label: "Fontes", name: "fontes", widget: "list", required: false }
+      - { label: "Rascunho (não publicar)", name: "rascunho", widget: "boolean", default: false }
+      - { label: "Texto", name: "body", widget: "markdown" }

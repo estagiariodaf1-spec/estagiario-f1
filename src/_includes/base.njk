@@ -1,0 +1,55 @@
+{%- set inicio = "/" if site.lancado else "/previa/" -%}
+{%- set urlPagina = page.url | absoluta(site.url) -%}
+{%- set imagemCompartilhar = (imagem | absoluta(site.url)) if imagem else ("/assets/estagiario.gif" | absoluta(site.url)) -%}
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} | {% endif %}{{ site.nome }}</title>
+  <meta name="description" content="{{ linha_fina or descricao or site.descricao }}">
+  {% if noindex == true or noindex == "sim" %}<meta name="robots" content="noindex">{% endif %}
+  <link rel="canonical" href="{{ urlPagina }}">
+  <meta property="og:site_name" content="{{ site.nome }}">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:type" content="{{ 'article' if layout == 'materia.njk' else 'website' }}">
+  <meta property="og:title" content="{{ title or site.nome }}">
+  <meta property="og:description" content="{{ linha_fina or descricao or site.descricao }}">
+  <meta property="og:url" content="{{ urlPagina }}">
+  <meta property="og:image" content="{{ imagemCompartilhar }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.nome }}" href="/feed.xml">
+  <link rel="stylesheet" href="/assets/estilo.css">
+  {% block cabeca %}{% endblock %}
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <a class="logo" href="{{ inicio }}">
+        <div>Estagiário</div>
+        <div>Da <span class="red">F1</span></div>
+      </a>
+      <nav>
+        <a href="/noticias/">Notícias</a>
+        <a href="/quem-somos/">Quem somos</a>
+        <a href="/contato/">Contato</a>
+      </nav>
+      <div class="redes">
+        <a href="{{ site.redes.instagram }}" rel="noopener">Instagram</a>
+        <a href="{{ site.redes.x }}" rel="noopener">X</a>
+      </div>
+    </header>
+
+    {{ content | safe }}
+
+    <footer>
+      <a class="logo" href="{{ inicio }}" style="font-size:20px"><div>Estagiário</div><div>Da <span class="red">F1</span></div></a>
+      <a href="/quem-somos/">Quem somos</a>
+      <a href="/expediente/">Expediente</a>
+      <a href="/privacidade/">Política de privacidade</a>
+      <a href="/contato/">Contato</a>
+      <a href="/feed.xml">RSS</a>
+    </footer>
+  </div>
+</body>
+</html>

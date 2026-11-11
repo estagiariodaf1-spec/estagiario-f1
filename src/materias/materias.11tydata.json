@@ -1,0 +1,6 @@
+{
+  "layout": "materia.njk",
+  "permalink": "/materias/{{ page.fileSlug | slugify }}/",
+  "autor": "Pedro Lopes",
+  "categoria": "F1"
+}

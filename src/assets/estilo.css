@@ -1,0 +1,180 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #f4f4f4;
+  color: #0b0b0b;
+  font-family: Arial, Helvetica, sans-serif;
+}
+a { color: inherit; }
+.page { max-width: 1440px; margin: 0 auto; padding: 14px; }
+
+/* ---------- topo ---------- */
+.header {
+  background: #050505; color: white; border-radius: 0 0 18px 18px; height: 74px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 22px; gap: 24px; margin-bottom: 20px;
+}
+.logo {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: italic; font-size: 26px; line-height: .82; letter-spacing: .2px;
+  text-transform: uppercase; text-decoration: none;
+}
+.logo .red, .red { color: #ff2b2b; }
+nav { display: flex; gap: 32px; font-size: 13px; font-weight: 800; text-transform: uppercase; }
+nav a { text-decoration: none; }
+nav a:hover { color: #ff2b2b; }
+.redes { display: flex; gap: 16px; font-size: 12px; font-weight: 900; text-transform: uppercase; }
+.redes a { text-decoration: none; }
+
+/* ---------- etiquetas e títulos ---------- */
+.tag {
+  background: #ff2b2b; color: white; border-radius: 8px; padding: 6px 10px;
+  font-size: 12px; font-weight: 900; display: inline-block; width: fit-content;
+  margin-bottom: 22px; text-transform: uppercase;
+}
+.impact {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-transform: uppercase; letter-spacing: .2px;
+}
+.section { margin-bottom: 30px; }
+.section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.section-title {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 24px; text-transform: uppercase; margin: 0;
+  border-left: 4px solid #ff2b2b; padding-left: 10px; line-height: 1;
+}
+.see-more { color: #ff2b2b; font-weight: 900; text-transform: uppercase; font-size: 12px; text-decoration: none; }
+
+/* ---------- capa ---------- */
+.hero-grid { display: grid; grid-template-columns: 1fr 330px; gap: 16px; margin-bottom: 28px; }
+.hero {
+  min-height: 455px; background: #050505; border-radius: 14px; overflow: hidden;
+  position: relative; color: white; display: block; text-decoration: none;
+}
+.hero-img {
+  position: absolute; inset: 0; background-size: cover; background-position: center;
+}
+.hero:before {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, rgba(0,0,0,.96) 0%, rgba(0,0,0,.70) 42%, rgba(0,0,0,.10) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2; padding: 38px; max-width: 560px; height: 455px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.hero h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 54px; line-height: .98; text-transform: uppercase; margin: 0; letter-spacing: .2px;
+}
+.hero p { color: #e3e3e3; font-size: 18px; line-height: 1.35; margin: 20px 0 0; }
+.button {
+  margin-top: 26px; width: fit-content; border: 2px solid #ff2b2b; color: white;
+  border-radius: 10px; padding: 13px 18px; font-size: 13px; font-weight: 900; text-transform: uppercase;
+}
+.sidebar { display: flex; flex-direction: column; gap: 12px; }
+.black-card { background: #050505; color: white; border-radius: 12px; padding: 20px; }
+.black-card h3 { color: #ff2b2b; font-size: 14px; text-transform: uppercase; margin: 0 0 12px; }
+.black-card p { color: #d6d6d6; font-size: 14px; line-height: 1.4; margin: 0 0 12px; }
+.ranking-row {
+  display: flex; justify-content: space-between; gap: 12px; font-size: 14px; padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,.12); text-decoration: none;
+}
+.ranking-row:last-child { border-bottom: 0; }
+.rank-num { color: #ff2b2b; font-weight: 900; margin-right: 10px; }
+.muted { color: #a8a8a8; }
+
+/* ---------- lista de notícias ---------- */
+.news-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.news-card {
+  background: white; border-radius: 12px; overflow: hidden; text-decoration: none;
+  box-shadow: 0 1px 10px rgba(0,0,0,.06); display: block;
+}
+.thumb { height: 160px; position: relative; background-size: cover; background-position: center; }
+.thumb .tag { position: absolute; top: 12px; left: 12px; margin: 0; font-size: 10px; padding: 5px 8px; }
+.sem-foto {
+  background: #050505; display: grid; place-items: center;
+  font-family: Impact, Haettenschweiler, sans-serif; font-style: italic; color: #ff2b2b; font-size: 34px;
+}
+.news-body { padding: 15px; }
+.news-body h3 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 22px; text-transform: uppercase; line-height: 1.05; margin: 0;
+}
+.news-body p { color: #666; font-size: 13px; line-height: 1.35; margin: 10px 0 0; }
+.news-body time { color: #999; font-size: 12px; display: block; margin-top: 10px; }
+.vazio { background: white; border-radius: 12px; padding: 28px; color: #666; }
+.paginas { display: flex; justify-content: space-between; margin-top: 20px; }
+
+/* ---------- matéria ---------- */
+.materia { max-width: 760px; margin: 0 auto 40px; background: white; border-radius: 14px; padding: 34px; }
+.materia h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 44px; line-height: 1; text-transform: uppercase; margin: 0;
+}
+.linha-fina { font-size: 20px; line-height: 1.4; color: #444; margin: 16px 0 0; }
+.assinatura { color: #777; font-size: 14px; margin: 18px 0 24px; padding-bottom: 18px; border-bottom: 1px solid #eee; }
+.assinatura b { color: #0b0b0b; }
+.foto { margin: 0 0 24px; }
+.foto img { width: 100%; border-radius: 10px; display: block; }
+.foto figcaption { color: #888; font-size: 12px; margin-top: 6px; }
+.texto { font-size: 18px; line-height: 1.65; }
+.texto h2 { font-family: Impact, Haettenschweiler, sans-serif; text-transform: uppercase; font-size: 26px; margin: 32px 0 8px; }
+.texto a { color: #c41d1d; }
+.texto blockquote { border-left: 4px solid #ff2b2b; margin: 22px 0; padding: 4px 0 4px 18px; color: #333; font-style: italic; }
+.texto img { max-width: 100%; border-radius: 10px; }
+.fontes { margin-top: 32px; padding-top: 18px; border-top: 1px solid #eee; font-size: 14px; color: #555; }
+.fontes h2 { font-size: 13px; text-transform: uppercase; color: #0b0b0b; margin: 0 0 8px; }
+.fontes ul { margin: 0; padding-left: 18px; }
+.fontes a { color: #555; word-break: break-word; }
+
+/* ---------- páginas institucionais ---------- */
+.institucional { max-width: 760px; margin: 0 auto 40px; background: white; border-radius: 14px; padding: 34px; font-size: 17px; line-height: 1.6; }
+.institucional h1 { font-family: Impact, Haettenschweiler, sans-serif; text-transform: uppercase; font-size: 40px; margin: 0 0 18px; }
+
+/* ---------- rodapé ---------- */
+footer {
+  background: #050505; color: white; border-radius: 12px 12px 0 0; padding: 20px;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+  font-size: 12px; text-transform: uppercase; font-weight: 800;
+}
+footer a { text-decoration: none; }
+footer a:hover { color: #ff2b2b; }
+
+/* ---------- em construção ---------- */
+.construcao {
+  margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center;
+  background: white; font-family: Arial, sans-serif; text-align: center; padding: 20px;
+}
+.construcao h1 { font-size: 56px; margin-bottom: 18px; }
+.construcao p { font-size: 22px; color: #666; margin-bottom: 30px; }
+.construcao img { width: 260px; image-rendering: pixelated; }
+
+@media (max-width: 900px) {
+  .page { padding: 0; }
+  .header { height: 82px; margin-bottom: 12px; }
+  nav, .redes { display: none; }
+  .logo { font-size: 22px; }
+  .hero-grid { display: block; padding: 0 12px; }
+  .hero { min-height: 315px; margin-bottom: 12px; }
+  .hero:before { background: linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.96) 100%); }
+  .hero-content { height: 315px; padding: 18px; justify-content: flex-end; }
+  .hero h1 { font-size: 30px; }
+  .hero p { font-size: 14px; margin-top: 10px; }
+  .button { display: none; }
+  .sidebar { margin-bottom: 22px; }
+  .section { padding: 0 12px; margin-bottom: 24px; }
+  .section-title { font-size: 18px; }
+  .news-grid { display: flex; flex-direction: column; gap: 10px; }
+  .news-card { display: grid; grid-template-columns: 110px 1fr; min-height: 96px; }
+  .thumb { height: 100%; }
+  .sem-foto { font-size: 22px; }
+  .news-body { padding: 10px; }
+  .news-body h3 { font-size: 16px; }
+  .news-body p { display: none; }
+  .materia, .institucional { border-radius: 0; padding: 20px 16px; }
+  .materia h1 { font-size: 32px; }
+  .linha-fina { font-size: 17px; }
+  .texto { font-size: 17px; }
+  footer { margin: 0 12px; }
+  .construcao h1 { font-size: 36px; }
+}
