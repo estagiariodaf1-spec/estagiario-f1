@@ -50,25 +50,61 @@
         });
       }
 
+      // Piloto favorito do leitor: fica só no navegador dele (sem cadastro, sem cookie).
+      var CHAVE_FAV = 'estagiario-piloto-fav';
+      function lerFav() { try { return localStorage.getItem(CHAVE_FAV) || ''; } catch (e) { return ''; } }
+      function salvarFav(id) { try { id ? localStorage.setItem(CHAVE_FAV, id) : localStorage.removeItem(CHAVE_FAV); } catch (e) {} }
+      var ultimaLista = [];
+
+      function linha(entry, fav) {
+        var driver = entry.Driver || {};
+        var ehFav = driver.driverId === fav;
+        return (
+          '<div class="ranking-row' + (ehFav ? ' favorito' : '') + '">' +
+            '<span><b class="rank-num">' + escapeHtml(entry.position) + '</b>' +
+            escapeHtml(shortName(driver.givenName, driver.familyName)) + '</span>' +
+            '<span class="ranking-dir"><strong>' + escapeHtml(entry.points) + '</strong>' +
+            '<button type="button" class="estrela" data-fav="' + escapeHtml(driver.driverId) + '" aria-pressed="' + ehFav + '" ' +
+            'aria-label="' + (ehFav ? 'Tirar ' : 'Marcar ') + escapeHtml(driver.familyName) + (ehFav ? ' dos favoritos' : ' como seu piloto') + '">' +
+            (ehFav ? '★' : '☆') + '</button></span>' +
+          '</div>'
+        );
+      }
+
       function renderStandings(standings) {
+        ultimaLista = standings;
+        var fav = lerFav();
         var top = standings.slice(0, TOP_N);
-        var html = top.map(function (entry) {
-          var driver = entry.Driver || {};
-          var name = shortName(driver.givenName, driver.familyName);
-          return (
-            '<div class="ranking-row">' +
-              '<span><b class="rank-num">' + escapeHtml(entry.position) + '</b>' +
-              escapeHtml(name) + '</span>' +
-              '<strong>' + escapeHtml(entry.points) + '</strong>' +
-            '</div>'
-          );
+        var html = top.map(function (entry) { return linha(entry, fav); }).join('');
+        var doFav = standings.find(function (e) { return (e.Driver || {}).driverId === fav; });
+        if (doFav && top.indexOf(doFav) === -1) {
+          html += '<div class="ranking-sep">Seu piloto</div>' + linha(doFav, fav);
+        }
+        var opcoes = standings.map(function (e) {
+          var d = e.Driver || {};
+          return '<option value="' + escapeHtml(d.driverId) + '"' + (d.driverId === fav ? ' selected' : '') + '>' +
+            escapeHtml(e.position + 'º ' + d.givenName + ' ' + d.familyName) + '</option>';
         }).join('');
+        html += '<label class="fav-escolha">' + (fav ? 'Trocar seu piloto' : 'Escolha seu piloto') +
+          '<select data-escolha><option value="">—</option>' + opcoes + '</select></label>';
 
         setBusy(false);
         containers.forEach(function (el) {
           el.innerHTML = html;
         });
       }
+
+      document.addEventListener('click', function (ev) {
+        var b = ev.target.closest && ev.target.closest('[data-fav]');
+        if (!b) return;
+        salvarFav(lerFav() === b.dataset.fav ? '' : b.dataset.fav);
+        renderStandings(ultimaLista);
+      });
+      document.addEventListener('change', function (ev) {
+        if (!ev.target.matches || !ev.target.matches('[data-escolha]')) return;
+        salvarFav(ev.target.value);
+        renderStandings(ultimaLista);
+      });
 
       async function loadDriverStandings() {
         renderLoading();
