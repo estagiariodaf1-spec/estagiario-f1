@@ -92,9 +92,12 @@
       var dias = (primeira - agora) / DIA;
       var cabecalho = dias <= 7
         ? '<span class="gp-tag">Semana de GP</span><strong>' + titulo + '</strong><em>Começa em ' + falta(primeira - agora) + ' · horários de Brasília</em>'
-        : '<span class="gp-tag">Próximo GP</span><strong>' + titulo + '</strong><em>' + esc(quando(data(corrida), { day: 'numeric', month: 'long' })) + ' · faltam ' + falta(primeira - agora) + '</em>';
+        : '<span class="gp-tag">Próximo GP</span><strong>' + titulo + '</strong><em>Corrida: ' + esc(quando(data(corrida), { weekday: 'short' }).replace('.', '')) + ' ' +
+          esc(quando(data(corrida), { day: '2-digit', month: '2-digit' })) + ', ' +
+          esc(quando(data(corrida), { hour: '2-digit', minute: '2-digit', hour12: false }).replace(':', 'h')) + ' (Brasília) · ' +
+          esc(corrida.Circuit.circuitName) + ' · faltam ' + falta(data(corrida) - agora) + '</em>';
       raiz.innerHTML = '<div class="gp-faixa ' + (dias <= 7 ? 'semana' : 'longe') + '"><div class="gp-titulo">' + cabecalho + '</div>' +
-        (dias <= 7 ? chips(lista, agora) : '') + '<a class="gp-link" href="/calendario.html">Calendário ›</a></div>';
+        (dias <= 7 ? chips(lista, agora) : '') + '<a class="gp-link" href="/gp.html">Central do GP ›</a></div>';
     } catch (e) {
       // sem dados, mantém a faixa (sumir com ela empurraria a página)
       raiz.innerHTML = '<div class="gp-faixa longe"><div class="gp-titulo"><span class="gp-tag">Temporada</span><strong>Calendário da F1</strong><em>Horários de Brasília</em></div><a class="gp-link" href="/calendario.html">Ver calendário ›</a></div>';

@@ -56,16 +56,15 @@ eleventyComputed:
       {% endif %}
 
       <aside class="sidebar">
-        <div class="black-card next-race-card">
-          <h3>Próxima corrida</h3>
-          <div data-next-race-content>
-            <div class="next-race-status">Carregando próxima corrida…</div>
-          </div>
-        </div>
         <div class="black-card driver-standings-sidebar">
           <h3>Classificação pilotos <span class="standings-season" data-standings-season></span></h3>
           <div data-driver-standings aria-live="polite" aria-busy="true"></div>
           <a class="link-class-full" href="/estatisticas.html">Classificação completa ›</a>
+        </div>
+        <div class="black-card ultimo-resultado">
+          <h3>Último resultado</h3>
+          <div data-ultimo-resultado aria-live="polite"><p class="standings-status">Carregando resultado…</p></div>
+          <a class="link-class-full" href="/estatisticas.html">Resultado completo ›</a>
         </div>
       </aside>
     </main>
@@ -113,7 +112,7 @@ eleventyComputed:
   <script src="/assets/site-nav.js" defer></script>
   <script src="/assets/js/api/f1-api.js" defer></script>
   <script src="/assets/js/data/circuit-details.js" defer></script>
-  <script src="/assets/js/components/next-race-card.js" defer></script>
+  <script src="/assets/js/components/ultimo-resultado.js" defer></script>
   <script src="/assets/js/components/f1-calendar.js" defer></script>
   <script src="/assets/js/components/vitrine-redes.js" defer></script>
   <script src="/assets/js/components/hero-carrossel.js" defer></script>
@@ -121,7 +120,7 @@ eleventyComputed:
   <script>
   document.addEventListener('DOMContentLoaded', function () {
     GPFimDeSemana.mount('[data-gp-faixa]');
-    NextRaceCard.mount('[data-next-race-content]');
+    UltimoResultado.mount('[data-ultimo-resultado]');
     F1Calendar.mount('[data-f1-calendar]');
     VitrineRedes.mount({{ site.vitrine_url | dump | safe }});
   });

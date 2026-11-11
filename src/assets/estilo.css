@@ -65,6 +65,11 @@ a.hero { color: white; }
 .footer-social a { font-size: 22px; display: inline-flex; padding: 4px; }
 .footer-social a:hover { color: #ff2b2b; }
 .footer-legal a:hover, .footer-contact:hover { color: #ff2b2b; }
+.ultimo-resultado .ultimo-gp { margin: -4px 0 8px; color: #bdbdbd; font-size: 13px; }
+.ultimo-resultado .equipe { color: #8a8a8a; font-size: 11px; margin-left: 4px; }
+.ultimo-resultado .ranking-dir strong { font-size: 13px; font-variant-numeric: tabular-nums; }
+.ultimo-resultado .vmr { margin: 10px 0 0; color: #bdbdbd; font-size: 12px; }
+.ultimo-resultado .vmr b { color: #fff; }
 .link-class-full { display: inline-block; margin-top: 10px; color: #ff2b2b; font-size: 12px; font-weight: 900; text-transform: uppercase; text-decoration: none; }
 
 /* cartões sem foto */
