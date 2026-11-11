@@ -73,3 +73,27 @@ a.hero { color: white; }
 @media (max-width: 900px) {
   a.news-card { display: grid; grid-template-columns: 110px 1fr; }
 }
+
+/* ---------- vitrine das redes na capa ---------- */
+.vitrine-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.vitrine-caixa { background: #050505; color: white; border-radius: 14px; padding: 18px; overflow: hidden; }
+.vitrine-topo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.vitrine-topo b { font-family: Impact, Haettenschweiler, sans-serif; text-transform: uppercase; font-size: 20px; letter-spacing: .3px; }
+.vitrine-topo a { color: #ff2b2b; font-size: 12px; font-weight: 900; text-transform: uppercase; text-decoration: none; }
+.vitrine-janela { overflow: hidden; border-radius: 10px; display: none; }
+.vitrine-caixa.com-posts .vitrine-janela { display: block; }
+.vitrine-caixa.com-posts .vitrine-convite { display: none; }
+.vitrine-trilho { display: flex; transition: transform .5s ease; }
+.vitrine-item { flex: 0 0 100%; color: white; text-decoration: none; display: block; }
+.vitrine-foto { display: block; aspect-ratio: 4 / 5; max-height: 420px; width: 100%; background: #1a1a1a; border-radius: 10px; position: relative; overflow: hidden; }
+.vitrine-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.vitrine-play { position: absolute; inset: 0; margin: auto; width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,.9); color: #ff2b2b; display: grid; place-items: center; font-size: 20px; }
+.vitrine-legenda { display: block; font-size: 14px; line-height: 1.4; color: #d6d6d6; margin-top: 10px; min-height: 40px; }
+.vitrine-pontos { display: flex; gap: 6px; justify-content: center; margin-top: 12px; }
+.vitrine-pontos button { width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; background: #555; cursor: pointer; }
+.vitrine-pontos button.ativo { background: #ff2b2b; }
+.vitrine-convite { color: #bdbdbd; font-size: 15px; line-height: 1.5; padding: 30px 0; }
+.vitrine-convite a { display: inline-block; margin-top: 12px; border: 2px solid #ff2b2b; color: white; border-radius: 10px; padding: 10px 14px; font-size: 12px; font-weight: 900; text-transform: uppercase; text-decoration: none; }
+@media (max-width: 900px) {
+  .vitrine-grid { grid-template-columns: 1fr; }
+}

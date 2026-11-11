@@ -69,6 +69,20 @@ eleventyComputed:
     </section>
 
     <section class="section">
+      <div class="section-head"><h2 class="section-title">Nas redes</h2></div>
+      <div class="vitrine-grid">
+        {% for rede in [["instagram", "Instagram", site.redes.instagram], ["x", "X", site.redes.x]] %}
+        <div class="vitrine-caixa" data-vitrine="{{ rede[0] }}">
+          <div class="vitrine-topo"><b>{{ rede[1] }}</b><a href="{{ rede[2] }}" rel="noopener">@estagiariodaf1 ›</a></div>
+          <div class="vitrine-janela"><div class="vitrine-trilho" data-trilho></div></div>
+          <div class="vitrine-pontos" data-pontos></div>
+          <div class="vitrine-convite">As últimas do Estagiário no {{ rede[1] }}.<br><a href="{{ rede[2] }}" rel="noopener">Seguir no {{ rede[1] }}</a></div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section">
       <div data-f1-calendar>
         <div class="f1-calendar-shell">
           <div class="f1-calendar-status">Carregando calendário da F1…</div>
@@ -83,9 +97,11 @@ eleventyComputed:
   <script src="/assets/js/data/circuit-details.js"></script>
   <script src="/assets/js/components/next-race-card.js"></script>
   <script src="/assets/js/components/f1-calendar.js"></script>
+  <script src="/assets/js/components/vitrine-redes.js"></script>
   <script>
     NextRaceCard.mount('[data-next-race-content]');
     F1Calendar.mount('[data-f1-calendar]');
+    VitrineRedes.mount({{ site.vitrine_url | dump | safe }});
   </script>
   {% include "classificacao-script.njk" %}
 </body>
