@@ -16,9 +16,13 @@
     return date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
   }
 
-  function formatTime(timeStr) {
-    if (!timeStr) return 'A definir';
-    return timeStr.replace('Z', '').slice(0, 5);
+  // A API manda em UTC; o leitor quer o horário de Brasília.
+  function formatTime(timeStr, dateStr) {
+    if (!timeStr || !dateStr) return 'A definir';
+    var d = new Date(dateStr + 'T' + timeStr);
+    if (Number.isNaN(d.getTime())) return 'A definir';
+    return new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit', hour12: false })
+      .format(d).replace(':', 'h') + ' (Brasília)';
   }
 
   function detailsFor(circuitId) {
@@ -49,7 +53,7 @@
         mapMarkup(details) +
         '<div style="margin-top:12px">' +
           '<div class="info-row"><span>Data</span><strong>' + escapeHtml(formatDate(race.date)) + '</strong></div>' +
-          '<div class="info-row"><span>Horário</span><strong>' + escapeHtml(formatTime(race.time)) + '</strong></div>' +
+          '<div class="info-row"><span>Horário</span><strong>' + escapeHtml(formatTime(race.time, race.date)) + '</strong></div>' +
           '<div class="info-row"><span>Circuito</span><strong>' + escapeHtml(race.circuit) + '</strong></div>' +
         '</div>' +
         '<details class="race-details">' +

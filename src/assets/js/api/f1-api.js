@@ -305,6 +305,7 @@
     getSeasonSchedule: getSeasonSchedule,
     getSeasonResults: getSeasonResults,
     getNextRace: getNextRace,
+    nomeGP: nomeGP,
     utils: {
       cleanHexColor: cleanHexColor,
       normalize: normalize

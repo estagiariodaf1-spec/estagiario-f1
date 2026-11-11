@@ -145,3 +145,38 @@ a.hero { color: white; }
 @media (max-width: 900px) {
   .vitrine-grid { grid-template-columns: 1fr; }
 }
+
+
+/* Faixa do fim de semana de GP (capa) */
+.gp-faixa-espaco { margin: 0 0 14px; min-height: 64px; }
+.gp-faixa { background: #0b0b0b; color: #fff; border-radius: 14px; padding: 12px 16px; display: flex; align-items: center;
+  gap: 16px; min-height: 64px; box-sizing: border-box; border-left: 5px solid #ff2b2b; }
+.gp-faixa.carregando { color: #8a8a8a; font-size: 13px; }
+.gp-titulo { display: flex; flex-direction: column; gap: 2px; min-width: 210px; }
+.gp-titulo strong { font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-transform: uppercase; font-size: 20px; line-height: 1.05; font-weight: 400; }
+.gp-titulo em { font-style: normal; color: #bdbdbd; font-size: 12px; }
+.gp-tag { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: .06em; color: #ff5a5a; }
+.gp-tag.vivo { color: #fff; background: #d10f0f; border-radius: 4px; padding: 2px 6px; width: fit-content; animation: pisca 1.6s infinite; }
+@keyframes pisca { 50% { opacity: .55; } }
+@media (prefers-reduced-motion: reduce) { .gp-tag.vivo { animation: none; } }
+.gp-sessoes, .gp-podio { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; flex: 1; overflow-x: auto;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.gp-sessoes::-webkit-scrollbar { display: none; }
+.gp-sessoes li { flex: none; background: #1c1c1c; border-radius: 10px; padding: 6px 10px; display: flex; flex-direction: column; min-width: 96px; }
+.gp-sessoes li span { font-size: 11px; color: #bdbdbd; }
+.gp-sessoes li b { font-size: 13px; }
+.gp-sessoes li.feita { opacity: .45; }
+.gp-sessoes li.agora { background: #d10f0f; }
+.gp-sessoes li.corrida { border: 1px solid #ff2b2b; }
+.gp-podio li { flex: none; background: #1c1c1c; border-radius: 10px; padding: 8px 12px; font-size: 14px; }
+.gp-podio li b { color: #ff5a5a; margin-right: 4px; }
+.gp-podio li small { color: #9a9a9a; margin-left: 4px; }
+.gp-link { flex: none; color: #fff; font-weight: 800; font-size: 12px; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+.gp-link:hover { color: #ff5a5a; }
+@media (max-width: 760px) {
+  .gp-faixa-espaco { margin: 0 12px 12px; min-height: 128px; }
+  .gp-faixa { flex-wrap: wrap; gap: 10px; padding: 12px; }
+  .gp-titulo { min-width: 0; flex: 1 1 100%; }
+  .gp-sessoes, .gp-podio { flex: 1 1 100%; order: 3; }
+  .gp-link { order: 4; flex: 1 1 100%; font-size: 11px; }
+}

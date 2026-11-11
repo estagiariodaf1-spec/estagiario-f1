@@ -18,6 +18,8 @@ eleventyComputed:
   <div class="page">
     {% include "topo.njk" %}
 
+    <div class="gp-faixa-espaco" data-gp-faixa aria-live="polite"><div class="gp-faixa carregando">Carregando o fim de semana de GP…</div></div>
+
     <main class="hero-grid">
       {% if capa %}
       {% set destaques = materias | primeiros(5) %}
@@ -114,7 +116,9 @@ eleventyComputed:
   <script src="/assets/js/components/f1-calendar.js"></script>
   <script src="/assets/js/components/vitrine-redes.js"></script>
   <script src="/assets/js/components/hero-carrossel.js"></script>
+  <script src="/assets/js/components/gp-fim-de-semana.js"></script>
   <script>
+    GPFimDeSemana.mount('[data-gp-faixa]');
     NextRaceCard.mount('[data-next-race-content]');
     F1Calendar.mount('[data-f1-calendar]');
     VitrineRedes.mount({{ site.vitrine_url | dump | safe }});
