@@ -26,10 +26,7 @@
   }
 
   function mapMarkup(details) {
-    if (details.map) {
-      return '<div class="next-race-map"><img src="' + escapeHtml(details.map) + '" alt="Traçado do circuito" loading="lazy"></div>';
-    }
-    return '<div class="next-race-map"><div class="map-placeholder">Mapa em atualização</div></div>';
+    return ''; // mapas saem até termos traçados reais (OpenF1)
   }
 
   async function mount(selector) {

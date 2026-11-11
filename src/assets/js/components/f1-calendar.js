@@ -21,10 +21,7 @@
   }
 
   function trackMarkup(details, sizeClass) {
-    if (details.map) {
-      return '<div class="' + sizeClass + '"><img src="' + escapeHtml(details.map) + '" alt="Traçado do circuito" loading="lazy"></div>';
-    }
-    return '<div class="' + sizeClass + '"><div class="map-placeholder">Mapa em atualização</div></div>';
+    return ''; // mapas saem até termos traçados reais (OpenF1)
   }
 
   function dataItem(label, value) {
@@ -92,7 +89,7 @@
             '<div>' +
               '<p class="f1-calendar-kicker">Calendário F1 ' + escapeHtml(data.season || '') + '</p>' +
               '<h2 class="f1-calendar-title">Todas as etapas</h2>' +
-              '<p class="f1-calendar-subtitle">Clique em um GP para ver mapa e detalhes técnicos do circuito.</p>' +
+              '<p class="f1-calendar-subtitle">Clique em um GP para ver os detalhes técnicos do circuito.</p>' +
             '</div>' +
           '</div>' +
           '<div class="f1-calendar-grid">' + races.map(cardTemplate).join('') + '</div>' +

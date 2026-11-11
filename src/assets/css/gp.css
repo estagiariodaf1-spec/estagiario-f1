@@ -293,7 +293,7 @@
 
 @media (min-width: 640px) {
   .gp-next-race {
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: 1fr;
     align-items: start;
   }
 }
@@ -425,7 +425,7 @@
 
 @media (min-width: 720px) {
   .gp-circuit {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -748,3 +748,6 @@
   .gp-podium { grid-template-columns: 1fr; }
   .gp-podium-card--1 { transform: none; order: -1; }
 }
+
+/* mapas desligados até termos traçados reais */
+.gp-next-map:empty, .gp-circuit-map:empty { display: none; }

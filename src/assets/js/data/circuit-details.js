@@ -4,33 +4,24 @@
   // Dados que a Jolpica/Ergast não entrega. As chaves seguem o circuitId da API.
   global.F1CircuitDetails = {
     villeneuve: {
-      map: 'assets/circuits/canada.svg',
       lengthKm: '4,361 km',
       laps: 70,
       raceDistance: '305,270 km',
       lapRecord: '1:13.078 — Valtteri Bottas, 2019',
       drsZones: 3,
       direction: 'Horário',
-      notes: 'Setor final e reta dos boxes favorecem ultrapassagens com DRS.',
-      lastWinner: 'George Russell, 2024',
-      mostWins: 'Michael Schumacher (7)',
-      lastYearPole: 'George Russell, 2024'
+      notes: 'Setor final e reta dos boxes favorecem ultrapassagens com DRS.'
     },
     monaco: {
-      map: 'assets/circuits/monaco.svg',
       lengthKm: '3,337 km',
       laps: 78,
       raceDistance: '260,286 km',
       lapRecord: '1:12.909 — Lewis Hamilton, 2021',
       drsZones: 1,
       direction: 'Horário',
-      notes: 'Poucas zonas de DRS; qualificação define o fim de semana.',
-      lastWinner: 'Charles Leclerc, 2024',
-      mostWins: 'Ayrton Senna (6)',
-      lastYearPole: 'Charles Leclerc, 2024'
+      notes: 'Poucas zonas de DRS; qualificação define o fim de semana.'
     },
     silverstone: {
-      map: 'assets/circuits/silverstone.svg',
       lengthKm: '5,891 km',
       laps: 52,
       raceDistance: '306,198 km',
@@ -38,7 +29,6 @@
       drsZones: 2
     },
     spa: {
-      map: 'assets/circuits/spa.svg',
       lengthKm: '7,004 km',
       laps: 44,
       raceDistance: '308,052 km',
@@ -46,7 +36,6 @@
       drsZones: 2
     },
     monza: {
-      map: 'assets/circuits/monza.svg',
       lengthKm: '5,793 km',
       laps: 53,
       raceDistance: '306,720 km',
@@ -54,20 +43,15 @@
       drsZones: 2
     },
     interlagos: {
-      map: 'assets/circuits/interlagos.svg',
       lengthKm: '4,309 km',
       laps: 71,
       raceDistance: '305,879 km',
       lapRecord: '1:10.540 — Valtteri Bottas, 2018',
       drsZones: 2,
       direction: 'Anti-horário',
-      notes: 'Subida do S do Senna e descida da Reta Oposta são marcas do traçado.',
-      lastWinner: 'Lando Norris, 2024',
-      mostWins: 'Michael Schumacher (4)',
-      lastYearPole: 'Lando Norris, 2024'
+      notes: 'Subida do S do Senna e descida da Reta Oposta são marcas do traçado.'
     },
     yas_marina: {
-      map: 'assets/circuits/yas-marina.svg',
       lengthKm: '5,281 km',
       laps: 58,
       raceDistance: '306,183 km',

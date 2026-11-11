@@ -72,9 +72,13 @@
     });
   }
 
-  function formatTimeUtc(timeStr) {
+  // Horário de Brasília a partir da data + hora UTC da API.
+  function formatTimeUtc(timeStr, dateStr) {
     if (!timeStr) return 'A definir';
-    return timeStr.replace('Z', 'Z').slice(0, 5) + ' UTC';
+    if (!dateStr) return timeStr.slice(0, 5) + ' UTC';
+    var d = new Date(dateStr + 'T' + timeStr);
+    if (isNaN(d)) return timeStr.slice(0, 5) + ' UTC';
+    return new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit' }).format(d);
   }
 
   function flagFor(country) {
@@ -86,10 +90,7 @@
   }
 
   function mapImageHtml(details, className) {
-    if (details.map) {
-      return '<img src="' + escapeHtml(details.map) + '" alt="Mapa do circuito" loading="lazy" class="' + escapeHtml(className || '') + '">';
-    }
-    return '<div class="gp-map-placeholder">Mapa em atualização</div>';
+    return ''; // mapas saem até termos traçados reais (OpenF1)
   }
 
   /** Status do GP: próximo, ao vivo (janela do fim de semana) ou encerrado. */
@@ -114,7 +115,7 @@
     var status = raceStatus(race);
     var place = [race.locality, race.country].filter(Boolean).join(', ');
 
-    $('gp-hero-flag').textContent = flagFor(race.country);
+    $('gp-hero-flag').textContent = flagFor(race.countryEn || race.country);
     $('gp-hero-title').textContent = race.name;
     $('gp-hero-sub').textContent = (race.circuit || 'Circuito') + (place ? ' · ' + place : '');
     $('gp-hero-date').textContent = formatDatePt(race.date, race.time);
@@ -123,7 +124,7 @@
     statusEl.textContent = status.label;
     statusEl.className = 'gp-status gp-status--' + status.key;
 
-    $('gp-hero-map').innerHTML = mapImageHtml(details);
+    if ($('gp-hero-map')) $('gp-hero-map').innerHTML = mapImageHtml(details);
 
     state.countdownTarget = race.date
       ? new Date(race.date + 'T' + (race.time || '14:00:00Z'))
@@ -160,13 +161,12 @@
     var place = [race.locality, race.country].filter(Boolean).join(', ');
 
     root.innerHTML =
-      '<div class="gp-next-map">' + mapImageHtml(details) + '</div>' +
       '<div>' +
         '<h3 class="gp-next-title">' + escapeHtml(race.name) + '</h3>' +
         '<p class="gp-next-meta">' + escapeHtml(place || race.circuit) + '</p>' +
         '<div class="gp-info-rows">' +
           '<div class="gp-info-row"><span>Data</span><strong>' + escapeHtml(formatDatePt(race.date, race.time)) + '</strong></div>' +
-          '<div class="gp-info-row"><span>Horário (UTC)</span><strong>' + escapeHtml(formatTimeUtc(race.time)) + '</strong></div>' +
+          '<div class="gp-info-row"><span>Horário (Brasília)</span><strong>' + escapeHtml(formatTimeUtc(race.time, race.date)) + '</strong></div>' +
           '<div class="gp-info-row"><span>Circuito</span><strong>' + escapeHtml(race.circuit) + '</strong></div>' +
         '</div>' +
       '</div>';
@@ -224,7 +224,7 @@
     if (!pack || !pack.sessions || !pack.sessions.length) {
       root.innerHTML =
         '<div class="gp-error">Programação detalhada em atualização para este circuito. ' +
-        'Horário da corrida: <strong>' + escapeHtml(formatTimeUtc(race.time)) + '</strong>.</div>';
+        'Horário da corrida (Brasília): <strong>' + escapeHtml(formatTimeUtc(race.time, race.date)) + '</strong>.</div>';
       return;
     }
 
@@ -254,7 +254,6 @@
     var d = circuitDetails(race.circuitId);
 
     root.innerHTML =
-      '<div class="gp-circuit-map">' + mapImageHtml(d) + '</div>' +
       '<div class="gp-circuit-stats">' +
         statCard('Circuito', race.circuit) +
         statCard('País', race.country || '—') +
@@ -355,9 +354,6 @@
     var d = circuitDetails(race.circuitId);
 
     var items = [
-      { label: 'Último vencedor', value: d.lastWinner || 'Em atualização' },
-      { label: 'Maior vencedor no circuito', value: d.mostWins || 'Em atualização' },
-      { label: 'Pole do ano anterior', value: d.lastYearPole || 'Em atualização' },
       { label: 'Recorde da pista', value: d.lapRecord || 'Em atualização' },
       { label: 'Voltas', value: d.laps || '—' },
       { label: 'Extensão', value: d.lengthKm || '—' }
