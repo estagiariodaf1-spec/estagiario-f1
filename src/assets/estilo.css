@@ -16,7 +16,8 @@ a.hero { color: white; }
   background: linear-gradient(0deg, rgba(0,0,0,.95) 0%, rgba(0,0,0,.72) 32%, rgba(0,0,0,.18) 62%, rgba(0,0,0,0) 80%),
               linear-gradient(90deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 60%);
 }
-.hero-carrossel .hero-content { justify-content: flex-end; max-width: 640px; padding: 38px 38px 46px; height: 455px; box-sizing: border-box; }
+.hero-carrossel .hero-content { position: absolute; left: 0; bottom: 0; top: 0; height: auto; justify-content: flex-end;
+  max-width: 640px; padding: 38px 38px 34px; box-sizing: border-box; }
 .hero-carrossel .hero-content .tag { margin-bottom: 14px; }
 .hero-carrossel h1, .hero-carrossel .hero-titulo { font-size: 44px; }
 .hero-titulo { font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; line-height: .98; text-transform: uppercase; margin: 0; letter-spacing: .2px; }
@@ -31,7 +32,7 @@ a.hero { color: white; }
 .hero-pontos button.ativo { background: #ff2b2b; width: 22px; border-radius: 6px; }
 @media (max-width: 760px) {
   .hero-carrossel { min-height: 340px; }
-  .hero-carrossel .hero-content { height: 340px; padding: 18px 18px 34px; }
+  .hero-carrossel .hero-content { padding: 18px 18px 34px; }
   .hero-carrossel h1, .hero-carrossel .hero-titulo { font-size: 28px; }
   .hero-carrossel p { font-size: 14px; }
   .hero-carrossel { margin-bottom: 12px; }
