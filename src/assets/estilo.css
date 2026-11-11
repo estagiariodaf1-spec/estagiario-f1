@@ -229,3 +229,9 @@ a.hero { color: white; }
 .header-nav { gap: clamp(14px, 1.9vw, 32px); }
 .header-nav .nav-aovivo::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #ff2b2b; margin: 0 6px 1px 0; }
 @media (max-width: 1180px) { .header-nav { font-size: 12px; } }
+
+
+/* Logo oficial (imagem, com a fonte do logo) */
+.logo-img { display: block; line-height: 0; }
+.logo-img img { display: block; height: 66px; width: auto; }
+@media (max-width: 760px) { .logo-img img { height: 52px; } }
