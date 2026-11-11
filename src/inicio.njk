@@ -11,7 +11,8 @@ eleventyComputed:
 <html lang="pt-BR">
 <head>
 {% include "cabeca.njk" %}
-  <link rel="stylesheet" href="/assets/css/calendar.css">
+  <link rel="stylesheet" href="/assets/css/calendar.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/assets/css/calendar.css"></noscript>
 </head>
 <body>
   <div class="page">
@@ -22,8 +23,8 @@ eleventyComputed:
       {% set destaques = materias | primeiros(5) %}
       <div class="hero-carrossel" data-hero aria-roledescription="carrossel" aria-label="Destaques">
         {% for m in destaques %}
-        <a class="hero hero-slide{% if loop.first %} ativo{% endif %}" href="{{ m.url }}" aria-label="{{ m.data.title }}"{% if not loop.first %} tabindex="-1" aria-hidden="true"{% endif %}>
-          {% if m.data.imagem %}<div class="hero-img" style="background-image:url('{{ m.data.imagem }}')"></div>{% endif %}
+        <a class="hero hero-slide{% if loop.first %} ativo{% endif %}" href="{{ m.url }}"{% if not loop.first %} tabindex="-1" aria-hidden="true"{% endif %}>
+          {% if m.data.imagem %}<img class="hero-img" src="{{ m.data.imagem }}" alt="" sizes="(max-width: 760px) 100vw, 900px"{% if loop.first %} loading="eager" fetchpriority="high"{% else %} loading="lazy"{% endif %}>{% endif %}
           <div class="hero-content">
             <span class="tag">{{ m.data.categoria }}</span>
             {% if loop.first %}<h1>{{ m.data.title }}</h1>{% else %}<h2 class="hero-titulo">{{ m.data.title }}</h2>{% endif %}

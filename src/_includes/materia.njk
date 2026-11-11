@@ -11,7 +11,7 @@ layout: base.njk
   </div>
   {% if imagem %}
   <figure class="foto">
-    <img src="{{ imagem }}" alt="{{ imagem_descricao or title }}">
+    <img src="{{ imagem }}" alt="{{ imagem_descricao or title }}" loading="eager" fetchpriority="high" sizes="(max-width: 800px) 100vw, 760px">
     {% if credito_imagem %}<figcaption>{{ credito_imagem }}</figcaption>{% endif %}
   </figure>
   {% endif %}

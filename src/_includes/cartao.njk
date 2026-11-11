@@ -1,6 +1,6 @@
 <a class="news-card" href="{{ m.url }}">
   {% if m.data.imagem %}
-  <div class="thumb" style="background-image:url('{{ m.data.imagem }}')"><span class="tag">{{ m.data.categoria }}</span></div>
+  <div class="thumb"><img src="{{ m.data.imagem }}" alt="" loading="lazy" sizes="(max-width: 760px) 110px, 320px"><span class="tag">{{ m.data.categoria }}</span></div>
   {% else %}
   <div class="thumb sem-foto">F1<span class="tag">{{ m.data.categoria }}</span></div>
   {% endif %}

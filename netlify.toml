@@ -5,3 +5,9 @@
 [build.environment]
   NODE_VERSION = "22"
   TZ = "America/Sao_Paulo"
+
+# Imagens otimizadas têm nome com hash: podem ficar no celular do leitor por 1 ano.
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

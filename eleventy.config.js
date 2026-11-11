@@ -1,9 +1,23 @@
+const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
+
 const FUSO = "America/Sao_Paulo";
 
 const dataBR = (data, opcoes) =>
   new Intl.DateTimeFormat("pt-BR", { timeZone: FUSO, ...opcoes }).format(new Date(data));
 
 module.exports = function (eleventyConfig) {
+  // Toda <img> local vira versões leves (WebP + original) em 3 tamanhos; o celular baixa a menor que serve.
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    formats: ["webp", "jpeg"],
+    widths: [480, 960, 1600],
+    urlPath: "/img/",
+    outputDir: "./_site/img/",
+    failOnError: false,
+    htmlOptions: {
+      imgAttributes: { decoding: "async", sizes: "(max-width: 760px) 100vw, 640px" },
+    },
+  });
+
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/admin");

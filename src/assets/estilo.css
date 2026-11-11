@@ -3,7 +3,14 @@
 a.hero, a.news-card { display: block; text-decoration: none; color: inherit; }
 a.see-more { text-decoration: none; }
 a.hero { color: white; }
-.hero-img { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.thumb { overflow: hidden; }
+.thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.thumb .tag { z-index: 1; }
+/* contraste mínimo para texto pequeno (acessibilidade) */
+.tag { background: #d10f0f !important; }
+.see-more { color: #c40d0d !important; }
+.news-body time { color: #595959; }
 .hero:before { z-index: 1; }
 .hero-content { z-index: 2; }
 
@@ -28,8 +35,12 @@ a.hero { color: white; }
   font-size: 22px; line-height: 1; cursor: pointer; }
 .hero-seta:hover { background: #ff2b2b; }
 .hero-pontos { display: flex; gap: 7px; }
-.hero-pontos button { width: 9px; height: 9px; border-radius: 50%; border: 0; padding: 0; background: rgba(255,255,255,.45); cursor: pointer; }
-.hero-pontos button.ativo { background: #ff2b2b; width: 22px; border-radius: 6px; }
+.hero-pontos { gap: 0; }
+/* área de toque de 24 px (dedo), bolinha pequena por dentro */
+.hero-pontos button { width: 24px; height: 24px; border: 0; padding: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+.hero-pontos button::before { content: ""; width: 9px; height: 9px; border-radius: 6px; background: rgba(255,255,255,.5); transition: width .3s; }
+.hero-pontos button.ativo::before { background: #ff2b2b; width: 22px; }
+.hero-pontos button.ativo { width: 34px; }
 @media (max-width: 760px) {
   .hero-carrossel { min-height: 340px; }
   .hero-carrossel .hero-content { padding: 18px 18px 34px; }
