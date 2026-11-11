@@ -70,7 +70,7 @@
           '<a class="gp-link" href="/noticias/">Análise e repercussão ›</a></div>';
         return;
       }
-      if (!corrida) { raiz.hidden = true; return; }
+      if (!corrida) { raiz.innerHTML = '<div class="gp-faixa longe"><div class="gp-titulo"><span class="gp-tag">Temporada</span><strong>Calendário da F1</strong><em>Horários de Brasília</em></div><a class="gp-link" href="/calendario.html">Ver calendário ›</a></div>'; return; }
 
       var lista = sessoes(corrida);
       var primeira = lista[0].ini, ultima = lista[lista.length - 1].fim;
@@ -96,7 +96,8 @@
       raiz.innerHTML = '<div class="gp-faixa ' + (dias <= 7 ? 'semana' : 'longe') + '"><div class="gp-titulo">' + cabecalho + '</div>' +
         (dias <= 7 ? chips(lista, agora) : '') + '<a class="gp-link" href="/calendario.html">Calendário ›</a></div>';
     } catch (e) {
-      raiz.hidden = true;
+      // sem dados, mantém a faixa (sumir com ela empurraria a página)
+      raiz.innerHTML = '<div class="gp-faixa longe"><div class="gp-titulo"><span class="gp-tag">Temporada</span><strong>Calendário da F1</strong><em>Horários de Brasília</em></div><a class="gp-link" href="/calendario.html">Ver calendário ›</a></div>';
     }
   }
   global.GPFimDeSemana = { mount: mount };

@@ -208,3 +208,11 @@ a.hero { color: white; }
 .ranking-sep { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: #8a8a8a; margin: 8px 0 2px; }
 .fav-escolha { display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: #9a9a9a; text-transform: uppercase; margin-top: 12px; }
 .fav-escolha select { background: #1c1c1c; color: #fff; border: 1px solid #333; border-radius: 8px; padding: 8px; font-size: 14px; text-transform: none; }
+
+/* Compartilhar a matéria */
+.compartilhar { display: flex; gap: 8px; flex-wrap: wrap; margin: -6px 0 22px; }
+.compartilhar button, .compartilhar a { font: inherit; font-size: 13px; font-weight: 700; border-radius: 99px; padding: 9px 14px;
+  border: 1px solid #ddd; background: #fff; color: #111; cursor: pointer; text-decoration: none; min-height: 40px; box-sizing: border-box; }
+.compartilhar button:first-child { background: #111; color: #fff; border-color: #111; }
+.compartilhar .whats { color: #0b7a3e; border-color: #b7e4c7; }
+.compartilhar button:disabled { opacity: .6; }
