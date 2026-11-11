@@ -22,6 +22,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
+  // ícones: o boneco no círculo branco (aba do navegador, sugestões do Safari, atalho na tela do celular)
+  eleventyConfig.addPassthroughCopy({ "src/icones/favicon.ico": "favicon.ico", "src/icones/apple-touch-icon.png": "apple-touch-icon.png",
+    "src/icones/site.webmanifest": "site.webmanifest", "src/icones": "icones" });
   // Páginas de dados do Pedro (pilotos, equipes...): HTML puro, copiado como está.
   for (const pagina of ["calendario", "comparador", "equipes", "estatisticas", "gp", "pilotos"]) {
     eleventyConfig.addPassthroughCopy(`src/${pagina}.html`);
@@ -88,8 +91,10 @@ module.exports = function (eleventyConfig) {
       const arquivo = path.join(dir.output, `${pagina}.html`);
       const html = await fs.readFile(arquivo, "utf8");
       if (!BLOCO_TOPO.test(html)) throw new Error(`cabeçalho de ${pagina}.html não encontrado`);
+      const icones = '<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/icones/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">';
       const ativo = topo.replaceAll(`href="/${pagina}.html"`, `href="/${pagina}.html" class="is-active" aria-current="page"`);
-      await fs.writeFile(arquivo, html.replace(BLOCO_TOPO, () => ativo));
+      const comIcones = html.includes('rel="apple-touch-icon"') ? html : html.replace("</head>", icones + "</head>");
+      await fs.writeFile(arquivo, comIcones.replace(BLOCO_TOPO, () => ativo));
     }
   });
 

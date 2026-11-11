@@ -13,9 +13,11 @@
     var pontos = caixa.querySelector('[data-pontos]');
     trilho.innerHTML = posts.map(function (p) {
       return '<a class="vitrine-item" href="' + esc(p.url) + '" target="_blank" rel="noopener">' +
-        '<span class="vitrine-foto"><img src="' + esc(p.imagem) + '" alt="" loading="lazy">' +
-          (p.video ? '<span class="vitrine-play" aria-hidden="true">▶</span>' : '') + '</span>' +
-        (p.legenda ? '<span class="vitrine-legenda">' + esc(p.legenda) + '</span>' : '') +
+        (p.imagem
+          ? '<span class="vitrine-foto"><img src="' + esc(p.imagem) + '" alt="" loading="lazy">' +
+            (p.video ? '<span class="vitrine-play" aria-hidden="true">▶</span>' : '') + '</span>' +
+            (p.legenda ? '<span class="vitrine-legenda">' + esc(p.legenda) + '</span>' : '')
+          : '<span class="vitrine-foto vitrine-texto"><span>' + esc(p.legenda) + '</span></span>') +
       '</a>';
     }).join('');
     pontos.innerHTML = posts.map(function (_, i) {
