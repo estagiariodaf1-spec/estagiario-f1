@@ -18,6 +18,41 @@
     williams: '#005aff'
   };
 
+
+  // A Jolpica devolve nomes em inglês. Tradução dos GPs e países para o português.
+  var NOMES_GP = {
+    'Australian Grand Prix': 'GP da Austrália', 'Chinese Grand Prix': 'GP da China',
+    'Japanese Grand Prix': 'GP do Japão', 'Bahrain Grand Prix': 'GP do Bahrein',
+    'Saudi Arabian Grand Prix': 'GP da Arábia Saudita', 'Miami Grand Prix': 'GP de Miami',
+    'Canadian Grand Prix': 'GP do Canadá', 'Monaco Grand Prix': 'GP de Mônaco',
+    'Spanish Grand Prix': 'GP da Espanha', 'Barcelona-Catalunya Grand Prix': 'GP de Barcelona-Catalunha',
+    'Austrian Grand Prix': 'GP da Áustria', 'British Grand Prix': 'GP da Inglaterra',
+    'Belgian Grand Prix': 'GP da Bélgica', 'Hungarian Grand Prix': 'GP da Hungria',
+    'Dutch Grand Prix': 'GP da Holanda', 'Italian Grand Prix': 'GP da Itália',
+    'Emilia Romagna Grand Prix': 'GP da Emília-Romanha', 'Azerbaijan Grand Prix': 'GP do Azerbaijão',
+    'Singapore Grand Prix': 'GP de Singapura', 'United States Grand Prix': 'GP dos Estados Unidos',
+    'Mexico City Grand Prix': 'GP da Cidade do México', 'São Paulo Grand Prix': 'GP de São Paulo',
+    'Sao Paulo Grand Prix': 'GP de São Paulo', 'Brazilian Grand Prix': 'GP do Brasil',
+    'Las Vegas Grand Prix': 'GP de Las Vegas', 'Qatar Grand Prix': 'GP do Catar',
+    'Abu Dhabi Grand Prix': 'GP de Abu Dhabi', 'French Grand Prix': 'GP da França',
+    'Portuguese Grand Prix': 'GP de Portugal', 'Turkish Grand Prix': 'GP da Turquia',
+    'German Grand Prix': 'GP da Alemanha'
+  };
+  var PAISES = {
+    Australia: 'Austrália', China: 'China', Japan: 'Japão', Bahrain: 'Bahrein',
+    'Saudi Arabia': 'Arábia Saudita', USA: 'Estados Unidos', 'United States': 'Estados Unidos',
+    Canada: 'Canadá', Monaco: 'Mônaco', Spain: 'Espanha', Austria: 'Áustria', UK: 'Inglaterra',
+    'United Kingdom': 'Inglaterra', Belgium: 'Bélgica', Hungary: 'Hungria', Netherlands: 'Holanda',
+    Italy: 'Itália', Azerbaijan: 'Azerbaijão', Singapore: 'Singapura', Mexico: 'México',
+    Brazil: 'Brasil', Qatar: 'Catar', UAE: 'Emirados Árabes', 'United Arab Emirates': 'Emirados Árabes',
+    France: 'França', Portugal: 'Portugal', Turkey: 'Turquia', Germany: 'Alemanha'
+  };
+  function nomeGP(nome) {
+    if (!nome) return 'Grande Prêmio';
+    return NOMES_GP[nome] || nome.replace(/ Grand Prix$/, '').replace(/^/, 'GP ');
+  }
+  function nomePais(pais) { return PAISES[pais] || pais || ''; }
+
   function buildUrl(base, path) {
     return base + String(path || '').replace(/^\/+/, '');
   }
@@ -107,11 +142,11 @@
     var qualifying = race.Qualifying || {};
     return {
       round: race.round || '—',
-      name: race.raceName || 'Grande Prêmio',
+      name: nomeGP(race.raceName),
       circuitId: get(race, ['Circuit', 'circuitId'], ''),
       circuit: get(race, ['Circuit', 'circuitName'], '—'),
       locality: get(race, ['Circuit', 'Location', 'locality'], ''),
-      country: get(race, ['Circuit', 'Location', 'country'], ''),
+      country: nomePais(get(race, ['Circuit', 'Location', 'country'], '')),
       date: race.date || '',
       time: race.time || '',
       qualifyingDate: qualifying.date || '',
@@ -199,11 +234,11 @@
     return {
       season: get(race, ['season'], ''),
       round: race.round || '—',
-      name: race.raceName || 'Grande Prêmio',
+      name: nomeGP(race.raceName),
       circuitId: get(race, ['Circuit', 'circuitId'], ''),
       circuit: get(race, ['Circuit', 'circuitName'], '—'),
       locality: get(race, ['Circuit', 'Location', 'locality'], ''),
-      country: get(race, ['Circuit', 'Location', 'country'], ''),
+      country: nomePais(get(race, ['Circuit', 'Location', 'country'], '')),
       date: race.date || '',
       time: race.time || '',
       results: results,
