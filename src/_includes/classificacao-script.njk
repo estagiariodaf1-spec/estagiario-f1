@@ -1,0 +1,96 @@
+<script>
+    (function () {
+      var API_URL = 'https://api.jolpi.ca/ergast/f1/current/driverstandings.json';
+      var TOP_N = 5;
+      var containers = document.querySelectorAll('[data-driver-standings]');
+      var seasonLabels = document.querySelectorAll('[data-standings-season]');
+
+      if (!containers.length) return;
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function shortName(givenName, familyName) {
+        var initial = String(givenName || '').trim().charAt(0);
+        return (initial ? initial + '. ' : '') + String(familyName || '').trim();
+      }
+
+      function setSeason(season) {
+        if (!season) return;
+        var label = '· ' + season;
+        seasonLabels.forEach(function (el) {
+          el.textContent = label;
+        });
+      }
+
+      function setBusy(busy) {
+        containers.forEach(function (el) {
+          el.setAttribute('aria-busy', busy ? 'true' : 'false');
+        });
+      }
+
+      function renderLoading() {
+        setBusy(true);
+        var html = '<p class="standings-status">Carregando classificação…</p>';
+        containers.forEach(function (el) {
+          el.innerHTML = html;
+        });
+      }
+
+      function renderError() {
+        setBusy(false);
+        var html = '<p class="standings-status">Não foi possível carregar a classificação.</p>';
+        containers.forEach(function (el) {
+          el.innerHTML = html;
+        });
+      }
+
+      function renderStandings(standings) {
+        var top = standings.slice(0, TOP_N);
+        var html = top.map(function (entry) {
+          var driver = entry.Driver || {};
+          var name = shortName(driver.givenName, driver.familyName);
+          return (
+            '<div class="ranking-row">' +
+              '<span><b class="rank-num">' + escapeHtml(entry.position) + '</b>' +
+              escapeHtml(name) + '</span>' +
+              '<strong>' + escapeHtml(entry.points) + '</strong>' +
+            '</div>'
+          );
+        }).join('');
+
+        setBusy(false);
+        containers.forEach(function (el) {
+          el.innerHTML = html;
+        });
+      }
+
+      async function loadDriverStandings() {
+        renderLoading();
+        try {
+          var response = await fetch(API_URL);
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+
+          var data = await response.json();
+          var table = data && data.MRData && data.MRData.StandingsTable;
+          var list = table && table.StandingsLists && table.StandingsLists[0];
+          var standings = list && list.DriverStandings;
+
+          if (!standings || !standings.length) throw new Error('empty');
+
+          setSeason(table.season || list.season);
+          renderStandings(standings);
+        } catch (err) {
+          console.warn('Classificação F1:', err);
+          renderError();
+        }
+      }
+
+      loadDriverStandings();
+    })();
+  </script>

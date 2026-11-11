@@ -1,0 +1,46 @@
+<header class="header">
+      <div class="left-head">
+        <button type="button" class="hamburger-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+        <a href="{{ inicio }}" class="logo-link"><div class="logo">
+          <div>Estagiário</div>
+          <div>Da <span class="red">F1</span></div>
+        </div>
+        </a>
+      </div>
+      <nav class="header-nav" aria-label="Menu principal">
+        <a href="{{ inicio }}">Home</a>
+        <a href="/noticias/">Notícias</a>
+        <a href="/calendario.html">Agenda</a>
+        <a href="/estatisticas.html">Estatísticas</a>
+        <a href="/gp.html">Central do GP</a>
+        <a href="/pilotos.html">Pilotos</a>
+        <a href="/equipes.html">Equipes</a>
+        <a href="/calendario.html">Calendário</a>
+        <a href="/comparador.html">Comparador</a>
+      </nav>
+      <div class="icons"><a href="{{ site.redes.instagram }}" rel="noopener">Instagram</a><a href="{{ site.redes.x }}" rel="noopener">X</a></div>
+    </header>
+
+    <div class="site-menu" id="site-menu" aria-hidden="true">
+      <button type="button" class="site-menu-backdrop" aria-label="Fechar menu"></button>
+      <div class="site-menu-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+        <div class="site-menu-head">
+          <div class="logo">
+            <div>Estagiário</div>
+            <div>Da <span class="red">F1</span></div>
+          </div>
+          <button type="button" class="site-menu-close" aria-label="Fechar menu">×</button>
+        </div>
+        <nav class="site-menu-nav">
+          <a href="{{ inicio }}">Home</a>
+          <a href="/noticias/">Notícias</a>
+          <a href="/calendario.html">Agenda</a>
+          <a href="/estatisticas.html">Estatísticas</a>
+          <a href="/gp.html">Central do GP</a>
+          <a href="/pilotos.html">Pilotos</a>
+          <a href="/equipes.html">Equipes</a>
+          <a href="/calendario.html">Calendário</a>
+          <a href="/comparador.html">Comparador</a>
+        </nav>
+      </div>
+    </div>

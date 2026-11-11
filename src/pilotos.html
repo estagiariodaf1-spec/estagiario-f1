@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pilotos — Estagiário da F1</title>
+  <link rel="stylesheet" href="/assets/site-nav.css" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f4f4f4;
+      color: #0b0b0b;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .page {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 14px;
+    }
+    .header {
+      background: #050505;
+      color: white;
+      border-radius: 0 0 18px 18px;
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    .left-head {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .logo {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-style: italic;
+      font-size: 26px;
+      line-height: .82;
+      letter-spacing: .2px;
+      text-transform: uppercase;
+    }
+    .logo .red { color: #ff2b2b; }
+    .header-nav {
+      display: flex;
+      gap: 32px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .icons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-weight: 900;
+    }
+    .search {
+      width: 18px;
+      height: 18px;
+      border: 2px solid white;
+      border-radius: 50%;
+      position: relative;
+    }
+    .search:after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 2px;
+      background: white;
+      right: -6px;
+      bottom: -3px;
+      transform: rotate(45deg);
+      border-radius: 10px;
+    }
+    .section {
+      margin-bottom: 30px;
+      padding: 0 4px;
+    }
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .section-title {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 24px;
+      text-transform: uppercase;
+      margin: 0;
+      border-left: 4px solid #ff2b2b;
+      padding-left: 10px;
+      line-height: 1;
+    }
+    .section-meta {
+      font-size: 13px;
+      color: #666;
+      font-weight: 700;
+    }
+    .drivers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .driver-card {
+      --team-color: #ff2b2b;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 1px 10px rgba(0, 0, 0, .06);
+      overflow: hidden;
+      border-top: 5px solid var(--team-color);
+    }
+    .driver-card-main {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 14px;
+      padding: 16px;
+      align-items: center;
+    }
+    .driver-photo {
+      width: 92px;
+      height: 92px;
+      border-radius: 14px;
+      background: #050505;
+      object-fit: cover;
+      object-position: top center;
+      border: 2px solid var(--team-color);
+    }
+    .driver-number {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 34px;
+      line-height: 1;
+      color: var(--team-color);
+      font-style: italic;
+    }
+    .driver-code {
+      font-weight: 900;
+      font-size: 12px;
+      color: #888;
+      letter-spacing: .08em;
+    }
+    .driver-name-button {
+      border: 0;
+      background: transparent;
+      padding: 0;
+      color: #0b0b0b;
+      cursor: pointer;
+      text-align: left;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 23px;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin: 8px 0 0;
+    }
+    .driver-name-button:hover,
+    .driver-name-button:focus-visible {
+      color: #ff2b2b;
+    }
+    .driver-summary {
+      margin: 8px 0 0;
+      font-size: 13px;
+      color: #666;
+      font-weight: 700;
+    }
+    .driver-details {
+      display: none;
+      border-top: 1px solid #eee;
+      padding: 14px 16px 16px;
+      background: #fafafa;
+    }
+    .driver-card.is-open .driver-details {
+      display: block;
+    }
+    .driver-data-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .driver-data {
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      border: 1px solid #eee;
+    }
+    .driver-data span {
+      display: block;
+      color: #777;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .driver-data strong {
+      display: block;
+      color: #0b0b0b;
+      font-size: 14px;
+    }
+    .team-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .team-chip:before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--team-color);
+      flex: 0 0 auto;
+    }
+    .drivers-status {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 48px 20px;
+      color: #666;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    footer {
+      background: #050505;
+      color: white;
+      border-radius: 12px 12px 0 0;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+    .footer-legal {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .footer-social {
+      display: none;
+      align-items: center;
+      gap: 18px;
+    }
+    .footer-social a {
+      color: white;
+      text-decoration: none;
+    }
+    .footer-social a:hover { color: #ff2b2b; }
+    @media (max-width: 900px) {
+      .page { padding: 0; }
+      .header {
+        border-radius: 0 0 18px 18px;
+        height: 82px;
+        margin-bottom: 12px;
+      }
+      .header-nav, .icons { display: none; }
+      .logo { font-size: 22px; }
+      .section { padding: 0 12px; margin-bottom: 24px; }
+      .section-title { font-size: 18px; }
+      .drivers-grid {
+        grid-template-columns: 1fr;
+      }
+      .driver-card-main {
+        grid-template-columns: 82px 1fr;
+      }
+      .driver-photo {
+        width: 82px;
+        height: 82px;
+      }
+      .driver-data-grid {
+        grid-template-columns: 1fr;
+      }
+      footer {
+        margin: 0 12px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-legal { display: none; }
+      .footer-social { display: flex; }
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/estilo.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="left-head">
+        <button type="button" class="hamburger-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+        <a href="/home.html" class="logo-link">
+          <div class="logo">
+            <div>Estagiário</div>
+            <div>Da <span class="red">F1</span></div>
+          </div>
+        </a>
+      </div>
+      <nav class="header-nav" aria-label="Menu principal">
+        <a href="/home.html">Home</a>
+        <a href="/noticias/">Notícias</a>
+        <a href="/calendario.html">Agenda</a>
+        <a href="/estatisticas.html">Estatísticas</a>
+        <a href="/gp.html">Central do GP</a>
+        <a href="/pilotos.html" class="is-active">Pilotos</a>
+        <a href="/equipes.html">Equipes</a>
+        <a href="/calendario.html">Calendário</a>
+        <a href="/comparador.html">Comparador</a>
+      </nav>
+      <div class="icons"><a href="https://www.instagram.com/estagiariodaf1" rel="noopener">Instagram</a><a href="https://x.com/estagiariodaf1" rel="noopener">X</a></div>
+    </header>
+
+    <div class="site-menu" id="site-menu" aria-hidden="true">
+      <button type="button" class="site-menu-backdrop" aria-label="Fechar menu"></button>
+      <div class="site-menu-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+        <div class="site-menu-head">
+          <div class="logo">
+            <div>Estagiário</div>
+            <div>Da <span class="red">F1</span></div>
+          </div>
+          <button type="button" class="site-menu-close" aria-label="Fechar menu">×</button>
+        </div>
+        <nav class="site-menu-nav">
+          <a href="/home.html">Home</a>
+          <a href="/noticias/">Notícias</a>
+          <a href="/calendario.html">Agenda</a>
+          <a href="/estatisticas.html">Estatísticas</a>
+          <a href="/gp.html">Central do GP</a>
+          <a href="/pilotos.html" class="is-active">Pilotos</a>
+          <a href="/equipes.html">Equipes</a>
+          <a href="/calendario.html">Calendário</a>
+          <a href="/comparador.html">Comparador</a>
+        </nav>
+      </div>
+    </div>
+
+    <main class="section">
+      <div class="section-head">
+        <h1 class="section-title">Pilotos</h1>
+        <p class="section-meta" id="drivers-meta" data-drivers-season></p>
+      </div>
+      <div class="drivers-grid" id="drivers-grid" aria-live="polite" aria-busy="true">
+        <p class="drivers-status">Carregando pilotos…</p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="logo" style="font-size:20px"><div>Estagiário</div><div>Da <span class="red">F1</span></div></div>
+      <div class="footer-legal">
+        <a href="/quem-somos/">Quem somos</a><a href="/expediente/">Expediente</a><a href="/privacidade/">Política de privacidade</a>
+      </div>
+      <nav class="footer-social" aria-label="Redes sociais">
+        <a href="https://x.com/estagiariodaf1" rel="noopener" aria-label="Perfil no X">X</a>
+        <a href="https://www.instagram.com/estagiariodaf1" rel="noopener" aria-label="Instagram">Instagram</a>
+      </nav>
+      <a class="footer-contact" href="/contato/">Contato</a>
+    </footer>
+  </div>
+
+  <script src="/assets/site-nav.js"></script>
+  <script src="/assets/f1-drivers.js"></script>
+</body>
+</html>

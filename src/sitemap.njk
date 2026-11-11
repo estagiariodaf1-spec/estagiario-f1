@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: true
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>{{ site.url }}/</loc></url>
   <url><loc>{{ site.url }}/noticias/</loc></url>
-  {%- for p in ["/quem-somos/", "/expediente/", "/contato/", "/privacidade/"] %}
+  {%- for p in ["/quem-somos/", "/expediente/", "/contato/", "/privacidade/", "/calendario.html", "/estatisticas.html", "/gp.html", "/pilotos.html", "/equipes.html", "/comparador.html"] %}
   <url><loc>{{ site.url }}{{ p }}</loc></url>
   {%- endfor %}
   {%- for m in collections.materias %}

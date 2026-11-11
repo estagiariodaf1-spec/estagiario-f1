@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calendário F1 - Estagiário da F1</title>
+  <link rel="stylesheet" href="/assets/site-nav.css" />
+  <link rel="stylesheet" href="/assets/css/estatisticas.css" />
+  <link rel="stylesheet" href="/assets/css/calendar.css" />
+  <link rel="stylesheet" href="/assets/estilo.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="left-head">
+        <button type="button" class="hamburger-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+        <a href="/home.html" class="logo-link">
+          <div class="logo">
+            <div>Estagiário</div>
+            <div>Da <span class="red">F1</span></div>
+          </div>
+        </a>
+      </div>
+      <nav class="header-nav" aria-label="Menu principal">
+        <a href="/home.html">Home</a>
+        <a href="/noticias/">Notícias</a>
+        <a href="/calendario.html" class="is-active">Agenda</a>
+        <a href="/estatisticas.html">Estatísticas</a>
+        <a href="/gp.html">Central do GP</a>
+        <a href="/pilotos.html">Pilotos</a>
+        <a href="/equipes.html">Equipes</a>
+        <a href="/calendario.html">Calendário</a>
+        <a href="/comparador.html">Comparador</a>
+      </nav>
+    </header>
+
+    <div class="site-menu" id="site-menu" aria-hidden="true">
+      <button type="button" class="site-menu-backdrop" aria-label="Fechar menu"></button>
+      <div class="site-menu-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+        <div class="site-menu-head">
+          <div class="logo">
+            <div>Estagiário</div>
+            <div>Da <span class="red">F1</span></div>
+          </div>
+          <button type="button" class="site-menu-close" aria-label="Fechar menu">×</button>
+        </div>
+        <nav class="site-menu-nav">
+          <a href="/home.html">Home</a>
+          <a href="/noticias/">Notícias</a>
+          <a href="/calendario.html" class="is-active">Agenda</a>
+          <a href="/estatisticas.html">Estatísticas</a>
+          <a href="/gp.html">Central do GP</a>
+          <a href="/pilotos.html">Pilotos</a>
+          <a href="/equipes.html">Equipes</a>
+          <a href="/calendario.html">Calendário</a>
+          <a href="/comparador.html">Comparador</a>
+        </nav>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero">
+        <p class="hero-kicker">Temporada atual</p>
+        <h1>Calendário F1</h1>
+        <p>Etapas da temporada puxadas automaticamente pela Jolpica, com mapas locais e detalhes técnicos quando disponíveis.</p>
+      </section>
+
+      <section class="section">
+        <div data-f1-calendar>
+          <div class="f1-calendar-shell">
+            <div class="f1-calendar-status">Carregando calendário da F1…</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/assets/site-nav.js"></script>
+  <script src="/assets/js/api/f1-api.js"></script>
+  <script src="/assets/js/data/circuit-details.js"></script>
+  <script src="/assets/js/components/f1-calendar.js"></script>
+  <script>
+    F1Calendar.mount('[data-f1-calendar]');
+  </script>
+</body>
+</html>

@@ -22,8 +22,11 @@ Texto da matéria em markdown.
 
 O agente do site publica sozinho depois da aprovação no Telegram. Também dá pra escrever à mão pelo `/admin`.
 
+## Páginas de dados
+`calendario.html`, `pilotos.html`, `equipes.html`, `estatisticas.html`, `gp.html` e `comparador.html` são HTML puro, copiados como estão. Os dados vêm ao vivo da Jolpica e da OpenF1 (`src/assets/js/api/f1-api.js`).
+
 ## Lançamento
-Enquanto `lancado` for `false` em `src/_data/site.json`, a página inicial mostra "Paddock em construção" e a home de verdade fica em `/previa/` (fora do Google). Para lançar, troque para `true`.
+Enquanto `lancado` for `false` em `src/_data/site.json`, a página inicial mostra "Paddock em construção" e a home de verdade fica em `/home.html` (fora do Google). Para lançar, troque para `true`.
 
 ## Rodar no computador
 ```

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comparador - Estagiário da F1</title>
+  <link rel="stylesheet" href="/assets/site-nav.css" />
+  <link rel="stylesheet" href="/assets/css/estatisticas.css" />
+  <link rel="stylesheet" href="/assets/estilo.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="left-head">
+        <button type="button" class="hamburger-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+        <a href="/home.html" class="logo-link">
+          <div class="logo">
+            <div>Estagiário</div>
+            <div>Da <span class="red">F1</span></div>
+          </div>
+        </a>
+      </div>
+      <nav class="header-nav" aria-label="Menu principal">
+        <a href="/home.html">Home</a>
+        <a href="/noticias/">Notícias</a>
+        <a href="/calendario.html">Agenda</a>
+        <a href="/estatisticas.html">Estatísticas</a>
+        <a href="/gp.html">Central do GP</a>
+        <a href="/pilotos.html">Pilotos</a>
+        <a href="/equipes.html">Equipes</a>
+        <a href="/calendario.html">Calendário</a>
+        <a href="/comparador.html" class="is-active">Comparador</a>
+      </nav>
+    </header>
+
+    <div class="site-menu" id="site-menu" aria-hidden="true">
+      <button type="button" class="site-menu-backdrop" aria-label="Fechar menu"></button>
+      <div class="site-menu-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+        <div class="site-menu-head">
+          <div class="logo">
+            <div>Estagiário</div>
+            <div>Da <span class="red">F1</span></div>
+          </div>
+          <button type="button" class="site-menu-close" aria-label="Fechar menu">×</button>
+        </div>
+        <nav class="site-menu-nav">
+          <a href="/home.html">Home</a>
+          <a href="/noticias/">Notícias</a>
+          <a href="/calendario.html">Agenda</a>
+          <a href="/estatisticas.html">Estatísticas</a>
+          <a href="/gp.html">Central do GP</a>
+          <a href="/pilotos.html">Pilotos</a>
+          <a href="/equipes.html">Equipes</a>
+          <a href="/calendario.html">Calendário</a>
+          <a href="/comparador.html" class="is-active">Comparador</a>
+        </nav>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero">
+        <p class="hero-kicker">Central de Dados</p>
+        <h1>Comparador</h1>
+        <p>Escolha dois pilotos da temporada atual para comparar posição, pontos, vitórias, equipe e dados visuais de forma rápida.</p>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2 class="section-title">Comparar pilotos</h2>
+        </div>
+
+        <div class="compare-controls">
+          <select class="season-select" id="driver-a" aria-label="Selecionar primeiro piloto">
+            <option>Carregando pilotos…</option>
+          </select>
+          <select class="season-select" id="driver-b" aria-label="Selecionar segundo piloto">
+            <option>Carregando pilotos…</option>
+          </select>
+          <button type="button" class="red-button" id="compare-button">Comparar</button>
+        </div>
+
+        <div id="compare-output" aria-live="polite" aria-busy="true">
+          <div class="data-card">
+            <div class="status">Carregando dados da temporada atual…</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/assets/site-nav.js"></script>
+  <script src="/assets/js/api/f1-api.js"></script>
+  <script src="/assets/js/pages/comparador.js"></script>
+</body>
+</html>

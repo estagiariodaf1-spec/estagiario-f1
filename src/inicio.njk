@@ -1,8 +1,91 @@
 ---
-layout: base.njk
-permalink: "{{ '/' if site.lancado else '/previa/' }}"
+permalink: "{{ '/' if site.lancado else '/home.html' }}"
 eleventyExcludeFromCollections: true
 eleventyComputed:
   noindex: "{{ 'sim' if not site.lancado else '' }}"
 ---
-{% include "home.njk" %}
+{%- set inicio = "/" if site.lancado else "/home.html" -%}
+{%- set materias = collections.materias -%}
+{%- set capa = materias[0] -%}
+<!doctype html>
+<html lang="pt-BR">
+<head>
+{% include "cabeca.njk" %}
+</head>
+<body>
+  <div class="page">
+    {% include "topo.njk" %}
+
+    <main class="hero-grid">
+      {% if capa %}
+      <a class="hero" href="{{ capa.url }}">
+        {% if capa.data.imagem %}<div class="hero-img" style="background-image:url('{{ capa.data.imagem }}')"></div>{% endif %}
+        <div class="hero-content">
+          <span class="tag">{{ capa.data.categoria }}</span>
+          <h1>{{ capa.data.title }}</h1>
+          {% if capa.data.linha_fina %}<p>{{ capa.data.linha_fina }}</p>{% endif %}
+          <span class="button">Ler matéria completa</span>
+        </div>
+      </a>
+      {% else %}
+      <section class="hero">
+        <div class="hero-content">
+          <span class="tag">F1</span>
+          <h1>A primeira matéria está chegando</h1>
+          <p>O Estagiário está terminando a apuração.</p>
+        </div>
+      </section>
+      {% endif %}
+
+      <aside class="sidebar">
+        <div class="black-card next-race-card">
+          <h3>Próxima corrida</h3>
+          <div data-next-race-content>
+            <div class="next-race-status">Carregando próxima corrida…</div>
+          </div>
+        </div>
+        <div class="black-card driver-standings-sidebar">
+          <h3>Classificação pilotos <span class="standings-season" data-standings-season></span></h3>
+          <div data-driver-standings aria-live="polite" aria-busy="true"></div>
+          <a class="link-class-full" href="/estatisticas.html">Classificação completa ›</a>
+        </div>
+      </aside>
+    </main>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">Últimas notícias</h2>
+        <a class="see-more" href="/noticias/">Ver todas ›</a>
+      </div>
+      {% set lista = materias | depois(1) | primeiros(8) %}
+      {% if lista.length %}
+      <div class="news-grid">
+        {% for m in lista %}{% include "cartao.njk" %}{% endfor %}
+      </div>
+      {% else %}
+      <div class="vazio">Em breve, mais notícias por aqui.</div>
+      {% endif %}
+    </section>
+
+    <section class="section">
+      <div data-f1-calendar>
+        <div class="f1-calendar-shell">
+          <div class="f1-calendar-status">Carregando calendário da F1…</div>
+        </div>
+      </div>
+    </section>
+
+    {% include "rodape.njk" %}
+  </div>
+  <script src="/assets/site-nav.js"></script>
+  <script src="/assets/js/api/f1-api.js"></script>
+  <script src="/assets/js/data/circuit-details.js"></script>
+  <script src="/assets/js/components/next-race-card.js"></script>
+  <script src="/assets/js/components/f1-calendar.js"></script>
+  <script>
+    NextRaceCard.mount('[data-next-race-content]');
+    F1Calendar.mount('[data-f1-calendar]');
+  </script>
+  {% include "classificacao-script.njk" %}
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Central de Dados - Estagiário da F1</title>
+  <link rel="stylesheet" href="/assets/site-nav.css" />
+  <link rel="stylesheet" href="/assets/css/estatisticas.css" />
+  <link rel="stylesheet" href="/assets/estilo.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="left-head">
+        <button type="button" class="hamburger-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+        <a href="/home.html" class="logo-link">
+          <div class="logo">
+            <div>Estagiário</div>
+            <div>Da <span class="red">F1</span></div>
+          </div>
+        </a>
+      </div>
+      <nav class="header-nav" aria-label="Menu principal">
+        <a href="/home.html">Home</a>
+        <a href="/noticias/">Notícias</a>
+        <a href="/calendario.html">Agenda</a>
+        <a href="/estatisticas.html" class="is-active">Estatísticas</a>
+        <a href="/gp.html">Central do GP</a>
+        <a href="/pilotos.html">Pilotos</a>
+        <a href="/equipes.html">Equipes</a>
+        <a href="/calendario.html">Calendário</a>
+        <a href="/comparador.html">Comparador</a>
+      </nav>
+    </header>
+
+    <div class="site-menu" id="site-menu" aria-hidden="true">
+      <button type="button" class="site-menu-backdrop" aria-label="Fechar menu"></button>
+      <div class="site-menu-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+        <div class="site-menu-head">
+          <div class="logo">
+            <div>Estagiário</div>
+            <div>Da <span class="red">F1</span></div>
+          </div>
+          <button type="button" class="site-menu-close" aria-label="Fechar menu">×</button>
+        </div>
+        <nav class="site-menu-nav">
+          <a href="/home.html">Home</a>
+          <a href="/noticias/">Notícias</a>
+          <a href="/calendario.html">Agenda</a>
+          <a href="/estatisticas.html" class="is-active">Estatísticas</a>
+          <a href="/gp.html">Central do GP</a>
+          <a href="/pilotos.html">Pilotos</a>
+          <a href="/equipes.html">Equipes</a>
+          <a href="/calendario.html">Calendário</a>
+          <a href="/comparador.html">Comparador</a>
+        </nav>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero">
+        <p class="hero-kicker">Estatísticas F1</p>
+        <h1>Central de Dados</h1>
+        <p>Classificação, calendário, pilotos, equipes e histórico rápido em uma leitura editorial, sem cara de planilha.</p>
+      </section>
+
+      <section class="quick-grid" aria-label="Resumo da temporada">
+        <article class="quick-card black">
+          <span class="label">Próxima corrida</span>
+          <div>
+            <p class="metric" id="next-race-name">Carregando…</p>
+            <p class="submetric" id="next-race-meta">Buscando calendário atual</p>
+          </div>
+        </article>
+        <article class="quick-card">
+          <span class="label">Líder do campeonato</span>
+          <div>
+            <p class="metric" id="driver-leader">Carregando…</p>
+            <p class="submetric" id="driver-leader-meta">Pilotos</p>
+          </div>
+        </article>
+        <article class="quick-card">
+          <span class="label">Líder dos construtores</span>
+          <div>
+            <p class="metric" id="constructor-leader">Carregando…</p>
+            <p class="submetric" id="constructor-leader-meta">Equipes</p>
+          </div>
+        </article>
+        <article class="quick-card">
+          <span class="label">Etapas da temporada</span>
+          <div>
+            <p class="metric" id="season-total">—</p>
+            <p class="submetric" id="season-meta">Temporada atual</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="section" id="classificacao-pilotos">
+        <div class="section-head">
+          <h2 class="section-title">Classificação de Pilotos</h2>
+          <div class="section-actions">
+            <button type="button" class="ghost-button" id="toggle-drivers">Ver completa</button>
+          </div>
+        </div>
+        <div class="data-card">
+          <div class="table-list" id="drivers-standings" aria-live="polite" aria-busy="true">
+            <div class="status">Carregando classificação de pilotos…</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="classificacao-equipes">
+        <div class="section-head">
+          <h2 class="section-title">Classificação de Equipes</h2>
+        </div>
+        <div class="data-card">
+          <div class="table-list" id="constructors-standings" aria-live="polite" aria-busy="true">
+            <div class="status">Carregando classificação de equipes…</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="pilotos">
+        <div class="section-head">
+          <h2 class="section-title">Pilotos</h2>
+        </div>
+        <div class="drivers-toolbar">
+          <input class="search-input" type="search" id="driver-search" placeholder="Pesquisar piloto, equipe ou nacionalidade" autocomplete="off" />
+        </div>
+        <div class="drivers-grid" id="drivers-cards" aria-live="polite" aria-busy="true">
+          <div class="status">Carregando pilotos…</div>
+        </div>
+      </section>
+
+      <section class="section" id="historico">
+        <div class="section-head">
+          <h2 class="section-title">Histórico rápido</h2>
+        </div>
+        <div class="history-panel">
+          <div class="history-controls">
+            <select class="season-select" id="season-select" aria-label="Selecionar temporada"></select>
+            <button type="button" class="red-button" id="load-season">Carregar temporada</button>
+          </div>
+          <div class="history-list" id="history-list" aria-live="polite" aria-busy="true">
+            <div class="status">Escolha uma temporada para consultar corridas e resultados básicos.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Estrutura futura">
+        <div class="section-head">
+          <h2 class="section-title">Próximas áreas</h2>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/pilotos.html">
+            <h3>/pilotos</h3>
+            <p>Perfis individuais, carreira e comparação com companheiros.</p>
+          </a>
+          <a class="tool-card" href="/equipes.html">
+            <h3>/equipes</h3>
+            <p>Dados por construtor, nacionalidade e evolução no campeonato.</p>
+          </a>
+          <a class="tool-card" href="/calendario.html">
+            <h3>/corridas</h3>
+            <p>Base preparada para calendário, resultados e detalhes de cada GP.</p>
+          </a>
+          <a class="tool-card" href="/comparador.html">
+            <h3>/comparador</h3>
+            <p>Compare dois pilotos da temporada atual em pontos, vitórias, posição e equipe.</p>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/assets/site-nav.js"></script>
+  <script src="/assets/js/api/f1-api.js"></script>
+  <script src="/assets/js/pages/estatisticas.js"></script>
+</body>
+</html>

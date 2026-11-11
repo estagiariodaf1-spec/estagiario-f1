@@ -8,6 +8,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
+  // Páginas de dados do Pedro (pilotos, equipes...): HTML puro, copiado como está.
+  for (const pagina of ["calendario", "comparador", "equipes", "estatisticas", "gp", "pilotos"]) {
+    eleventyConfig.addPassthroughCopy(`src/${pagina}.html`);
+  }
 
   eleventyConfig.addCollection("materias", (api) =>
     api.getFilteredByGlob("src/materias/*.md")
@@ -31,6 +35,7 @@ module.exports = function (eleventyConfig) {
 
   return {
     dir: { input: "src", includes: "_includes", data: "_data", output: "_site" },
+    templateFormats: ["njk", "md"],
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
   };

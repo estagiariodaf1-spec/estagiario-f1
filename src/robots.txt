@@ -1,5 +1,4 @@
 User-agent: *
 Disallow: /admin/
-Disallow: /previa/
 
 Sitemap: https://estagiariodaf1.com.br/sitemap.xml

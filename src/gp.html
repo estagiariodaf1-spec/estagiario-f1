@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Central do GP - Estagiário da F1</title>
+  <meta name="description" content="Hub do fim de semana de F1: programação, circuito, classificação, ao vivo e notícias." />
+  <link rel="stylesheet" href="/assets/site-nav.css" />
+  <link rel="stylesheet" href="/assets/css/estatisticas.css" />
+  <link rel="stylesheet" href="/assets/css/gp.css" />
+  <link rel="stylesheet" href="/assets/estilo.css" />
+</head>
+<body class="gp-page">
+  <div class="page">
+    <header class="header">
+      <div class="left-head">
+        <button type="button" class="hamburger-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+        <a href="/home.html" class="logo-link">
+          <div class="logo">
+            <div>Estagiário</div>
+            <div>Da <span class="red">F1</span></div>
+          </div>
+        </a>
+      </div>
+      <nav class="header-nav" aria-label="Menu principal">
+        <a href="/home.html">Home</a>
+        <a href="/noticias/">Notícias</a>
+        <a href="/calendario.html">Agenda</a>
+        <a href="/estatisticas.html">Estatísticas</a>
+        <a href="/gp.html" class="is-active">Central do GP</a>
+      </nav>
+    </header>
+
+    <div class="site-menu" id="site-menu" aria-hidden="true">
+      <button type="button" class="site-menu-backdrop" aria-label="Fechar menu"></button>
+      <div class="site-menu-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+        <div class="site-menu-head">
+          <div class="logo">
+            <div>Estagiário</div>
+            <div>Da <span class="red">F1</span></div>
+          </div>
+          <button type="button" class="site-menu-close" aria-label="Fechar menu">×</button>
+        </div>
+        <nav class="site-menu-nav">
+          <a href="/home.html">Home</a>
+          <a href="/noticias/">Notícias</a>
+          <a href="/calendario.html">Agenda</a>
+          <a href="/estatisticas.html">Estatísticas</a>
+          <a href="/gp.html" class="is-active">Central do GP</a>
+          <a href="/pilotos.html">Pilotos</a>
+          <a href="/equipes.html">Equipes</a>
+          <a href="/calendario.html">Calendário</a>
+          <a href="/comparador.html">Comparador</a>
+        </nav>
+      </div>
+    </div>
+
+    <nav class="gp-tabs" id="gp-tabs" aria-label="Seções da Central do GP">
+      <a href="#visao-geral" class="gp-tab is-active" data-tab="visao-geral">Visão geral</a>
+      <a href="#programacao" class="gp-tab" data-tab="programacao">Programação</a>
+      <a href="#circuito" class="gp-tab" data-tab="circuito">Circuito</a>
+      <a href="#classificacao" class="gp-tab" data-tab="classificacao">Classificação</a>
+      <a href="#ao-vivo" class="gp-tab" data-tab="ao-vivo">Ao vivo</a>
+      <a href="#noticias" class="gp-tab" data-tab="noticias">Notícias</a>
+    </nav>
+
+    <main class="gp-main">
+      <section class="gp-hero" id="visao-geral" aria-labelledby="gp-hero-title">
+        <div class="gp-hero-grid">
+          <div class="gp-hero-copy">
+            <p class="gp-kicker">Central do GP</p>
+            <div class="gp-hero-flag" id="gp-hero-flag" aria-hidden="true"></div>
+            <h1 class="gp-hero-title" id="gp-hero-title">Carregando GP…</h1>
+            <p class="gp-hero-sub" id="gp-hero-sub">Circuito e país</p>
+            <div class="gp-hero-meta">
+              <span class="gp-status" id="gp-status">—</span>
+              <span class="gp-hero-date" id="gp-hero-date">—</span>
+            </div>
+            <div class="gp-hero-actions">
+              <a href="#programacao" class="gp-btn gp-btn--primary">Ver programação</a>
+              <a href="#ao-vivo" class="gp-btn gp-btn--ghost">Ver dados ao vivo</a>
+            </div>
+          </div>
+          <div class="gp-hero-map" id="gp-hero-map">
+            <div class="gp-map-placeholder">Mapa em atualização</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="gp-layout">
+        <div class="gp-primary">
+          <section class="gp-panel" id="proxima-corrida" aria-labelledby="next-race-heading">
+            <div class="gp-panel-head">
+              <h2 id="next-race-heading">Próxima corrida</h2>
+              <span class="gp-countdown" id="gp-countdown" aria-live="polite">—</span>
+            </div>
+            <div class="gp-next-race" id="gp-next-race">
+              <div class="gp-loading">Carregando dados da Jolpica…</div>
+            </div>
+          </section>
+
+          <section class="gp-panel" id="programacao" aria-labelledby="schedule-heading">
+            <div class="gp-panel-head">
+              <h2 id="schedule-heading">Programação do fim de semana</h2>
+              <label class="gp-tz-label">
+                Fuso
+                <select id="gp-timezone" class="gp-select" aria-label="Fuso horário">
+                  <option value="America/Sao_Paulo">Brasília (UTC−3)</option>
+                  <option value="America/Rio_Branco">Acre (UTC−5)</option>
+                  <option value="America/Manaus">Manaus (UTC−4)</option>
+                  <option value="America/Noronha">Fernando de Noronha (UTC−2)</option>
+                </select>
+              </label>
+            </div>
+            <div class="gp-schedule" id="gp-schedule">
+              <div class="gp-loading">Montando grade de sessões…</div>
+            </div>
+          </section>
+
+          <section class="gp-panel" id="circuito" aria-labelledby="circuit-heading">
+            <div class="gp-panel-head">
+              <h2 id="circuit-heading">Mapa e dados do circuito</h2>
+            </div>
+            <div class="gp-circuit" id="gp-circuit">
+              <div class="gp-loading">Carregando circuito…</div>
+            </div>
+          </section>
+
+          <section class="gp-panel" id="classificacao" aria-labelledby="standings-heading">
+            <div class="gp-panel-head">
+              <h2 id="standings-heading">Classificação antes do GP</h2>
+            </div>
+            <div class="gp-standings-grid" id="gp-standings">
+              <div class="gp-loading">Carregando standings…</div>
+            </div>
+          </section>
+
+          <section class="gp-panel" aria-labelledby="last-result-heading">
+            <div class="gp-panel-head">
+              <h2 id="last-result-heading">Último resultado</h2>
+            </div>
+            <div class="gp-last-result" id="gp-last-result">
+              <div class="gp-loading">Carregando última corrida…</div>
+            </div>
+          </section>
+
+          <section class="gp-panel gp-panel--live" id="ao-vivo" aria-labelledby="live-heading">
+            <div class="gp-panel-head">
+              <h2 id="live-heading">Live Center</h2>
+              <span class="gp-live-badge" id="gp-live-badge">Offline</span>
+            </div>
+            <div class="gp-live" id="gp-live">
+              <p class="gp-live-msg">Live Center disponível durante sessões oficiais.</p>
+            </div>
+          </section>
+
+          <section class="gp-panel" id="noticias" aria-labelledby="editorial-heading">
+            <div class="gp-panel-head">
+              <h2 id="editorial-heading">Matérias do GP</h2>
+            </div>
+            <div class="gp-editorial" id="gp-editorial"></div>
+          </section>
+        </div>
+
+        <aside class="gp-aside">
+          <section class="gp-panel gp-panel--compact" aria-labelledby="quick-stats-heading">
+            <div class="gp-panel-head">
+              <h2 id="quick-stats-heading">Estatísticas rápidas</h2>
+            </div>
+            <div class="gp-quick-stats" id="gp-quick-stats">
+              <div class="gp-loading">Carregando…</div>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="gp-footer">
+      <p>Central do GP em desenvolvimento · Dados Jolpica + complemento OpenF1</p>
+    </footer>
+  </div>
+
+  <script src="/assets/site-nav.js"></script>
+  <script src="/assets/js/api/f1-api.js"></script>
+  <script src="/assets/js/data/circuit-details.js"></script>
+  <script src="/assets/js/data/gp-weekend-schedule.js"></script>
+  <script src="/assets/js/pages/gp.js"></script>
+</body>
+</html>

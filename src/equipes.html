@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Equipes - Estagiário da F1</title>
+  <link rel="stylesheet" href="/assets/site-nav.css" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f4f4f4;
+      color: #0b0b0b;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .page {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 14px;
+    }
+    .header {
+      background: #050505;
+      color: white;
+      border-radius: 0 0 18px 18px;
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    .left-head {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .logo {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-style: italic;
+      font-size: 26px;
+      line-height: .82;
+      letter-spacing: .2px;
+      text-transform: uppercase;
+    }
+    .logo .red { color: #ff2b2b; }
+    .header-nav {
+      display: flex;
+      gap: 32px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .icons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-weight: 900;
+    }
+    .search {
+      width: 18px;
+      height: 18px;
+      border: 2px solid white;
+      border-radius: 50%;
+      position: relative;
+    }
+    .search:after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 2px;
+      background: white;
+      right: -6px;
+      bottom: -3px;
+      transform: rotate(45deg);
+      border-radius: 10px;
+    }
+    .section {
+      margin-bottom: 30px;
+      padding: 0 4px;
+    }
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .section-title {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 24px;
+      text-transform: uppercase;
+      margin: 0;
+      border-left: 4px solid #ff2b2b;
+      padding-left: 10px;
+      line-height: 1;
+    }
+    .section-meta {
+      font-size: 13px;
+      color: #666;
+      font-weight: 700;
+    }
+    .teams-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .team-card {
+      background: white;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 1px 10px rgba(0, 0, 0, .06);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 150px;
+      position: relative;
+      overflow: hidden;
+    }
+    .team-card:before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 6px;
+      background: var(--team-color, #ff2b2b);
+    }
+    .team-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding-left: 4px;
+    }
+    .team-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: #050505;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 18px;
+      font-style: italic;
+      border: 2px solid var(--team-color, #ff2b2b);
+      flex: 0 0 auto;
+    }
+    .team-code {
+      font-weight: 900;
+      font-size: 11px;
+      color: #888;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-align: right;
+    }
+    .team-name {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 24px;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin: 0;
+      padding-left: 4px;
+    }
+    .team-meta {
+      margin: 0;
+      font-size: 13px;
+      color: #666;
+      line-height: 1.4;
+      padding-left: 4px;
+    }
+    .team-meta strong {
+      color: #0b0b0b;
+    }
+    .team-link {
+      margin-top: auto;
+      padding-left: 4px;
+      color: #ff2b2b;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .team-link:hover {
+      text-decoration: underline;
+    }
+    .teams-status {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 48px 20px;
+      color: #666;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    footer {
+      background: #050505;
+      color: white;
+      border-radius: 12px 12px 0 0;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+    .footer-legal {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .footer-social {
+      display: none;
+      align-items: center;
+      gap: 18px;
+    }
+    .footer-social a {
+      color: white;
+      text-decoration: none;
+    }
+    .footer-social a:hover { color: #ff2b2b; }
+    @media (max-width: 900px) {
+      .page { padding: 0; }
+      .header {
+        border-radius: 0 0 18px 18px;
+        height: 82px;
+        margin-bottom: 12px;
+      }
+      .header-nav, .icons { display: none; }
+      .logo { font-size: 22px; }
+      .section { padding: 0 12px; margin-bottom: 24px; }
+      .section-title { font-size: 18px; }
+      .teams-grid {
+        grid-template-columns: 1fr;
+      }
+      footer {
+        margin: 0 12px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-legal { display: none; }
+      .footer-social { display: flex; }
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/estilo.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="left-head">
+        <button type="button" class="hamburger-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+        <a href="/home.html" class="logo-link">
+          <div class="logo">
+            <div>Estagiário</div>
+            <div>Da <span class="red">F1</span></div>
+          </div>
+        </a>
+      </div>
+      <nav class="header-nav" aria-label="Menu principal">
+        <a href="/home.html">Home</a>
+        <a href="/noticias/">Notícias</a>
+        <a href="/calendario.html">Agenda</a>
+        <a href="/estatisticas.html">Estatísticas</a>
+        <a href="/gp.html">Central do GP</a>
+        <a href="/pilotos.html">Pilotos</a>
+        <a href="/equipes.html" class="is-active">Equipes</a>
+        <a href="/calendario.html">Calendário</a>
+        <a href="/comparador.html">Comparador</a>
+      </nav>
+      <div class="icons"><a href="https://www.instagram.com/estagiariodaf1" rel="noopener">Instagram</a><a href="https://x.com/estagiariodaf1" rel="noopener">X</a></div>
+    </header>
+
+    <div class="site-menu" id="site-menu" aria-hidden="true">
+      <button type="button" class="site-menu-backdrop" aria-label="Fechar menu"></button>
+      <div class="site-menu-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+        <div class="site-menu-head">
+          <div class="logo">
+            <div>Estagiário</div>
+            <div>Da <span class="red">F1</span></div>
+          </div>
+          <button type="button" class="site-menu-close" aria-label="Fechar menu">×</button>
+        </div>
+        <nav class="site-menu-nav">
+          <a href="/home.html">Home</a>
+          <a href="/noticias/">Notícias</a>
+          <a href="/calendario.html">Agenda</a>
+          <a href="/estatisticas.html">Estatísticas</a>
+          <a href="/gp.html">Central do GP</a>
+          <a href="/pilotos.html">Pilotos</a>
+          <a href="/equipes.html" class="is-active">Equipes</a>
+          <a href="/calendario.html">Calendário</a>
+          <a href="/comparador.html">Comparador</a>
+        </nav>
+      </div>
+    </div>
+
+    <main class="section">
+      <div class="section-head">
+        <h1 class="section-title">Equipes</h1>
+        <p class="section-meta" id="teams-meta"></p>
+      </div>
+      <div class="teams-grid" id="teams-grid" aria-live="polite" aria-busy="true">
+        <p class="teams-status">Carregando equipes…</p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="logo" style="font-size:20px"><div>Estagiário</div><div>Da <span class="red">F1</span></div></div>
+      <div class="footer-legal">
+        <a href="/quem-somos/">Quem somos</a><a href="/expediente/">Expediente</a><a href="/privacidade/">Política de privacidade</a>
+      </div>
+      <nav class="footer-social" aria-label="Redes sociais">
+        <a href="https://x.com/estagiariodaf1" rel="noopener" aria-label="Perfil no X">X</a>
+        <a href="https://www.instagram.com/estagiariodaf1" rel="noopener" aria-label="Instagram">Instagram</a>
+      </nav>
+      <a class="footer-contact" href="/contato/">Contato</a>
+    </footer>
+  </div>
+
+  <script src="/assets/site-nav.js"></script>
+  <script>
+    (function () {
+      var API_URL = 'https://api.jolpi.ca/ergast/f1/current/constructors.json';
+      var grid = document.getElementById('teams-grid');
+      var meta = document.getElementById('teams-meta');
+      var teamColors = {
+        alpine: '#2293d1',
+        aston_martin: '#006f62',
+        audi: '#d50000',
+        cadillac: '#9d7a3a',
+        ferrari: '#dc0000',
+        haas: '#b6babd',
+        mclaren: '#ff8700',
+        mercedes: '#00d2be',
+        rb: '#2b4562',
+        red_bull: '#1e41ff',
+        williams: '#005aff'
+      };
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function nationalityLabel(nationality) {
+        var map = {
+          American: 'Americana',
+          Austrian: 'Austríaca',
+          British: 'Britânica',
+          French: 'Francesa',
+          German: 'Alemã',
+          Italian: 'Italiana'
+        };
+        return map[nationality] || nationality || '—';
+      }
+
+      function teamInitials(name) {
+        return String(name || '')
+          .replace(/\bF1\b|\bTeam\b/gi, '')
+          .trim()
+          .split(/\s+/)
+          .slice(0, 2)
+          .map(function (part) { return part.charAt(0); })
+          .join('')
+          .toUpperCase() || 'F1';
+      }
+
+      function renderError() {
+        grid.setAttribute('aria-busy', 'false');
+        grid.innerHTML = '<p class="teams-status">Não foi possível carregar a lista de equipes.</p>';
+      }
+
+      function renderTeams(teams, season) {
+        var sorted = teams.slice().sort(function (a, b) {
+          return String(a.name).localeCompare(String(b.name), 'pt-BR');
+        });
+
+        if (meta && season) {
+          meta.textContent = 'Temporada ' + season + ' · ' + sorted.length + ' equipes';
+        }
+
+        grid.setAttribute('aria-busy', 'false');
+        grid.innerHTML = sorted.map(function (team) {
+          var color = teamColors[team.constructorId] || '#ff2b2b';
+          var wikiLink = team.url ? (
+            '<a class="team-link" href="' + escapeHtml(team.url) + '" target="_blank" rel="noopener noreferrer">Ver histórico ›</a>'
+          ) : '';
+
+          return (
+            '<article class="team-card" style="--team-color:' + escapeHtml(color) + '">' +
+              '<div class="team-card-top">' +
+                '<span class="team-mark">' + escapeHtml(teamInitials(team.name)) + '</span>' +
+                '<span class="team-code">' + escapeHtml(team.constructorId || 'F1') + '</span>' +
+              '</div>' +
+              '<h2 class="team-name">' + escapeHtml(team.name) + '</h2>' +
+              '<p class="team-meta"><strong>Nacionalidade:</strong> ' + escapeHtml(nationalityLabel(team.nationality)) + '</p>' +
+              wikiLink +
+            '</article>'
+          );
+        }).join('');
+      }
+
+      async function loadTeams() {
+        try {
+          var response = await fetch(API_URL);
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          var data = await response.json();
+          var table = data && data.MRData && data.MRData.ConstructorTable;
+          var teams = table && table.Constructors;
+          if (!teams || !teams.length) throw new Error('empty');
+          renderTeams(teams, table.season);
+        } catch (err) {
+          console.warn('Equipes F1:', err);
+          renderError();
+        }
+      }
+
+      loadTeams();
+    })();
+  </script>
+</body>
+</html>
