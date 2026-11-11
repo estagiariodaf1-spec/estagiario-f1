@@ -73,10 +73,10 @@ eleventyComputed:
       <div class="vitrine-grid">
         {% for rede in [["instagram", "Instagram", site.redes.instagram], ["x", "X", site.redes.x]] %}
         <div class="vitrine-caixa" data-vitrine="{{ rede[0] }}">
-          <div class="vitrine-topo"><b>{{ rede[1] }}</b><a href="{{ rede[2] }}" rel="noopener">@estagiariodaf1 ›</a></div>
+          <div class="vitrine-topo"><b>{{ rede[1] }}</b><a href="{{ rede[2] }}" target="_blank" rel="noopener noreferrer">@estagiariodaf1 ›</a></div>
           <div class="vitrine-janela"><div class="vitrine-trilho" data-trilho></div></div>
           <div class="vitrine-pontos" data-pontos></div>
-          <div class="vitrine-convite">As últimas do Estagiário no {{ rede[1] }}.<br><a href="{{ rede[2] }}" rel="noopener">Seguir no {{ rede[1] }}</a></div>
+          <div class="vitrine-convite">As últimas do Estagiário no {{ rede[1] }}.<br><a href="{{ rede[2] }}" target="_blank" rel="noopener noreferrer">Seguir no {{ rede[1] }}</a></div>
         </div>
         {% endfor %}
       </div>

@@ -3,5 +3,5 @@ title: Contato
 ---
 Pautas, correções, imprensa e propostas comerciais:
 
-- **Instagram:** [@estagiariodaf1](https://www.instagram.com/estagiariodaf1)
-- **X:** [@estagiariodaf1](https://x.com/estagiariodaf1)
+- **Instagram:** <a href="https://www.instagram.com/estagiariodaf1" target="_blank" rel="noopener noreferrer">@estagiariodaf1</a>
+- **X:** <a href="https://x.com/estagiariodaf1" target="_blank" rel="noopener noreferrer">@estagiariodaf1</a>
