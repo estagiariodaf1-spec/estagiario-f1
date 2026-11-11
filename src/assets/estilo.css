@@ -216,3 +216,16 @@ a.hero { color: white; }
 .compartilhar button:first-child { background: #111; color: #fff; border-color: #111; }
 .compartilhar .whats { color: #0b7a3e; border-color: #b7e4c7; }
 .compartilhar button:disabled { opacity: .6; }
+
+/* Boneco do Estagiário no cabeçalho */
+.logo-link { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+.logo-boneco { display: block; flex: none; }
+.logo-boneco img { display: block; height: 62px; width: auto; transform: translateY(2px); transition: transform .25s; }
+.logo-link:hover .logo-boneco img { transform: translateY(-1px) rotate(-4deg); }
+@media (max-width: 760px) { .logo-boneco img { height: 50px; } }
+@media (prefers-reduced-motion: reduce) { .logo-boneco img { transition: none; } }
+/* Menu: cabe numa linha mesmo com o boneco e o "Ao vivo" */
+.header-nav a { white-space: nowrap; }
+.header-nav { gap: clamp(14px, 1.9vw, 32px); }
+.header-nav .nav-aovivo::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #ff2b2b; margin: 0 6px 1px 0; }
+@media (max-width: 1180px) { .header-nav { font-size: 12px; } }
