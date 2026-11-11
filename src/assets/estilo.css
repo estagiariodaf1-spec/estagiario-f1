@@ -2,6 +2,10 @@
 
 a.hero, a.news-card { display: block; text-decoration: none; color: inherit; }
 a.see-more { text-decoration: none; }
+a.ver-mais { display: block; width: fit-content; margin: 20px auto 0; padding: 13px 26px; border: 2px solid #111; border-radius: 99px;
+  color: #111; background: #fff; font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: .4px; text-decoration: none; }
+a.ver-mais:hover { background: #111; color: #fff; }
+@media (max-width: 760px) { a.ver-mais { width: 100%; text-align: center; box-sizing: border-box; } }
 a.hero { color: white; }
 .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
 .thumb { overflow: hidden; }
