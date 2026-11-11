@@ -63,22 +63,30 @@
     ctx.fillStyle = '#fff'; ctx.font = '700 34px system-ui, -apple-system, Roboto, sans-serif';
     ctx.textBaseline = 'middle'; ctx.fillText('ESTAGIÁRIO DA F1', 92, 1163);
 
-    var titulo = (d.titulo || '').toUpperCase(), tamanho = 104, linhas;
-    do {
+    // título + linha fina precisam terminar antes do rodapé (e da área que o Instagram cobre embaixo)
+    var titulo = (d.titulo || '').toUpperCase(), LIMITE = H - 230, tamanho = 104, linhas, fina = [], y;
+    while (true) {
       ctx.font = tamanho + 'px AntonCard';
       linhas = quebrar(ctx, titulo, W - 140);
+      ctx.font = '400 36px system-ui, -apple-system, Roboto, sans-serif';
+      fina = d.linha ? quebrar(ctx, d.linha, W - 140).slice(0, 3) : [];
+      var fim = 1230 + linhas.length * tamanho * 1.08 + (fina.length ? 24 + fina.length * 48 : 0);
+      if (fim <= LIMITE || tamanho <= 56) {
+        if (fim > LIMITE) fina = fina.slice(0, Math.max(0, fina.length - Math.ceil((fim - LIMITE) / 48)));
+        break;
+      }
       tamanho -= 6;
-    } while (linhas.length > 5 && tamanho > 56);
-    ctx.textBaseline = 'top'; ctx.fillStyle = '#fff';
-    var y = 1230, passo = tamanho * 1.08;
-    linhas.forEach(function (l) { ctx.fillText(l, 70, y); y += passo; });
-
-    if (d.linha) {
-      ctx.font = '400 38px system-ui, -apple-system, Roboto, sans-serif'; ctx.fillStyle = '#d6d6d6';
-      quebrar(ctx, d.linha, W - 140).slice(0, 3).forEach(function (l) { y += 8; ctx.fillText(l, 70, y + 18); y += 46; });
     }
+    ctx.textBaseline = 'top'; ctx.fillStyle = '#fff'; ctx.font = tamanho + 'px AntonCard';
+    y = 1230;
+    linhas.forEach(function (l) { ctx.fillText(l, 70, y); y += tamanho * 1.08; });
+    if (fina.length) {
+      y += 24; ctx.font = '400 36px system-ui, -apple-system, Roboto, sans-serif'; ctx.fillStyle = '#d6d6d6';
+      fina.forEach(function (l) { ctx.fillText(l, 70, y); y += 48; });
+    }
+    ctx.textBaseline = 'alphabetic';
     ctx.fillStyle = '#ff2b2b'; ctx.font = '700 36px system-ui, -apple-system, Roboto, sans-serif';
-    ctx.fillText('estagiariodaf1.com.br', 70, H - 120);
+    ctx.fillText('estagiariodaf1.com.br', 70, H - 150);
     return new Promise(function (ok) { c.toBlob(ok, 'image/jpeg', 0.9); });
   }
 
