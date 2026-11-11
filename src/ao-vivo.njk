@@ -1,0 +1,59 @@
+---
+layout: base.njk
+title: Ao vivo do Estagiário
+permalink: /ao-vivo/
+descricao: Minuto a minuto das sessões da Fórmula 1, com o Estagiário.
+---
+<main class="aovivo">
+  <div class="aovivo-topo">
+    <span class="aovivo-status" data-status>Carregando…</span>
+    <h1 data-titulo>Ao vivo do Estagiário</h1>
+    <p class="aovivo-sub">Minuto a minuto das sessões, com informação conferida e o deboche de sempre. Atualiza sozinho.</p>
+  </div>
+  <ol class="aovivo-lista" data-lista aria-live="polite"></ol>
+  <p class="aovivo-vazio" data-vazio hidden>Nenhuma cobertura no ar agora. Na hora das sessões, o minuto a minuto aparece aqui.</p>
+</main>
+<script>
+(function () {
+  var URL_DADOS = {{ site.aovivo_url | dump | safe }};
+  var lista = document.querySelector('[data-lista]'), status = document.querySelector('[data-status]');
+  var titulo = document.querySelector('[data-titulo]'), vazio = document.querySelector('[data-vazio]');
+  var vistos = {}, primeira = true, timer = null;
+  function esc(v) { return String(v).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function formata(t) {
+    return esc(t).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+      .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>').replace(/\n/g, '<br>');
+  }
+  function hora(iso) {
+    return new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(iso)).replace(':', 'h');
+  }
+  async function atualizar() {
+    try {
+      var r = await fetch(URL_DADOS, { cache: 'no-store' });
+      var d = await r.json();
+      status.textContent = d.ativo ? 'AO VIVO' : (d.titulo ? 'Encerrado' : 'Fora do ar');
+      status.className = 'aovivo-status' + (d.ativo ? ' no-ar' : '');
+      if (d.titulo) { titulo.textContent = d.titulo; document.title = (d.ativo ? '🔴 ' : '') + d.titulo + ' · Estagiário da F1'; }
+      vazio.hidden = !!(d.entradas && d.entradas.length) || !!d.ativo;
+      var ids = {};
+      (d.entradas || []).forEach(function (e) { ids[e.id] = true; });
+      Array.prototype.forEach.call(lista.children, function (li) { if (!ids[li.dataset.id]) li.remove(); });
+      (d.entradas || []).slice().reverse().forEach(function (e) {
+        if (vistos[e.id] && lista.querySelector('[data-id="' + e.id + '"]')) return;
+        vistos[e.id] = true;
+        var li = document.createElement('li');
+        li.dataset.id = e.id;
+        li.className = 'tipo-' + e.tipo + (primeira ? '' : ' nova');
+        li.innerHTML = '<time>' + hora(e.quando) + '</time><div>' + formata(e.texto) + '</div>';
+        lista.insertBefore(li, lista.firstChild);
+      });
+      primeira = false;
+    } catch (e) {
+      status.textContent = 'Sem conexão, tentando de novo…';
+    }
+  }
+  function ciclo() { clearInterval(timer); timer = setInterval(function () { if (!document.hidden) atualizar(); }, 20000); }
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) atualizar(); });
+  atualizar(); ciclo();
+})();
+</script>
