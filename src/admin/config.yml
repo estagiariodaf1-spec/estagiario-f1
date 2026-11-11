@@ -17,7 +17,7 @@ collections:
       - { label: "Linha fina", name: "linha_fina", widget: "string", required: false }
       - { label: "Data", name: "date", widget: "datetime" }
       - { label: "Categoria", name: "categoria", widget: "string", default: "F1" }
-      - { label: "Autor", name: "autor", widget: "string", default: "Pedro Lopes" }
+      - { label: "Autor", name: "autor", widget: "string", default: "Redação Estagiário da F1" }
       - { label: "Imagem", name: "imagem", widget: "image", required: false }
       - { label: "Crédito da imagem", name: "credito_imagem", widget: "string", required: false }
       - { label: "Fontes", name: "fontes", widget: "list", required: false }

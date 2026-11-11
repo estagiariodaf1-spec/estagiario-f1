@@ -1,6 +1,6 @@
 {
   "layout": "materia.njk",
   "permalink": "/materias/{{ page.fileSlug | slugify }}/",
-  "autor": "Pedro Lopes",
+  "autor": "Redação Estagiário da F1",
   "categoria": "F1"
 }

@@ -1,7 +1,7 @@
 ---
 title: Expediente
 ---
-**Editor responsável:** Pedro Lopes
+**Editor responsável:** Redação Estagiário da F1
 
 **Sede:** São Paulo (SP)
 

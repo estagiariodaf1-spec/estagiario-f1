@@ -1,4 +1,4 @@
-/* Complementa o visual do Pedro (assets/css/home.css) com o que o motor de matérias precisa. */
+/* Complementa o visual base (assets/css/home.css) com o que o motor de matérias precisa. */
 
 a.hero, a.news-card { display: block; text-decoration: none; color: inherit; }
 a.see-more { text-decoration: none; }

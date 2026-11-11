@@ -33,7 +33,7 @@ layout: base.njk
   "headline": {{ title | dump | safe }},
   "datePublished": "{{ page.date | iso }}",
   {% if atualizado %}"dateModified": "{{ atualizado | iso }}",{% endif %}
-  "author": { "@type": "Person", "name": {{ autor | dump | safe }} },
+  "author": { "@type": "Organization", "name": {{ autor | dump | safe }} },
   "publisher": { "@type": "Organization", "name": {{ site.nome | dump | safe }} },
   {% if imagem %}"image": ["{{ imagem | absoluta(site.url) }}"],{% endif %}
   "mainEntityOfPage": "{{ page.url | absoluta(site.url) }}"
