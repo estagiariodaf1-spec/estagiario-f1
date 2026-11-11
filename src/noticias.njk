@@ -5,6 +5,7 @@ pagination:
   data: collections.materias
   size: 20
   alias: lista
+  generatePageOnEmptyData: true
 permalink: "/noticias/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
 eleventyExcludeFromCollections: true
 ---
