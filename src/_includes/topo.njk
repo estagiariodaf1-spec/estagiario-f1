@@ -3,11 +3,11 @@
         <button type="button" class="hamburger-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
         <a href="{{ inicio }}" class="logo-link"><picture class="logo-img"><source srcset="/assets/logo-estagiario.webp" type="image/webp"><img src="/assets/logo-estagiario.png" alt="Estagiário da F1" width="144" height="66" eleventy:ignore></picture>
         </a>
+        <a href="/ao-vivo/" class="selo-aovivo" data-aovivo-selo data-status="{{ site.aovivo_status_url }}" title="Cobertura ao vivo">Ao vivo</a>
       </div>
       <nav class="header-nav" aria-label="Menu principal">
         <a href="{{ inicio }}">Home</a>
         <a href="/noticias/">Notícias</a>
-        <a href="/ao-vivo/" class="nav-aovivo">Ao vivo</a>
         <a href="/estatisticas.html">Estatísticas</a>
         <a href="/gp.html">Central do GP</a>
         <a href="/pilotos.html">Pilotos</a>
@@ -41,3 +41,4 @@
         </nav>
       </div>
     </div>
+    <script src="/assets/js/aovivo-selo.js" defer></script>

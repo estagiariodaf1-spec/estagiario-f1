@@ -8,31 +8,15 @@
     { id: 'America/Noronha', label: 'Noronha' }
   ];
 
+  // Bandeira em imagem (SVG): emoji de bandeira vira "US", "BR" no Windows.
   var COUNTRY_FLAGS = {
-    Canada: '🇨🇦',
-    Monaco: '🇲🇨',
-    'United Kingdom': '🇬🇧',
-    UK: '🇬🇧',
-    Belgium: '🇧🇪',
-    Italy: '🇮🇹',
-    USA: '🇺🇸',
-    'United States': '🇺🇸',
-    Brazil: '🇧🇷',
-    UAE: '🇦🇪',
-    'United Arab Emirates': '🇦🇪',
-    Mexico: '🇲🇽',
-    Qatar: '🇶🇦',
-    Australia: '🇦🇺',
-    Japan: '🇯🇵',
-    China: '🇨🇳',
-    Spain: '🇪🇸',
-    Austria: '🇦🇹',
-    Netherlands: '🇳🇱',
-    Hungary: '🇭🇺',
-    Singapore: '🇸🇬',
-    Azerbaijan: '🇦🇿',
-    Bahrain: '🇧🇭',
-    'Saudi Arabia': '🇸🇦'
+    Canada: 'ca', Monaco: 'mc', 'United Kingdom': 'gb', UK: 'gb', 'Great Britain': 'gb', Belgium: 'be', Italy: 'it',
+    USA: 'us', 'United States': 'us', 'Estados Unidos': 'us', Brazil: 'br', Brasil: 'br', UAE: 'ae', 'United Arab Emirates': 'ae',
+    Mexico: 'mx', 'México': 'mx', Qatar: 'qa', Catar: 'qa', Australia: 'au', 'Austrália': 'au', Japan: 'jp', 'Japão': 'jp',
+    China: 'cn', Spain: 'es', Espanha: 'es', Austria: 'at', 'Áustria': 'at', Netherlands: 'nl', Holanda: 'nl',
+    Hungary: 'hu', Hungria: 'hu', Singapore: 'sg', Singapura: 'sg', Azerbaijan: 'az', 'Azerbaijão': 'az',
+    Bahrain: 'bh', 'Bahrein': 'bh', 'Saudi Arabia': 'sa', 'Arábia Saudita': 'sa', Portugal: 'pt', France: 'fr',
+    Germany: 'de', Turkey: 'tr'
   };
 
   var DAY_OFFSET = { sexta: -2, sabado: -1, domingo: 0 };
@@ -82,7 +66,9 @@
   }
 
   function flagFor(country) {
-    return COUNTRY_FLAGS[country] || '🏁';
+    var codigo = COUNTRY_FLAGS[country];
+    if (!codigo) return '';
+    return '<img src="/assets/bandeiras/' + codigo + '.svg" alt="" width="64" height="48" decoding="async">';
   }
 
   function circuitDetails(circuitId) {
@@ -115,7 +101,7 @@
     var status = raceStatus(race);
     var place = [race.locality, race.country].filter(Boolean).join(', ');
 
-    $('gp-hero-flag').textContent = flagFor(race.countryEn || race.country);
+    $('gp-hero-flag').innerHTML = flagFor(race.countryEn || race.country);
     $('gp-hero-title').textContent = race.name;
     $('gp-hero-sub').textContent = (race.circuit || 'Circuito') + (place ? ' · ' + place : '');
     $('gp-hero-date').textContent = formatDatePt(race.date, race.time);

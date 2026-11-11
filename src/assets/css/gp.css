@@ -85,9 +85,15 @@
 }
 
 .gp-hero-flag {
-  font-size: 42px;
-  line-height: 1;
-  margin-bottom: 8px;
+  line-height: 0;
+  margin-bottom: 12px;
+}
+
+.gp-hero-flag img {
+  width: 56px;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .25);
 }
 
 .gp-hero-title {

@@ -75,6 +75,24 @@ module.exports = function (eleventyConfig) {
     return scripts ? novo.replace("</body>", scripts + "</body>") : novo;
   });
 
+  // As páginas de dados (gp, pilotos...) são HTML puro com cabeçalho próprio. Depois do build, troca o
+  // cabeçalho delas pelo mesmo da home: logo, selo Ao vivo, menu e logos das redes ficam iguais em todo o site.
+  const BLOCO_TOPO = /<header class="header">[\s\S]*?<\/nav>\s*<\/div>\s*<\/div>(\s*<script src="\/assets\/js\/aovivo-selo\.js" defer(?:="")?><\/script>)?/;
+  eleventyConfig.on("eleventy.after", async ({ dir }) => {
+    const fs = await import("node:fs/promises");
+    const path = await import("node:path");
+    const home = await fs.readFile(path.join(dir.output, "index.html"), "utf8");
+    const topo = (home.match(BLOCO_TOPO) || [])[0];
+    if (!topo || !topo.includes("aovivo-selo.js")) throw new Error("cabeçalho da home não encontrado para as páginas de dados");
+    for (const pagina of ["calendario", "comparador", "equipes", "estatisticas", "gp", "pilotos"]) {
+      const arquivo = path.join(dir.output, `${pagina}.html`);
+      const html = await fs.readFile(arquivo, "utf8");
+      if (!BLOCO_TOPO.test(html)) throw new Error(`cabeçalho de ${pagina}.html não encontrado`);
+      const ativo = topo.replaceAll(`href="/${pagina}.html"`, `href="/${pagina}.html" class="is-active" aria-current="page"`);
+      await fs.writeFile(arquivo, html.replace(BLOCO_TOPO, () => ativo));
+    }
+  });
+
   return {
     dir: { input: "src", includes: "_includes", data: "_data", output: "_site" },
     templateFormats: ["njk", "md"],

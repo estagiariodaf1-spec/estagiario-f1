@@ -238,7 +238,17 @@ a.hero { color: white; }
 /* Menu: cabe numa linha mesmo com o boneco e o "Ao vivo" */
 .header-nav a { white-space: nowrap; }
 .header-nav { gap: clamp(14px, 1.9vw, 32px); }
-.header-nav .nav-aovivo::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #ff2b2b; margin: 0 6px 1px 0; }
+.header-nav .nav-aovivo::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #6b6b6b; margin: 0 6px 1px 0; }
+.selo-aovivo { display: inline-flex; align-items: center; gap: 7px; margin-left: 14px; padding: 6px 12px; border-radius: 99px;
+  border: 1px solid #3a3a3a; color: #9a9a9a; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: .5px;
+  text-decoration: none; white-space: nowrap; }
+.selo-aovivo::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #6b6b6b; }
+.selo-aovivo.no-ar { color: #fff; border-color: #ff2b2b; background: rgba(255, 43, 43, .14); }
+.selo-aovivo.no-ar::before { background: #ff2b2b; animation: aovivo-pisca 1.2s ease-in-out infinite; }
+@keyframes aovivo-pisca { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255, 43, 43, .7); } 50% { opacity: .35; box-shadow: 0 0 0 5px rgba(255, 43, 43, 0); } }
+@media (prefers-reduced-motion: reduce) { .selo-aovivo.no-ar::before { animation: none; } }
+@media (max-width: 760px) { .selo-aovivo { margin-left: 8px; padding: 5px 9px; font-size: 11px; } }
+@media (max-width: 480px) { .header .icons { display: none; } } /* no celular, as redes ficam no rodapé: o selo Ao vivo tem prioridade */
 @media (max-width: 1180px) { .header-nav { font-size: 12px; } }
 
 
