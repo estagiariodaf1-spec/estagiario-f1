@@ -9,5 +9,6 @@
     "x": "https://x.com/estagiariodaf1"
   },
   "vitrine_url": "https://redacao-estagiario-production.up.railway.app/vitrine.json",
-  "aovivo_url": "https://redacao-estagiario-production.up.railway.app/aovivo.json"
+  "aovivo_url": "https://redacao-estagiario-production.up.railway.app/aovivo.json",
+  "metricas_url": "https://redacao-estagiario-production.up.railway.app/conta"
 }

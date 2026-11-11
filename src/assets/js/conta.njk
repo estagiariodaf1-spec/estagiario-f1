@@ -1,0 +1,9 @@
+---
+permalink: /assets/js/conta.js
+eleventyExcludeFromCollections: true
+---
+/* Contador de visitas do Estagiário: manda só o endereço da página. Sem cookie, sem identificar ninguém. */
+(function () {
+  if (navigator.webdriver || location.hostname === 'localhost') return;
+  try { navigator.sendBeacon({{ site.metricas_url | dump | safe }}, JSON.stringify({ c: location.pathname })); } catch (e) {}
+})();

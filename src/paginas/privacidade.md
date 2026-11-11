@@ -10,3 +10,5 @@ A capa mostra imagens dos nossos próprios posts no Instagram, carregadas dos se
 Se isso mudar, por exemplo com a inclusão de ferramentas de audiência ou de anúncios, esta página será atualizada antes.
 
 Dúvidas: fale com a gente pela página de [contato](/contato/).
+
+Para saber quais matérias são mais lidas, o site conta as visitas de cada página com um contador próprio: ele recebe só o endereço da página visitada. Não usamos cookies de rastreamento, não guardamos seu IP e não identificamos quem visita.
