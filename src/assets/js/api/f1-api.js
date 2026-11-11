@@ -52,6 +52,14 @@
     return NOMES_GP[nome] || nome.replace(/ Grand Prix$/, '').replace(/^/, 'GP ');
   }
   function nomePais(pais) { return PAISES[pais] || pais || ''; }
+  // Bandeira (arquivo em /assets/bandeiras) pelo país em inglês da base de resultados.
+  var BANDEIRAS = {
+    Australia: 'au', China: 'cn', Japan: 'jp', Bahrain: 'bh', 'Saudi Arabia': 'sa', USA: 'us', 'United States': 'us',
+    Canada: 'ca', Monaco: 'mc', Spain: 'es', Austria: 'at', UK: 'gb', 'United Kingdom': 'gb', Belgium: 'be',
+    Hungary: 'hu', Netherlands: 'nl', Italy: 'it', Azerbaijan: 'az', Singapore: 'sg', Mexico: 'mx', Brazil: 'br',
+    Qatar: 'qa', UAE: 'ae', 'United Arab Emirates': 'ae', Portugal: 'pt', France: 'fr', Germany: 'de', Turkey: 'tr'
+  };
+  function bandeira(paisEn) { return BANDEIRAS[paisEn] || ''; }
 
   function buildUrl(base, path) {
     return base + String(path || '').replace(/^\/+/, '');
@@ -296,6 +304,7 @@
   }
 
   global.F1Api = {
+    bandeira: bandeira,
     getDriverStandings: getDriverStandings,
     getConstructorStandings: getConstructorStandings,
     getCurrentSchedule: getCurrentSchedule,

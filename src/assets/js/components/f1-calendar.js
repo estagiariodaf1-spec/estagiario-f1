@@ -28,19 +28,33 @@
     return '<div class="f1-data-item"><span>' + escapeHtml(label) + '</span><strong>' + escapeHtml(value || 'Em atualização') + '</strong></div>';
   }
 
-  function cardTemplate(race) {
+  function bandeiraMarkup(race) {
+    var codigo = global.F1Api.bandeira ? global.F1Api.bandeira(race.countryEn) : '';
+    return codigo
+      ? '<img class="f1-race-flag" src="/assets/bandeiras/' + codigo + '.svg" alt="" width="28" height="28" loading="lazy" decoding="async">'
+      : '<span class="f1-race-flag"></span>';
+  }
+
+  function estadoDa(race, agora) {
+    var largada = new Date(race.date + 'T' + (race.time || '12:00:00Z'));
+    return largada.getTime() + 3 * 3600e3 < agora ? 'feita' : 'futura';
+  }
+
+  function cardTemplate(race, estado) {
     var details = getCircuitDetails(race.circuitId);
-    var place = [race.locality, race.country].filter(Boolean).join(', ') || race.country || 'País a definir';
+    var place = race.locality || race.country || 'A definir';
+    var selo = estado === 'atual' ? '<span class="f1-race-selo">Próxima</span>' : '';
+    var ok = estado === 'feita' ? '<span class="f1-race-ok" aria-label="Já aconteceu">✓</span>' : '<span></span>';
 
     return (
-      '<article class="f1-race-card" data-race-card>' +
+      '<article class="f1-race-card ' + estado + '" data-race-card>' +
         '<button class="f1-race-toggle" type="button" data-race-toggle aria-expanded="false">' +
           '<span class="f1-race-round">' + escapeHtml(String(race.round).padStart(2, '0')) + '</span>' +
+          bandeiraMarkup(race) +
           '<span class="f1-race-main">' +
             '<h3 class="f1-race-name">' + escapeHtml(race.name) + '</h3>' +
-            '<p class="f1-race-meta">' + escapeHtml(place) + ' · ' + escapeHtml(formatDate(race.date)) + '</p>' +
-            trackMarkup(details, 'f1-track-mini') +
-          '</span>' +
+            '<p class="f1-race-meta">' + escapeHtml(formatDate(race.date)) + ' · ' + escapeHtml(place) + selo + '</p>' +
+          '</span>' + ok +
         '</button>' +
         '<div class="f1-race-details">' +
           '<div class="f1-race-details-inner">' +
@@ -82,6 +96,10 @@
       var data = await global.F1Api.getCurrentSchedule();
       var races = data.races || [];
       if (!races.length) throw new Error('Calendário vazio');
+      var teste = new URLSearchParams(location.search).get('agora');
+      var agora = (teste ? new Date(teste) : new Date()).getTime();
+      var achouAtual = false;
+      var feitas = races.filter(function (r) { return estadoDa(r, agora) === 'feita'; }).length;
 
       root.innerHTML =
         '<div class="f1-calendar-shell">' +
@@ -89,10 +107,14 @@
             '<div>' +
               '<p class="f1-calendar-kicker">Calendário F1 ' + escapeHtml(data.season || '') + '</p>' +
               '<h2 class="f1-calendar-title">Todas as etapas</h2>' +
-              '<p class="f1-calendar-subtitle">Clique em um GP para ver os detalhes técnicos do circuito.</p>' +
+              '<p class="f1-calendar-subtitle">' + feitas + ' de ' + races.length + ' corridas feitas. Toque num GP pra ver o circuito.</p>' +
             '</div>' +
           '</div>' +
-          '<div class="f1-calendar-grid">' + races.map(cardTemplate).join('') + '</div>' +
+          '<div class="f1-calendar-grid">' + races.map(function (r) {
+            var e = estadoDa(r, agora);
+            if (e === 'futura' && !achouAtual) { achouAtual = true; e = 'atual'; }
+            return cardTemplate(r, e);
+          }).join('') + '</div>' +
         '</div>';
 
       bindToggles(root);

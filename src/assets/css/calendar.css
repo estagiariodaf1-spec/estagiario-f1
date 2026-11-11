@@ -40,19 +40,23 @@
 
 .f1-calendar-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 8px;
   align-items: start; /* card aberto não estica os vizinhos */
 }
 
 .f1-race-card {
-  background: white;
+  background: #fff;
   color: #0b0b0b;
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, .08);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, .18);
+  border: 2px solid transparent;
 }
+
+.f1-race-card.feita { background: #1b1b1b; color: #9a9a9a; }
+.f1-race-card.feita .f1-race-meta { color: #777; }
+.f1-race-card.feita .f1-race-flag { filter: grayscale(.6); opacity: .7; }
+.f1-race-card.atual { border-color: #ff2b2b; box-shadow: 0 0 0 4px rgba(255, 43, 43, .25); }
 
 .f1-race-toggle {
   width: 100%;
@@ -60,41 +64,63 @@
   background: transparent;
   color: inherit;
   cursor: pointer;
-  padding: 0;
+  padding: 10px 12px 10px 0;
   text-align: left;
   display: grid;
-  grid-template-columns: 76px 1fr;
+  grid-template-columns: 44px 30px 1fr 18px;
+  align-items: center;
+  gap: 10px;
 }
 
 .f1-race-round {
-  background: #ff2b2b;
-  color: white;
+  color: #ff2b2b;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 32px;
+  font-size: 22px;
   line-height: 1;
-  display: grid;
-  place-items: center;
-  min-height: 116px;
+  text-align: center;
+}
+.f1-race-card.feita .f1-race-round { color: #666; }
+
+.f1-race-flag {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .12);
+  background: #ddd;
 }
 
-.f1-race-main {
-  padding: 14px;
-}
+.f1-race-main { min-width: 0; }
 
 .f1-race-name {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 23px;
-  line-height: 1;
+  font-size: 17px;
+  line-height: 1.05;
   text-transform: uppercase;
-  margin: 0 0 8px;
+  margin: 0 0 3px;
 }
 
 .f1-race-meta {
   color: #666;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  margin: 0 0 10px;
+  margin: 0;
 }
+
+.f1-race-selo {
+  display: inline-block;
+  margin-left: 6px;
+  vertical-align: 1px;
+  background: #ff2b2b;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 4px 7px;
+  border-radius: 99px;
+}
+.f1-race-ok { color: #5b5b5b; font-weight: 900; }
 
 .f1-track-mini,
 .f1-track-large,
