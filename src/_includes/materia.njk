@@ -18,7 +18,7 @@ layout: base.njk
   <div class="compartilhar" data-compartilhar data-titulo="{{ title }}" data-linha="{{ linha_fina }}" data-url="{{ page.url | absoluta(site.url) }}"
        data-imagem="{{ imagem }}" data-credito="{{ credito_imagem }}" data-slug="{{ page.fileSlug }}">
     <button type="button" data-acao="link">Compartilhar</button>
-    <a class="whats" href="https://wa.me/?text={{ (title + ' ' + (page.url | absoluta(site.url))) | urlencode }}" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="whats" href="https://wa.me/?text={{ (title + ' ' + (page.url | absoluta(site.url))) | urlencode }}" target="_blank" rel="noopener" aria-label="Mandar no WhatsApp" title="WhatsApp">{% include "icones/whatsapp.svg" %}</a>
     <button type="button" data-acao="card">Card pro story</button>
   </div>
   <div class="texto">
