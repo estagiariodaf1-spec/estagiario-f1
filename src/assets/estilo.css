@@ -7,6 +7,38 @@ a.hero { color: white; }
 .hero:before { z-index: 1; }
 .hero-content { z-index: 2; }
 
+/* Destaques da capa: título embaixo, longe do rosto da foto; vários destaques passando */
+.hero-carrossel { position: relative; min-height: 455px; border-radius: 14px; overflow: hidden; background: #050505; }
+.hero-carrossel .hero-slide { position: absolute; inset: 0; min-height: 0; border-radius: 0; opacity: 0; visibility: hidden;
+  transition: opacity .6s ease, visibility .6s; }
+.hero-carrossel .hero-slide.ativo { opacity: 1; visibility: visible; }
+.hero-carrossel .hero:before {
+  background: linear-gradient(0deg, rgba(0,0,0,.95) 0%, rgba(0,0,0,.72) 32%, rgba(0,0,0,.18) 62%, rgba(0,0,0,0) 80%),
+              linear-gradient(90deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 60%);
+}
+.hero-carrossel .hero-content { justify-content: flex-end; max-width: 640px; padding: 38px 38px 46px; height: 455px; box-sizing: border-box; }
+.hero-carrossel .hero-content .tag { margin-bottom: 14px; }
+.hero-carrossel h1, .hero-carrossel .hero-titulo { font-size: 44px; }
+.hero-titulo { font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; line-height: .98; text-transform: uppercase; margin: 0; letter-spacing: .2px; }
+.hero-carrossel p { margin-top: 12px; font-size: 16px; }
+.hero-carrossel .button { margin-top: 18px; }
+.hero-controles { position: absolute; z-index: 3; right: 20px; bottom: 18px; display: flex; align-items: center; gap: 10px; }
+.hero-seta { width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff;
+  font-size: 22px; line-height: 1; cursor: pointer; }
+.hero-seta:hover { background: #ff2b2b; }
+.hero-pontos { display: flex; gap: 7px; }
+.hero-pontos button { width: 9px; height: 9px; border-radius: 50%; border: 0; padding: 0; background: rgba(255,255,255,.45); cursor: pointer; }
+.hero-pontos button.ativo { background: #ff2b2b; width: 22px; border-radius: 6px; }
+@media (max-width: 760px) {
+  .hero-carrossel { min-height: 340px; }
+  .hero-carrossel .hero-content { height: 340px; padding: 18px 18px 34px; }
+  .hero-carrossel h1, .hero-carrossel .hero-titulo { font-size: 28px; }
+  .hero-carrossel p { font-size: 14px; }
+  .hero-carrossel { margin-bottom: 12px; }
+  .hero-seta { display: none; }
+  .hero-controles { right: auto; left: 18px; bottom: 12px; }
+}
+
 .icons a { color: white; text-decoration: none; font-size: 12px; text-transform: uppercase; }
 .icons a:hover { color: #ff2b2b; }
 .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
