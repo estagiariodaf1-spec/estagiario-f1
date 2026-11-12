@@ -38,7 +38,7 @@ Lord disse que a Mercedes ficou logo abaixo da janela, às vezes entrando nela e
 
 Na prática, a aderência vai e volta sem aviso. Pro piloto, parece que algo quebrou. Lord disse que os dois, e outros pilotos do grid, chegaram a pensar exatamente isso.
 
-Kimi falou em "nenhum aviso" antes do spin e contou que a instabilidade aparecia só nas curvas para a esquerda, sobretudo nas de alta. Ele quer checar a geometria da traseira.
+Kimi falou em "nenhum aviso" antes da rodada e contou que a instabilidade aparecia só nas curvas para a esquerda, sobretudo nas de alta. Ele quer checar a geometria da traseira.
 
 ## Wolff admite possível erro em pressão ou acerto
 
