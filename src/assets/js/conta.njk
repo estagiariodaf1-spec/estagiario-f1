@@ -2,8 +2,40 @@
 permalink: /assets/js/conta.js
 eleventyExcludeFromCollections: true
 ---
-/* Contador de visitas do Estagiário: manda só o endereço da página. Sem cookie, sem identificar ninguém. */
+/* Métricas do Estagiário, sem cookie e sem identificar ninguém: o endereço da página, quanto tempo a pessoa
+   ficou com ela aberta na tela e até onde rolou o texto. Um número aleatório marca só esta visita. */
 (function () {
-  if (navigator.webdriver || location.hostname === 'localhost') return;
-  try { navigator.sendBeacon({{ site.metricas_url | dump | safe }}, JSON.stringify({ c: location.pathname })); } catch (e) {}
+  if (navigator.webdriver || location.hostname === 'localhost' || !navigator.sendBeacon) return;
+  var url = {{ site.metricas_url | dump | safe }};
+  var id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Math.random()).slice(2) + Date.now();
+  var tempo = 0, rolagem = 0, ultimo = Date.now(), fechado = false;
+  var alvo = document.querySelector('article.materia') || document.body;
+
+  function medirRolagem() {
+    var caixa = alvo.getBoundingClientRect();
+    var visto = Math.min(window.innerHeight - caixa.top, caixa.height);
+    var pct = caixa.height > 0 ? Math.round(100 * Math.max(0, visto) / caixa.height) : 100;
+    if (pct > rolagem) rolagem = Math.min(100, pct);
+  }
+  function somarTempo() {
+    var agora = Date.now();
+    if (document.visibilityState === 'visible') tempo += Math.min(agora - ultimo, 20000);  // aba escondida não conta
+    ultimo = agora;
+  }
+  function mandar(e) {
+    try { navigator.sendBeacon(url, JSON.stringify({ e: e, id: id, c: location.pathname, t: Math.round(tempo / 1000), r: rolagem })); } catch (x) {}
+  }
+  medirRolagem();
+  mandar('i');
+  window.addEventListener('scroll', medirRolagem, { passive: true });
+  setInterval(function () {
+    somarTempo();
+    if (document.visibilityState === 'visible' && !fechado) mandar('p');   // "estou aqui": conta como ativo agora
+  }, 15000);
+  function sair() { if (fechado) return; somarTempo(); medirRolagem(); fechado = true; mandar('f'); }
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'hidden') sair();
+    else { fechado = false; ultimo = Date.now(); }
+  });
+  window.addEventListener('pagehide', sair);
 })();
