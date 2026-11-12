@@ -25,7 +25,7 @@
   }
 
   function dataItem(label, value) {
-    return '<div class="f1-data-item"><span>' + escapeHtml(label) + '</span><strong>' + escapeHtml(value || 'Em atualização') + '</strong></div>';
+    return value ? '<div class="f1-data-item"><span>' + escapeHtml(label) + '</span><strong>' + escapeHtml(value) + '</strong></div>' : '';
   }
 
   function bandeiraMarkup(race) {
@@ -66,8 +66,8 @@
                 dataItem('Extensão', details.lengthKm) +
                 dataItem('Voltas', details.laps) +
                 dataItem('Distância total', details.raceDistance) +
+                dataItem('Primeiro GP', details.firstGp) +
                 dataItem('Recorde da pista', details.lapRecord) +
-                dataItem('Zonas de DRS', details.drsZones) +
               '</div>' +
             '</div>' +
           '</div>' +
@@ -75,6 +75,8 @@
       '</article>'
     );
   }
+
+  function cartaoOuNada(r, e) { return cardTemplate(r, e); }
 
   function bindToggles(root) {
     root.querySelectorAll('[data-race-toggle]').forEach(function (button) {
@@ -86,7 +88,9 @@
     });
   }
 
-  async function mount(selector) {
+  // opcoes.proximas: na home, só a etapa da vez e as seguintes (o calendário inteiro fica na página dele)
+  async function mount(selector, opcoes) {
+    var proximas = opcoes && opcoes.proximas;
     var root = document.querySelector(selector || '[data-f1-calendar]');
     if (!root || !global.F1Api) return;
 
@@ -101,6 +105,23 @@
       var achouAtual = false;
       var feitas = races.filter(function (r) { return estadoDa(r, agora) === 'feita'; }).length;
 
+      var cartoes = races.map(function (r) {
+        var e = estadoDa(r, agora);
+        if (e === 'futura' && !achouAtual) { achouAtual = true; e = 'atual'; }
+        return { e: e, html: cartaoOuNada(r, e) };
+      });
+      if (proximas) {
+        var futuras = cartoes.filter(function (c) { return c.e !== 'feita'; }).slice(0, proximas);
+        root.innerHTML = '<div class="f1-calendar-shell">' +
+          '<div class="f1-calendar-hero"><div><p class="f1-calendar-kicker">Calendário F1 ' + escapeHtml(data.season || '') + '</p>' +
+          '<h2 class="f1-calendar-title">Próximas etapas</h2>' +
+          '<p class="f1-calendar-subtitle">' + feitas + ' de ' + races.length + ' corridas feitas.</p></div></div>' +
+          (futuras.length ? '<div class="f1-calendar-grid">' + futuras.map(function (c) { return c.html; }).join('') + '</div>'
+            : '<div class="f1-calendar-status">Temporada encerrada. O calendário do ano que vem aparece aqui quando sair.</div>') +
+          '<a class="ver-mais" href="/calendario.html">Calendário completo ›</a></div>';
+        bindToggles(root);
+        return;
+      }
       root.innerHTML =
         '<div class="f1-calendar-shell">' +
           '<div class="f1-calendar-hero">' +
@@ -110,11 +131,7 @@
               '<p class="f1-calendar-subtitle">' + feitas + ' de ' + races.length + ' corridas feitas. Toque num GP pra ver o circuito.</p>' +
             '</div>' +
           '</div>' +
-          '<div class="f1-calendar-grid">' + races.map(function (r) {
-            var e = estadoDa(r, agora);
-            if (e === 'futura' && !achouAtual) { achouAtual = true; e = 'atual'; }
-            return cardTemplate(r, e);
-          }).join('') + '</div>' +
+          '<div class="f1-calendar-grid">' + cartoes.map(function (c) { return c.html; }).join('') + '</div>' +
         '</div>';
 
       bindToggles(root);

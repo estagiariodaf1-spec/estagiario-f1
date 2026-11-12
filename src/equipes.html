@@ -322,6 +322,7 @@
   </div>
 
   <script src="/assets/site-nav.js"></script>
+  <script src="/assets/js/api/f1-api.js"></script>
   <script>
     (function () {
       var API_URL = 'https://api.jolpi.ca/ergast/f1/current/constructors.json';
@@ -358,7 +359,7 @@
           German: 'Alemã',
           Italian: 'Italiana'
         };
-        return map[nationality] || nationality || '—';
+        return window.F1Api ? F1Api.nacionalidade(nationality, true) : (map[nationality] || nationality || '—');
       }
 
       function teamInitials(name) {
@@ -397,7 +398,7 @@
             '<article class="team-card" style="--team-color:' + escapeHtml(color) + '">' +
               '<div class="team-card-top">' +
                 '<span class="team-mark">' + escapeHtml(teamInitials(team.name)) + '</span>' +
-                '<span class="team-code">' + escapeHtml(team.constructorId || 'F1') + '</span>' +
+                '<span class="team-code">' + escapeHtml(window.F1Api ? F1Api.siglaEquipe(team.constructorId, team.name) : (team.constructorId || 'F1')) + '</span>' +
               '</div>' +
               '<h2 class="team-name">' + escapeHtml(team.name) + '</h2>' +
               '<p class="team-meta"><strong>Nacionalidade:</strong> ' + escapeHtml(nationalityLabel(team.nationality)) + '</p>' +

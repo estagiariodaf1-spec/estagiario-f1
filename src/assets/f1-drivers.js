@@ -67,7 +67,7 @@
     },
 
     nationalityLabel: function (nationality) {
-      return Nationalities[nationality] || nationality || '—';
+      return window.F1Api && F1Api.nacionalidade ? F1Api.nacionalidade(nationality) : (Nationalities[nationality] || nationality || '—');
     },
 
     formatValue: function (value) {
@@ -205,7 +205,7 @@
 
     renderMeta: function (season, count) {
       if (!meta) return;
-      meta.textContent = 'Temporada ' + Utils.formatValue(season) + ' · ' + count + ' pilotos · Jolpica + OpenF1';
+      meta.textContent = 'Temporada ' + Utils.formatValue(season) + ' · ' + count + ' pilotos';
     },
 
     render: function (drivers, season) {
@@ -217,9 +217,13 @@
 
     cardTemplate: function (driver, index) {
       var safeId = 'driver-details-' + Utils.escapeHtml(driver.id || index);
+      // sem foto (ou foto quebrada): iniciais na cor da equipe, em vez de um quadrado preto vazio
+      var iniciais = '<div class="driver-photo driver-photo--iniciais" role="img" aria-label="' + Utils.escapeHtml(driver.name) + '">' +
+        Utils.escapeHtml(Utils.initials(driver.name)) + '</div>';
       var photo = driver.photo ?
-        '<img class="driver-photo" src="' + Utils.escapeHtml(driver.photo) + '" alt="Foto de ' + Utils.escapeHtml(driver.name) + '" loading="lazy">' :
-        '<div class="driver-photo" role="img" aria-label="Foto indisponível"></div>';
+        '<img class="driver-photo" src="' + Utils.escapeHtml(driver.photo) + '" alt="Foto de ' + Utils.escapeHtml(driver.name) +
+        '" loading="lazy" onerror="this.outerHTML=this.nextElementSibling.innerHTML"><template>' + iniciais + '</template>' :
+        iniciais;
 
       return (
         '<article class="driver-card" data-driver-card style="--team-color:' + Utils.escapeHtml(driver.teamColor) + '">' +

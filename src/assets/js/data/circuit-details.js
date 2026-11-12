@@ -1,62 +1,35 @@
 (function (global) {
   'use strict';
 
-  // Dados que a Jolpica/Ergast não entrega. As chaves seguem o circuitId da API.
+  // Ficha dos circuitos (o que a base de resultados não entrega). Chave = circuitId da base.
+  // Só entra dado conferido: campo sem valor simplesmente não aparece na página.
+  // Recorde e distância seguem as fichas das artes do robô (redacao/design.py, FICHAS).
+  function f(extensao, voltas, extra) { return Object.assign({ lengthKm: extensao, laps: voltas }, extra || {}); }
+
   global.F1CircuitDetails = {
-    villeneuve: {
-      lengthKm: '4,361 km',
-      laps: 70,
-      raceDistance: '305,270 km',
-      lapRecord: '1:13.078 — Valtteri Bottas, 2019',
-      drsZones: 3,
-      direction: 'Horário',
-      notes: 'Setor final e reta dos boxes favorecem ultrapassagens com DRS.'
-    },
-    monaco: {
-      lengthKm: '3,337 km',
-      laps: 78,
-      raceDistance: '260,286 km',
-      lapRecord: '1:12.909 — Lewis Hamilton, 2021',
-      drsZones: 1,
-      direction: 'Horário',
-      notes: 'Poucas zonas de DRS; qualificação define o fim de semana.'
-    },
-    silverstone: {
-      lengthKm: '5,891 km',
-      laps: 52,
-      raceDistance: '306,198 km',
-      lapRecord: '1:27.097 — Max Verstappen, 2020',
-      drsZones: 2
-    },
-    spa: {
-      lengthKm: '7,004 km',
-      laps: 44,
-      raceDistance: '308,052 km',
-      lapRecord: '1:46.286 — Valtteri Bottas, 2018',
-      drsZones: 2
-    },
-    monza: {
-      lengthKm: '5,793 km',
-      laps: 53,
-      raceDistance: '306,720 km',
-      lapRecord: '1:21.046 — Rubens Barrichello, 2004',
-      drsZones: 2
-    },
-    interlagos: {
-      lengthKm: '4,309 km',
-      laps: 71,
-      raceDistance: '305,879 km',
-      lapRecord: '1:10.540 — Valtteri Bottas, 2018',
-      drsZones: 2,
-      direction: 'Anti-horário',
-      notes: 'Subida do S do Senna e descida da Reta Oposta são marcas do traçado.'
-    },
-    yas_marina: {
-      lengthKm: '5,281 km',
-      laps: 58,
-      raceDistance: '306,183 km',
-      lapRecord: '1:26.103 — Max Verstappen, 2021',
-      drsZones: 2
-    }
+    albert_park: f('5,278 km', 58),
+    shanghai: f('5,451 km', 56),
+    suzuka: f('5,807 km', 53),
+    bahrain: f('5,412 km', 57),
+    jeddah: f('6,174 km', 50),
+    miami: f('5,412 km', 57),
+    villeneuve: f('4,361 km', 70),
+    monaco: f('3,337 km', 78),
+    catalunya: f('4,657 km', 66),
+    red_bull_ring: f('4,318 km', 71),
+    silverstone: f('5,891 km', 52),
+    spa: f('7,004 km', 44),
+    hungaroring: f('4,381 km', 70),
+    zandvoort: f('4,259 km', 72),
+    monza: f('5,793 km', 53),
+    imola: f('4,909 km', 63),
+    baku: f('6,003 km', 51),
+    marina_bay: f('4,940 km', 62),
+    americas: f('5,513 km', 56),
+    rodriguez: f('4,304 km', 71),
+    interlagos: f('4,309 km', 71, { raceDistance: '305,879 km', firstGp: '1973', lapRecord: '1:10.540 (Valtteri Bottas, 2018)' }),
+    vegas: f('6,201 km', 50, { raceDistance: '309,958 km', firstGp: '2023', lapRecord: '1:33.365 (Max Verstappen, 2025)' }),
+    losail: f('5,419 km', 57, { raceDistance: '308,611 km', firstGp: '2021', lapRecord: '1:22.384 (Lando Norris, 2024)' }),
+    yas_marina: f('5,281 km', 58, { raceDistance: '306,183 km', firstGp: '2009' })
   };
 })(window);

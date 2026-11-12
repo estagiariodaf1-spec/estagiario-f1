@@ -1,5 +1,5 @@
 /* Faixa do fim de semana de GP na capa: muda sozinha com o momento.
-   Semana do GP: horários em Brasília e contagem. Durante: sessão ao vivo / próxima sessão.
+   Antes do GP: todos os horários em Brasília e contagem. Durante: sessão ao vivo / próxima sessão.
    Depois da corrida (até 2 dias): pódio. Fora disso: só o próximo GP.
    Para testar outro momento: ?agora=2026-11-07T15:00:00-03:00 */
 (function (global) {
@@ -97,7 +97,7 @@
           esc(quando(data(corrida), { hour: '2-digit', minute: '2-digit', hour12: false }).replace(':', 'h')) + ' (Brasília) · ' +
           esc(corrida.Circuit.circuitName) + ' · faltam ' + falta(data(corrida) - agora) + '</em>';
       raiz.innerHTML = '<div class="gp-faixa ' + (dias <= 7 ? 'semana' : 'longe') + '"><div class="gp-titulo">' + cabecalho + '</div>' +
-        (dias <= 7 ? chips(lista, agora) : '') + '<a class="gp-link" href="/gp.html">Central do GP ›</a></div>';
+        chips(lista, agora) + '<a class="gp-link" href="/gp.html">Central do GP ›</a></div>';
     } catch (e) {
       // sem dados, mantém a faixa (sumir com ela empurraria a página)
       raiz.innerHTML = '<div class="gp-faixa longe"><div class="gp-titulo"><span class="gp-tag">Temporada</span><strong>Calendário da F1</strong><em>Horários de Brasília</em></div><a class="gp-link" href="/calendario.html">Ver calendário ›</a></div>';

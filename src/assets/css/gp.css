@@ -757,3 +757,20 @@
 
 /* mapas desligados até termos traçados reais */
 .gp-next-map:empty, .gp-circuit-map:empty { display: none; }
+
+/* Central do GP enxuta (nov/2026) */
+.gp-layout--uma { grid-template-columns: 1fr !important; }
+.gp-hero-contagem { margin: 10px 0 0; font-weight: 900; font-size: 15px; color: #fff; }
+.gp-hero-contagem:empty { display: none; }
+.gp-status[hidden] { display: none; }
+.gp-dia { margin: 8px 0 0; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; color: var(--gp-muted); }
+.gp-dia:first-child { margin-top: 0; }
+.gp-session--feita { opacity: .5; }
+.gp-session--agora { border-color: var(--gp-red); box-shadow: 0 0 0 2px rgba(255, 43, 43, .25); }
+.gp-agora { margin-left: 6px; padding: 2px 7px; border-radius: 999px; background: var(--gp-red); color: #fff; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; vertical-align: middle; }
+.gp-mais { font-size: 12px; font-weight: 900; color: var(--gp-red); text-decoration: none; white-space: nowrap; }
+img.gp-article-visual { width: 100%; aspect-ratio: 16 / 9; height: auto; min-height: 0; object-fit: cover; display: block; flex: none; }
+.gp-article-title { font-size: 15px; line-height: 1.3; }
+.gp-circuit-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 720px) { .gp-circuit-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.gp-podium { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }

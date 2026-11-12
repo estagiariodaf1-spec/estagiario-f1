@@ -26,7 +26,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/icones/favicon.ico": "favicon.ico", "src/icones/apple-touch-icon.png": "apple-touch-icon.png",
     "src/icones/site.webmanifest": "site.webmanifest", "src/icones": "icones" });
   // Páginas de dados do Pedro (pilotos, equipes...): HTML puro, copiado como está.
-  for (const pagina of ["calendario", "comparador", "equipes", "estatisticas", "gp", "pilotos"]) {
+  for (const pagina of ["calendario", "comparador", "equipes", "estatisticas", "pilotos"]) {
     eleventyConfig.addPassthroughCopy(`src/${pagina}.html`);
   }
 
@@ -88,14 +88,20 @@ module.exports = function (eleventyConfig) {
     const home = await fs.readFile(path.join(dir.output, "index.html"), "utf8");
     const topo = (home.match(BLOCO_TOPO) || [])[0];
     if (!topo || !topo.includes("aovivo-selo.js")) throw new Error("cabeçalho da home não encontrado para as páginas de dados");
-    for (const pagina of ["calendario", "comparador", "equipes", "estatisticas", "gp", "pilotos"]) {
+    const RODAPE = /<footer[\s\S]*?<\/footer>/;
+    const rodape = (home.match(RODAPE) || [])[0];
+    if (!rodape || !rodape.includes("<svg")) throw new Error("rodapé da home não encontrado para as páginas de dados");
+    for (const pagina of ["calendario", "comparador", "equipes", "estatisticas", "pilotos"]) {
       const arquivo = path.join(dir.output, `${pagina}.html`);
       const html = await fs.readFile(arquivo, "utf8");
       if (!BLOCO_TOPO.test(html)) throw new Error(`cabeçalho de ${pagina}.html não encontrado`);
       const icones = '<link rel="icon" href="/favicon.ico?v=3" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/icones/favicon-32.png?v=3"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3"><link rel="manifest" href="/site.webmanifest?v=3">';
       const ativo = topo.replaceAll(`href="/${pagina}.html"`, `href="/${pagina}.html" class="is-active" aria-current="page"`);
       const comIcones = html.includes('rel="apple-touch-icon"') ? html : html.replace("</head>", icones + "</head>");
-      await fs.writeFile(arquivo, comIcones.replace(BLOCO_TOPO, () => ativo));
+      let pronto = comIcones.replace(BLOCO_TOPO, () => ativo);
+      // rodapé igual ao da home (com os ícones das redes); quem não tinha ganha um depois do conteúdo
+      pronto = RODAPE.test(pronto) ? pronto.replace(RODAPE, () => rodape) : pronto.replace("</main>", () => "</main>\n    " + rodape);
+      await fs.writeFile(arquivo, pronto);
     }
   });
 

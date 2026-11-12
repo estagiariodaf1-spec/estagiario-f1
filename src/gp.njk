@@ -1,0 +1,98 @@
+---
+permalink: /gp.html
+title: Central do GP
+descricao: O próximo GP da F1 num lugar só, com horários de Brasília, ficha do circuito, classificação e as matérias do Estagiário.
+---
+{%- set inicio = "/" if site.lancado else "/home.html" -%}
+<!doctype html>
+<html lang="pt-BR">
+<head>
+{% include "cabeca.njk" %}
+  <link rel="stylesheet" href="/assets/css/estatisticas.css">
+  <link rel="stylesheet" href="/assets/css/gp.css">
+</head>
+<body class="gp-page">
+  <div class="page">
+    {% include "topo.njk" %}
+
+    <nav class="gp-tabs" aria-label="Seções da Central do GP">
+      <a href="#programacao" class="gp-tab is-active" data-tab="programacao">Horários</a>
+      <a href="#circuito" class="gp-tab" data-tab="circuito">Circuito</a>
+      <a href="#classificacao" class="gp-tab" data-tab="classificacao">Classificação</a>
+      <a href="#noticias" class="gp-tab" data-tab="noticias">Matérias</a>
+    </nav>
+
+    <main class="gp-main">
+      <section class="gp-hero" id="visao-geral" aria-labelledby="gp-hero-title">
+        <div class="gp-hero-copy">
+          <p class="gp-kicker">Central do GP</p>
+          <div class="gp-hero-flag" id="gp-hero-flag" aria-hidden="true"></div>
+          <h1 class="gp-hero-title" id="gp-hero-title">Carregando o GP…</h1>
+          <p class="gp-hero-sub" id="gp-hero-sub"></p>
+          <div class="gp-hero-meta">
+            <span class="gp-status" id="gp-status" hidden></span>
+            <span class="gp-hero-date" id="gp-hero-date"></span>
+          </div>
+          <p class="gp-hero-contagem" id="gp-countdown" aria-live="off"></p>
+          <div class="gp-hero-actions" id="gp-hero-actions">
+            <a href="#programacao" class="gp-btn gp-btn--primary">Ver os horários</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="gp-layout gp-layout--uma">
+        <div class="gp-primary">
+          <section class="gp-panel" id="programacao" aria-labelledby="schedule-heading">
+            <div class="gp-panel-head">
+              <h2 id="schedule-heading">Horários do fim de semana</h2>
+              <label class="gp-tz-label">
+                Fuso
+                <select id="gp-timezone" class="gp-select" aria-label="Fuso horário">
+                  <option value="America/Sao_Paulo">Brasília</option>
+                  <option value="America/Manaus">Manaus (−1h)</option>
+                  <option value="America/Rio_Branco">Acre (−2h)</option>
+                  <option value="America/Noronha">Noronha (+1h)</option>
+                </select>
+              </label>
+            </div>
+            <div class="gp-schedule" id="gp-schedule"><div class="gp-loading">Carregando os horários…</div></div>
+          </section>
+
+          <section class="gp-panel" id="circuito" aria-labelledby="circuit-heading">
+            <div class="gp-panel-head"><h2 id="circuit-heading">O circuito</h2></div>
+            <div class="gp-circuit" id="gp-circuit"><div class="gp-loading">Carregando…</div></div>
+          </section>
+
+          <section class="gp-panel" id="classificacao" aria-labelledby="standings-heading">
+            <div class="gp-panel-head">
+              <h2 id="standings-heading">Como chega o campeonato</h2>
+              <a class="gp-mais" href="/estatisticas.html">Completa ›</a>
+            </div>
+            <div class="gp-standings-grid" id="gp-standings"><div class="gp-loading">Carregando…</div></div>
+          </section>
+
+          <section class="gp-panel" aria-labelledby="last-result-heading">
+            <div class="gp-panel-head"><h2 id="last-result-heading">Última corrida</h2></div>
+            <div class="gp-last-result" id="gp-last-result"><div class="gp-loading">Carregando…</div></div>
+          </section>
+
+          <section class="gp-panel" id="noticias" aria-labelledby="editorial-heading">
+            <div class="gp-panel-head">
+              <h2 id="editorial-heading">Matérias do Estagiário</h2>
+              <a class="gp-mais" href="/noticias/">Todas ›</a>
+            </div>
+            <div class="gp-editorial" id="gp-editorial"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    {% include "rodape.njk" %}
+  </div>
+  <script type="application/json" id="gp-materias">[{% for m in collections.materias | primeiros(40) %}{{ {"t": m.data.title, "u": m.url, "i": m.data.imagem or "", "d": m.date.toISOString(), "k": m.data.palavra_chave or "", "l": m.data.linha_fina or ""} | dump | safe }}{% if not loop.last %},{% endif %}{% endfor %}]</script>
+  <script src="/assets/site-nav.js"></script>
+  <script src="/assets/js/api/f1-api.js"></script>
+  <script src="/assets/js/data/circuit-details.js"></script>
+  <script src="/assets/js/pages/gp.js"></script>
+</body>
+</html>

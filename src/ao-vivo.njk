@@ -16,7 +16,7 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com o Estagiário.
 <script>
 (function () {
   var URL_DADOS = {{ site.aovivo_url | dump | safe }};
-  var lista = document.querySelector('[data-lista]'), status = document.querySelector('[data-status]');
+  var lista = document.querySelector('[data-lista]'), status = document.querySelector('.aovivo-status[data-status]');
   var titulo = document.querySelector('[data-titulo]'), vazio = document.querySelector('[data-vazio]');
   var vistos = {}, primeira = true, timer = null;
   function esc(v) { return String(v).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }

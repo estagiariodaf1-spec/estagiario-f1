@@ -120,7 +120,7 @@ eleventyComputed:
   document.addEventListener('DOMContentLoaded', function () {
     GPFimDeSemana.mount('[data-gp-faixa]');
     UltimoResultado.mount('[data-ultimo-resultado]');
-    F1Calendar.mount('[data-f1-calendar]');
+    F1Calendar.mount('[data-f1-calendar]', { proximas: 3 });
     VitrineRedes.mount({{ site.vitrine_url | dump | safe }});
   });
   </script>

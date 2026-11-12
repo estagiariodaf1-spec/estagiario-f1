@@ -55,6 +55,25 @@
     if (!nome) return 'Grande Prêmio';
     return NOMES_GP[nome] || nome.replace(/ Grand Prix$/, '').replace(/^/, 'GP ');
   }
+  // Nacionalidade de piloto (masculino) e de equipe (feminino: "equipe britânica").
+  var NAC = {
+    American: ['Americano', 'Americana'], Argentine: ['Argentino', 'Argentina'], Australian: ['Australiano', 'Australiana'],
+    Austrian: ['Austríaco', 'Austríaca'], Belgian: ['Belga', 'Belga'], Brazilian: ['Brasileiro', 'Brasileira'],
+    British: ['Britânico', 'Britânica'], Canadian: ['Canadense', 'Canadense'], Chinese: ['Chinês', 'Chinesa'],
+    Danish: ['Dinamarquês', 'Dinamarquesa'], Dutch: ['Holandês', 'Holandesa'], Finnish: ['Finlandês', 'Finlandesa'],
+    French: ['Francês', 'Francesa'], German: ['Alemão', 'Alemã'], Italian: ['Italiano', 'Italiana'],
+    Japanese: ['Japonês', 'Japonesa'], Mexican: ['Mexicano', 'Mexicana'], Monegasque: ['Monegasco', 'Monegasca'],
+    'New Zealander': ['Neozelandês', 'Neozelandesa'], Polish: ['Polonês', 'Polonesa'], Russian: ['Russo', 'Russa'],
+    Spanish: ['Espanhol', 'Espanhola'], Swedish: ['Sueco', 'Sueca'], Swiss: ['Suíço', 'Suíça'], Thai: ['Tailandês', 'Tailandesa']
+  };
+  function nacionalidade(n, feminino) { var t = NAC[n]; return t ? t[feminino ? 1 : 0] : (n || '—'); }
+  // Sigla curta da equipe (a base devolve ids como "aston_martin").
+  var SIGLAS = { alpine: 'ALP', aston_martin: 'AMR', audi: 'AUD', cadillac: 'CAD', ferrari: 'FER', haas: 'HAA',
+    mclaren: 'MCL', mercedes: 'MER', rb: 'RB', red_bull: 'RBR', sauber: 'SAU', williams: 'WIL' };
+  function siglaEquipe(id, nome) {
+    return SIGLAS[id] || String(nome || id || 'F1').split(/[\s_]+/).map(function (p) { return p.charAt(0); }).join('').slice(0, 3).toUpperCase();
+  }
+
   function nomePais(pais) { return PAISES[pais] || pais || ''; }
   // Bandeira (arquivo em /assets/bandeiras) pelo país em inglês da base de resultados.
   var BANDEIRAS = {
@@ -95,7 +114,7 @@
   }
 
   function indexOpenF1Drivers(drivers) {
-    return (drivers || []).reduce(function (index, driver) {
+    return (Array.isArray(drivers) ? drivers : []).reduce(function (index, driver) {
       if (driver.driver_number != null) index.byNumber[String(driver.driver_number)] = driver;
       if (driver.name_acronym) index.byCode[normalize(driver.name_acronym)] = driver;
       if (driver.full_name) index.byName[normalize(driver.full_name)] = driver;
@@ -131,7 +150,7 @@
       team: constructor.name || (openF1Driver && openF1Driver.team_name) || '—',
       teamColor: openF1Color || fallbackColor,
       photo: openF1Driver && openF1Driver.headshot_url,
-      nationality: driver.nationality || '—',
+      nationality: nacionalidade(driver.nationality),
       points: entry.points || '0',
       wins: entry.wins || '0'
     };
@@ -143,16 +162,35 @@
       id: constructor.constructorId,
       position: entry.position || '—',
       name: constructor.name || 'Equipe',
-      nationality: constructor.nationality || '—',
+      nationality: nacionalidade(constructor.nationality, true),
       color: TEAM_COLORS[constructor.constructorId] || '#ff2b2b',
       points: entry.points || '0',
       wins: entry.wins || '0'
     };
   }
 
+  // Sessões do fim de semana, na ordem, com horário em UTC (a base já entrega tudo; sprint inclusa).
+  var SESSOES = [
+    ['FirstPractice', 'Treino livre 1', 'TL1', 60], ['SecondPractice', 'Treino livre 2', 'TL2', 60],
+    ['ThirdPractice', 'Treino livre 3', 'TL3', 60], ['SprintQualifying', 'Classificação sprint', 'CS', 45],
+    ['SprintShootout', 'Classificação sprint', 'CS', 45], ['Sprint', 'Sprint', 'SPR', 45],
+    ['Qualifying', 'Classificação', 'CLA', 60]
+  ];
+  function sessoesDa(race) {
+    var lista = [];
+    SESSOES.forEach(function (s) {
+      var o = race[s[0]];
+      if (o && o.date) lista.push({ key: s[0], label: s[1], sigla: s[2], minutos: s[3], inicio: new Date(o.date + 'T' + (o.time || '00:00:00Z')) });
+    });
+    if (race.date) lista.push({ key: 'Race', label: 'Corrida', sigla: 'GP', minutos: 120, corrida: true,
+      inicio: new Date(race.date + 'T' + (race.time || '00:00:00Z')) });
+    return lista.sort(function (a, b) { return a.inicio - b.inicio; });
+  }
+
   function mapRace(race) {
     var qualifying = race.Qualifying || {};
     return {
+      sessions: sessoesDa(race),
       round: race.round || '—',
       name: nomeGP(race.raceName, get(race, ['Circuit', 'circuitId'], ''), race.season),
       circuitId: get(race, ['Circuit', 'circuitId'], ''),
@@ -309,6 +347,8 @@
 
   global.F1Api = {
     bandeira: bandeira,
+    nacionalidade: nacionalidade,
+    siglaEquipe: siglaEquipe,
     getDriverStandings: getDriverStandings,
     getConstructorStandings: getConstructorStandings,
     getCurrentSchedule: getCurrentSchedule,
