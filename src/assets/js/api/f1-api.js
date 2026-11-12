@@ -47,7 +47,11 @@
     Brazil: 'Brasil', Qatar: 'Catar', UAE: 'Emirados Árabes', 'United Arab Emirates': 'Emirados Árabes',
     France: 'França', Portugal: 'Portugal', Turkey: 'Turquia', Germany: 'Alemanha'
   };
-  function nomeGP(nome) {
+  // Nome comercial manda: a base às vezes chama Interlagos de "Brazilian Grand Prix" (desde 2021 é GP de São Paulo).
+  var COMERCIAL = { interlagos: [2021, 'GP de São Paulo'], rodriguez: [2021, 'GP da Cidade do México'] };
+  function nomeGP(nome, circuitId, temporada) {
+    var c = COMERCIAL[circuitId];
+    if (c && Number(temporada || new Date().getFullYear()) >= c[0]) return c[1];
     if (!nome) return 'Grande Prêmio';
     return NOMES_GP[nome] || nome.replace(/ Grand Prix$/, '').replace(/^/, 'GP ');
   }
@@ -150,7 +154,7 @@
     var qualifying = race.Qualifying || {};
     return {
       round: race.round || '—',
-      name: nomeGP(race.raceName),
+      name: nomeGP(race.raceName, get(race, ['Circuit', 'circuitId'], ''), race.season),
       circuitId: get(race, ['Circuit', 'circuitId'], ''),
       circuit: get(race, ['Circuit', 'circuitName'], '—'),
       locality: get(race, ['Circuit', 'Location', 'locality'], ''),
@@ -243,7 +247,7 @@
     return {
       season: get(race, ['season'], ''),
       round: race.round || '—',
-      name: nomeGP(race.raceName),
+      name: nomeGP(race.raceName, get(race, ['Circuit', 'circuitId'], ''), race.season),
       circuitId: get(race, ['Circuit', 'circuitId'], ''),
       circuit: get(race, ['Circuit', 'circuitName'], '—'),
       locality: get(race, ['Circuit', 'Location', 'locality'], ''),

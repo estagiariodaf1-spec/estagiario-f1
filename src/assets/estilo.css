@@ -65,7 +65,15 @@ a.hero { color: white; }
 .footer-social a { font-size: 22px; display: inline-flex; padding: 4px; }
 .footer-social a:hover { color: #ff2b2b; }
 .footer-legal a:hover, .footer-contact:hover { color: #ff2b2b; }
-.ultimo-resultado .ultimo-gp { margin: -4px 0 8px; color: #bdbdbd; font-size: 13px; }
+.ultimo-resultado .ultimo-gp { display: flex; align-items: center; gap: 12px; margin: 2px 0 12px; }
+.ultimo-resultado .ultimo-gp img { border-radius: 50%; flex: none; box-shadow: 0 0 0 2px #222; }
+.ultimo-resultado .ultimo-gp b { display: block; color: #fff; font-family: Impact, Haettenschweiler, sans-serif; font-weight: 400;
+  text-transform: uppercase; font-size: 24px; line-height: 1.05; letter-spacing: .3px; }
+.ultimo-resultado .ultimo-gp small { color: #a3a3a3; font-size: 12px; }
+.ultimo-resultado .ranking-row.resto { display: none; }
+.ultimo-resultado [data-ultimo-resultado].aberto .ranking-row.resto { display: flex; }
+.ultimo-resultado .pts { color: #8a8a8a; font-size: 11px; margin-left: 6px; display: inline-block; min-width: 40px; text-align: right; }
+.ultimo-resultado button.link-class-full { background: none; border: 0; padding: 0; cursor: pointer; font-family: inherit; }
 .ultimo-resultado .equipe { color: #8a8a8a; font-size: 11px; margin-left: 4px; }
 .ultimo-resultado .ranking-dir strong { font-size: 13px; font-variant-numeric: tabular-nums; }
 .ultimo-resultado .vmr { margin: 10px 0 0; color: #bdbdbd; font-size: 12px; }
