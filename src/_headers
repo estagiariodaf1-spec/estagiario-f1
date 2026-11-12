@@ -1,0 +1,15 @@
+# Cabeçalhos do site (Cloudflare Pages lê este arquivo; o Netlify usava o netlify.toml).
+# - frame-ancestors / X-Frame-Options: ninguém carrega o site dentro de um quadro (golpe de clique)
+# - HSTS: sempre HTTPS
+# Scripts e embeds ficam livres de propósito: os vídeos e posts embedados vêm de muitos domínios.
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+# Imagens otimizadas têm nome com hash: podem ficar no celular do leitor por 1 ano.
+/img/*
+  Cache-Control: public, max-age=31536000, immutable

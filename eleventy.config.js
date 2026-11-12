@@ -21,6 +21,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/admin");
+  eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });  // Cloudflare Pages
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
   // ícones: o boneco no círculo branco (aba do navegador, sugestões do Safari, atalho na tela do celular)
   eleventyConfig.addPassthroughCopy({ "src/icones/favicon.ico": "favicon.ico", "src/icones/apple-touch-icon.png": "apple-touch-icon.png",
