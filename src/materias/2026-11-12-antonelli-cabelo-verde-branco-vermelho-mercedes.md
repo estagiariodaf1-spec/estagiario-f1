@@ -21,6 +21,10 @@ Kimi Antonelli apareceu na fábrica da Mercedes, em Brackley, com o cabelo nas c
 
 A legenda da Mercedes resume bem: o Kimi fez mesmo.
 
+Até o The Race entrou na brincadeira e fez uma montagem com o novo visual do Antonelli. Ficou boa demais:
+
+https://x.com/wearetherace/status/2120501970402210107
+
 ## A promessa do cabelo da Itália
 
 Antonelli tinha dito que pintaria o cabelo se fosse campeão. Antes do GP de São Paulo, o piloto contou à La Gazzetta dello Sport que já tinha comprado as latas de tinta.
