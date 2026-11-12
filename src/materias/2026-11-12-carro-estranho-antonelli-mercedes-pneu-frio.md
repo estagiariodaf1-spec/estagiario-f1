@@ -6,7 +6,7 @@ categoria: "F1"
 palavra_chave: "carro estranho Antonelli Mercedes"
 autor: "Redação Estagiário da F1"
 imagem: "/images/uploads/2026-11-12-carro-estranho-antonelli-mercedes-pneu-frio.jpg"
-credito_imagem: "Foto: Mercedes"
+credito_imagem: "Foto: Mercedes/reprodução"
 fontes:
   - "https://www.motorsport.com/f1/news/mercedes-explains-unusual-car-behaviour-behind-kimi-antonellis-costly-brazil-spin/10873891/"
   - "https://www.the-race.com/formula-1/mercedes-trying-to-understand-strange-behaviour-amid-driver-spins/"
