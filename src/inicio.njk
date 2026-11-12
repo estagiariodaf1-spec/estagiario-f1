@@ -29,7 +29,8 @@ eleventyComputed:
           {% if m.data.imagem %}<img class="hero-img" src="{{ m.data.imagem }}" alt="" sizes="(max-width: 760px) 100vw, 900px"{% if loop.first %} loading="eager" fetchpriority="high"{% else %} loading="lazy"{% endif %}>{% endif %}
           <div class="hero-content">
             <span class="tag">{{ m.data.categoria }}</span>
-            {% if loop.first %}<h1>{{ m.data.title }}</h1>{% else %}<h2 class="hero-titulo">{{ m.data.title }}</h2>{% endif %}
+            {% set chamada = m.data.chamada or m.data.title %}
+            {% if loop.first %}<h1>{{ chamada }}</h1>{% else %}<h2 class="hero-titulo">{{ chamada }}</h2>{% endif %}
             {% if m.data.linha_fina %}<p>{{ m.data.linha_fina }}</p>{% endif %}
             <span class="button">Ler matéria completa</span>
           </div>
