@@ -118,7 +118,7 @@
 
   var DriverMapper = {
     buildOpenF1Indexes: function (openF1Drivers) {
-      return openF1Drivers.reduce(function (indexes, driver) {
+      return (Array.isArray(openF1Drivers) ? openF1Drivers : []).reduce(function (indexes, driver) {
         if (driver.driver_number != null) indexes.byNumber[String(driver.driver_number)] = driver;
         if (driver.name_acronym) indexes.byCode[Utils.normalize(driver.name_acronym)] = driver;
         if (driver.full_name) indexes.byName[Utils.normalize(driver.full_name)] = driver;
