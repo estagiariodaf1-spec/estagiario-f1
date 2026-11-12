@@ -50,31 +50,22 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("depois", (lista, n) => (lista || []).slice(n));
   eleventyConfig.addFilter("absoluta", (caminho, base) => new URL(caminho, base).href);
 
-  // Post do Instagram ou do X colado sozinho numa linha da matéria vira o post embedado.
-  const INSTA = /^https?:\/\/(?:www\.)?instagram\.com\/(?:[\w.]+\/)?(p|reel|tv)\/([\w-]+)\/?(?:\?\S*)?$/;
-  const XPOST = /^https?:\/\/(?:www\.|mobile\.)?(?:x|twitter)\.com\/(\w+)\/status\/(\d+)\/?(?:\?\S*)?$/;
-  const SCRIPT_INSTA = '<script async src="https://www.instagram.com/embed.js"></script>';
-  const SCRIPT_X = '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
+  // Link colado sozinho numa linha da matéria vira o conteúdo embedado (posts e vídeos de qualquer plataforma).
+  const { embedDe } = require("./src/_config/embeds.js");
+  const SCRIPTS = {
+    instagram: '<script async src="https://www.instagram.com/embed.js"></script>',
+    x: '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>',
+  };
   eleventyConfig.addTransform("embeds", function (html) {
     if (!(this.page.outputPath || "").endsWith(".html") || !this.page.url.startsWith("/materias/")) return html;
-    let insta = false, x = false;
+    const usados = new Set();
     const novo = html.replace(/<p>\s*(?:<a [^>]*>)?\s*(https?:\/\/[^\s<]+)\s*(?:<\/a>)?\s*<\/p>/g, (linha, url) => {
-      const limpa = url.replace(/&amp;/g, "&");
-      let m = limpa.match(INSTA);
-      if (m) {
-        insta = true;
-        const link = `https://www.instagram.com/${m[1]}/${m[2]}/`;
-        return `<div class="embed"><blockquote class="instagram-media" data-instgrm-permalink="${link}" data-instgrm-version="14"><a href="${link}" target="_blank" rel="noopener">Ver este post no Instagram</a></blockquote></div>`;
-      }
-      m = limpa.match(XPOST);
-      if (m) {
-        x = true;
-        const link = `https://twitter.com/${m[1]}/status/${m[2]}`;
-        return `<div class="embed"><blockquote class="twitter-tweet" data-lang="pt" data-dnt="true"><a href="${link}" target="_blank" rel="noopener">Ver este post no X</a></blockquote></div>`;
-      }
-      return linha;
+      const achado = embedDe(url.replace(/&amp;/g, "&"));
+      if (!achado) return linha;
+      if (achado.script) usados.add(achado.script);
+      return achado.html;
     });
-    const scripts = (insta ? SCRIPT_INSTA : "") + (x ? SCRIPT_X : "");
+    const scripts = [...usados].map((k) => SCRIPTS[k]).join("");
     return scripts ? novo.replace("</body>", scripts + "</body>") : novo;
   });
 
