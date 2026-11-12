@@ -67,4 +67,4 @@ Leclerc terminou em 8º e Hamilton em 9º, e a Ferrari fez sua menor pontuação
 
 https://x.com/EstagiariodaF1/status/2120247442335551610
 
-Enquanto isso, [Verstappen saiu de 21º e foi vice na mesma chuva](/materias/verstappen-interlagos-chuva-pista-molhada/).
+Enquanto isso, [Max Verstappen saiu de 21º e foi vice na mesma chuva](/materias/verstappen-interlagos-chuva-pista-molhada/).

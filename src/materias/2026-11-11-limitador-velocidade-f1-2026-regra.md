@@ -17,7 +17,7 @@ fontes:
   - "https://www.the-race.com/formula-1/wet-miami-gp-f1-grid-expectations/"
 ---
 
-O limitador de velocidade da F1 2026 não é um limitador de verdade, mas funciona quase como um. É a regra C5.2.8 do regulamento técnico, que vai tirando a energia elétrica do carro conforme ele ganha velocidade no fim das retas. Ela apareceu para valer no GP do México, em 1º de novembro, e rendeu críticas pesadas de Lewis Hamilton e Lando Norris.
+O limitador de velocidade da F1 2026 não é um limitador de verdade, mas funciona quase como um. É a regra C5.2.8 do regulamento técnico, que vai tirando a energia elétrica do carro conforme ele ganha velocidade no fim das retas. Ela apareceu para valer no GP da Cidade do México, em 1º de novembro, e rendeu críticas pesadas de Lewis Hamilton e Lando Norris.
 
 A boa notícia para os dois: o trecho do regulamento que cria esse efeito foi tirado das regras de 2027.
 

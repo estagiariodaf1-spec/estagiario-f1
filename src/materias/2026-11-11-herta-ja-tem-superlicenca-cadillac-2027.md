@@ -23,7 +23,7 @@ fontes:
   - "https://www.racefans.net/2026/10/29/herta-or-bottas-for-2027-seat-is-not-an-easy-decision-for-cadillac-says-perez/"
 ---
 
-Herta já tem superlicença. Colton Herta, piloto de testes da Cadillac, completou as 24 voltas e os 100 km exigidos no TL1 do GP de São Paulo, na sexta-feira (6/11/2026), ao volante do carro de Sergio Pérez. Era o ponto que faltava para chegar aos 40 e liberar o americano para correr na F1.
+Colton Herta já tem superlicença. O piloto de testes da Cadillac completou as 24 voltas e os 100 km exigidos no TL1 do GP de São Paulo, na sexta-feira (6/11/2026), ao volante do carro de Sergio Pérez. Era o ponto que faltava para chegar aos 40 e liberar o americano para correr na F1.
 
 O que isso muda: a Cadillac agora tem uma opção real de colocar Herta num carro de corrida. O que não muda: a dupla de 2027 segue sem anúncio. Qualquer troca é, por enquanto, só rumor.
 
@@ -45,9 +45,9 @@ Pelo Artigo 13.1.5 b do Código Esportivo, quem já teve superlicença e complet
 
 ## O que está em jogo no grid da Cadillac em 2027
 
-Confirmado: Pérez está garantido. A equipe anunciou a extensão do contrato do mexicano até 2029, antes do GP do México.
+Confirmado: Pérez está garantido. A equipe anunciou a extensão do contrato do mexicano até 2029, antes do GP da Cidade do México.
 
-Bottas é a pergunta. Ele assinou um contrato de vários anos, mas a equipe ainda não acionou a opção que o manteria em 2027. Ou seja, o finlandês não está oficialmente confirmado nem fora.
+Valtteri Bottas é a pergunta. Ele assinou um contrato de vários anos, mas a equipe ainda não acionou a opção que o manteria em 2027. Ou seja, o finlandês não está oficialmente confirmado nem fora.
 
 Falando com jornalistas no paddock, Bottas disse que "normalmente nada deveria mudar" para o futuro, mas reconheceu o esforço da equipe com a licença do americano. Sobre a pressa, entendeu o motivo: para Herta seria "agora ou nunca", já que os 30 pontos de 2024 estão com prazo de validade.
 
@@ -59,7 +59,7 @@ Tudo daqui para baixo é rumor ou bastidor, sem confirmação da Cadillac.
 
 A leitura que circula no paddock é que o investimento da equipe em tempo, dinheiro e TL1 mostra vontade de promover o americano de 26 anos já no ano que vem. Bottas, por outro lado, ainda é visto como favorito a ficar por parte da imprensa, com Herta firme na disputa.
 
-Há outros nomes na conversa. Segundo o The Race, Vesti, Bottas, Herta e Yuki Tsunoda são candidatos a companheiro de Pérez, e Frederik Vesti já fez pedido público pela vaga.
+Há outros nomes na conversa. Segundo o The Race, Frederik Vesti, Bottas, Herta e Yuki Tsunoda são candidatos a companheiro de Pérez, e o dinamarquês já fez pedido público pela vaga.
 
 Herta tem um currículo que não ajuda no argumento: é o 19º entre 22 pilotos fixos na F2, com Catar e Abu Dhabi ainda por correr. Mesmo assim, o mesmo The Race apurou que a Cadillac está impressionada com o trabalho dele no carro de F1, e que Bottas espera ver o futuro carimbado numa reunião de conselho que envolve a General Motors.
 

@@ -50,7 +50,7 @@ São contas de cada piloto isolado. Na vida real, os dois da Ferrari tiram ponto
 
 ## O que pesa na briga
 
-A fase pesa a favor de Verstappen. Nas últimas cinco corridas, ele fez 116 pontos, contra 26 de Russell. O holandês venceu o GP do México e foi 2º em São Paulo.
+A fase pesa a favor de Verstappen. Nas últimas cinco corridas, ele fez 116 pontos, contra 26 de Russell. O holandês venceu o GP da Cidade do México e foi 2º em São Paulo.
 
 Há também a questão Mercedes. Toto Wolff admitiu a "possibilidade" de pedir ajuda de Antonelli a Russell, e o Motorsport.com apurou que a equipe avalia dar prioridade ao inglês. É discussão, não decisão tomada.
 
