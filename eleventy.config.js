@@ -91,7 +91,7 @@ module.exports = function (eleventyConfig) {
       const arquivo = path.join(dir.output, `${pagina}.html`);
       const html = await fs.readFile(arquivo, "utf8");
       if (!BLOCO_TOPO.test(html)) throw new Error(`cabeçalho de ${pagina}.html não encontrado`);
-      const icones = '<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/icones/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">';
+      const icones = '<link rel="icon" href="/favicon.ico?v=3" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/icones/favicon-32.png?v=3"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3"><link rel="manifest" href="/site.webmanifest?v=3">';
       const ativo = topo.replaceAll(`href="/${pagina}.html"`, `href="/${pagina}.html" class="is-active" aria-current="page"`);
       const comIcones = html.includes('rel="apple-touch-icon"') ? html : html.replace("</head>", icones + "</head>");
       await fs.writeFile(arquivo, comIcones.replace(BLOCO_TOPO, () => ativo));
