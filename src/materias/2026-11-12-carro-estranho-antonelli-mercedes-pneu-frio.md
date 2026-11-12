@@ -16,17 +16,17 @@ fontes:
   - "https://www.mercedesamgf1.com/reports/race-report-team-crowned-world-champions-in-brazil"
 ---
 
-A Mercedes já tem uma versão para o carro "estranho" que custou a vitória a Kimi Antonelli no GP de São Paulo: pneu fora da janela de temperatura. Bradley Lord, deputy team principal da equipe, explicou num debrief nas redes da Mercedes que os dois pilotos ficaram um pouco abaixo da faixa ideal no frio do último domingo (8), em Interlagos.
+A Mercedes já tem uma versão para o carro "estranho" que custou a vitória a Kimi Antonelli no GP de São Paulo: pneu fora da janela de temperatura. Bradley Lord, vice-chefe da equipe, explicou num debrief nas redes da Mercedes que os dois pilotos ficaram um pouco abaixo da faixa ideal no frio do último domingo (8), em Interlagos.
 
 É a explicação da equipe, não um diagnóstico fechado. O próprio Toto Wolff admite que pode ter errado em outra coisa.
 
 ## O que aconteceu com Antonelli e Russell
 
-Antonelli chegava como campeão do mundo (o título saiu no México) e andava pra vencer. Abriu 8 segundos sobre os perseguidores nas 12 primeiras voltas, numa corrida de pista molhada, seca e molhada de novo.
+Antonelli chegava como campeão do mundo (o título saiu na Cidade do México) e andava pra vencer. Abriu 8 segundos sobre os perseguidores nas 12 primeiras voltas, numa corrida de pista molhada, seca e molhada de novo.
 
 A confusão começou na troca dos intermediários pelos pneus slick, depois que Lando Norris parou. O italiano reclamou no rádio que o carro puxava para um lado na aceleração. Em outro momento, disse que o carro estava esterçando sozinho.
 
-Na volta 20, a traseira escapou na freada da curva 1. Norris assumiu a liderança, os dois Red Bull passaram o italiano e ele terminou em quinto, a 41 segundos do vencedor (já contando a punição de cinco segundos por soltura insegura nos boxes). O spin ainda deixou flat spot nos quatro pneus.
+Na volta 20, a traseira escapou na freada da curva 1. Norris assumiu a liderança, os dois Red Bull passaram o italiano e ele terminou em quinto, a 41 segundos do vencedor (já contando a punição de cinco segundos por soltura insegura nos boxes). A rodada ainda deixou flat spot nos quatro pneus.
 
 George Russell rodou na saída do pit lane, também de pneu macio, e fechou em quarto. Mesmo assim, o resultado deu à Mercedes o título de construtores (o nono, o primeiro desde 2021), com três etapas de sobra.
 
