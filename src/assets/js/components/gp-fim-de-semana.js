@@ -20,6 +20,12 @@
     return dia.charAt(0).toUpperCase() + dia.slice(1) + ' ' + quando(d, { hour: '2-digit', minute: '2-digit', hour12: false }).replace(':', 'h');
   }
   function data(o) { return o && o.date ? new Date(o.date + 'T' + (o.time || '00:00:00Z')) : null; }
+  // bandeira do país do GP ao lado do nome (arquivo em /assets/bandeiras)
+  function bandeira(corrida) {
+    var pais = corrida && corrida.Circuit && corrida.Circuit.Location && corrida.Circuit.Location.country;
+    var codigo = pais && global.F1Api && global.F1Api.bandeira ? global.F1Api.bandeira(pais) : '';
+    return codigo ? '<img class="gp-bandeira" src="/assets/bandeiras/' + codigo + '.svg" alt="" width="24" height="18" decoding="async">' : '';
+  }
   function nome(n) { return global.F1Api && global.F1Api.nomeGP ? global.F1Api.nomeGP(n) : n; }
   async function json(url) { var r = await fetch(url); if (!r.ok) throw new Error(r.status); return r.json(); }
 
@@ -66,7 +72,7 @@
             ' <small>' + esc(r.Constructor.name) + '</small></li>';
         }).join('');
         raiz.innerHTML = '<div class="gp-faixa pos"><div class="gp-titulo"><span class="gp-tag">Deu bandeirada</span><strong>' +
-          esc(nome(passada.raceName)) + '</strong></div><ol class="gp-podio">' + podio + '</ol>' +
+          bandeira(passada) + esc(nome(passada.raceName)) + '</strong></div><ol class="gp-podio">' + podio + '</ol>' +
           '<a class="gp-link" href="/noticias/">Análise e repercussão ›</a></div>';
         return;
       }
@@ -74,7 +80,7 @@
 
       var lista = sessoes(corrida);
       var primeira = lista[0].ini, ultima = lista[lista.length - 1].fim;
-      var titulo = esc(nome(corrida.raceName));
+      var titulo = bandeira(corrida) + esc(nome(corrida.raceName));
       if (agora >= primeira && agora < ultima) {
         var atual = lista.find(function (s) { return agora >= s.ini && agora < s.fim; });
         var prox = lista.find(function (s) { return s.ini > agora; });
