@@ -1,10 +1,10 @@
 {%- set urlPagina = page.url | absoluta(site.url) -%}
 {%- set imagemCompartilhar = (imagem | absoluta(site.url)) if imagem else ("/assets/estagiario.gif" | absoluta(site.url)) -%}
   <meta charset="utf-8">
-  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.ico?v=3" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/icones/favicon-32.png?v=3">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+  <link rel="manifest" href="/site.webmanifest?v=3">
   <meta name="theme-color" content="#0b0b0b">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if title %}{{ title }} | {% endif %}{{ site.nome }}</title>
