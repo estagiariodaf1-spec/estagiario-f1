@@ -11,3 +11,18 @@
   for = "/img/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Segurança: o navegador aplica sozinho.
+# - frame-ancestors / X-Frame-Options: ninguém carrega o site dentro de um quadro (golpe de clique)
+# - HSTS: sempre HTTPS (1 ano)
+# - nosniff, Referrer-Policy, Permissions-Policy: o básico recomendado
+# Não restringe scripts/embeds de propósito: os vídeos e posts embedados vêm de muitos domínios.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000"
+    X-Frame-Options = "SAMEORIGIN"
+    Content-Security-Policy = "frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
