@@ -1,5 +1,5 @@
 ---
-title: "Verstappen dá palpite na Ferrari e diz que nunca teria dois números 1"
+title: "Verstappen dá palpite na Ferrari e diz que nunca teria dois número 1"
 linha_fina: "Em entrevista à Viaplay, o piloto da Red Bull diz que, com um número 1 e um número 2 claros, a Ferrari teria terminado em primeiro e segundo no México. Vasseur mantém a liberdade da dupla."
 date: 2026-11-12T09:27:10-03:00
 categoria: "F1"
