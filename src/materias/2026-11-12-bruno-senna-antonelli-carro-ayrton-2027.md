@@ -1,5 +1,5 @@
 ---
-title: "Antonelli em um carro de Senna em 2027? Se depender da família di ídolo, vai acontecer"
+title: "Antonelli em um carro de Senna em 2027? Se depender da família do ídolo, vai acontecer"
 linha_fina: "O campeão de 2026 sentou na Lotus 98T na fazenda da família e não queria sair do carro. Bruno fala em Lotus ou McLaren, mas nada está marcado."
 date: 2026-11-12T14:08:26-03:00
 categoria: "F1"
