@@ -49,6 +49,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("primeiros", (lista, n) => (lista || []).slice(0, n));
   eleventyConfig.addFilter("depois", (lista, n) => (lista || []).slice(n));
   eleventyConfig.addFilter("absoluta", (caminho, base) => new URL(caminho, base).href);
+  // Imagem de compartilhamento com marca de versão pelo conteúdo: trocou a foto (mesmo nome de arquivo),
+  // muda o endereço e o WhatsApp/Facebook/X buscam a nova em vez de mostrar a miniatura guardada.
+  eleventyConfig.addFilter("comVersao", (caminho) => {
+    if (!caminho || !caminho.startsWith("/")) return caminho;
+    try {
+      const fs = require("node:fs"), crypto = require("node:crypto");
+      const hash = crypto.createHash("md5").update(fs.readFileSync("src" + caminho.split("?")[0])).digest("hex").slice(0, 10);
+      return caminho + (caminho.includes("?") ? "&" : "?") + "v=" + hash;
+    } catch (e) { return caminho; }
+  });
 
   // Link colado sozinho numa linha da matéria vira o conteúdo embedado (posts e vídeos de qualquer plataforma).
   const { embedDe } = require("./src/_config/embeds.js");
