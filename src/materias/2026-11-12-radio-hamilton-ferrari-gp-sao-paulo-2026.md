@@ -53,7 +53,7 @@ Na volta seguinte, ele rodou na parte rápida antes do pit lane e encostou de le
 
 A versão dele depois da corrida é outra. Hamilton contou que a última informação era de que a garoa ia continuar igual, que estava tirando cerca de um segundo por volta de Lawson e que ouviu "box, box" quando já estava colado no carro da frente. Ativou o Modo Ultrapassagem e seguiu.
 
-Ao Sky Sports F1, disse que não ouviu que chovia mais no primeiro setor e que, na Curva 1, a pista estava encharcada. À Sky Itália, falou que não avisaram que chovia mais na primeira parte da volta e que, se soubesse, teria entrado. Na mesma conversa, ele assumiu a parte dele: "no fim das contas, isso é culpa minha". Pediu desculpa à equipe.
+Ao Sky Sports F1, disse que não ouviu que chovia mais no primeiro setor e que, na Curva 1, a pista estava encharcada. À Sky Itália, falou que não avisaram que chovia mais na primeira parte da volta e que, se soubesse, teria entrado. Na mesma conversa, ele assumiu a parte dele: "No fim das contas, isso é culpa minha". Pediu desculpa à equipe.
 
 Não foi a primeira vez. Em Singapura, em outubro, ele também passou por cima de uma chamada pro pit stop e pediu desculpa depois.
 
