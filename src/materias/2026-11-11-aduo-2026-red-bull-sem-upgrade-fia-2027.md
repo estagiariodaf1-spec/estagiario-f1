@@ -37,7 +37,7 @@ Todo mundo que ganhou homologação também levou aumento no teto de gastos e ma
 
 ## O que já foi usado
 
-Segundo o The Race, Ferrari e Honda já usaram as duas homologações de 2026. A Audi, pelo que se entende, está guardando a próxima pra 2027. A Mercedes ainda não introduziu a única que tem neste ano.
+Ferrari e Honda já usaram as duas homologações de 2026. A Audi, ao que tudo indica, está guardando a próxima pra 2027. A Mercedes ainda não introduziu a única que tem neste ano.
 
 Ou seja, o time que acabou de ser campeão de Construtores ainda tem upgrade no bolso. A Red Bull, que tem o melhor motor a combustão pelo critério da FIA, não tem nada. Ser o melhor, nesse sistema, sai caro.
 
@@ -51,6 +51,6 @@ Foi daí que veio a confusão do ano. A Mercedes domina na pista, mas quem apare
 
 O diretor de monopostos da FIA, Nikolas Tombazis, defendeu o conceito e disse que o primeiro ano reforçou a crença nele. Mas afirmou que o sistema precisa evoluir, e que a FIA trabalha com fabricantes e equipes em ajustes na metodologia.
 
-A FIA ainda não disse quais serão os ajustes. Segundo o The Race, o que já esteve em discussão foi mudar a forma de medir a potência do motor a combustão ou ranquear o conjunto inteiro da unidade de potência. O Motorsport.com lembra que qualquer mudança depende da aprovação dos fabricantes.
+A FIA ainda não disse quais serão os ajustes. O que já esteve em discussão foi mudar a forma de medir a potência do motor a combustão ou ranquear o conjunto inteiro da unidade de potência. E qualquer mudança depende da aprovação dos fabricantes.
 
 O próximo período de análise começa em 2027 e cobre as corridas 1 a 6, do Bahrein a Miami.

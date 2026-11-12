@@ -50,9 +50,9 @@ São contas de cada piloto isolado. Na vida real, os dois da Ferrari tiram ponto
 
 ## O que pesa na briga
 
-A fase pesa a favor de Verstappen. Segundo o Motorsport.com, nas últimas cinco corridas ele fez 116 pontos, contra 26 de Russell. O holandês venceu o GP do México e foi 2º em São Paulo.
+A fase pesa a favor de Verstappen. Nas últimas cinco corridas, ele fez 116 pontos, contra 26 de Russell. O holandês venceu o GP do México e foi 2º em São Paulo.
 
-Há também a questão Mercedes. Segundo o RacingNews365, Toto Wolff admitiu a "possibilidade" de pedir ajuda de Antonelli a Russell. O Motorsport.com diz que a equipe avalia dar prioridade ao inglês. É discussão, não decisão tomada.
+Há também a questão Mercedes. Toto Wolff admitiu a "possibilidade" de pedir ajuda de Antonelli a Russell, e o Motorsport.com apurou que a equipe avalia dar prioridade ao inglês. É discussão, não decisão tomada.
 
 ## Quando é a decisão
 
@@ -60,4 +60,4 @@ Há também a questão Mercedes. Segundo o RacingNews365, Toto Wolff admitiu a "
 - **Catar:** domingo, 29/11, às 19h locais, ou 13h em Brasília.
 - **Abu Dhabi:** domingo, 6/12, às 17h locais, ou 10h em Brasília.
 
-As duas últimas etapas seguem confirmadas. Segundo o Motorsport.com e o RacingNews365, a F1 avisou o autódromo de Ímola que não vai precisar dele como reserva. A categoria, porém, não fecha a porta para uma mudança de última hora se a situação no Oriente Médio piorar. Se alguma etapa cair, os 75 pontos viram menos.
+As duas últimas etapas seguem confirmadas: a F1 [avisou o autódromo de Ímola](/materias/f1-catar-abu-dhabi-2026-imola-dispensada/) que não vai precisar dele como reserva. A categoria, porém, não fecha a porta para uma mudança de última hora se a situação no Oriente Médio piorar. Se alguma etapa cair, os 75 pontos viram menos.

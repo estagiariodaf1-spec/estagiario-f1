@@ -1,6 +1,6 @@
 ---
 title: "Herta já tem superlicença: o que muda na Cadillac em 2027"
-linha_fina: "Herta já tem superlicença após os 100 km no TL1 de Interlagos, mas a dupla da Cadillac para 2027 segue sem anúncio. Veja o que muda."
+linha_fina: "O americano bateu os 100 km no TL1 de Interlagos, mas a Cadillac ainda não anunciou a dupla de 2027. Veja o que muda e o que é rumor."
 date: 2026-11-11T16:23:12-03:00
 categoria: "F1"
 palavra_chave: "Herta já tem superlicença"
@@ -23,46 +23,46 @@ fontes:
   - "https://www.racefans.net/2026/10/29/herta-or-bottas-for-2027-seat-is-not-an-easy-decision-for-cadillac-says-perez/"
 ---
 
-Herta já tem superlicença. Colton Herta, piloto de testes da Cadillac, <cite index="5-5">completou as 24 voltas necessárias em Interlagos e acumulou os 100 km exigidos</cite> no TL1 do GP de São Paulo, na sexta-feira (6/11/2026), ao volante do carro de Sergio Pérez. Foi o ponto que faltava para chegar aos 40 e liberar o americano para correr na F1.
+Herta já tem superlicença. Colton Herta, piloto de testes da Cadillac, completou as 24 voltas e os 100 km exigidos no TL1 do GP de São Paulo, na sexta-feira (6/11/2026), ao volante do carro de Sergio Pérez. Era o ponto que faltava para chegar aos 40 e liberar o americano para correr na F1.
 
 O que isso muda: a Cadillac agora tem uma opção real de colocar Herta num carro de corrida. O que não muda: a dupla de 2027 segue sem anúncio. Qualquer troca é, por enquanto, só rumor.
 
 ## Como Herta chegou aos 40 pontos da superlicença
 
-A conta, que parecia simples, virou novela. Herta somou <cite index="5-13">1 ponto em 2023, 30 em 2024 (vice-campeão da IndyCar) e 4 em 2025</cite>. Mais <cite index="5-14">4 pontos vieram dos TL1 que ele fez pela Cadillac em 2026</cite>, o que dava 39.
+A conta, que parecia simples, virou novela. Herta somou 1 ponto em 2023, 30 em 2024 (vice-campeão da IndyCar) e 4 em 2025. Mais 4 vieram dos TL1 que ele fez pela Cadillac em 2026, o que dava 39.
 
-Na Cidade do México, a equipe achou que o 40º ponto tinha chegado. Não tinha: <cite index="5-9">o site da IndyCar listava Herta em 6º em 2025, quando ele foi 7º</cite>. <cite index="5-11">A FIA confirmou que ele continuava com 39</cite>.
+Da série: parece mentira, mas... Na Cidade do México, a equipe achou que o 40º ponto tinha chegado. Não tinha. O site da IndyCar listava Herta em 6º em 2025, quando ele foi 7º, e a FIA confirmou que ele continuava com 39.
 
-Ainda teve Monza: <cite index="4-6">um problema hidráulico limitou Herta a cinco voltas</cite>, abaixo dos 100 km, e a sessão não rendeu ponto. Pela regra, <cite index="6-4">os times só precisam rodar com um estreante em quatro TL1 por ano</cite>. Em Interlagos foi a sexta vez de Herta na temporada, segundo o Motorsport.com.
+Ainda teve Monza: um problema hidráulico limitou Herta a cinco voltas, abaixo dos 100 km, e a sessão não rendeu ponto. Pela regra, as equipes só precisam colocar um estreante em quatro TL1 por ano. Interlagos foi a sexta vez de Herta na temporada.
 
-O fecho formal ainda é da FIA. O The Race diz que a federação <cite index="3-9">está satisfeita com o que ele fez no TL1 e que a elegibilidade será confirmada no devido tempo</cite>. O RacingNews365 já trata a superlicença como oficial.
+O carimbo formal ainda é da FIA, que se disse satisfeita com o que ele fez no TL1 e avisou que a elegibilidade será confirmada no devido tempo.
 
 ## Quanto tempo vale a superlicença de Herta
 
-A superlicença vale um ano. Só que, ouvida pelo Motorsport.com e pelo Autosport, a FIA explicou que <cite index="20-25">pedir o documento também dá uma rede de segurança de três anos</cite>.
+A superlicença vale um ano, mas pedir o documento também dá uma rede de segurança de três anos, segundo a própria FIA.
 
-Pelo Artigo 13.1.5 b do Código Esportivo, quem já teve superlicença e <cite index="21-9">completou ao menos 100 km num treino livre de F1 pode pedir outra sem bater os 40 pontos de novo</cite>. Isso importa porque os 30 pontos de 2024 vão expirar. Na prática, a Cadillac ganha uma janela para dar uma chance a Herta mesmo que 2027 não seja o ano.
+Pelo Artigo 13.1.5 b do Código Esportivo, quem já teve superlicença e completou ao menos 100 km num treino livre de F1 pode pedir outra sem bater os 40 pontos de novo. Isso importa porque os 30 pontos de 2024 vão expirar. Na prática, a Cadillac ganha uma janela para dar uma chance a Herta mesmo que 2027 não seja o ano.
 
 ## O que está em jogo no grid da Cadillac em 2027
 
-Confirmado: Pérez está garantido. A equipe <cite index="12-5">anunciou a extensão do contrato do mexicano até 2029</cite>, antes do GP do México.
+Confirmado: Pérez está garantido. A equipe anunciou a extensão do contrato do mexicano até 2029, antes do GP do México.
 
-Bottas é a pergunta. Ele <cite index="11-5,11-6">assinou um contrato de vários anos, mas a equipe ainda não acionou a opção que o manteria em 2027</cite>, segundo a F1.com. Ou seja, o finlandês não está oficialmente confirmado nem fora.
+Bottas é a pergunta. Ele assinou um contrato de vários anos, mas a equipe ainda não acionou a opção que o manteria em 2027. Ou seja, o finlandês não está oficialmente confirmado nem fora.
 
-Em declaração a jornalistas, entre eles o RacingNews365, Bottas disse que <cite index="4-9">normalmente nada deveria mudar</cite> para o futuro, mas reconheceu o esforço da equipe com a licença do americano. Sobre a pressa, entendeu o motivo: para Herta seria "agora ou nunca", já que os 30 pontos de 2024 estão com prazo de validade.
+Falando com jornalistas no paddock, Bottas disse que "normalmente nada deveria mudar" para o futuro, mas reconheceu o esforço da equipe com a licença do americano. Sobre a pressa, entendeu o motivo: para Herta seria "agora ou nunca", já que os 30 pontos de 2024 estão com prazo de validade.
 
-Pelo lado esportivo, nenhum dos dois pilotos da Cadillac pontuou até aqui. O RaceFans registrou que Pérez levou a melhor no confronto interno: <cite index="12-9">largou na frente 10 a 8 e, nas seis vezes em que os dois terminaram a corrida, Bottas ficou à frente só uma</cite> (dados de 29/10). Bottas, por outro lado, passou por uma sequência de azar: <cite index="4-8">uma falha de suspensão no México e um DNS em Interlagos por causa de uma porca de roda mal rosqueada</cite>.
+Na pista, nenhum dos dois pilotos da Cadillac pontuou até aqui. No confronto interno, Pérez largou na frente 10 a 8 e, nas seis vezes em que os dois terminaram a corrida, Bottas ficou à frente só uma (até 29/10). O finlandês ainda pegou uma sequência de azar: falha de suspensão no México e um DNS em Interlagos por causa de uma porca de roda mal rosqueada.
 
 ## O que é rumor sobre Herta e Bottas
 
-Tudo daqui para baixo é rumor ou leitura de bastidor, sem confirmação da Cadillac.
+Tudo daqui para baixo é rumor ou bastidor, sem confirmação da Cadillac.
 
-O Autosport e o Motorsport.com interpretam o investimento da equipe em tempo, dinheiro e TL1 como sinal de que ela quer <cite index="18-6">promover o americano de 26 anos já no ano que vem</cite>. A F1.com, em análise, ainda via Bottas como favorito a ficar, com Herta firme na disputa.
+A leitura que circula no paddock é que o investimento da equipe em tempo, dinheiro e TL1 mostra vontade de promover o americano de 26 anos já no ano que vem. Bottas, por outro lado, ainda é visto como favorito a ficar por parte da imprensa, com Herta firme na disputa.
 
-Há outros nomes na conversa. O The Race cita <cite index="16-1">Vesti, Bottas, Herta e Yuki Tsunoda como candidatos a companheiro de Pérez</cite>, e o Motorsport.com diz que Frederik Vesti já fez pedido público pela vaga.
+Há outros nomes na conversa. Segundo o The Race, Vesti, Bottas, Herta e Yuki Tsunoda são candidatos a companheiro de Pérez, e Frederik Vesti já fez pedido público pela vaga.
 
-Herta tem um currículo que não ajuda no argumento: <cite index="10-14">é o 19º entre 22 pilotos fixos na F2, com Catar e Abu Dhabi ainda por correr</cite>. Mesmo assim, o The Race conta que a Cadillac <cite index="10-16">está impressionada com o trabalho dele no carro de F1</cite>.
+Herta tem um currículo que não ajuda no argumento: é o 19º entre 22 pilotos fixos na F2, com Catar e Abu Dhabi ainda por correr. Mesmo assim, o mesmo The Race apurou que a Cadillac está impressionada com o trabalho dele no carro de F1, e que Bottas espera ver o futuro carimbado numa reunião de conselho que envolve a General Motors.
 
-Sobre a decisão, o chefe da equipe, Marcin Budkowski, já disse que contratos de pilotos saem em comunicado oficial, quando for a hora. Bottas, segundo o The Race, espera que o futuro dele seja carimbado numa reunião de conselho que envolve a General Motors.
+O chefe da equipe, Marcin Budkowski, já avisou que contratos de pilotos saem em comunicado oficial, quando for a hora.
 
 Até lá, o que existe é uma superlicença no bolso, uma vaga em aberto e um calendário que ainda tem [Catar e Abu Dhabi](/materias/f1-catar-abu-dhabi-2026-imola-dispensada/) pela frente.

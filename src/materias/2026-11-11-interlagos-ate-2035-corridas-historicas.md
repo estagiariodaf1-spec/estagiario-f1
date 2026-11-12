@@ -42,7 +42,7 @@ A bandeira vermelha ajudou, e o holandês acertou ao ficar na pista quando outro
 
 ## Brasil 2026: Lando Norris se vinga da chuva
 
-A edição deste ano teve um classificatório de 146 minutos, segundo a análise de Martin Brundle na Sky Sports, e uma corrida de 71 voltas em tempo misto. Norris largou da pole e perdeu a ponta para Kimi Antonelli logo no início. Retomou a liderança depois da troca para pneus slick, quando Antonelli rodou.
+A edição deste ano teve uma classificação de 146 minutos (sim, quase duas horas e meia) e uma corrida de 71 voltas em tempo misto. Norris largou da pole e perdeu a ponta para Kimi Antonelli logo no início. Retomou a liderança depois da troca para pneus slick, quando Antonelli rodou.
 
 No fim, a chuva voltou e todo mundo foi de intermediário. Norris venceu por 14,602 segundos sobre Verstappen, que saiu de 21º, com Isack Hadjar em terceiro. George Russell e Antonelli fecharam em quarto e quinto, o que garantiu a Mercedes o título de construtores de 2026. Norris ainda estourou a garrafa de champanhe no pódio.
 
