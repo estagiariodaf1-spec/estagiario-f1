@@ -1,5 +1,6 @@
 /* Compartilhar a matéria: link (menu do celular), WhatsApp e um card 1080x1920 pronto para story.
-   O card é desenhado no próprio celular do leitor, na hora do clique: o site não fica mais pesado. */
+   O card é desenhado no próprio celular do leitor quando os botões aparecem na tela (o Android só deixa
+   compartilhar logo depois do toque, então ele precisa estar pronto antes). */
 (function () {
   'use strict';
   var caixa = document.querySelector('[data-compartilhar]');
@@ -101,22 +102,55 @@
       return;
     }
     if (acao === 'card') {
+      // Android: o compartilhamento só vale "logo depois do toque". Se montar o card demorar (fonte + foto),
+      // o Chrome recusa. Por isso o card fica pronto antes e, se mesmo assim recusar, o próximo toque compartilha.
+      if (pronto) { compartilharArquivo(botao, pronto); return; }
       botao.disabled = true; var rotulo = botao.textContent; botao.textContent = 'Montando o card…';
       try {
-        var blob = await desenharCard();
-        var arquivo = new File([blob], (d.slug || 'materia') + '-estagiario-f1.jpg', { type: 'image/jpeg' });
-        if (navigator.canShare && navigator.canShare({ files: [arquivo] })) {
-          await navigator.share({ files: [arquivo], title: d.titulo, text: d.url }).catch(function () {});
-        } else {
-          var a = document.createElement('a');
-          a.href = URL.createObjectURL(blob); a.download = arquivo.name; a.click();
-          setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
-        }
-      } catch (e) {
-        aviso(botao, 'Não deu pra montar o card');
-      } finally {
+        pronto = await (preparando || preparar());
         botao.disabled = false; botao.textContent = rotulo;
+        compartilharArquivo(botao, pronto);
+      } catch (e) {
+        botao.disabled = false; botao.textContent = rotulo;
+        aviso(botao, 'Não deu pra montar o card');
       }
     }
   });
+
+  var pronto = null, preparando = null;
+  function preparar() {
+    preparando = desenharCard().then(function (blob) {
+      if (!blob) throw new Error('card vazio');
+      return new File([blob], (d.slug || 'materia') + '-estagiario-f1.jpg', { type: 'image/jpeg' });
+    });
+    preparando.catch(function () { preparando = null; });
+    return preparando;
+  }
+  // monta o card em segundo plano quando os botões aparecem na tela (só pra quem chega até eles):
+  // assim o toque compartilha na hora
+  function adiantar() { if (!pronto && !preparando) preparar().then(function (f) { pronto = f; }).catch(function () {}); }
+  if ('IntersectionObserver' in window) {
+    var olho = new IntersectionObserver(function (es) {
+      if (es.some(function (e) { return e.isIntersecting; })) { olho.disconnect(); adiantar(); }
+    }, { rootMargin: '200px' });
+    olho.observe(caixa);
+  }
+
+  function baixar(arquivo) {
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(arquivo); a.download = arquivo.name; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+  }
+
+  function compartilharArquivo(botao, arquivo) {
+    if (!(navigator.canShare && navigator.canShare({ files: [arquivo] }))) { baixar(arquivo); return; }
+    // só o arquivo: com texto junto, alguns apps no Android (Instagram incluído) somem da lista
+    navigator.share({ files: [arquivo] }).catch(function (e) {
+      if (e && e.name === 'NotAllowedError') {
+        botao.textContent = 'Card pronto: toque pra compartilhar';
+      } else if (e && e.name !== 'AbortError') {
+        baixar(arquivo);  // última saída: baixa a imagem pra postar pela galeria
+      }
+    });
+  }
 })();
