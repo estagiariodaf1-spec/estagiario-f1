@@ -23,13 +23,11 @@ Tem dia que o rádio da Ferrari resolve virar novela.
 
 O rádio de Lewis Hamilton com o engenheiro Carlo Santi no GP de São Paulo é uma corrida inteira de pergunta sem resposta. Hamilton largou em 20º, chegou a 9º na primeira volta e terminou em 9º, uma volta atrás do vencedor Lando Norris.
 
-https://x.com/EstagiariodaF1/status/2120247442335551610
-
 Dá pra sentir o cansaço dos dois. O RaceFans levantou mensagens que não foram ao ar na transmissão, e é dali que vem boa parte do que está aqui.
 
 ## "Vocês estão me ouvindo?"
 
-Hamilton ganhou 11 posições na primeira volta, no seu 400º GP. Aí o pneu traseiro de intermediário esquentou demais e ele começou cair de posição no pelotão.
+Hamilton ganhou 11 posições na primeira volta, no seu 400º GP. Aí o pneu traseiro de intermediário esquentou demais e ele começou a cair de posição no pelotão.
 
 Antes disso, a Ferrari mandou devolver uma posição a Oliver Bearman, porque ele tinha passado com o carro fora da pista. Os comissários decidiram depois que ele não ganhou vantagem nenhuma. Ou seja, devolveu o que não precisava devolver.
 
@@ -65,4 +63,8 @@ Nas falas de Fred Vasseur divulgadas depois da corrida, o assunto foi pneu. O ch
 
 Sobre a troca antecipada de Hamilton para slick, Vasseur disse que a Ferrari quis ser agressiva, "e talvez um pouco demais". Também falou que a pressão das intermediárias estava alta demais, o que gerou calor rápido e desgaste em cerca de cinco voltas.
 
-Leclerc terminou em 8º e Hamilton em 9º, e a Ferrari fez sua menor pontuação num fim de semana desde Monza. Enquanto isso, [Verstappen saiu de 21º e foi vice na mesma chuva](/materias/verstappen-interlagos-chuva-pista-molhada/).
+Leclerc terminou em 8º e Hamilton em 9º, e a Ferrari fez sua menor pontuação num fim de semana desde Monza. E o rádio do outro lado da garagem também rendeu: o vídeo abaixo é do Charles Leclerc.
+
+https://x.com/EstagiariodaF1/status/2120247442335551610
+
+ Enquanto isso, [Verstappen saiu de 21º e foi vice na mesma chuva](/materias/verstappen-interlagos-chuva-pista-molhada/).
