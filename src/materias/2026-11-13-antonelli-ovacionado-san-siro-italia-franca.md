@@ -1,5 +1,5 @@
 ---
-title: "Antonelli é ovacionado no San Siro e v"
+title: "Antonelli é ovacionado no San Siro e ganha camisa da Itália"
 linha_fina: "Campeão mais jovem da F1 ganhou a camisa 12 com as iniciais AKA, e a Itália bateu a França por 3 a 1 e assumiu a ponta do Grupo A1 da Liga das Nações."
 date: 2026-11-13T07:17:09-03:00
 categoria: "F1"
