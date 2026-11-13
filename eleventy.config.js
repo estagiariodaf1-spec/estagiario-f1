@@ -20,7 +20,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });  // Cloudflare Pages
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
   // ícones: o boneco no círculo branco (aba do navegador, sugestões do Safari, atalho na tela do celular)
@@ -30,6 +29,42 @@ module.exports = function (eleventyConfig) {
   for (const pagina of ["calendario", "comparador", "equipes", "estatisticas", "pilotos"]) {
     eleventyConfig.addPassthroughCopy(`src/${pagina}.html`);
   }
+
+  // Cópia dos dados da F1 no build: o site usa se a API cair na hora (ver fetchJson em f1-api.js).
+  eleventyConfig.on("eleventy.after", async ({ dir }) => {
+    const fs = require("node:fs"), path = require("node:path");
+    const fontes = ["https://api.jolpi.ca/ergast/f1/current.json", "https://api.jolpi.ca/ergast/f1/current/next.json",
+      "https://api.jolpi.ca/ergast/f1/current/last/results.json", "https://api.jolpi.ca/ergast/f1/current/driverstandings.json",
+      "https://api.jolpi.ca/ergast/f1/current/constructorstandings.json"];
+    const pasta = path.join(dir.output, "dados", "f1");
+    fs.mkdirSync(pasta, { recursive: true });
+    await Promise.all(fontes.map(async (url) => {
+      const nome = url.replace(/^https:\/\/[^/]+\/(ergast\/f1\/|v1\/)?/, "").replace(/[^a-z0-9]+/gi, "_") + ".json";
+      try {
+        const r = await fetch(url, { signal: AbortSignal.timeout(8000) });
+        if (r.ok) fs.writeFileSync(path.join(pasta, nome), await r.text());
+      } catch (e) { console.log("[dados f1] sem cópia de", url); }
+    }));
+  });
+
+  // Pilotos e equipes: cada um tem página com as matérias que citam o nome (e alimentam o "Leia também").
+  const { PILOTOS, EQUIPES, citados } = require("./src/_config/assuntos.js");
+  eleventyConfig.addGlobalData("assuntos", [...PILOTOS, ...EQUIPES]);
+  eleventyConfig.addFilter("assuntosDe", (item) => citados(item));
+  const itemDe = (pagina, lista) => (lista || []).find((m) => m.url === pagina.url) || { url: pagina.url, data: {} };
+  eleventyConfig.addFilter("itemDaPagina", itemDe);
+  eleventyConfig.addFilter("assuntosDaPagina", (pagina, lista) => citados(itemDe(pagina, lista)));
+  eleventyConfig.addFilter("materiasDoAssunto", (lista, slug) =>
+    (lista || []).filter((m) => citados(m).some((a) => a.slug === slug)));
+  // Leia também: até 3 matérias que dividem piloto/equipe com esta; completa com as mais recentes.
+  eleventyConfig.addFilter("relacionadas", (lista, atual, n = 3) => {
+    const meus = new Set(citados(atual).map((a) => a.slug));
+    const outras = (lista || []).filter((m) => m.url !== atual.url);
+    const pontos = (m) => citados(m).filter((a) => meus.has(a.slug)).length;
+    const com = outras.filter((m) => pontos(m) > 0).sort((a, b) => pontos(b) - pontos(a) || b.date - a.date);
+    const resto = outras.filter((m) => pontos(m) === 0);
+    return [...com, ...resto].slice(0, n);
+  });
 
   eleventyConfig.addCollection("materias", (api) =>
     api.getFilteredByGlob("src/materias/*.md")

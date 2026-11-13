@@ -1,0 +1,23 @@
+---
+layout: base.njk
+pagination:
+  data: assuntos
+  size: 1
+  alias: assunto
+permalink: "/{{ assunto.tipo }}/{{ assunto.slug }}/"
+eleventyComputed:
+  title: "{{ assunto.nome }}: notícias"
+  descricao: "Todas as notícias do Estagiário da F1 sobre {{ assunto.nome }}."
+eleventyExcludeFromCollections: true
+---
+{%- set lista = collections.materias | materiasDoAssunto(assunto.slug) -%}
+<section class="section">
+  <div class="section-head"><h1 class="section-title">{{ assunto.nome }}</h1></div>
+  {% if lista.length %}
+  <div class="news-grid">
+    {% for m in lista %}{% include "cartao.njk" %}{% endfor %}
+  </div>
+  {% else %}
+  <div class="vazio">Ainda não tem matéria sobre {{ assunto.nome }} por aqui. <a href="/noticias/">Ver todas as notícias</a></div>
+  {% endif %}
+</section>

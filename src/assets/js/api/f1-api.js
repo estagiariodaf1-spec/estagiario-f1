@@ -88,10 +88,28 @@
     return base + String(path || '').replace(/^\/+/, '');
   }
 
+  // Cópia feita no build (/dados/f1/...): se a API demorar ou cair, a página mostra a última versão boa
+  // em vez de "não deu pra carregar". Na mesma visita, guarda 10 min pra não buscar de novo a cada página.
+  function chaveCopia(url) { return url.replace(/^https:\/\/[^/]+\/(ergast\/f1\/|v1\/)?/, '').replace(/[^a-z0-9]+/gi, '_') + '.json'; }
   async function fetchJson(url) {
-    var response = await fetch(url);
-    if (!response.ok) throw new Error('HTTP ' + response.status + ': ' + url);
-    return response.json();
+    try {
+      var guardado = JSON.parse(sessionStorage.getItem('f1:' + url) || 'null');
+      if (guardado && Date.now() - guardado.t < 600000) return guardado.d;
+    } catch (e) {}
+    try {
+      var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 6000) : null;
+      var response = await fetch(url, ctrl ? { signal: ctrl.signal } : undefined);
+      if (timer) clearTimeout(timer);
+      if (!response.ok) throw new Error('HTTP ' + response.status + ': ' + url);
+      var dados = await response.json();
+      try { sessionStorage.setItem('f1:' + url, JSON.stringify({ t: Date.now(), d: dados })); } catch (e) {}
+      return dados;
+    } catch (erro) {
+      var copia = await fetch('/dados/f1/' + chaveCopia(url)).catch(function () { return null; });
+      if (copia && copia.ok) return copia.json();
+      throw erro;
+    }
   }
 
   function get(obj, path, fallback) {

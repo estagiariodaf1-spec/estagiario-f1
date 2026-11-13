@@ -291,3 +291,9 @@ footer .footer-social a { color: #fff; }
 @media (max-width: 900px) {
   footer { margin: 28px 12px 0; flex-direction: column; align-items: flex-start; }
 }
+
+/* Assuntos da matéria (piloto/equipe) e Leia também */
+.materia .temas { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 6px; }
+.materia .temas a { font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 99px; background: #f1f1f1; color: #111; text-decoration: none; }
+.materia .temas a:hover { background: #e10600; color: #fff; }
+.leia-tambem { margin-top: 10px; }

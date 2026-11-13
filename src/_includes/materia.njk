@@ -24,7 +24,22 @@ layout: base.njk
   <div class="texto">
     {{ content | safe }}
   </div>
+  {%- set temas = page | assuntosDaPagina(collections.materias) -%}
+  {% if temas.length %}
+  <nav class="temas" aria-label="Assuntos">
+    {% for a in temas %}<a href="/{{ a.tipo }}/{{ a.slug }}/">{{ a.nome }}</a>{% endfor %}
+  </nav>
+  {% endif %}
 </article>
+{%- set leia = collections.materias | relacionadas(page | itemDaPagina(collections.materias)) -%}
+{% if leia.length %}
+<section class="section leia-tambem">
+  <div class="section-head"><h2 class="section-title">Leia também</h2></div>
+  <div class="news-grid">
+    {% for m in leia %}{% include "cartao.njk" %}{% endfor %}
+  </div>
+</section>
+{% endif %}
 <script src="/assets/js/components/compartilhar.js" defer></script>
 <script type="application/ld+json">
 {

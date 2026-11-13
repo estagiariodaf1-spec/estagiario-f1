@@ -9,6 +9,9 @@ eleventyExcludeFromCollections: true
   {%- for p in ["/quem-somos/", "/expediente/", "/contato/", "/privacidade/", "/calendario.html", "/estatisticas.html", "/gp.html", "/pilotos.html", "/equipes.html", "/comparador.html"] %}
   <url><loc>{{ site.url }}{{ p }}</loc></url>
   {%- endfor %}
+  {%- for a in assuntos %}{% if (collections.materias | materiasDoAssunto(a.slug)).length %}
+  <url><loc>{{ site.url }}/{{ a.tipo }}/{{ a.slug }}/</loc></url>
+  {%- endif %}{% endfor %}
   {%- for m in collections.materias %}
   <url><loc>{{ m.url | absoluta(site.url) }}</loc><lastmod>{{ (m.data.atualizado or m.date) | iso }}</lastmod></url>
   {%- endfor %}
