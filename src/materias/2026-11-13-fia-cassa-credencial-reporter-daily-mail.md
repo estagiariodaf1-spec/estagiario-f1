@@ -15,7 +15,7 @@ fontes:
   - "https://www.formula1.com/en/latest/article/official-grand-prix-start-times-for-2026-f1-season-confirmed.2UgPfArqH76tzlOYh21jSG"
 ---
 
-A FIA cassou a credencial de Jonathan McEvoy, repórter de F1 do Daily Mail, até o fim da temporada 2026. Quem conta é o próprio jornal, que publicou nesta sexta-feira (13) trechos de uma carta da entidade. A FIA não divulgou comunicado público sobre o caso até a publicação desta matéria.
+Segundo o Daily Mail, a FIA cassou a credencial de Jonathan McEvoy, repórter de F1 do jornal, até o fim da temporada 2026. O próprio Daily Mail publicou nesta sexta-feira (13) trechos de uma carta da entidade. A FIA não divulgou comunicado público sobre o caso até a publicação desta matéria.
 
 Na prática, McEvoy fica fora das três corridas que restam: o [GP de Las Vegas](/materias/horarios-gp-las-vegas-2026-brasilia/), no sábado (21) no horário local, o GP do Catar, no domingo (29), e o GP de Abu Dhabi, no domingo (6 de dezembro). Os detalhes do [calendário que fecha o ano](/materias/f1-catar-abu-dhabi-2026-imola-dispensada/) estão numa matéria nossa.
 
