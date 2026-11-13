@@ -22,6 +22,8 @@ O italiano apareceu sorrindo na homenagem.
 
 Antes da bola rolar, o piloto da Mercedes ganhou uma camisa da seleção italiana com o número 12, o mesmo do carro dele. Nas costas, as iniciais AKA, de Andrea Kimi Antonelli. A seleção divulgou o momento nas redes.
 
+https://www.instagram.com/p/Dfp11Sykfa5/?img_index=1
+
 https://x.com/EstagiariodaF1/status/2121188618509205631
 
 ## O título que levou o San Siro a cantar
