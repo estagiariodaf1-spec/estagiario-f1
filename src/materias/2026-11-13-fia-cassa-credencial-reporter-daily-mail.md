@@ -1,6 +1,6 @@
 ---
 title: "Jornal diz que FIA tirou credencial de repórter por coluna sobre Leclerc"
-linha_fina: "Por uma coluna em que xingou Leclerc, o repórter perderia Las Vegas, Catar e Abu Dhabi. A FIA ainda não se manifestou publicamente sobre a carta."
+linha_fina: "Por uma coluna em que xingou Leclerc, Jonathan McEvoy deve perder Las Vegas, Catar e Abu Dhabi. A FIA ainda não se manifestou publicamente"
 date: 2026-11-13T12:37:18-03:00
 categoria: "F1"
 palavra_chave: "FIA cassa credencial repórter Daily Mail"
