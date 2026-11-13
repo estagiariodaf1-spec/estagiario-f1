@@ -48,8 +48,9 @@ a.hero { color: white; }
 @media (max-width: 760px) {
   .hero-carrossel { min-height: 340px; }
   .hero-carrossel .hero-content { padding: 18px 18px 34px; }
-  .hero-carrossel h1, .hero-carrossel .hero-titulo { font-size: 28px; }
-  .hero-carrossel p { font-size: 14px; }
+  /* no celular a foto respira: só a chamada, menor (a linha fina continua na matéria) */
+  .hero-carrossel h1, .hero-carrossel .hero-titulo { font-size: 25px; }
+  .hero-carrossel p { display: none; }
   .hero-carrossel { margin-bottom: 12px; }
   .hero-seta { display: none; }
   .hero-controles { right: auto; left: 18px; bottom: 12px; }
