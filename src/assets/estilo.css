@@ -46,16 +46,13 @@ a.hero { color: white; }
 .hero-pontos button.ativo::before { background: #ff2b2b; width: 22px; }
 .hero-pontos button.ativo { width: 34px; }
 @media (max-width: 760px) {
-  /* no celular a foto fica inteira em cima e a chamada embaixo, no preto: texto nunca cobre a foto.
-     Os destaques ficam empilhados na mesma célula do grid, então a altura acompanha o maior. */
-  .hero-carrossel { min-height: 0; display: grid; }
-  .hero-carrossel .hero-slide { position: relative; inset: auto; grid-area: 1 / 1; display: flex; flex-direction: column; }
-  .hero-carrossel .hero:before { display: none; }
-  .hero-carrossel .hero-img { position: relative; inset: auto; height: auto; aspect-ratio: 16 / 10; flex: none; }
-  .hero-carrossel .hero-content { position: relative; top: auto; height: auto; flex: 1; justify-content: flex-start;
-    padding: 14px 18px 44px; max-width: none; }
-  .hero-carrossel .hero-content .tag { margin-bottom: 10px; }
-  .hero-carrossel h1, .hero-carrossel .hero-titulo { font-size: 26px; }
+  /* no celular: o mesmo visual (texto sobre a foto, com a sombra), só mais discreto pra foto aparecer */
+  .hero-carrossel { min-height: 380px; }
+  .hero-carrossel .hero-content { padding: 16px 16px 40px; }
+  .hero-carrossel .hero-content .tag { margin-bottom: 8px; font-size: 11px; padding: 4px 8px; }
+  .hero-carrossel h1, .hero-carrossel .hero-titulo { font-size: 20px; line-height: 1.02; max-width: 92%; }
+  .hero-carrossel .hero:before {
+    background: linear-gradient(0deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.6) 24%, rgba(0,0,0,0) 48%); }
   .hero-carrossel p { display: none; }
   .hero-carrossel { margin-bottom: 12px; }
   .hero-seta { display: none; }
