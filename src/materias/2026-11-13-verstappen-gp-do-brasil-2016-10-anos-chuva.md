@@ -50,7 +50,7 @@ Contou que Max procurava traçados diferentes até atrás do safety car e que is
 
 Niki Lauda tirou o chapéu... literalmente. 
 
-https://x.com/F1JayyUK/status/1784976445975965777
+https://x.com/EstagiariodaF1/status/2121335348378628450
 
 Xevi Pujolar, ex-engenheiro do holandês na Toro Rosso, disse ao ge que ele testava onde havia aderência para a relargada e ainda ajudava a manter os pneus quentes. O chefe da Pirelli, Mario Isola, falou a mesma coisa.
 
