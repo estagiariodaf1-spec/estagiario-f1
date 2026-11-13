@@ -21,7 +21,7 @@ Na prática, McEvoy fica fora das três corridas que restam: o [GP de Las Vegas]
 
 ## O que diz a carta
 
-Segundo o Daily Mail, a carta foi enviada na quinta-feira (12) pelo diretor-geral da FIA, Alberto Villarreal. O motivo é uma coluna sobre o piloto da Ferrari, Charles Leclerc, em que McEvoy o xingou. O Estagiário não vai repetir o termo.
+Segundo o Daily Mail, a carta foi enviada na quinta-feira (12) pelo diretor-geral da FIA, Alberto Villarreal. O motivo é uma coluna sobre o piloto da Ferrari, Charles Leclerc, em que McEvoy o chamou de "Sneaky little bastard" (bastardinho sorrateiro).
 
 De acordo com o jornal, a coluna saiu depois da briga entre Leclerc e Lewis Hamilton no GP da Cidade do México.
 
