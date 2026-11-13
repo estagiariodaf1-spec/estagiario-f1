@@ -9,6 +9,21 @@ eleventyExcludeFromCollections: true
   var url = {{ site.metricas_url | dump | safe }};
   var id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Math.random()).slice(2) + Date.now();
   var tempo = 0, rolagem = 0, ultimo = Date.now(), fechado = false;
+  // de onde veio: a marca do link (utm_source) ou só o nome do site que mandou o leitor (nunca o endereço inteiro)
+  var origem = '';
+  try {
+    var q = new URLSearchParams(location.search);
+    origem = q.get('utm_source') || '';
+    if (origem && history.replaceState) {  // tira a marca do endereço, pra quem copiar o link não levar junto
+      ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { q.delete(k); });
+      var resto = q.toString();
+      history.replaceState(null, '', location.pathname + (resto ? '?' + resto : '') + location.hash);
+    }
+    if (!origem && document.referrer) {
+      var r = document.referrer;
+      origem = r.indexOf('android-app://') === 0 ? r.split('/').slice(0, 3).join('/') : new URL(r).hostname;
+    }
+  } catch (x) {}
   var alvo = document.querySelector('article.materia') || document.body;
 
   function medirRolagem() {
@@ -23,7 +38,9 @@ eleventyExcludeFromCollections: true
     ultimo = agora;
   }
   function mandar(e) {
-    try { navigator.sendBeacon(url, JSON.stringify({ e: e, id: id, c: location.pathname, t: Math.round(tempo / 1000), r: rolagem })); } catch (x) {}
+    var dados = { e: e, id: id, c: location.pathname, t: Math.round(tempo / 1000), r: rolagem };
+    if (e === 'i') dados.o = origem.slice(0, 120);
+    try { navigator.sendBeacon(url, JSON.stringify(dados)); } catch (x) {}
   }
   medirRolagem();
   mandar('i');
