@@ -2,3 +2,4 @@ User-agent: *
 Disallow: /admin/
 
 Sitemap: https://estagiariodaf1.com.br/sitemap.xml
+Sitemap: https://estagiariodaf1.com.br/sitemap-noticias.xml

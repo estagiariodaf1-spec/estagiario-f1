@@ -37,6 +37,14 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => b.date - a.date)
   );
 
+  // Sitemap de notícias: o Google só aceita matérias das últimas 48 horas.
+  eleventyConfig.addCollection("materiasRecentes", (api) => {
+    const limite = Date.now() - 2 * 24 * 60 * 60 * 1000;
+    return api.getFilteredByGlob("src/materias/*.md")
+      .filter((m) => !m.data.rascunho && m.date.getTime() >= limite)
+      .sort((a, b) => b.date - a.date);
+  });
+
   // 11 de novembro de 2026
   eleventyConfig.addFilter("dataLonga", (d) => dataBR(d, { day: "numeric", month: "long", year: "numeric" }));
   // 11/11/2026 às 14h05

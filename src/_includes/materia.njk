@@ -31,11 +31,14 @@ layout: base.njk
   "@context": "https://schema.org",
   "@type": "NewsArticle",
   "headline": {{ title | dump | safe }},
+  {% if linha_fina %}"description": {{ linha_fina | dump | safe }},{% endif %}
   "datePublished": "{{ page.date | iso }}",
-  {% if atualizado %}"dateModified": "{{ atualizado | iso }}",{% endif %}
-  "author": { "@type": "Organization", "name": {{ autor | dump | safe }} },
-  "publisher": { "@type": "Organization", "name": {{ site.nome | dump | safe }} },
-  {% if imagem %}"image": ["{{ imagem | absoluta(site.url) }}"],{% endif %}
+  "dateModified": "{{ (atualizado or page.date) | iso }}",
+  "inLanguage": "pt-BR",
+  "articleSection": {{ (categoria or "F1") | dump | safe }},
+  "author": { "@type": "Organization", "name": {{ autor | dump | safe }}, "url": "{{ site.url }}/quem-somos/" },
+  "publisher": { "@id": "{{ site.url }}/#org" },
+  "image": ["{{ (imagem | comVersao | absoluta(site.url)) if imagem else (site.url + '/icones/icone-512.png') }}"],
   "mainEntityOfPage": "{{ page.url | absoluta(site.url) }}"
 }
 </script>

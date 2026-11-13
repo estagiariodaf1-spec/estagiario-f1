@@ -9,7 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if title %}{{ title }} | {% endif %}{{ site.nome }}</title>
   <meta name="description" content="{{ linha_fina or descricao or site.descricao }}">
-  {% if noindex == true or noindex == "sim" %}<meta name="robots" content="noindex">{% endif %}
+  {# max-image-preview:large libera a foto grande no Google Discover e nas notícias principais #}
+  <meta name="robots" content="{{ 'noindex' if (noindex == true or noindex == 'sim') else 'index, follow, max-image-preview:large, max-snippet:-1' }}">
   <link rel="canonical" href="{{ urlPagina }}">
   <meta property="og:site_name" content="{{ site.nome }}">
   <meta property="og:locale" content="pt_BR">
@@ -19,6 +20,22 @@
   <meta property="og:url" content="{{ urlPagina }}">
   <meta property="og:image" content="{{ imagemCompartilhar }}">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@estagiariodaf1">
+  {%- if layout == 'materia.njk' %}
+  <meta property="article:published_time" content="{{ page.date | iso }}">
+  <meta property="article:modified_time" content="{{ (atualizado or page.date) | iso }}">
+  <meta property="article:section" content="{{ categoria or 'F1' }}">
+  {%- endif %}
+  {#- Quem é o site pro Google: veículo ligado ao Instagram e ao X do Estagiário #}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"NewsMediaOrganization","@id":"{{ site.url }}/#org","name":{{ site.nome | dump | safe }},"url":"{{ site.url }}/",
+     "logo":{"@type":"ImageObject","url":"{{ site.url }}/icones/icone-512.png","width":512,"height":512},
+     "sameAs":[{{ site.redes.instagram | dump | safe }},{{ site.redes.x | dump | safe }}]},
+    {"@type":"WebSite","@id":"{{ site.url }}/#site","name":{{ site.nome | dump | safe }},"url":"{{ site.url }}/","inLanguage":"pt-BR",
+     "publisher":{"@id":"{{ site.url }}/#org"}}
+  ]}
+  </script>
   <link rel="alternate" type="application/rss+xml" title="{{ site.nome }}" href="/feed.xml">
   <link rel="stylesheet" href="/assets/site-nav.css">
   <link rel="stylesheet" href="/assets/css/home.css">
