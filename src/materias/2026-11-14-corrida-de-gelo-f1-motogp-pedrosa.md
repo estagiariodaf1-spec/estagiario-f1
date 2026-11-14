@@ -14,9 +14,9 @@ fontes:
   - "https://www.formula1.com/en/latest/article/profiled-the-men-who-made-austrias-f1-heritage.5iJidYqZoLlEcs33RXXOML"
 ---
 
-Da série: parece mentira, mas a Red Bull foi lá e fez.
+Da série: parece mentira, mas a Red Bull foi lá e fez 😶‍🌫️
 
-A marca montou uma corrida de gelo com F1,MotoGP e mais três veículos num lago congelado em Eagle River, no estado americano de Wisconsin. Quem será que leva?
+A marca montou uma corrida de gelo com F1, MotoGP e mais três veículos num lago congelado em Eagle River, no estado americano de Wisconsin. Quem será que leva?
 
 https://youtu.be/HVScH48KGGA?is=5z5vB0SuBMJMyES3
 
