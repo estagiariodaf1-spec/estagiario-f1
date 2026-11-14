@@ -1,6 +1,6 @@
 ---
-title: "Red Bull promove corrida no gelo com F1 e MotoGP e mais"
-linha_fina: "Num lago de Wisconsin a -17°C, a Red Bull juntou um carro campeão de Vettel, moto, rali, Pro 4 e snowmobile. O vídeo já está no YouTube"
+title: "Red Bull promove corrida no gelo com F1, MotoGP e mais"
+linha_fina: "Num lago de Wisconsin a -17°C, a Red Bull juntou um carro campeão de Vettel, moto, rali, Pro 4 e snowmobile"
 date: 2026-11-14T08:07:29-03:00
 categoria: "F1"
 palavra_chave: "corrida de gelo F1 MotoGP"
