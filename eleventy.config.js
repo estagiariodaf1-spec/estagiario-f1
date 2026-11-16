@@ -90,6 +90,19 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addFilter("iso", (d) => new Date(d).toISOString());
   eleventyConfig.addFilter("rfc822", (d) => new Date(d).toUTCString());
+  // Destaques da home: as fixadas pelo Pedro (na ordem dele, em src/_data/destaques.json) e o resto
+  // completado com as mais novas. Fixada fica no carrossel até ser desafixada, mesmo com matéria nova.
+  const slugDaUrl = (url) => (url || "").split("/").filter(Boolean).pop();
+  eleventyConfig.addFilter("destaquesHome", (lista, fixadas, n = 5) => {
+    const todas = lista || [];
+    const presas = (fixadas || [])
+      .map((slug) => todas.find((m) => slugDaUrl(m.url) === slug))
+      .filter(Boolean)
+      .slice(0, n);
+    const resto = todas.filter((m) => !presas.includes(m));
+    return [...presas, ...resto].slice(0, n);
+  });
+  eleventyConfig.addFilter("tirando", (lista, fora) => (lista || []).filter((m) => m !== fora));
   eleventyConfig.addFilter("primeiros", (lista, n) => (lista || []).slice(0, n));
   eleventyConfig.addFilter("depois", (lista, n) => (lista || []).slice(n));
   eleventyConfig.addFilter("absoluta", (caminho, base) => new URL(caminho, base).href);
