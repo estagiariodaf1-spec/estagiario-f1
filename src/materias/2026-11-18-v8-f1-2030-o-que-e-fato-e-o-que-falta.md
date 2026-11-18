@@ -23,6 +23,8 @@ Na segunda-feira (16), a FIA, a FOM (dona dos direitos comerciais da F1) e os fa
 
 Na terça-feira (17), o presidente da Federação, Mohammed Ben Sulayem, postou no Instagram um vídeo com som de V8 e a frase: "Vocês falaram, nós ouvimos. V8 em breve." (no original, "You spoke, we listened. V8s coming soon.").
 
+https://www.instagram.com/reel/Df2VxWBugw-/
+
 Outros gráficos nos canais da Federação falavam em acordo em princípio para os V8 de 2030. Ficaram pouco tempo no ar e foram apagados, mas já tinham sido capturados e circularam em outros canais. A entidade não explicou o motivo.
 
 Uma explicação possível (hipótese, não confirmação) é que o processo precisava ser formalizado, com todo mundo alinhado, antes de qualquer comunicado oficial.
