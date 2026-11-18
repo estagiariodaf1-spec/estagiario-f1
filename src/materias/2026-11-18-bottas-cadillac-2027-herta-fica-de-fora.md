@@ -1,6 +1,6 @@
 ---
 title: "Bottas fica na Cadillac em 2027 e adia sonho da F1 de Herta"
-linha_fina: "Cadillac mantém a dupla com Sergio Pérez, que tem contrato até 2029. Herta tem superlicença, mas reservas e pilotos de testes de 2027 saem depois"
+linha_fina: "Cadillac mantém a dupla com Sergio Pérez, que tem contrato até 2029. Herta tem superlicença, mas a equipe ainda não diz quem serão os reservas e pilotos de testes de 2027"
 date: 2026-11-18T17:55:02-03:00
 categoria: "F1"
 palavra_chave: "Bottas Cadillac 2027"
