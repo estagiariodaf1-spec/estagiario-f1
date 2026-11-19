@@ -24,6 +24,8 @@ Max Verstappen diz que não tem o menor interesse em terminar 2026 como vice-cam
 
 "Para mim, eu não tenho satisfação nenhuma em ser segundo, terceiro ou quarto, porque não é para isso que você está aqui", diz Verstappen. "Quando você já ganhou campeonatos, provavelmente você simplesmente não liga, né? Porque ninguém lembra de quem ficou nessa posição. Pelo menos não para mim."
 
+https://x.com/EstagiariodaF1/status/2123394738887758316
+
 ## O objetivo é o terceiro lugar da Red Bull
 
 O holandês deixa claro que a prioridade é coletiva: "Eu só me importo em continuar em terceiro com a equipe. Esse é o objetivo do time e, claro, vira o meu objetivo."
