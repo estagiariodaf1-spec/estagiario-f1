@@ -17,6 +17,18 @@
   var BR = { BOR: 1 };  // brasileiros no grid (Bortoleto); ajustar quando mudar
   var MENSAGENS = [
     [/^GREEN LIGHT - PIT EXIT OPEN/, 'Sinal verde: saída dos boxes aberta.'],
+    [/^SESSION STARTED/, 'Sessão começou.'],
+    [/^SESSION WILL RESUME AT (.+)/, 'A sessão volta às $1 (horário local).'],
+    [/^SESSION SUSPENDED/, 'Sessão suspensa.'],
+    [/^OVERTAKE ENABLED/, 'Modo de ultrapassagem liberado.'],
+    [/^OVERTAKE DISABLED/, 'Modo de ultrapassagem desligado.'],
+    [/^LOW GRIP CONDITIONS/, 'Pista com pouca aderência.'],
+    [/^LOW GRIP DELTA ACTIVE/, 'Delta de pouca aderência ativado.'],
+    [/^WET TRACK/, 'Pista molhada.'],
+    [/^TRACK SURFACE SLIPPERY(.*)/, 'Pista escorregadia$1.'],
+    [/^CAR (\d+) \((\w+)\) STOPPED (?:AT|IN) TURN (\d+)/, 'Carro $1 ($2) parado na curva $3.'],
+    [/^RECOVERY VEHICLE ON TRACK/, 'Veículo de resgate na pista.'],
+    [/^MEDICAL CAR/, 'Carro médico na pista.'],
     [/^PIT EXIT CLOSED/, 'Saída dos boxes fechada.'],
     [/^RED FLAG/, 'Bandeira vermelha.'],
     [/^CHEQUERED FLAG/, 'Bandeira quadriculada.'],
@@ -43,8 +55,21 @@
     for (var i = 0; i < MENSAGENS.length; i++) { if (MENSAGENS[i][0].test(m)) return m.replace(MENSAGENS[i][0], MENSAGENS[i][1]); }
     return m.charAt(0) + m.slice(1).toLowerCase();
   }
-  function corOficial(b) {
-    return { GREEN: 'verde', CLEAR: 'verde', YELLOW: 'amarela', 'DOUBLE YELLOW': 'amarela', RED: 'vermelha' }[b] || '';
+  /* tipo de mensagem oficial: rótulo e cor */
+  function tipoOficial(m) {
+    var t = m.texto || '', b = m.bandeira || '';
+    if (b === 'RED' || /^RED FLAG/.test(t)) return ['vermelha', 'Bandeira vermelha'];
+    if (/YELLOW/.test(b) || /YELLOW/.test(t)) return ['amarela', 'Bandeira amarela'];
+    if (/SAFETY CAR/.test(t)) return ['sc', /VIRTUAL/.test(t) ? 'Safety car virtual' : 'Safety car'];
+    if (b === 'CHEQUERED' || /CHEQUERED/.test(t)) return ['quadriculada', 'Bandeira quadriculada'];
+    if (b === 'GREEN' || b === 'CLEAR' || /^(GREEN LIGHT|TRACK CLEAR|CLEAR IN)/.test(t)) return ['verde', 'Pista liberada'];
+    if (/STEWARDS|INVESTIGATION|PENALTY|NOTED|REPRIMAND|SUMMONED/.test(t)) return ['comissarios', 'Comissários'];
+    if (/TRACK LIMITS|DELETED|BLACK AND WHITE/.test(t)) return ['limites', 'Limite de pista'];
+    if (/WET|GRIP|RAIN|SLIPPERY|DEBRIS|OIL|SURFACE/.test(t)) return ['condicoes', 'Condições da pista'];
+    if (/SESSION|PIT EXIT|PIT ENTRY|PIT LANE|RESUME|SUSPENDED|START/.test(t)) return ['sessao', 'Sessão'];
+    if (/OVERTAKE|DRS/.test(t)) return ['ultrapassagem', 'Modo de ultrapassagem'];
+    if (/STOPPED|INCIDENT|CRASH|RECOVERY|MEDICAL|HAZARD/.test(t)) return ['incidente', 'Incidente'];
+    return ['', 'Direção de prova'];
   }
 
   /* ---------- minuto a minuto ---------- */
@@ -56,8 +81,9 @@
     if (dados.ativo) {
       (dados.direcao || []).forEach(function (m) {
         if (!m.texto || /BLUE FLAG/.test(m.texto)) return;  // bandeira azul vira spam na corrida
-        itens.push({ id: 'd' + m.quando + m.texto, quando: m.quando, classe: 'oficial ' + corOficial(m.bandeira),
-          html: '<span class="rot">Direção de prova</span>' + esc(traduz(m.texto)) });
+        var tp = tipoOficial(m);
+        itens.push({ id: 'd' + m.quando + m.texto, quando: m.quando, classe: 'oficial ' + tp[0],
+          html: '<span class="rot">' + tp[1] + '</span>' + esc(m.texto_pt || traduz(m.texto)) });
       });
       (dados.radio || []).forEach(function (r) {
         itens.push({ id: 'r' + r.quando + r.piloto, quando: r.quando, classe: 'radio',
@@ -74,8 +100,10 @@
     var anterior = null;
     itens.forEach(function (i) {
       var li = lista.querySelector('[data-id="' + CSS.escape(i.id) + '"]');
+      if (li && li.dataset.html !== i.html) { li.querySelector('div').innerHTML = i.html; li.dataset.html = i.html; }
       if (!li) {
         li = document.createElement('li');
+        li.dataset.html = i.html;
         li.dataset.id = i.id;
         li.className = i.classe + (primeira || vistos[i.id] ? '' : ' nova');
         li.innerHTML = '<time>' + hora(i.quando) + '</time><div>' + i.html + '</div>';
@@ -86,7 +114,7 @@
       anterior = li;
     });
     vazio.hidden = itens.length > 0 || posts.ativo || dados.ativo;
-    $('[data-feed-sub]').textContent = dados.ativo ? 'Estagiário, direção de prova e rádio' : 'Estagiário';
+    $('[data-feed-sub]').textContent = dados.ativo ? 'Estagiário, direção e rádio' : 'Estagiário';
   }
 
   /* ---------- cabeçalho ---------- */
@@ -119,8 +147,8 @@
   /* ---------- tabela ---------- */
   function desenhaTabela() {
     var ps = dados.pilotos || [], corrida = dados.tipo === 'Race' || dados.tipo === 'Sprint';
-    var mostrar = abertaTabela || window.innerWidth > 900 ? ps : ps.slice(0, 10);
-    $('[data-mais]').hidden = abertaTabela || window.innerWidth > 900 || ps.length <= 10;
+    var mostrar = abertaTabela || window.innerWidth > 900 ? ps : ps.slice(0, 5);
+    $('[data-mais]').hidden = abertaTabela || window.innerWidth > 900 || ps.length <= 5;
     $('[data-tabela-sub]').textContent = corrida ? 'Posição na corrida' : 'Pela melhor volta';
     $('[data-linhas]').innerHTML = mostrar.map(function (p) {
       var sets = (p.setores || []).map(function (s, i) { return '<span class="s ' + (s.cor || '') + '" title="Setor ' + (i + 1) + (s.tempo ? ': ' + s.tempo.toFixed(3) : '') + '"></span>'; }).join('');
@@ -196,6 +224,7 @@
 
   function desenhaDados() {
     grade.classList.toggle('com-dados', !!dados.ativo);
+    $('[data-abas]').hidden = !dados.ativo;
     $('[data-bloco-tabela]').hidden = !dados.ativo;
     if (!dados.ativo) { ['[data-bloco-mapa]', '[data-bloco-ritmo]', '[data-bloco-box]'].forEach(function (s) { $(s).hidden = true; }); return; }
     desenhaTabela(); desenhaMapa(); desenhaRitmo(); desenhaBox();
@@ -210,7 +239,17 @@
     try { dados = await (await fetch(window.AV_DADOS, { cache: 'no-store' })).json(); } catch (e) { return; }
     desenhaTopo(); desenhaDados(); desenhaFeed();
   }
-  $('[data-mais]').addEventListener('click', function () { abertaTabela = true; desenhaTabela(); });
+  var main = $('[data-av]');
+  main.dataset.aba = 'feed';
+  Array.prototype.forEach.call(document.querySelectorAll('[data-aba-botao]'), function (b) {
+    b.addEventListener('click', function () {
+      main.dataset.aba = b.dataset.abaBotao;
+      Array.prototype.forEach.call(document.querySelectorAll('[data-aba-botao]'), function (x) { x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
+      abertaTabela = b.dataset.abaBotao === 'tabela';
+      if (dados.ativo) desenhaTabela();
+    });
+  });
+  $('[data-mais]').addEventListener('click', function () { $('[data-aba-botao="tabela"]').click(); });
   buscaPosts(); buscaDados();
   setInterval(function () { if (!document.hidden) buscaPosts(); }, 15000);
   setInterval(function () { if (!document.hidden && (dados.ativo || Math.random() < 0.2)) buscaDados(); }, 3000);

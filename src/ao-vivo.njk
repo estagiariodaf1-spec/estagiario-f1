@@ -23,6 +23,11 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
     <p class="av-reprise" data-reprise hidden>Reprise de teste: dados de uma sessão que já aconteceu, tocando como se fosse ao vivo.</p>
   </div>
 
+  <div class="av-abas" role="tablist" aria-label="Partes do ao vivo" data-abas hidden>
+    <button type="button" role="tab" aria-selected="true" data-aba-botao="feed">Minuto a minuto</button>
+    <button type="button" role="tab" aria-selected="false" data-aba-botao="tabela">Tabela</button>
+    <button type="button" role="tab" aria-selected="false" data-aba-botao="mapa">Mapa e ritmo</button>
+  </div>
   <div class="av-grade">
     <section class="av-cartao av-tabela" data-bloco-tabela hidden aria-labelledby="av-t-tabela">
       <header><h2 id="av-t-tabela">Classificação</h2><span data-tabela-sub>Atualiza sozinha</span></header>
@@ -32,7 +37,7 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
           <tbody data-linhas></tbody>
         </table>
       </div>
-      <button type="button" class="av-mais" data-mais hidden>Ver todos os pilotos</button>
+      <button type="button" class="av-mais" data-mais hidden>Ver a tabela completa</button>
       <p class="av-legenda"><span class="s roxo"></span>Melhor da sessão <span class="s verde"></span>Melhor do piloto <span class="s amarelo"></span>Mais lento</p>
     </section>
 

@@ -27,7 +27,7 @@ body:has(.av) { background: #050505; }
 .av-cartao { background: var(--cartao); border: 1px solid var(--linha); border-radius: 14px; overflow: hidden; }
 .av-cartao > header { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 13px 16px; border-bottom: 1px solid var(--linha); }
 .av-cartao h2 { margin: 0; font-family: Impact, Haettenschweiler, sans-serif; font-weight: 400; font-size: 20px; text-transform: uppercase; letter-spacing: .02em; }
-.av-cartao > header span { font-size: 12px; color: var(--fraco); }
+.av-cartao > header span { font-size: 12px; color: var(--fraco); text-align: right; }
 
 .av-rolagem { overflow-x: auto; }
 .av table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 14px; }
@@ -59,6 +59,12 @@ body:has(.av) { background: #050505; }
 .av-lista li.oficial, .av-lista li.radio { font-size: 14px; color: #d4d4d4; }
 .av-lista li.oficial .rot { color: #9a9a9a; }
 .av-lista li.oficial.amarela .rot { color: #facc15; } .av-lista li.oficial.vermelha .rot { color: #ff4d4d; } .av-lista li.oficial.verde .rot { color: #22c55e; }
+.av-lista li.oficial.sc .rot { color: #fb923c; } .av-lista li.oficial.quadriculada .rot { color: #f5f5f5; }
+.av-lista li.oficial.comissarios .rot { color: #c084fc; } .av-lista li.oficial.limites .rot { color: #a3a3a3; }
+.av-lista li.oficial.condicoes .rot { color: #22d3ee; } .av-lista li.oficial.sessao .rot { color: #d4d4d4; }
+.av-lista li.oficial.ultrapassagem .rot { color: #60a5fa; } .av-lista li.oficial.incidente .rot { color: #fb7185; }
+.av-lista li.oficial.vermelha { box-shadow: inset 4px 0 0 #ff4d4d; padding-left: 10px; } .av-lista li.oficial.amarela { box-shadow: inset 4px 0 0 #facc15; padding-left: 10px; }
+.av-lista li.oficial.sc { box-shadow: inset 4px 0 0 #fb923c; padding-left: 10px; }
 .av-lista li.radio .rot { color: #38bdf8; }
 .av-lista li.tipo-destaque { background: rgba(255, 43, 43, .08); margin: 0 -16px; padding: 14px 16px; font-weight: 700; }
 .av-lista li.tipo-bandeira .rot { color: #facc15; }
@@ -76,7 +82,15 @@ body:has(.av) { background: #050505; }
 .av-mini b { color: #fff; }
 .av-mini small { color: var(--fraco); }
 
+.av-abas { display: none; }
 @media (max-width: 900px) {
+  .av-abas:not([hidden]) { display: flex; gap: 8px; position: sticky; top: 0; z-index: 5; background: #050505; padding: 10px 0; margin-bottom: 8px; }
+  .av-abas button { flex: 1; min-height: 44px; border-radius: 999px; border: 1px solid #2a2a2a; background: transparent; color: #cfcfcf; font: inherit; font-size: 14px; line-height: 1.15; padding: 4px 8px; cursor: pointer; }
+  .av-abas button[aria-selected="true"] { background: #ff2b2b; border-color: #ff2b2b; color: #fff; font-weight: 700; }
+  .av[data-aba="feed"] .com-dados .av-mapa, .av[data-aba="feed"] .com-dados .av-ritmo, .av[data-aba="feed"] .com-dados .av-box { display: none; }
+  .av[data-aba="feed"] .com-dados .av-tabela .av-legenda { display: none; }
+  .av[data-aba="tabela"] .com-dados .av-feed, .av[data-aba="tabela"] .com-dados .av-mapa, .av[data-aba="tabela"] .com-dados .av-ritmo, .av[data-aba="tabela"] .com-dados .av-box { display: none; }
+  .av[data-aba="mapa"] .com-dados .av-feed, .av[data-aba="mapa"] .com-dados .av-tabela { display: none; }
   .av-grade, .av-grade.com-dados { grid-template-columns: minmax(0, 1fr); }
   .av-tabela, .av-feed, .av-mapa, .av-ritmo, .av-box { grid-column: 1; grid-row: auto; }
   .av-tabela { order: 1; } .av-feed { order: 2; } .av-mapa { order: 3; } .av-ritmo { order: 4; } .av-box { order: 5; }
