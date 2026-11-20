@@ -1,5 +1,5 @@
 ---
-title: "Fórmula E: carro de Barnard pega fogo e encerra teste"
+title: "Fórmula E: carro pega fogo e encerra testes em Madri"
 linha_fina: "O piloto da Fusion sai ileso, a equipe não explica a causa e a suspeita é a bateria; os testes dos Gen4 terminam uma hora antes do previsto"
 date: 2026-11-20T14:58:14-03:00
 categoria: "Fórmula E"
