@@ -21,7 +21,11 @@ Norris pulou para o topo com 1:54.615 e, na volta seguinte, baixou para 1:52.432
 
 Leclerc foi o primeiro a baixar de 1:50, com 1:49.166, e mandou no rádio, com 20 minutos para o fim: "Acho que provavelmente está perto de pneus slick". Na volta seguinte, fez 1:48.473. Isack Hadjar, da Red Bull, assumiu a ponta por pouco tempo com 1:48.407, até Leclerc responder com 1:47.605.
 
-Com pouco mais de 10 minutos para o fim, bandeira vermelha. Plásticos que o vento jogou na pista, perto da última curva, precisaram ser retirados. O treino voltou com seis minutos no relógio, e foi uma correria na saída da pit lane, todo mundo de intermediário. Hadjar vinha para a volta mais rápida, mas foi atrapalhado por Oliver Bearman, da Haas, nas últimas curvas. Russell aproveitou, pulou para o topo e cravou 1:47.272 com a bandeira quadriculada já saindo. Gasly também melhorou no apagar das luzes e ficou com o segundo lugar.
+Com pouco mais de 10 minutos para o fim, bandeira vermelha. Plásticos que o vento jogou na pista, perto da última curva, precisaram ser retirados. 
+
+https://x.com/estagiariodaf1/status/2123641092570816726?a=RHTfLBD3p3Y4vJ25gnY&s=46
+
+O treino voltou com seis minutos no relógio, e foi uma correria na saída da pit lane, todo mundo de intermediário. Hadjar vinha para a volta mais rápida, mas foi atrapalhado por Oliver Bearman, da Haas, nas últimas curvas. Russell aproveitou, pulou para o topo e cravou 1:47.272 com a bandeira quadriculada já saindo. Gasly também melhorou no apagar das luzes e ficou com o segundo lugar.
 
 Atrás de Russell, Gasly e Leclerc, vieram Hadjar, Piastri, Lewis Hamilton (Ferrari), Norris, Kimi Antonelli (Mercedes), Franco Colapinto (Alpine) e Alonso, fechando o top 10. Lance Stroll (Aston Martin) foi o 11º, seguido por Alex Albon (Williams) e Max Verstappen. O holandês da Red Bull só marcou tempo nos minutos finais e reclamou de problemas no carro.
 
