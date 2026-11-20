@@ -2,58 +2,65 @@
 layout: base.njk
 title: Ao vivo do Estagiário
 permalink: /ao-vivo/
-descricao: Minuto a minuto das sessões da Fórmula 1, com o Estagiário.
+descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa da pista e o Estagiário comentando.
 ---
-<main class="aovivo">
-  <div class="aovivo-topo">
-    <span class="aovivo-status" data-status>Carregando…</span>
+<link rel="stylesheet" href="/assets/css/aovivo.css">
+<main class="av" data-av>
+  <div class="av-topo">
+    <div class="av-selos">
+      <span class="aovivo-status" data-status>Carregando…</span>
+      <span class="av-bandeira" data-bandeira hidden></span>
+      <span class="av-circuito" data-circuito></span>
+    </div>
     <h1 data-titulo>Ao vivo do Estagiário</h1>
-    <p class="aovivo-sub">Minuto a minuto das sessões, com informação conferida e o deboche de sempre. Atualiza sozinho.</p>
+    <div class="av-numeros" data-numeros hidden>
+      <div><small>Faltam</small><b data-faltam>–</b></div>
+      <div><small>Pista</small><b data-pista>–</b></div>
+      <div><small>Ar</small><b data-ar>–</b></div>
+      <div><small>Vento</small><b data-vento>–</b></div>
+      <div><small>Chuva</small><b data-chuva>–</b></div>
+    </div>
+    <p class="av-reprise" data-reprise hidden>Reprise de teste: dados de uma sessão que já aconteceu, tocando como se fosse ao vivo.</p>
   </div>
-  <ol class="aovivo-lista" data-lista aria-live="polite"></ol>
-  <p class="aovivo-vazio" data-vazio hidden>Nenhuma cobertura no ar agora. Na hora das sessões, o minuto a minuto aparece aqui.</p>
+
+  <div class="av-grade">
+    <section class="av-cartao av-tabela" data-bloco-tabela hidden aria-labelledby="av-t-tabela">
+      <header><h2 id="av-t-tabela">Classificação</h2><span data-tabela-sub>Atualiza sozinha</span></header>
+      <div class="av-rolagem">
+        <table>
+          <thead><tr><th scope="col">Pos</th><th scope="col"><span class="av-sr">Equipe</span></th><th scope="col">Piloto</th><th scope="col" class="so-largo">Setores</th><th scope="col">Pneu</th><th scope="col" class="num so-largo">Interv.</th><th scope="col" class="num">Melhor</th><th scope="col" class="num">Gap</th></tr></thead>
+          <tbody data-linhas></tbody>
+        </table>
+      </div>
+      <button type="button" class="av-mais" data-mais hidden>Ver todos os pilotos</button>
+      <p class="av-legenda"><span class="s roxo"></span>Melhor da sessão <span class="s verde"></span>Melhor do piloto <span class="s amarelo"></span>Mais lento</p>
+    </section>
+
+    <section class="av-cartao av-feed" aria-labelledby="av-t-feed">
+      <header><h2 id="av-t-feed">Minuto a minuto</h2><span data-feed-sub>Estagiário</span></header>
+      <ol class="av-lista" data-lista aria-live="polite"></ol>
+      <p class="av-vazio" data-vazio hidden>Nenhuma cobertura no ar agora. Na hora das sessões, o minuto a minuto aparece aqui.</p>
+    </section>
+
+    <section class="av-cartao av-mapa" data-bloco-mapa hidden aria-labelledby="av-t-mapa">
+      <header><h2 id="av-t-mapa">Onde está cada um</h2><span>Posição na pista</span></header>
+      <svg data-mapa role="img" aria-label="Mapa da pista com a posição dos carros" viewBox="0 0 1000 700"></svg>
+    </section>
+
+    <section class="av-cartao av-ritmo" data-bloco-ritmo hidden aria-labelledby="av-t-ritmo">
+      <header><h2 id="av-t-ritmo">Ritmo</h2><span>Últimas voltas dos 3 primeiros</span></header>
+      <svg data-ritmo role="img" aria-label="Tempo por volta dos três primeiros" viewBox="0 0 540 170"></svg>
+      <p class="av-legenda" data-ritmo-legenda></p>
+    </section>
+
+    <section class="av-cartao av-box" data-bloco-box hidden aria-labelledby="av-t-box">
+      <header><h2 id="av-t-box">Pit stops e ultrapassagens</h2></header>
+      <ul class="av-mini" data-box></ul>
+    </section>
+  </div>
 </main>
 <script>
-(function () {
-  var URL_DADOS = {{ site.aovivo_url | dump | safe }};
-  var lista = document.querySelector('[data-lista]'), status = document.querySelector('.aovivo-status[data-status]');
-  var titulo = document.querySelector('[data-titulo]'), vazio = document.querySelector('[data-vazio]');
-  var vistos = {}, primeira = true, timer = null;
-  function esc(v) { return String(v).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
-  function formata(t) {
-    return esc(t).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
-      .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>').replace(/\n/g, '<br>');
-  }
-  function hora(iso) {
-    return new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(iso)).replace(':', 'h');
-  }
-  async function atualizar() {
-    try {
-      var r = await fetch(URL_DADOS, { cache: 'no-store' });
-      var d = await r.json();
-      status.textContent = d.ativo ? 'AO VIVO' : (d.titulo ? 'Encerrado' : 'Fora do ar');
-      status.className = 'aovivo-status' + (d.ativo ? ' no-ar' : '');
-      if (d.titulo) { titulo.textContent = d.titulo; document.title = (d.ativo ? '🔴 ' : '') + d.titulo + ' · Estagiário da F1'; }
-      vazio.hidden = !!(d.entradas && d.entradas.length) || !!d.ativo;
-      var ids = {};
-      (d.entradas || []).forEach(function (e) { ids[e.id] = true; });
-      Array.prototype.forEach.call(lista.children, function (li) { if (!ids[li.dataset.id]) li.remove(); });
-      (d.entradas || []).slice().reverse().forEach(function (e) {
-        if (vistos[e.id] && lista.querySelector('[data-id="' + e.id + '"]')) return;
-        vistos[e.id] = true;
-        var li = document.createElement('li');
-        li.dataset.id = e.id;
-        li.className = 'tipo-' + e.tipo + (primeira ? '' : ' nova');
-        li.innerHTML = '<time>' + hora(e.quando) + '</time><div>' + formata(e.texto) + '</div>';
-        lista.insertBefore(li, lista.firstChild);
-      });
-      primeira = false;
-    } catch (e) {
-      status.textContent = 'Sem conexão, tentando de novo…';
-    }
-  }
-  function ciclo() { clearInterval(timer); timer = setInterval(function () { if (!document.hidden) atualizar(); }, 20000); }
-  document.addEventListener('visibilitychange', function () { if (!document.hidden) atualizar(); });
-  atualizar(); ciclo();
-})();
+  window.AV_POSTS = {{ site.aovivo_url | dump | safe }};
+  window.AV_DADOS = {{ site.aovivo_dados_url | dump | safe }};
 </script>
+<script src="/assets/js/aovivo.js" defer></script>
