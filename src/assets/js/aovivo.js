@@ -14,7 +14,12 @@
     return new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(iso));
   }
   function num(v, casas) { return (v == null || v === '') ? '–' : (typeof v === 'number' ? '+' + v.toFixed(casas == null ? 3 : casas) : esc(v)); }
-  var BR = { BOR: 1 };  // brasileiros no grid (Bortoleto); ajustar quando mudar
+  // brasileiros no grid: pelo sobrenome, sem acento (a sigla do Câmara pode variar)
+  var BRASILEIROS = ['bortoleto', 'camara'];
+  function ehBR(p) {
+    var n = String(p.nome || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    return BRASILEIROS.some(function (b) { return n.indexOf(b) >= 0; });
+  }
   var MENSAGENS = [
     [/^GREEN LIGHT - PIT EXIT OPEN/, 'Sinal verde: saída dos boxes aberta.'],
     [/^SESSION STARTED/, 'Sessão começou.'],
@@ -119,7 +124,7 @@
 
   /* ---------- cabeçalho ---------- */
   function desenhaTopo() {
-    var vivo = posts.ativo || dados.ativo, st = $('[data-status]');
+    var vivo = posts.ativo || dados.ativo, st = $('[data-av-status]');
     st.textContent = vivo ? 'AO VIVO' : (posts.titulo ? 'Encerrado' : 'Fora do ar');
     st.className = 'aovivo-status' + (vivo ? ' no-ar' : '');
     var titulo = posts.ativo && posts.titulo ? posts.titulo : (dados.ativo ? dados.sessao : (posts.titulo || 'Ao vivo do Estagiário'));
@@ -153,10 +158,10 @@
     $('[data-linhas]').innerHTML = mostrar.map(function (p) {
       var sets = (p.setores || []).map(function (s, i) { return '<span class="s ' + (s.cor || '') + '" title="Setor ' + (i + 1) + (s.tempo ? ': ' + s.tempo.toFixed(3) : '') + '"></span>'; }).join('');
       var pn = p.pneu ? '<span class="pneu"><i class="' + esc(p.pneu.composto) + '">' + esc(p.pneu.composto) + '</i>' + p.pneu.voltas + 'v</span>' : '';
-      var br = p.sigla in BR ? '<span class="tag-br">BR</span>' : '';
+      var br = ehBR(p) ? '<span class="tag-br">BR</span>' : '';
       var box = p.no_box ? '<span class="tag-box">BOX</span>' : '';
       var gap = p.pos === 1 ? (corrida ? 'Líder' : '–') : num(p.gap);
-      return '<tr class="' + (p.sigla in BR ? 'br' : '') + '"><td class="pos">' + p.pos + '</td><td class="cor"><span style="background:' + esc(p.cor) + '"></span></td>' +
+      return '<tr class="' + (ehBR(p) ? 'br' : '') + '"><td class="pos">' + p.pos + '</td><td class="cor"><span style="background:' + esc(p.cor) + '"></span></td>' +
         '<td class="piloto"><b>' + esc(p.nome) + br + box + '</b><small>' + esc(p.equipe || '') + '</small></td>' +
         '<td class="so-largo"><span class="setores">' + sets + '</span></td><td>' + pn + '</td>' +
         '<td class="num so-largo">' + (p.pos === 1 ? '–' : num(p.intervalo)) + '</td>' +
