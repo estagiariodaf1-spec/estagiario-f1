@@ -1,6 +1,6 @@
 ---
-title: "TL1 do GP de Las Vegas acaba sem tempo e com Pérez \"líder\""
-linha_fina: "Chuva e aquaplanagem deixam só 20 voltas de instalação, cinco carros ficam na garagem e a Haas não consegue estrear a asa traseira que gira"
+title: "TL1 de Las Vegas acaba sem tempos marcados e com Pérez \"líder\""
+linha_fina: "Chuva e aquaplanagem impedem pilotos de acelerar e registrar voltas cronometradas; carros voltam à pista às 1h para a segunda sessão de treinos"
 date: 2026-11-19T22:44:01-03:00
 categoria: "F1"
 palavra_chave: "TL1 GP de Las Vegas"
