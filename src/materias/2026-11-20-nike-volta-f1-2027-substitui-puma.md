@@ -1,5 +1,5 @@
 ---
-title: "Nike na F1 em 2027: volta após 24 anos e desbanca a Puma"
+title: "Nike volta à F1 em 2027 após 24 anos e desbanca a Puma"
 linha_fina: "Uniformes da F1 e da F1 Academy mudam de mãos, e a primeira cápsula, com a marca do GP de Las Vegas, chega às lojas já nesta sexta-feira (20)"
 date: 2026-11-20T10:20:29-03:00
 categoria: "F1"
