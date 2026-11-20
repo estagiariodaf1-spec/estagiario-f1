@@ -262,10 +262,18 @@ a.hero { color: white; }
   border: 1px solid #3a3a3a; color: #9a9a9a; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: .5px;
   text-decoration: none; white-space: nowrap; }
 .selo-aovivo::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #6b6b6b; }
-.selo-aovivo.no-ar { color: #fff; border-color: #ff2b2b; background: rgba(255, 43, 43, .14); }
-.selo-aovivo.no-ar::before { background: #ff2b2b; animation: aovivo-pisca 1.2s ease-in-out infinite; }
+.selo-aovivo.no-ar { color: #fff; border-color: #ff2b2b; background: #ff2b2b; animation: aovivo-brilho 1.6s ease-in-out infinite; }
+.selo-aovivo.no-ar::before { background: #fff; animation: aovivo-pisca-branco 1.2s ease-in-out infinite; }
+@keyframes aovivo-brilho { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 43, 43, .75); } 50% { box-shadow: 0 0 14px 4px rgba(255, 43, 43, .55); } }
+@keyframes aovivo-pisca-branco { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+/* com o Ao vivo no ar, o atalho do card do GP na capa também acende */
+.aovivo-no-ar .gp-link[href*="ao-vivo"] { display: inline-flex; align-items: center; gap: 8px; background: #ff2b2b; color: #fff !important;
+  padding: 8px 14px; border-radius: 99px; text-decoration: none; animation: aovivo-brilho 1.6s ease-in-out infinite; }
+.aovivo-no-ar .gp-link[href*="ao-vivo"]::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: aovivo-pisca-branco 1.2s ease-in-out infinite; }
+.aovivo-no-ar .gp-btn[href*="ao-vivo"] { background: #ff2b2b; border-color: #ff2b2b; color: #fff; animation: aovivo-brilho 1.6s ease-in-out infinite; }
+.aovivo-no-ar .nav-aovivo::before { background: #ff2b2b; }
 @keyframes aovivo-pisca { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255, 43, 43, .7); } 50% { opacity: .35; box-shadow: 0 0 0 5px rgba(255, 43, 43, 0); } }
-@media (prefers-reduced-motion: reduce) { .selo-aovivo.no-ar::before { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .selo-aovivo.no-ar, .selo-aovivo.no-ar::before, .aovivo-no-ar .gp-link[href*="ao-vivo"], .aovivo-no-ar .gp-link[href*="ao-vivo"]::before, .aovivo-no-ar .gp-btn[href*="ao-vivo"] { animation: none; } }
 @media (max-width: 760px) { .selo-aovivo { margin-left: 8px; padding: 5px 9px; font-size: 11px; } }
 @media (max-width: 480px) { .header .icons { display: none; } } /* no celular, as redes ficam no rodapé: o selo Ao vivo tem prioridade */
 @media (max-width: 1180px) { .header-nav { font-size: 12px; } }
