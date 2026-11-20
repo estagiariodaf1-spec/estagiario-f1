@@ -1,5 +1,5 @@
 ---
-title: "Russell crava a melhor volta no TL2 molhado de Las Vegas"
+title: "George Russell lidera TL2 molhado em Las Vegas"
 linha_fina: "Com pista molhada e bandeira vermelha, piloto da Mercedes bate Gasly por 71 milésimos no fim do treino. Bortoleto é 20º e Câmara, 22º"
 date: 2026-11-20T02:05:41-03:00
 categoria: "F1"
