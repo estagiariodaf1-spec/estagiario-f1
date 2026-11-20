@@ -1,6 +1,6 @@
 ---
 title: "TL1 de Las Vegas acaba sem tempos marcados e com Pérez \"líder\""
-linha_fina: "Chuva e aquaplanagem impedem pilotos de acelerar e registrar voltas cronometradas; carros voltam à pista às 1h para a segunda sessão de treinos"
+linha_fina: "Chuva e aquaplanagem impedem pilotos de acelerar e registrar voltas cronometradas; carros voltam à pista à 1h para a segunda sessão de treinos"
 date: 2026-11-19T22:44:01-03:00
 categoria: "F1"
 palavra_chave: "TL1 GP de Las Vegas"
