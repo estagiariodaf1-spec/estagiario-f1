@@ -6,7 +6,7 @@ categoria: "F1"
 palavra_chave: "TL3 GP de Las Vegas"
 autor: "Redação Estagiário da F1"
 imagem: "/images/uploads/2026-11-20-tl3-gp-de-las-vegas-2026-resultado.jpg"
-credito_imagem: "Arte: Estagiário da F1"
+credito_imagem: "Foto: Mercedes/reprodução"
 fontes:
   - "Cronometragem oficial do TL3 (dados ao vivo)"
 ---
