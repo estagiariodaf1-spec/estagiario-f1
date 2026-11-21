@@ -5,6 +5,8 @@ date: 2026-11-21T02:02:36-03:00
 categoria: "F1"
 palavra_chave: "classificação GP de Las Vegas"
 autor: "Redação Estagiário da F1"
+imagem: "/images/uploads/2026-11-21-classificacao-gp-de-las-vegas-2026-grid.jpg"
+credito_imagem: "Foto: F1/reprodução"
 fontes:
   - "Cronometragem oficial da classificação (dados ao vivo)"
 ---
