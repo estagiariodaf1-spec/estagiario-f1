@@ -3,6 +3,14 @@
    Marca também <html class="aovivo-no-ar"> para o resto da página (o card do GP na capa) acender junto.
    Pergunta pro robô a cada 45 segundos com a aba aberta (guarda a resposta na sessão por 30 s). */
 (function () {
+  // cabeçalho fixo no celular encolhe depois de rolar um pouco
+  var rolou = false;
+  function verRolagem() {
+    var agora = window.scrollY > 40;
+    if (agora !== rolou) { rolou = agora; document.documentElement.classList.toggle("rolou", agora); }
+  }
+  window.addEventListener("scroll", verRolagem, { passive: true });
+  verRolagem();
   var selo = document.querySelector("[data-aovivo-selo]");
   if (!selo || !selo.dataset.status) return;
   function aplicar(d) {

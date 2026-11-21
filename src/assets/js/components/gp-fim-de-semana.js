@@ -39,11 +39,14 @@
     return lista.sort(function (a, b) { return a.ini - b.ini; });
   }
 
-  function chips(lista, agora) {
+  function chips(lista, agora, link) {
     return '<ol class="gp-sessoes">' + lista.map(function (s) {
       var estado = agora >= s.fim ? 'feita' : (agora >= s.ini ? 'agora' : '');
-      return '<li class="' + estado + (s.corrida ? ' corrida' : '') + '"><span>' + esc(s.nome) + '</span><b>' +
-        (estado === 'agora' ? 'AO VIVO' : esc(diaHora(s.ini))) + '</b></li>';
+      if (estado === 'agora') {  // a sessão que está rolando: leva pro Ao vivo
+        return '<li class="agora' + (s.corrida ? ' corrida' : '') + '"><a href="' + esc(link || '/ao-vivo/') + '"><span>' + esc(s.nome) +
+          '</span><b>Ao vivo agora</b></a></li>';
+      }
+      return '<li class="' + estado + (s.corrida ? ' corrida' : '') + '"><span>' + esc(s.nome) + '</span><b>' + esc(diaHora(s.ini)) + '</b></li>';
     }).join('') + '</ol>';
   }
 
@@ -87,7 +90,7 @@
         var chamada = atual ? '<span class="gp-tag vivo">Ao vivo</span><strong>' + esc(atual.nome) + ' · ' + titulo + '</strong>'
           : '<span class="gp-tag">Fim de semana de GP</span><strong>' + titulo + '</strong>' +
             (prox ? '<em>Próxima: ' + esc(prox.nome) + ' em ' + falta(prox.ini - agora) + '</em>' : '');
-        raiz.innerHTML = '<div class="gp-faixa durante"><div class="gp-titulo">' + chamada + '</div>' + chips(lista, agora) +
+        raiz.innerHTML = '<div class="gp-faixa durante"><div class="gp-titulo">' + chamada + '</div>' + chips(lista, agora, linkAoVivo) +
           '<a class="gp-link" href="' + linkAoVivo + '">Ao vivo do Estagiário ›</a></div>';
         // no celular, rola as sessões até a que importa agora
         var trilho = raiz.querySelector('.gp-sessoes'), alvo = raiz.querySelector('.gp-sessoes .agora') ||
@@ -103,7 +106,7 @@
           esc(quando(data(corrida), { hour: '2-digit', minute: '2-digit', hour12: false }).replace(':', 'h')) + ' (Brasília) · ' +
           esc(corrida.Circuit.circuitName) + ' · faltam ' + falta(data(corrida) - agora) + '</em>';
       raiz.innerHTML = '<div class="gp-faixa ' + (dias <= 7 ? 'semana' : 'longe') + '"><div class="gp-titulo">' + cabecalho + '</div>' +
-        chips(lista, agora) + '<a class="gp-link" href="/gp.html">Central do GP ›</a></div>';
+        chips(lista, agora, linkAoVivo) + '<a class="gp-link" href="/gp.html">Central do GP ›</a></div>';
     } catch (e) {
       // sem dados, mantém a faixa (sumir com ela empurraria a página)
       raiz.innerHTML = '<div class="gp-faixa longe"><div class="gp-titulo"><span class="gp-tag">Temporada</span><strong>Calendário da F1</strong><em>Horários de Brasília</em></div><a class="gp-link" href="/calendario.html">Ver calendário ›</a></div>';
