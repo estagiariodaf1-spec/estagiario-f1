@@ -1,6 +1,6 @@
 ---
 title: "Verstappen sobre toque com Russell: \"Não aconteceu nada\""
-linha_fina: "Pole e segundo do grid tratam o lance como caso encerrado na coletiva, mas clima bélico entre os dois fica evidente"
+linha_fina: "Pole e segundo do grid tratam o lance como caso encerrado na coletiva, mas clima bélico entre os dois fica evidente; Verstappen mostrou dedo do meio após toque, enquanto Russell debochou pelo rádio"
 date: 2026-11-21T03:19:07-03:00
 categoria: "F1"
 palavra_chave: "Verstappen e Russell toque TL3 Las Vegas"
@@ -30,6 +30,8 @@ https://x.com/EstagiariodaF1/status/2124022576754405483
 ## O que rolou no TL3
 
 O toque foi a três minutos do fim do treino, na noite de sexta-feira (20). Verstappen ultrapassou Russell na reta e freou para fazer a curva 14. O piloto da Mercedes se mexeu para a parte de dentro, tentou retomar a posição e os dois bateram rodas. O holandês escapou do muro por pouco. Logo depois do toque, Verstappen mostrou o dedo do meio.
+
+https://x.com/F1BigData/status/2123987363961397706
 
 Pelo rádio, o piloto da Red Bull reclamou que Russell o tinha empurrado para a barreira. O britânico, por sua vez, perguntou ao engenheiro de corrida, Marcus Dudley, se ele tinha visto o replay. Dudley confirmou que o holandês cortou a frente do britânico.
 
