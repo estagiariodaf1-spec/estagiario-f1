@@ -95,8 +95,16 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
   .av[data-aba="feed"] .com-dados .av-mapa, .av[data-aba="feed"] .com-dados .av-ritmo, .av[data-aba="feed"] .com-dados .av-box,
   .av[data-aba="feed"] .com-dados .av-estrategia, .av[data-aba="feed"] .com-dados .av-posicoes, .av[data-aba="feed"] .com-dados .av-vel { display: none; }
   .av[data-aba="feed"] .com-dados .av-tabela .av-legenda { display: none; }
-  .av[data-aba="tabela"] .com-dados .av-feed, .av[data-aba="tabela"] .com-dados .av-mapa, .av[data-aba="tabela"] .com-dados .av-ritmo, .av[data-aba="tabela"] .com-dados .av-box,
+  .av[data-aba="tabela"] .com-dados .av-mapa, .av[data-aba="tabela"] .com-dados .av-ritmo, .av[data-aba="tabela"] .com-dados .av-box,
   .av[data-aba="tabela"] .com-dados .av-posicoes, .av[data-aba="tabela"] .com-dados .av-vel { display: none; }
+  /* aba Minuto a minuto: o feed em cima, a tabela (top 5) embaixo; aba Tabela: a tabela inteira em cima, o feed embaixo */
+  .av[data-aba="feed"] .com-dados .av-feed { order: 1; }
+  .av[data-aba="feed"] .com-dados .av-tabela { order: 2; }
+  .av[data-aba="feed"] .com-dados .av-vice { order: 3; }
+  .av[data-aba="tabela"] .com-dados .av-tabela { order: 1; }
+  .av[data-aba="tabela"] .com-dados .av-feed { order: 2; }
+  .av[data-aba="tabela"] .com-dados .av-vice { order: 3; }
+  .av[data-aba="tabela"] .com-dados .av-estrategia { order: 4; }
   .av[data-aba="mapa"] .com-dados .av-feed, .av[data-aba="mapa"] .com-dados .av-tabela, .av[data-aba="mapa"] .com-dados .av-vice, .av[data-aba="mapa"] .com-dados .av-estrategia { display: none; }
   .av-grade, .av-grade.com-dados { grid-template-columns: minmax(0, 1fr); }
   .av-tabela, .av-feed, .av-mapa, .av-ritmo, .av-box, .av-vice, .av-estrategia, .av-posicoes, .av-vel { grid-column: 1; grid-row: auto; }
