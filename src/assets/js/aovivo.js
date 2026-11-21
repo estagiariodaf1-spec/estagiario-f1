@@ -150,6 +150,26 @@
     $('[data-feed-sub]').textContent = dados.ativo ? 'Estagiário, direção e rádio' : 'Estagiário';
   }
 
+  /* ---------- situação da sessão pelo que a direção de prova falou (em ordem) ---------- */
+  function statusSessao() {
+    var msgs = (dados.direcao || []).slice().sort(function (a, b) { return a.quando < b.quando ? -1 : 1; });
+    var st = 'aguardando';
+    msgs.forEach(function (m) {
+      var t = m.texto || '';
+      if (/CHEQUERED/.test(t) || m.bandeira === 'CHEQUERED') st = 'fim';
+      else if (/^RED FLAG/.test(t) || m.bandeira === 'RED') st = 'vermelha';
+      else if (/SESSION STARTED|GREEN LIGHT - PIT EXIT OPEN|SESSION (?:WILL )?RESUME/.test(t) || (m.bandeira === 'GREEN' && st !== 'aguardando')) st = 'verde';
+      else if (/^(?:VIRTUAL )?SAFETY CAR DEPLOYED/.test(t)) st = /VIRTUAL/.test(t) ? 'vsc' : 'sc';
+      else if (/SAFETY CAR (?:IN THIS LAP|ENDING)/.test(t) && (st === 'sc' || st === 'vsc')) st = 'verde';
+    });
+    if (st === 'verde' && /YELLOW/.test(dados.bandeira || '')) st = 'amarela';
+    if (dados.faltam === 0 && st !== 'vermelha') st = 'fim';
+    return {
+      aguardando: ['aguardando', 'Aguardando início'], verde: ['verde', 'Bandeira verde'], amarela: ['amarela', 'Bandeira amarela'],
+      vermelha: ['vermelha', 'Bandeira vermelha'], sc: ['sc', 'Safety car'], vsc: ['sc', 'Safety car virtual'], fim: ['quadriculada', '🏁 Fim de sessão']
+    }[st];
+  }
+
   /* ---------- cabeçalho ---------- */
   function desenhaTopo() {
     var vivo = posts.ativo || dados.ativo, st = $('[data-av-status]');
@@ -164,10 +184,9 @@
     $('[data-reprise]').hidden = !(dados.ativo && dados.modo === 'reprise');
     $('[data-circuito]').textContent = dados.ativo ? (dados.circuito || '') : '';
     if (!dados.ativo) return;
-    var b = dados.bandeira || 'GREEN';
-    band.className = 'av-bandeira ' + ({ GREEN: 'verde', CLEAR: 'verde', YELLOW: 'amarela', 'DOUBLE YELLOW': 'amarela', RED: 'vermelha', SC: 'sc', CHEQUERED: 'quadriculada' }[b] || 'verde');
-    band.textContent = 'Bandeira ' + (dados.bandeira_txt || 'verde');
-    if (b === 'SC') band.textContent = 'Safety car';
+    var st = statusSessao();
+    band.className = 'av-bandeira ' + st[0];
+    band.textContent = st[1];
     var f = dados.faltam;
     $('[data-faltam]').textContent = f == null ? '–' : (Math.floor(f / 3600) ? Math.floor(f / 3600) + ':' : '') + String(Math.floor(f % 3600 / 60)).padStart(2, '0') + ':' + String(f % 60).padStart(2, '0');
     var c = dados.clima || {};

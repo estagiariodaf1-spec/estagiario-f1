@@ -158,3 +158,6 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 .av-vel li { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
 .av-vel .bar { height: 4px; border-radius: 2px; margin-top: 5px; }
 .av-sem-texto { color: var(--fraco); font-style: italic; }
+.av-bandeira.aguardando { color: var(--fraco); }
+.av-bandeira.vermelha { background: #ff2b2b; color: #fff; border-color: #ff2b2b; }
+.av-bandeira.quadriculada { background: repeating-conic-gradient(#fff 0 25%, #111 0 50%) 0 0 / 10px 10px; color: #111; border-color: #fff; text-shadow: 0 0 3px #fff, 0 0 3px #fff; }
