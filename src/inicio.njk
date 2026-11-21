@@ -109,14 +109,14 @@ eleventyComputed:
 
     {% include "rodape.njk" %}
   </div>
-  <script src="/assets/site-nav.js" defer></script>
-  <script src="/assets/js/api/f1-api.js" defer></script>
-  <script src="/assets/js/data/circuit-details.js" defer></script>
-  <script src="/assets/js/components/ultimo-resultado.js" defer></script>
-  <script src="/assets/js/components/f1-calendar.js" defer></script>
-  <script src="/assets/js/components/vitrine-redes.js" defer></script>
-  <script src="/assets/js/components/hero-carrossel.js" defer></script>
-  <script src="/assets/js/components/gp-fim-de-semana.js" defer></script>
+  <script src="/assets/site-nav.js?v={{ versao }}" defer></script>
+  <script src="/assets/js/api/f1-api.js?v={{ versao }}" defer></script>
+  <script src="/assets/js/data/circuit-details.js?v={{ versao }}" defer></script>
+  <script src="/assets/js/components/ultimo-resultado.js?v={{ versao }}" defer></script>
+  <script src="/assets/js/components/f1-calendar.js?v={{ versao }}" defer></script>
+  <script src="/assets/js/components/vitrine-redes.js?v={{ versao }}" defer></script>
+  <script src="/assets/js/components/hero-carrossel.js?v={{ versao }}" defer></script>
+  <script src="/assets/js/components/gp-fim-de-semana.js?v={{ versao }}" defer></script>
   <script>
   document.addEventListener('DOMContentLoaded', function () {
     GPFimDeSemana.mount('[data-gp-faixa]');
