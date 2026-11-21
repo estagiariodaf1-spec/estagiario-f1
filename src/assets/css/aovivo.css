@@ -118,3 +118,8 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 .av-tema { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; border-radius: 99px;
   border: 1px solid var(--borda); background: transparent; color: var(--texto2); font: inherit; font-size: 13px; cursor: pointer; }
 .av-tema svg { width: 16px; height: 16px; }
+.av-lista li.tuite .rot { color: #ff2b2b; }
+.av-lista li.tuite.torcida .rot { color: #38bdf8; }
+.av[data-tema="claro"] .av-lista li.tuite.torcida .rot { color: #0369a1; }
+.av-lista li.tuite .twitter-tweet { margin: 6px 0 0 !important; max-width: 100% !important; }
+.av-lista li.tuite blockquote.twitter-tweet { border: 1px solid var(--borda); border-radius: 12px; padding: 12px; font-size: 14px; }

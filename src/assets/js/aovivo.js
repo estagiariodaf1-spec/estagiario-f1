@@ -1,7 +1,7 @@
 /* Ao vivo do Estagiário: junta o minuto a minuto (posts do Pedro) com os dados de pista do OpenF1 que o robô serve. */
 (function () {
   var $ = function (s) { return document.querySelector(s); };
-  var grade = $('.av-grade'), lista = $('[data-lista]'), vazio = $('[data-vazio]');
+  var grade = $('.av-grade'), lista = $('[data-lista]'), vazio = $('[data-vazio]'), main = $('[data-av]');
   var posts = { ativo: false, titulo: null, entradas: [] }, dados = { ativo: false };
   var primeira = true, vistos = {}, abertaTabela = false;
 
@@ -77,9 +77,30 @@
     return ['', 'Direção de prova'];
   }
 
+  /* ---------- tuítes embutidos (script oficial do X, carregado só quando aparece o primeiro) ---------- */
+  var xPronto = null;
+  function carregaTuite(li) {
+    if (!xPronto) {
+      xPronto = new Promise(function (ok) {
+        var sc = document.createElement('script');
+        sc.src = 'https://platform.twitter.com/widgets.js'; sc.async = true; sc.charset = 'utf-8';
+        sc.onload = function () { ok(window.twttr); }; sc.onerror = function () { ok(null); };
+        document.head.appendChild(sc);
+      });
+    }
+    xPronto.then(function (tw) { if (tw && tw.widgets) tw.widgets.load(li); });
+  }
+
   /* ---------- minuto a minuto ---------- */
   function itensFeed() {
     var itens = (posts.entradas || []).map(function (e) {
+      var m = /^\[\[(tuite|torcida)\]\]\s+(https:\/\/(?:x|twitter)\.com\/([A-Za-z0-9_]+)\/status\/(\d+))/.exec(e.texto || '');
+      if (m) {  // tuíte embutido: o vídeo toca aqui mesmo
+        var rotulo = m[1] === 'tuite' ? 'No X · @' + m[3] : 'Da torcida · @' + m[3];
+        return { id: 'p' + e.id, quando: e.quando, classe: 'tuite ' + (m[1] === 'tuite' ? 'nosso' : 'torcida'), tuite: true,
+          html: '<span class="rot">' + esc(rotulo) + '</span><blockquote class="twitter-tweet" data-dnt="true" data-conversation="none" data-theme="' +
+            (main.dataset.tema === 'claro' ? 'light' : 'dark') + '"><a href="' + esc(m[2].replace('x.com', 'twitter.com')) + '">Ver no X</a></blockquote>' };
+      }
       var rot = { destaque: 'Estagiário', bandeira: 'Bandeira', abertura: 'Começou', encerramento: 'Encerrado' }[e.tipo] || 'Estagiário';
       return { id: 'p' + e.id, quando: e.quando, classe: 'tipo-' + e.tipo, html: '<span class="rot">' + rot + '</span>' + formata(e.texto) };
     });
@@ -105,7 +126,7 @@
     var anterior = null;
     itens.forEach(function (i) {
       var li = lista.querySelector('[data-id="' + CSS.escape(i.id) + '"]');
-      if (li && li.dataset.html !== i.html) { li.querySelector('div').innerHTML = i.html; li.dataset.html = i.html; }
+      if (li && !i.tuite && li.dataset.html !== i.html) { li.querySelector('div').innerHTML = i.html; li.dataset.html = i.html; }
       if (!li) {
         li = document.createElement('li');
         li.dataset.html = i.html;
@@ -113,6 +134,7 @@
         li.className = i.classe + (primeira || vistos[i.id] ? '' : ' nova');
         li.innerHTML = '<time>' + hora(i.quando) + '</time><div>' + i.html + '</div>';
         vistos[i.id] = true;
+        if (i.tuite) carregaTuite(li);
       }
       if (anterior) { if (anterior.nextSibling !== li) lista.insertBefore(li, anterior.nextSibling); }
       else if (lista.firstChild !== li) lista.insertBefore(li, lista.firstChild);
@@ -244,7 +266,6 @@
     try { dados = await (await fetch(window.AV_DADOS, { cache: 'no-store' })).json(); } catch (e) { return; }
     desenhaTopo(); desenhaDados(); desenhaFeed();
   }
-  var main = $('[data-av]');
   var botaoTema = $('[data-tema-botao]');
   function marcaTema() {
     var claro = main.dataset.tema === 'claro';
