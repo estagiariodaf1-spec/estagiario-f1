@@ -1,6 +1,6 @@
 ---
 title: "Verstappen é levado aos comissários duas vezes no TL3 de Las Vegas; Russell lidera"
-linha_fina: "Max Verstappen é citado por dirigir de forma errática diante de Colapinto e por um toque de pista com Russell no Turn 14. George Russell faz 1:34.306 e é o mais rápido"
+linha_fina: "Max Verstappen é citado por dirigir de forma errática diante de Colapinto e por um toque de pista com Russell"
 date: 2026-11-20T22:30:11-03:00
 categoria: "F1"
 palavra_chave: "TL3 GP de Las Vegas"
@@ -17,7 +17,7 @@ No começo da sessão, ele costurou na saída da curva 12 e na aproximação da 
 
 https://x.com/estagiariodaf1/status/2123959241518227513?a=lVxTO3VEXndx37O8fxs&s=46
 
-Mais tarde, veio o segundo episódio, com George Russell (Mercedes), também no Turn 14. Verstappen passou o inglês, Russell tentou retomar a posição e Verstappen não deu espaço. Os comissários anotaram o lance. No rádio, Russell perguntou se o engenheiro tinha visto o replay. A resposta foi que a equipe viu Verstappen fechar a frente dele. Russell: "Tudo diversão e brincadeira, né?"
+Mais tarde, veio o segundo episódio, com George Russell (Mercedes), também na curva 14. Verstappen passou o inglês, Russell tentou retomar a posição e Verstappen não deu espaço. Os comissários anotaram o lance. No rádio, Russell perguntou se o engenheiro tinha visto o replay. A resposta foi que a equipe viu Verstappen fechar a frente dele. Russell: "Tudo diversão e brincadeira, né?"
 
 Verstappen ainda travou roda quatro vezes e foi para a área de escape em todas. Terminou em 5º, com 22 voltas, o menor número do top 10.
 
