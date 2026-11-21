@@ -35,54 +35,5 @@ A largada do GP de Las Vegas acontece neste domingo (22), à 01h (horário de Br
 
 ## Resultado da classificação
 
-| Pos | Piloto | Equipe | Q1 | Q2 | Q3 |
-|---|---|---|---|---|---|
-| 1 | Max Verstappen | Red Bull Racing | 1:35.264 | 1:34.394 | 1:34.151 |
-| 2 | Lando Norris | McLaren | 1:35.109 | 1:34.766 | 1:34.324 |
-| 3 | George Russell | Mercedes | 1:34.664 | 1:34.617 | 1:34.436 |
-| 4 | Isack Hadjar | Red Bull Racing | 1:35.413 | 1:35.064 | 1:34.592 |
-| 5 | Oscar Piastri | McLaren | 1:35.491 | 1:34.763 | 1:34.899 |
-| 6 | Kimi Antonelli | Mercedes | 1:34.684 | 1:35.086 | 1:35.028 |
-| 7 | Pierre Gasly | Alpine | 1:35.718 | 1:34.559 | 1:35.105 |
-| 8 | Liam Lawson | Racing Bulls | 1:35.489 | 1:35.048 | 1:35.274 |
-| 9 | Arvid Lindblad | Racing Bulls | 1:35.456 | 1:34.963 | 1:35.862 |
-| 10 | Franco Colapinto | Alpine | 1:35.930 | 1:34.982 | 1:35.877 |
-| 11 | Charles Leclerc | Ferrari | 1:35.040 | 1:35.197 | 1:56.712 |
-| 12 | Lewis Hamilton | Ferrari | 1:35.743 | 1:35.253 | 2:02.561 |
-| 13 | Nico Hülkenberg | Audi | 1:35.710 | 1:35.460 | - |
-| 14 | Carlos Sainz | Williams | 1:35.588 | 1:35.641 | 2:08.587 |
-| 15 | Gabriel Bortoleto | Audi | 1:36.149 | 1:35.993 | - |
-| 16 | Alexander Albon | Williams | 1:35.856 | 1:36.125 | 2:09.415 |
-| 17 | Rafael Câmara | Haas F1 Team | 1:36.220 | 2:05.796 | - |
-| 18 | Sergio Pérez | Cadillac | 1:37.383 | 2:03.201 | - |
-| 19 | Fernando Alonso | Aston Martin | 1:37.400 | 1:58.501 | - |
-| 20 | Lance Stroll | Aston Martin | 1:37.550 | 2:12.457 | - |
-| 21 | Valtteri Bottas | Cadillac | 1:37.601 | - | - |
-| 22 | Oliver Bearman | Haas F1 Team | 1:48.005 | - | - |
-
-## Grid de largada (provisório, com punições)
-
-| Largada | Piloto | Equipe | Obs. |
-|---|---|---|---|
-| 1 | Max Verstappen | Red Bull Racing |  |
-| 2 | Lando Norris | McLaren |  |
-| 3 | George Russell | Mercedes |  |
-| 4 | Isack Hadjar | Red Bull Racing |  |
-| 5 | Pierre Gasly | Alpine |  |
-| 6 | Liam Lawson | Racing Bulls |  |
-| 7 | Arvid Lindblad | Racing Bulls |  |
-| 8 | Franco Colapinto | Alpine |  |
-| 9 | Charles Leclerc | Ferrari |  |
-| 10 | Lewis Hamilton | Ferrari |  |
-| 11 | Kimi Antonelli | Mercedes | perde 5 posições |
-| 12 | Nico Hülkenberg | Audi |  |
-| 13 | Gabriel Bortoleto | Audi |  |
-| 14 | Alexander Albon | Williams |  |
-| 15 | Oscar Piastri | McLaren | perde 10 posições |
-| 16 | Rafael Câmara | Haas F1 Team |  |
-| 17 | Sergio Pérez | Cadillac |  |
-| 18 | Fernando Alonso | Aston Martin |  |
-| 19 | Valtteri Bottas | Cadillac |  |
-| 20 | Oliver Bearman | Haas F1 Team | larga do fundo |
-| 21 | Carlos Sainz | Williams | perde 10 posições |
-| 22 | Lance Stroll | Aston Martin | perde 10 posições |
+![tabela de tempos resultado classificação gp de las vegas de f1](https://fkmywflqajeitcsyxfoa.supabase.co/storage/v1/object/public/fotos/materias/20261121-023459-741fa3.jpg)
+*Foto: Reprodução/F1*
