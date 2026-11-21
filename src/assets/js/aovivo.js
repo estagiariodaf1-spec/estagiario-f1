@@ -138,6 +138,8 @@
         li = document.createElement('li');
         li.dataset.html = i.html;
         li.dataset.id = i.id;
+        li.dataset.cat = i.cat || 'estagiario';
+        li.id = 'post-' + i.id.replace(/[^A-Za-z0-9_-]/g, '');
         li.className = i.classe + (primeira || vistos[i.id] ? '' : ' nova');
         li.innerHTML = '<time>' + hora(i.quando) + '</time><div>' + i.html + '</div>' +
           (i.cat === 'estagiario' || i.cat === 'torcida' ? '<button type="button" class="av-compartilhar" aria-label="Compartilhar este post">Compartilhar</button>' : '');
