@@ -1,6 +1,6 @@
 ---
-title: "Verstappen crava a pole do GP de Las Vegas; Bortoleto larga em 13º"
-linha_fina: "Verstappen fica com a pole; Bortoleto, Câmara largam em 13º e 16º; largada 01h de Brasília"
+title: "Verstappen herda pole em Las Vegas; Ferrari dá vexame"
+linha_fina: "Verstappen herda a pole após punição de Antonelli; Bortoleto e Câmara largam em 13º e 16º, respectivamente. Corrida começa à 01h (de Brasília)"
 date: 2026-11-21T02:02:36-03:00
 categoria: "F1"
 palavra_chave: "classificação GP de Las Vegas"
@@ -16,6 +16,8 @@ Max Verstappen (Red Bull Racing) garantiu a pole position do GP de Las Vegas ap�
 O italiano marcou 1:33.893, superando Verstappen, segundo mais rápido com 1:34.151, por 0s258. No entanto, como Antonelli já carregava uma penalidade por troca de componentes da unidade de potência, o neerlandês herdou a primeira posição do grid.
 
 George Russell (Mercedes) terminou a sessão em terceiro, com 1:34.224, seguido por Lando Norris (McLaren), Isack Hadjar (Red Bull Racing), Arvid Lindblad (Racing Bulls), Oscar Piastri (McLaren), Liam Lawson (Racing Bulls), Pierre Gasly (Alpine) e Franco Colapinto (Alpine), completando os dez primeiros na tabela de tempos.
+
+A Ferrari, por sua vez, protagonizou um dos grandes fiascos da classificação. A equipe italiana não conseguiu colocar nenhum dos seus carros no Q3, com Charles Leclerc eliminado em 11º, após marcar 1:35.197, e Lewis Hamilton em 12º, com 1:35.253. Separados por apenas 0s056, os dois pilotos ficaram fora da disputa pela pole position ainda no Q2, em mais uma atuação decepcionante da escuderia de Maranello.
 
 Gabriel Bortoleto (Audi) foi eliminado no Q2 e terminou a classificação em 15º, com 1:35.993. O brasileiro ficou atrás de seu companheiro de equipe, Nico Hülkenberg, que marcou 1:35.460 e terminou em 13º.
 
