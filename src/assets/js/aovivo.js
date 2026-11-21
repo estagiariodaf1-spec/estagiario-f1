@@ -101,22 +101,23 @@
       if (m) {  // tuíte embutido: o vídeo toca aqui mesmo
         var rotulo = m[1] === 'tuite' ? 'No X · @' + m[3] : 'Da torcida · @' + m[3];
         return { id: 'p' + e.id, quando: e.quando, classe: 'tuite ' + (m[1] === 'tuite' ? 'nosso' : 'torcida'), tuite: true,
+          cat: m[1] === 'tuite' ? 'estagiario' : 'torcida',
           html: '<span class="rot">' + esc(rotulo) + '</span><blockquote class="twitter-tweet" data-dnt="true" data-conversation="none" data-theme="' +
             (main.dataset.tema === 'claro' ? 'light' : 'dark') + '"><a href="' + esc(m[2].replace('x.com', 'twitter.com')) + '">Ver no X</a></blockquote>' };
       }
       var rot = { destaque: 'Estagiário', bandeira: 'Bandeira', abertura: 'Começou', encerramento: 'Encerrado' }[e.tipo] || 'Estagiário';
-      return { id: 'p' + e.id, quando: e.quando, classe: 'tipo-' + e.tipo, html: '<span class="rot">' + rot + '</span>' + formata(e.texto) };
+      return { id: 'p' + e.id, quando: e.quando, classe: 'tipo-' + e.tipo, cat: 'estagiario', html: '<span class="rot">' + rot + '</span>' + formata(e.texto) };
     });
     if (dados.ativo) {
       (dados.direcao || []).forEach(function (m) {
         if (!m.texto || /BLUE FLAG/.test(m.texto)) return;  // bandeira azul vira spam na corrida
         var tp = tipoOficial(m);
-        itens.push({ id: 'd' + m.quando + m.texto, quando: m.quando, classe: 'oficial ' + tp[0],
+        itens.push({ id: 'd' + m.quando + m.texto, quando: m.quando, classe: 'oficial ' + tp[0], cat: 'oficial',
           html: '<span class="rot">' + tp[1] + '</span>' + esc(m.texto_pt || traduz(m.texto)) });
       });
       (dados.radio || []).forEach(function (r) {
         if (!r.texto && r.vazio) return;  // rádio sem fala aproveitável: não entra
-        itens.push({ id: 'r' + r.quando + r.piloto, quando: r.quando, classe: 'radio',
+        itens.push({ id: 'r' + r.quando + r.piloto, quando: r.quando, classe: 'radio', cat: 'radio',
           // sem tocar o áudio (é da transmissão da F1): só a transcrição traduzida, quando o robô já tiver feito
           html: '<span class="rot">Rádio · ' + esc(r.piloto) + '</span>' + (r.texto ? '“' + esc(r.texto) + '”' : '') +
             (r.audio && !r.texto ? '<audio controls preload="none" src="' + esc(r.audio) + '"></audio>' : '') });
@@ -138,7 +139,8 @@
         li.dataset.html = i.html;
         li.dataset.id = i.id;
         li.className = i.classe + (primeira || vistos[i.id] ? '' : ' nova');
-        li.innerHTML = '<time>' + hora(i.quando) + '</time><div>' + i.html + '</div>';
+        li.innerHTML = '<time>' + hora(i.quando) + '</time><div>' + i.html + '</div>' +
+          (i.cat === 'estagiario' || i.cat === 'torcida' ? '<button type="button" class="av-compartilhar" aria-label="Compartilhar este post">Compartilhar</button>' : '');
         vistos[i.id] = true;
         if (i.tuite) carregaTuite(li);
       }
@@ -146,9 +148,23 @@
       else if (lista.firstChild !== li) lista.insertBefore(li, lista.firstChild);
       anterior = li;
     });
+    aplicaFiltro();
     vazio.hidden = itens.length > 0 || posts.ativo || dados.ativo;
+    $('[data-filtros]').hidden = !dados.ativo;
+    if (!rolouAoPost && location.hash.indexOf('#post-') === 0) {
+      var alvo = document.getElementById(location.hash.slice(1));
+      if (alvo) { rolouAoPost = true; alvo.scrollIntoView({ block: 'center' }); alvo.classList.add('nova'); }
+    }
     $('[data-feed-sub]').textContent = dados.ativo ? 'Estagiário, direção e rádio' : 'Estagiário';
   }
+
+  var ultimaAtualizacao = null;
+  function marcaAtualizado() {
+    if (!ultimaAtualizacao) return;
+    var seg = Math.max(0, Math.round((Date.now() - ultimaAtualizacao.getTime()) / 1000));
+    $('[data-atualizado]').textContent = seg < 60 ? 'Atualizado há ' + seg + ' s' : 'Atualizado há ' + Math.round(seg / 60) + ' min';
+  }
+  setInterval(marcaAtualizado, 1000);
 
   /* ---------- situação da sessão pelo que a direção de prova falou (em ordem) ---------- */
   function statusSessao() {
@@ -170,6 +186,29 @@
     }[st];
   }
 
+  /* ---------- filtros e compartilhar ---------- */
+  var filtro = 'tudo', rolouAoPost = false;
+  function aplicaFiltro() {
+    Array.prototype.forEach.call(lista.children, function (li) { li.hidden = filtro !== 'tudo' && li.dataset.cat !== filtro; });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-filtro]'), function (b) {
+    b.addEventListener('click', function () {
+      filtro = b.dataset.filtro;
+      Array.prototype.forEach.call(document.querySelectorAll('[data-filtro]'), function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      aplicaFiltro();
+    });
+  });
+  lista.addEventListener('click', function (e) {
+    var b = e.target.closest('.av-compartilhar');
+    if (!b) return;
+    var li = b.closest('li'), url = location.origin + location.pathname + '#' + li.id;
+    var texto = (li.querySelector('div') || li).textContent.replace(/\s+/g, ' ').replace('Compartilhar', '').trim().slice(0, 140);
+    if (navigator.share) { navigator.share({ title: document.title, text: texto, url: url }).catch(function () {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(function () {
+      b.textContent = 'Link copiado'; setTimeout(function () { b.textContent = 'Compartilhar'; }, 2000);
+    }).catch(function () { window.prompt('Copie o link do post:', url); });
+  });
+
   /* ---------- cabeçalho ---------- */
   function desenhaTopo() {
     var vivo = posts.ativo || dados.ativo, st = $('[data-av-status]');
@@ -181,12 +220,25 @@
     var band = $('[data-bandeira]');
     band.hidden = !dados.ativo;
     $('[data-numeros]').hidden = !dados.ativo;
+    if (!dados.ativo) $('[data-vivo-linha]').hidden = true;
     $('[data-reprise]').hidden = !(dados.ativo && dados.modo === 'reprise');
     $('[data-circuito]').textContent = dados.ativo ? (dados.circuito || '') : '';
     if (!dados.ativo) return;
     var st = statusSessao();
     band.className = 'av-bandeira ' + st[0];
     band.textContent = st[1];
+    ultimaAtualizacao = dados.atualizado_em ? new Date(dados.atualizado_em) : new Date();
+    $('[data-vivo-linha]').hidden = false;
+    $('[data-sessao-st]').textContent = st[0] === 'aguardando' ? 'Aguardando' : (st[0] === 'quadriculada' ? 'Encerrada' : 'Em andamento');
+    marcaAtualizado();
+    var rc = (dados.direcao || []).filter(function (m) { return m.texto && !/BLUE FLAG/.test(m.texto); })
+      .sort(function (a, b) { return a.quando < b.quando ? 1 : -1; })[0];
+    $('[data-rc]').hidden = !rc;
+    if (rc) {
+      var tp = tipoOficial(rc);
+      $('[data-rc]').className = 'av-rc ' + tp[0];
+      $('[data-rc-texto]').textContent = (rc.texto_pt || traduz(rc.texto)) + ' (' + hora(rc.quando) + ')';
+    }
     var f = dados.faltam;
     $('[data-faltam]').textContent = f == null ? '–' : (Math.floor(f / 3600) ? Math.floor(f / 3600) + ':' : '') + String(Math.floor(f % 3600 / 60)).padStart(2, '0') + ':' + String(f % 60).padStart(2, '0');
     var c = dados.clima || {};
@@ -206,7 +258,7 @@
       var sets = (p.setores || []).map(function (s, i) { return '<span class="s ' + (s.cor || '') + '" title="Setor ' + (i + 1) + (s.tempo ? ': ' + s.tempo.toFixed(3) : '') + '"></span>'; }).join('');
       var pn = p.pneu ? '<span class="pneu"><i class="' + esc(p.pneu.composto) + '">' + esc(p.pneu.composto) + '</i>' + p.pneu.voltas + 'v</span>' : '';
       var br = ehBR(p) ? '<span class="tag-br">BR</span>' : '';
-      var box = p.no_box ? '<span class="tag-box">BOX</span>' : '';
+      var box = p.no_box ? '<span class="tag-box">NOS BOXES</span>' : '';
       var gap = p.pos === 1 ? (corrida ? 'Líder' : '–') : num(p.gap);
       return '<tr class="' + (ehBR(p) ? 'br' : '') + '"><td class="pos">' + p.pos + '</td><td class="cor"><span style="background:' + esc(p.cor) + '"></span></td>' +
         '<td class="piloto"><b>' + esc(p.nome) + br + box + '</b><small>' + esc(p.equipe || '') + '</small>' +

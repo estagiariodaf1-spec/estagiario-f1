@@ -22,6 +22,7 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
       <div><small>Vento</small><b data-vento>–</b></div>
       <div><small>Chuva</small><b data-chuva>–</b></div>
     </div>
+    <p class="av-vivo-linha" data-vivo-linha hidden><span data-sessao-st></span> · <span data-atualizado></span></p>
     <p class="av-reprise" data-reprise hidden>Reprise de teste: dados de uma sessão que já aconteceu, tocando como se fosse ao vivo.</p>
   </div>
 
@@ -33,6 +34,7 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
   <div class="av-grade">
     <section class="av-cartao av-tabela" data-bloco-tabela hidden aria-labelledby="av-t-tabela">
       <header><h2 id="av-t-tabela">Classificação</h2><span data-tabela-sub>Atualiza sozinha</span></header>
+      <p class="av-rc" data-rc hidden><b>Direção de prova:</b> <span data-rc-texto></span></p>
       <div class="av-rolagem">
         <table>
           <thead><tr><th scope="col">Pos</th><th scope="col"><span class="av-sr">Equipe</span></th><th scope="col">Piloto</th><th scope="col" class="so-largo">Setores</th><th scope="col">Pneu</th><th scope="col" class="num so-largo">Voltas</th><th scope="col" class="num so-largo">Interv.</th><th scope="col" class="num">Melhor</th><th scope="col" class="num">Gap</th></tr></thead>
@@ -45,6 +47,13 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
 
     <section class="av-cartao av-feed" aria-labelledby="av-t-feed">
       <header><h2 id="av-t-feed">Minuto a minuto</h2><span data-feed-sub>Estagiário</span></header>
+      <div class="av-filtros" role="group" aria-label="Filtrar o minuto a minuto" data-filtros hidden>
+        <button type="button" aria-pressed="true" data-filtro="tudo">Tudo</button>
+        <button type="button" aria-pressed="false" data-filtro="estagiario">Estagiário</button>
+        <button type="button" aria-pressed="false" data-filtro="oficial">Direção de prova</button>
+        <button type="button" aria-pressed="false" data-filtro="radio">Rádio</button>
+        <button type="button" aria-pressed="false" data-filtro="torcida">Torcida</button>
+      </div>
       <ol class="av-lista" data-lista aria-live="polite"></ol>
       <p class="av-vazio" data-vazio hidden>Nenhuma cobertura no ar agora. Na hora das sessões, o minuto a minuto aparece aqui.</p>
     </section>
