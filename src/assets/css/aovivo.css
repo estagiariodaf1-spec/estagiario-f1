@@ -21,10 +21,15 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 
 .av-grade { display: grid; grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr); gap: 18px; align-items: start; }
 .av-tabela { grid-column: 1; grid-row: 1 / span 2; }
-.av-feed { grid-column: 2; grid-row: 1 / span 4; }
+.av-feed { grid-column: 2; grid-row: 1 / span 12; }
+/* no computador o minuto a minuto fica preso ao lado e rola por dentro: não estica as linhas da coluna da esquerda */
+@media (min-width: 901px) {
+  .av-grade.com-dados .av-feed { position: sticky; top: 12px; align-self: start; max-height: calc(100vh - 24px); display: flex; flex-direction: column; }
+  .av-grade.com-dados .av-feed .av-lista { overflow-y: auto; flex: 1; overscroll-behavior: contain; }
+}
 .av-mapa { grid-column: 1; }
 .av-ritmo, .av-box, .av-estrategia, .av-posicoes, .av-vel { grid-column: 1; }
-.av-vice { grid-column: 2; }
+.av-vice { grid-column: 1; }
 .av-grade:not(.com-dados) .av-feed { grid-column: 1 / -1; max-width: 760px; width: 100%; margin: 0 auto; }
 
 .av-cartao { background: var(--cartao); border: 1px solid var(--linha); border-radius: 14px; overflow: hidden; }
