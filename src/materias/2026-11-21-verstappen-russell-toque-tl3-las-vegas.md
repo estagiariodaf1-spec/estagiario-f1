@@ -1,6 +1,6 @@
 ---
-title: "Verstappen após toque e dedo do meio a Russell em treino: \"Não aconteceu nada\""
-linha_fina: "Pole e segundo do grid tratam o lance como caso encerrado na coletiva, mas clima bélico entre os dois fica evidente; Verstappen mostrou dedo do meio após toque, enquanto Russell debochou pelo rádio"
+title: "Verstappen após toque e dedo do meio a Russell: \"Não aconteceu nada\""
+linha_fina: "Pole e segundo do grid tratam o lance ocorrido no TL3 do GP de Las Vegas como caso encerrado na coletiva, mas clima bélico fica evidente; Verstappen mostrou dedo do meio após toque, enquanto Russell debochou pelo rádio"
 date: 2026-11-21T03:19:07-03:00
 categoria: "F1"
 palavra_chave: "Verstappen e Russell toque TL3 Las Vegas"
