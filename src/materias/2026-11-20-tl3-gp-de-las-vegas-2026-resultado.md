@@ -33,27 +33,6 @@ Sexta de Verstappen: brigou com a pista e com quem apareceu na frente dele.
 
 ## Resultado do TL3
 
-| Pos. | Piloto | Equipe | Tempo | Dif. | Voltas |
-| --- | --- | --- | --- | --- | --- |
-| 1º | George Russell | Mercedes | 1:34.306 | – | 28 |
-| 2º | Lando Norris | McLaren | 1:35.015 | +0.709 | 27 |
-| 3º | Kimi Antonelli | Mercedes | 1:35.131 | +0.825 | 27 |
-| 4º | Charles Leclerc | Ferrari | 1:35.191 | +0.885 | 29 |
-| 5º | Max Verstappen | Red Bull Racing | 1:35.350 | +1.044 | 22 |
-| 6º | Liam Lawson | Racing Bulls | 1:35.402 | +1.096 | 29 |
-| 7º | Lewis Hamilton | Ferrari | 1:35.434 | +1.128 | 28 |
-| 8º | Pierre Gasly | Alpine | 1:35.443 | +1.137 | 28 |
-| 9º | Arvid Lindblad | Racing Bulls | 1:35.450 | +1.144 | 30 |
-| 10º | Isack Hadjar | Red Bull Racing | 1:35.493 | +1.187 | 27 |
-| 11º | Oscar Piastri | McLaren | 1:35.804 | +1.498 | 27 |
-| 12º | Franco Colapinto | Alpine | 1:35.936 | +1.630 | 27 |
-| 13º | Carlos Sainz | Williams | 1:36.390 | +2.084 | 27 |
-| 14º | Nico Hülkenberg | Audi | 1:36.391 | +2.085 | 20 |
-| 15º | Alexander Albon | Williams | 1:36.446 | +2.140 | 27 |
-| 16º | Gabriel Bortoleto | Audi | 1:36.747 | +2.441 | 27 |
-| 17º | Oliver Bearman | Haas F1 Team | 1:36.938 | +2.632 | 28 |
-| 18º | Rafael Câmara | Haas F1 Team | 1:37.012 | +2.706 | 28 |
-| 19º | Sergio Pérez | Cadillac | 1:37.132 | +2.826 | 26 |
-| 20º | Fernando Alonso | Aston Martin | 1:37.249 | +2.943 | 27 |
-| 21º | Lance Stroll | Aston Martin | 1:37.681 | +3.375 | 26 |
-| 22º | Valtteri Bottas | Cadillac | 1:37.696 | +3.390 | 26 |
+
+![Tl3 tempos](https://fkmywflqajeitcsyxfoa.supabase.co/storage/v1/object/public/fotos/materias/20261120-230846-fb9a94.jpg)
+*Foto: F1*
