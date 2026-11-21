@@ -186,6 +186,29 @@
     }[st];
   }
 
+  /* ---------- visão compacta e colunas (o leitor escolhe; fica guardado no navegador dele) ---------- */
+  var tabelaEl = $('[data-bloco-tabela]'), prefs = {};
+  try { prefs = JSON.parse(localStorage.getItem('av-tabela') || '{}'); } catch (e) {}
+  function salvaPrefs() { try { localStorage.setItem('av-tabela', JSON.stringify(prefs)); } catch (e) {} }
+  function aplicaPrefs() {
+    tabelaEl.classList.toggle('compacta', !!prefs.compacta);
+    $('[data-compacta]').setAttribute('aria-pressed', prefs.compacta ? 'true' : 'false');
+    Array.prototype.forEach.call(document.querySelectorAll('[data-col]'), function (c) {
+      var escondida = (prefs.ocultas || []).indexOf(c.dataset.col) >= 0;
+      c.checked = !escondida;
+      tabelaEl.classList.toggle('sem-' + c.dataset.col, escondida);
+    });
+  }
+  $('[data-compacta]').addEventListener('click', function () { prefs.compacta = !prefs.compacta; salvaPrefs(); aplicaPrefs(); });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-col]'), function (c) {
+    c.addEventListener('change', function () {
+      var o = (prefs.ocultas || []).filter(function (x) { return x !== c.dataset.col; });
+      if (!c.checked) o.push(c.dataset.col);
+      prefs.ocultas = o; salvaPrefs(); aplicaPrefs();
+    });
+  });
+  aplicaPrefs();
+
   /* ---------- filtros e compartilhar ---------- */
   var filtro = 'tudo', rolouAoPost = false;
   function aplicaFiltro() {
@@ -263,10 +286,10 @@
       return '<tr class="' + (ehBR(p) ? 'br' : '') + '"><td class="pos">' + p.pos + '</td><td class="cor"><span style="background:' + esc(p.cor) + '"></span></td>' +
         '<td class="piloto"><b>' + esc(p.nome) + br + box + '</b><small>' + esc(p.equipe || '') + '</small>' +
           ((p.mini || []).length ? '<span class="mini so-largo" aria-hidden="true">' + p.mini.map(function (m) { return '<i class="' + m + '"></i>'; }).join('') + '</span>' : '') + '</td>' +
-        '<td class="so-largo"><span class="setores">' + sets + '</span></td><td>' + pn + '</td>' +
-        '<td class="num so-largo">' + (p.voltas || '–') + '</td>' +
-        '<td class="num so-largo">' + (p.pos === 1 ? '–' : num(p.intervalo)) + '</td>' +
-        '<td class="num' + (p.recorde ? ' recorde' : '') + '">' + esc(p.melhor_txt || '–') + '</td><td class="num">' + gap + '</td></tr>';
+        '<td class="so-largo c-setores"><span class="setores">' + sets + '</span></td><td class="c-pneu">' + pn + '</td>' +
+        '<td class="num so-largo c-voltas">' + (p.voltas || '–') + '</td>' +
+        '<td class="num so-largo c-intervalo">' + (p.pos === 1 ? '–' : num(p.intervalo)) + '</td>' +
+        '<td class="num c-melhor' + (p.recorde ? ' recorde' : '') + '">' + esc(p.melhor_txt || '–') + '</td><td class="num c-gap">' + gap + '</td></tr>';
     }).join('');
   }
 

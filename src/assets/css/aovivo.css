@@ -178,3 +178,19 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 .av-compartilhar:hover { color: #ff2b2b; }
 .av-lista li[hidden] { display: none; }
 .av[data-tema="claro"] .av-rc.amarela b { color: #a16207; } .av[data-tema="claro"] .av-rc.verde b { color: #15803d; }
+.av-visao { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 16px; border-bottom: 1px solid var(--linha); font-size: 12px; }
+.av-chip { min-height: 30px; padding: 0 12px; border-radius: 99px; border: 1px solid var(--borda); background: transparent; color: var(--texto2); font: inherit; font-size: 12px; cursor: pointer; }
+.av-chip[aria-pressed="true"] { background: var(--texto); color: var(--fundo); border-color: var(--texto); }
+.av-colunas summary { cursor: pointer; color: var(--texto2); list-style: none; padding: 6px 4px; }
+.av-colunas summary::after { content: " ▾"; }
+.av-colunas[open] { width: 100%; }
+.av-colunas label { display: inline-flex; align-items: center; gap: 4px; margin: 4px 12px 4px 0; color: var(--texto2); }
+.av-tabela.sem-setores .c-setores, .av-tabela.sem-pneu .c-pneu, .av-tabela.sem-voltas .c-voltas,
+.av-tabela.sem-intervalo .c-intervalo, .av-tabela.sem-melhor .c-melhor, .av-tabela.sem-gap .c-gap { display: none; }
+.av-tabela.compacta td { padding-top: 4px; padding-bottom: 4px; }
+.av-tabela.compacta td.piloto small, .av-tabela.compacta .mini { display: none; }
+.av-tabela.compacta td.piloto b { font-size: 14px; }
+.av-tabela.compacta td.cor span { height: 16px; }
+.av-tabela.compacta td.pos { font-size: 16px; }
+.av-tabela.compacta .pneu i { width: 18px; height: 18px; border-width: 2px; font-size: 9px; }
+.av-tabela.compacta table { min-width: 0; }

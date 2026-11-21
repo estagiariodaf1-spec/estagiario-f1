@@ -35,10 +35,21 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
     <div class="av-esq">
     <section class="av-cartao av-tabela" data-bloco-tabela hidden aria-labelledby="av-t-tabela">
       <header><h2 id="av-t-tabela">Classificação</h2><span data-tabela-sub>Atualiza sozinha</span></header>
+      <div class="av-visao">
+        <button type="button" class="av-chip" data-compacta aria-pressed="false">Visão compacta</button>
+        <details class="av-colunas"><summary>Colunas</summary>
+          <label><input type="checkbox" data-col="setores" checked> Setores</label>
+          <label><input type="checkbox" data-col="pneu" checked> Pneu</label>
+          <label><input type="checkbox" data-col="voltas" checked> Voltas</label>
+          <label><input type="checkbox" data-col="intervalo" checked> Intervalo</label>
+          <label><input type="checkbox" data-col="melhor" checked> Melhor volta</label>
+          <label><input type="checkbox" data-col="gap" checked> Gap</label>
+        </details>
+      </div>
       <p class="av-rc" data-rc hidden><b>Direção de prova:</b> <span data-rc-texto></span></p>
       <div class="av-rolagem">
         <table>
-          <thead><tr><th scope="col">Pos</th><th scope="col"><span class="av-sr">Equipe</span></th><th scope="col">Piloto</th><th scope="col" class="so-largo">Setores</th><th scope="col">Pneu</th><th scope="col" class="num so-largo">Voltas</th><th scope="col" class="num so-largo">Interv.</th><th scope="col" class="num">Melhor</th><th scope="col" class="num">Gap</th></tr></thead>
+          <thead><tr><th scope="col">Pos</th><th scope="col"><span class="av-sr">Equipe</span></th><th scope="col">Piloto</th><th scope="col" class="so-largo c-setores">Setores</th><th scope="col" class="c-pneu">Pneu</th><th scope="col" class="num so-largo c-voltas">Voltas</th><th scope="col" class="num so-largo c-intervalo">Interv.</th><th scope="col" class="num c-melhor">Melhor</th><th scope="col" class="num c-gap">Gap</th></tr></thead>
           <tbody data-linhas></tbody>
         </table>
       </div>
