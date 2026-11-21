@@ -13,7 +13,9 @@ fontes:
 
 Max Verstappen (Red Bull Racing) se meteu em duas confusões no treino livre 3 do GP de Las Vegas, nesta sexta-feira (20), e os dois casos foram levados aos comissários.
 
-No começo da sessão, ele costurou na saída do Turn 12 e na aproximação do Turn 13 sem perceber que Franco Colapinto (Alpine) vinha logo atrás. Colapinto passou no Turn 13. Verstappen contra-atacou por dentro no Turn 14 e teve um momento de instabilidade na saída da curva, que o argentino precisou evitar. Verstappen foi citado por direção errática.
+No começo da sessão, ele costurou na saída da curva 12 e na aproximação da curva 13 sem perceber que Franco Colapinto (Alpine) vinha logo atrás. Colapinto passou na curva 13. Verstappen contra-atacou por dentro na curva 14 e teve um momento de instabilidade na saída da curva, que o argentino precisou evitar. Verstappen foi citado por direção errática.
+
+https://x.com/estagiariodaf1/status/2123959241518227513?a=lVxTO3VEXndx37O8fxs&s=46
 
 Mais tarde, veio o segundo episódio, com George Russell (Mercedes), também no Turn 14. Verstappen passou o inglês, Russell tentou retomar a posição e Verstappen não deu espaço. Os comissários anotaram o lance. No rádio, Russell perguntou se o engenheiro tinha visto o replay. A resposta foi que a equipe viu Verstappen fechar a frente dele. Russell: "Tudo diversão e brincadeira, né?"
 
