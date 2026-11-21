@@ -330,3 +330,7 @@ footer.rodape .footer-legal a:hover { color: #ff2b2b; }
   html.rolou header.header .logo-img img { height: 44px; width: auto; transition: height .2s ease; }
 }
 @media (max-width: 900px) and (prefers-reduced-motion: reduce) { header.header, html.rolou header.header .logo-img img { transition: none; } }
+
+/* Ao vivo destacado na capa */
+.hero-aovivo .tag-aovivo { background: #ff2b2b; color: #fff; }
+.hero-aovivo .hero-credito { font-size: 11px; opacity: .7; margin: 4px 0 10px; }

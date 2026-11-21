@@ -3,8 +3,47 @@
 (function () {
   var raiz = document.querySelector("[data-hero]");
   if (!raiz) return;
+  var selo = document.querySelector("[data-aovivo-selo]");
+  var statusUrl = selo && selo.dataset.status;
+  if (!statusUrl) return iniciar();
+  // Ao vivo destacado pelo painel: entra como primeiro destaque e fica até a cobertura encerrar
+  var tempo = setTimeout(iniciar, 2500), feito = false;
+  fetch(statusUrl, { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    if (feito) return;
+    clearTimeout(tempo);
+    if (d && d.ativo && d.destaque && d.destaque.foto) poeAoVivo(d.destaque);
+    iniciar();
+  }).catch(function () { if (!feito) { clearTimeout(tempo); iniciar(); } });
+
+  function esc(v) { return String(v == null ? "" : v).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function poeAoVivo(d) {
+    var a = document.createElement("a");
+    a.className = "hero hero-slide hero-aovivo";
+    a.href = "/ao-vivo/";
+    a.innerHTML = '<img class="hero-img" src="' + esc(d.foto) + '" alt="" loading="eager">' +
+      '<div class="hero-content"><span class="tag tag-aovivo">● Ao vivo</span><h2 class="hero-titulo">' + esc(d.chamada || "Acompanhe em tempo real") + '</h2>' +
+      (d.credito ? '<p class="hero-credito">Foto: ' + esc(d.credito) + '</p>' : '') + '<span class="button">Acompanhar agora</span></div>';
+    var primeiro = raiz.querySelector(".hero-slide");
+    raiz.insertBefore(a, primeiro);
+    raiz.querySelectorAll(".hero-slide").forEach(function (s, i) {
+      s.classList.toggle("ativo", i === 0);
+      s.setAttribute("aria-hidden", i === 0 ? "false" : "true");
+      s.tabIndex = i === 0 ? 0 : -1;
+    });
+    var pontos = raiz.querySelector("[data-hero-pontos]");
+    if (pontos) {
+      var b = document.createElement("button");
+      b.type = "button"; b.setAttribute("aria-label", "Ao vivo");
+      pontos.insertBefore(b, pontos.firstChild);
+      pontos.querySelectorAll("button").forEach(function (x, i) { x.classList.toggle("ativo", i === 0); });
+    }
+  }
+
+  function iniciar() {
+  if (feito) return;
+  feito = true;
   var slides = raiz.querySelectorAll(".hero-slide");
-  if (slides.length < 2) return;
+  if (slides.length < 2 || !raiz.querySelector("[data-hero-anterior]")) return;
   var pontos = raiz.querySelectorAll("[data-hero-pontos] button");
   var atual = 0, timer = null, INTERVALO = 7000;
   var reduzido = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -41,4 +80,5 @@
   });
   raiz.addEventListener("click", function (e) { if (arrastou) { e.preventDefault(); arrastou = false; } }, true);
   tocar();
+  }
 })();
