@@ -180,9 +180,19 @@
     });
     if (st === 'verde' && /YELLOW/.test(dados.bandeira || '')) st = 'amarela';
     if (dados.faltam === 0 && st !== 'vermelha') st = 'fim';
+    var fimTxt = '🏁 Fim de sessão';
+    if (st === 'fim') {
+      var n = dados.quadriculadas != null ? dados.quadriculadas : msgs.filter(function (m) { return /CHEQUERED/.test(m.texto || '') || m.bandeira === 'CHEQUERED'; }).length;
+      var nome = dados.nome_sessao || '', tipo = dados.tipo || '';
+      if (/Sprint Qualifying|Sprint Shootout/.test(nome)) fimTxt = n >= 3 ? '🏁 Fim da classificação sprint' : '🏁 Fim do SQ' + Math.max(1, n);
+      else if (tipo === 'Qualifying' || /Qualifying/.test(nome)) fimTxt = n >= 3 ? '🏁 Fim da classificação' : '🏁 Fim do Q' + Math.max(1, n);
+      else if (nome === 'Sprint') fimTxt = '🏁 Fim da sprint';
+      else if (tipo === 'Race') fimTxt = '🏁 Fim de corrida';
+      else if (tipo === 'Practice') fimTxt = '🏁 Fim do treino';
+    }
     return {
       aguardando: ['aguardando', 'Aguardando início'], verde: ['verde', 'Bandeira verde'], amarela: ['amarela', 'Bandeira amarela'],
-      vermelha: ['vermelha', 'Bandeira vermelha'], sc: ['sc', 'Safety car'], vsc: ['sc', 'Safety car virtual'], fim: ['quadriculada', '🏁 Fim de sessão']
+      vermelha: ['vermelha', 'Bandeira vermelha'], sc: ['sc', 'Safety car'], vsc: ['sc', 'Safety car virtual'], fim: ['quadriculada', fimTxt]
     }[st];
   }
 

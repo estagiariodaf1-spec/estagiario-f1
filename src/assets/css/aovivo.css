@@ -162,7 +162,9 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 .av-sem-texto { color: var(--fraco); font-style: italic; }
 .av-bandeira.aguardando { color: var(--fraco); }
 .av-bandeira.vermelha { background: #ff2b2b; color: #fff; border-color: #ff2b2b; }
-.av-bandeira.quadriculada { background: repeating-conic-gradient(#fff 0 25%, #111 0 50%) 0 0 / 10px 10px; color: #111; border-color: #fff; text-shadow: 0 0 3px #fff, 0 0 3px #fff; }
+.av-bandeira.quadriculada { background: #fff; color: #111; border: 0; padding: 4px 12px 4px 30px; position: relative; overflow: hidden; }
+.av-bandeira.quadriculada::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 22px;
+  background: repeating-conic-gradient(#111 0 25%, #fff 0 50%) 0 0 / 8px 8px; }
 .av-rc { margin: 0; padding: 9px 16px; font-size: 13px; border-bottom: 1px solid var(--linha); color: var(--texto2); background: var(--destaque-br); }
 .av-rc b { color: #ff4d4d; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: .05em; }
 .av-rc.amarela { background: rgba(250, 204, 21, .12); } .av-rc.amarela b { color: #facc15; }
