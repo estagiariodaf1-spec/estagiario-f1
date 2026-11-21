@@ -11,21 +11,23 @@ fontes:
   - "Cronometragem oficial da classificação (dados ao vivo)"
 ---
 
-Max Verstappen (Red Bull Racing) fez a pole position do GP de Las Vegas, com 1:34.151.
+Max Verstappen (Red Bull Racing) garantiu a pole position do GP de Las Vegas após Kimi Antonelli (Mercedes), que registrou o melhor tempo da classificação, receber uma punição de cinco posições no grid de largada.
 
-Completaram o top 10: 2º Lando Norris (McLaren), 3º George Russell (Mercedes), 4º Isack Hadjar (Red Bull Racing), 5º Oscar Piastri (McLaren), 6º Kimi Antonelli (Mercedes), 7º Pierre Gasly (Alpine), 8º Liam Lawson (Racing Bulls), 9º Arvid Lindblad (Racing Bulls), 10º Franco Colapinto (Alpine).
+O italiano marcou 1:33.893, superando Verstappen, segundo mais rápido com 1:34.151, por 0s258. No entanto, como Antonelli já carregava uma penalidade por troca de componentes da unidade de potência, o neerlandês herdou a primeira posição do grid.
 
-Gabriel Bortoleto caiu no Q2 e terminou em 15º (1:35.993); larga em 13º.
+George Russell (Mercedes) terminou a sessão em terceiro, com 1:34.224, seguido por Lando Norris (McLaren), Isack Hadjar (Red Bull Racing), Arvid Lindblad (Racing Bulls), Oscar Piastri (McLaren), Liam Lawson (Racing Bulls), Pierre Gasly (Alpine) e Franco Colapinto (Alpine), completando os dez primeiros na tabela de tempos.
 
-Rafael Câmara caiu no Q1 e terminou em 17º (2:05.796); larga em 16º.
+Gabriel Bortoleto (Audi) foi eliminado no Q2 e terminou a classificação em 15º, com 1:35.993. O brasileiro ficou atrás de seu companheiro de equipe, Nico Hülkenberg, que marcou 1:35.460 e terminou em 13º.
 
-Eliminados no Q2: Charles Leclerc (Ferrari), Lewis Hamilton (Ferrari), Nico Hülkenberg (Audi), Carlos Sainz (Williams), Gabriel Bortoleto (Audi), Alexander Albon (Williams).
+Rafael Câmara (Haas) caiu no Q1 e encerrou a sessão na 17ª posição, com 1:36.220, à frente de Sergio Pérez, Fernando Alonso, Lance Stroll, Valtteri Bottas e Oliver Bearman.
 
-Eliminados no Q1: Rafael Câmara (Haas F1 Team), Sergio Pérez (Cadillac), Fernando Alonso (Aston Martin), Lance Stroll (Aston Martin), Valtteri Bottas (Cadillac), Oliver Bearman (Haas F1 Team).
+Eliminados no Q2: 11º Charles Leclerc (Ferrari), 12º Lewis Hamilton (Ferrari), 13º Nico Hülkenberg (Audi), 14º Carlos Sainz (Williams), 15º Gabriel Bortoleto (Audi) e 16º Alexander Albon (Williams).
 
-Punições que mudam o grid: Kimi Antonelli perde 5 posições (classificou em 6º, larga em 11º); Oscar Piastri perde 10 posições (classificou em 5º, larga em 15º); Oliver Bearman larga do fundo (classificou em 22º, larga em 20º); Carlos Sainz perde 10 posições (classificou em 14º, larga em 21º); Lance Stroll perde 10 posições (classificou em 20º, larga em 22º). O grid oficial ainda depende de confirmação da FIA.
+Eliminados no Q1: 17º Rafael Câmara (Haas), 18º Sergio Pérez (Cadillac), 19º Fernando Alonso (Aston Martin), 20º Lance Stroll (Aston Martin), 21º Valtteri Bottas (Cadillac) e 22º Oliver Bearman (Haas).
 
-A largada do GP de Las Vegas é domingo (22), às 01h (horário de Brasília).
+Além de Antonelli, Oscar Piastri e Carlos Sainz carregam punições de dez posições cada, assim como Lance Stroll. Oliver Bearman também tem determinação de largar do fundo do grid. Com isso, a ordem de largada será diferente da classificação por tempos, e o grid definitivo ainda depende de confirmação oficial da FIA.
+
+A largada do GP de Las Vegas acontece neste domingo (22), à 01h (horário de Brasília).
 
 ## Resultado da classificação
 
