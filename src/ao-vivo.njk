@@ -4,7 +4,7 @@ title: Ao vivo do Estagiário
 permalink: /ao-vivo/
 descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa da pista e o Estagiário comentando.
 ---
-<link rel="stylesheet" href="/assets/css/aovivo.css">
+<link rel="stylesheet" href="/assets/css/aovivo.css?v={{ versao }}">
 <main class="av" data-av data-tema="escuro">
 <script>try { if (localStorage.getItem("av-tema") === "claro") document.currentScript.parentNode.dataset.tema = "claro"; } catch (e) {}</script>
   <div class="av-topo">
@@ -12,7 +12,7 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
       <span class="aovivo-status" data-av-status>Carregando…</span>
       <span class="av-bandeira" data-bandeira hidden></span>
       <span class="av-circuito" data-circuito></span>
-      <button type="button" class="av-tema" data-tema-botao aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><span data-tema-txt>Modo claro</span></button>
+      <button type="button" class="av-tema" data-tema-botao aria-pressed="false"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><span data-tema-txt>Claro</span></button>
     </div>
     <h1 data-titulo>Ao vivo do Estagiário</h1>
     <div class="av-numeros" data-numeros hidden>
@@ -90,4 +90,4 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
   window.AV_POSTS = {{ site.aovivo_url | dump | safe }};
   window.AV_DADOS = {{ site.aovivo_dados_url | dump | safe }};
 </script>
-<script src="/assets/js/aovivo.js" defer></script>
+<script src="/assets/js/aovivo.js?v={{ versao }}" defer></script>

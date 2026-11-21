@@ -138,7 +138,7 @@ module.exports = function (eleventyConfig) {
 
   // As páginas de dados (gp, pilotos...) são HTML puro com cabeçalho próprio. Depois do build, troca o
   // cabeçalho delas pelo mesmo da home: logo, selo Ao vivo, menu e logos das redes ficam iguais em todo o site.
-  const BLOCO_TOPO = /<header class="header">[\s\S]*?<\/nav>\s*<\/div>\s*<\/div>(\s*<script src="\/assets\/js\/aovivo-selo\.js" defer(?:="")?><\/script>)?/;
+  const BLOCO_TOPO = /<header class="header">[\s\S]*?<\/nav>\s*<\/div>\s*<\/div>(\s*<script src="\/assets\/js\/aovivo-selo\.js(?:\?v=\d+)?" defer(?:="")?><\/script>)?/;
   eleventyConfig.on("eleventy.after", async ({ dir }) => {
     const fs = await import("node:fs/promises");
     const path = await import("node:path");

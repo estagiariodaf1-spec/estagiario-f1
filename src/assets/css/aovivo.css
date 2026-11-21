@@ -119,9 +119,9 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 .av[data-tema="claro"] td.recorde { color: #7e22ce; }
 .av[data-tema="claro"] .av-reprise { color: #a16207; }
 .av[data-tema="claro"] a, .av[data-tema="claro"] .av-mais { color: #d61f1f; }
-.av-tema { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; border-radius: 99px;
-  border: 1px solid var(--borda); background: transparent; color: var(--texto2); font: inherit; font-size: 13px; cursor: pointer; }
-.av-tema svg { width: 16px; height: 16px; }
+.av-tema { margin-left: auto; display: inline-flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; border-radius: 99px;
+  border: 1px solid var(--borda); background: transparent; color: var(--texto2); font: inherit; font-size: 12px; line-height: 1; cursor: pointer; }
+.av-tema svg { width: 14px; height: 14px; flex: none; }
 .av-lista li.tuite .rot { color: #ff2b2b; }
 .av-lista li.tuite.torcida .rot { color: #38bdf8; }
 .av[data-tema="claro"] .av-lista li.tuite.torcida .rot { color: #0369a1; }

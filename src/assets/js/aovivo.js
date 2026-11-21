@@ -325,7 +325,8 @@
   function marcaTema() {
     var claro = main.dataset.tema === 'claro';
     botaoTema.setAttribute('aria-pressed', claro ? 'true' : 'false');
-    $('[data-tema-txt]').textContent = claro ? 'Modo escuro' : 'Modo claro';
+    $('[data-tema-txt]').textContent = claro ? 'Escuro' : 'Claro';
+    botaoTema.setAttribute('aria-label', claro ? 'Mudar para o modo escuro' : 'Mudar para o modo claro');
   }
   botaoTema.addEventListener('click', function () {
     main.dataset.tema = main.dataset.tema === 'claro' ? 'escuro' : 'claro';
