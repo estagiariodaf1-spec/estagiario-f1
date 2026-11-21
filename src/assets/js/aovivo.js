@@ -330,12 +330,24 @@
       svg.innerHTML = '<path d="' + d + '" fill="none" style="stroke:var(--pista)" stroke-width="22" stroke-linejoin="round"></path>' +
         '<path d="' + d + '" fill="none" style="stroke:var(--pista-traco)" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"></path><g data-carros></g>';
     }
-    var g = svg.querySelector('[data-carros]');
-    g.innerHTML = (pista.carros || []).map(function (c) {
-      var q = caixaMapa.f(c.x, c.y);
-      return '<g transform="translate(' + q[0].toFixed(1) + ' ' + q[1].toFixed(1) + ')"><circle r="13" fill="' + esc(c.cor) + '" style="stroke:var(--cartao)" stroke-width="3"></circle>' +
-        '<text y="-20" text-anchor="middle" font-size="20" font-weight="700" style="fill:var(--texto)" font-family="Arial, sans-serif">' + esc(c.sigla) + '</text></g>';
-    }).join('');
+    // cada carro é um elemento fixo que desliza até a posição nova (em vez de pular a cada atualização)
+    var g = svg.querySelector('[data-carros]'), vistosCarro = {};
+    (pista.carros || []).forEach(function (c) {
+      var q = caixaMapa.f(c.x, c.y), el = g.querySelector('[data-carro="' + c.sigla + '"]');
+      vistosCarro[c.sigla] = true;
+      if (!el) {
+        el = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        el.setAttribute('data-carro', c.sigla);
+        el.setAttribute('class', 'av-carro');
+        el.innerHTML = '<circle r="13" fill="' + esc(c.cor) + '" style="stroke:var(--cartao)" stroke-width="3"></circle>' +
+          '<text y="-20" text-anchor="middle" font-size="20" font-weight="700" style="fill:var(--texto)" font-family="Arial, sans-serif">' + esc(c.sigla) + '</text>';
+        el.style.transform = 'translate(' + q[0].toFixed(1) + 'px,' + q[1].toFixed(1) + 'px)';
+        g.appendChild(el);
+      } else {
+        el.style.transform = 'translate(' + q[0].toFixed(1) + 'px,' + q[1].toFixed(1) + 'px)';
+      }
+    });
+    Array.prototype.forEach.call(g.querySelectorAll('[data-carro]'), function (el) { if (!vistosCarro[el.getAttribute('data-carro')]) el.remove(); });
   }
 
   /* ---------- ritmo ---------- */
