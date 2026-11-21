@@ -189,6 +189,7 @@
         '<td class="piloto"><b>' + esc(p.nome) + br + box + '</b><small>' + esc(p.equipe || '') + '</small>' +
           ((p.mini || []).length ? '<span class="mini so-largo" aria-hidden="true">' + p.mini.map(function (m) { return '<i class="' + m + '"></i>'; }).join('') + '</span>' : '') + '</td>' +
         '<td class="so-largo"><span class="setores">' + sets + '</span></td><td>' + pn + '</td>' +
+        '<td class="num so-largo">' + (p.voltas || '–') + '</td>' +
         '<td class="num so-largo">' + (p.pos === 1 ? '–' : num(p.intervalo)) + '</td>' +
         '<td class="num' + (p.recorde ? ' recorde' : '') + '">' + esc(p.melhor_txt || '–') + '</td><td class="num">' + gap + '</td></tr>';
     }).join('');

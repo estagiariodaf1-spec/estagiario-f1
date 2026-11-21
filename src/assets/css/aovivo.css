@@ -33,7 +33,7 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 .av-cartao > header span { font-size: 12px; color: var(--fraco); text-align: right; }
 
 .av-rolagem { overflow-x: auto; }
-.av table { width: 100%; border-collapse: collapse; min-width: 620px; font-size: 14px; }
+.av table { width: 100%; border-collapse: collapse; min-width: 680px; font-size: 14px; }
 .av th { text-align: left; font-size: 11px; font-weight: 400; text-transform: uppercase; letter-spacing: .06em; color: var(--fraco); padding: 8px 8px; border-bottom: 1px solid var(--linha); }
 .av td { padding: 8px; border-bottom: 1px solid var(--linha); vertical-align: middle; }
 .av th.num, .av td.num { text-align: right; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
