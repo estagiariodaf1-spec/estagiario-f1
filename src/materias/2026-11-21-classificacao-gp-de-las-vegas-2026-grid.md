@@ -19,6 +19,8 @@ George Russell (Mercedes) terminou a sessão em terceiro, com 1:34.224, seguido 
 
 A Ferrari, por sua vez, protagonizou um dos grandes fiascos da classificação. A equipe italiana não conseguiu colocar nenhum dos seus carros no Q3, com Charles Leclerc eliminado em 11º, após marcar 1:35.197, e Lewis Hamilton em 12º, com 1:35.253. Separados por apenas 0s056, os dois pilotos ficaram fora da disputa pela pole position ainda no Q2, em mais uma atuação decepcionante da escuderia de Maranello.
 
+https://x.com/EstagiariodaF1/status/2124001556613779496
+
 Gabriel Bortoleto (Audi) foi eliminado no Q2 e terminou a classificação em 15º, com 1:35.993. O brasileiro ficou atrás de seu companheiro de equipe, Nico Hülkenberg, que marcou 1:35.460 e terminou em 13º.
 
 Rafael Câmara (Haas) caiu no Q1 e encerrou a sessão na 17ª posição, com 1:36.220, à frente de Sergio Pérez, Fernando Alonso, Lance Stroll, Valtteri Bottas e Oliver Bearman.
