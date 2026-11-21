@@ -1,14 +1,16 @@
 /* Ao vivo do Estagiário: página escura, com tabela, mapa e minuto a minuto */
 body:has(.av) { background: #050505; }
-.av { --linha: #1c1c1c; --fraco: #8a8a8a; --cartao: #0d0d0d; color: #fff; max-width: 1360px; margin: 0 auto; padding: 0 16px 48px; font-family: Arial, Helvetica, sans-serif; }
+body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
+.av { --linha: #1c1c1c; --fraco: #8a8a8a; --cartao: #0d0d0d; --texto: #fff; --texto2: #d4d4d4; --fundo: #050505;
+  --borda: #2a2a2a; --pista: #2c2c2c; --pista-traco: #555; --vazio: #2a2a2a; --destaque-br: rgba(255, 43, 43, .10); color: var(--texto); max-width: 1360px; margin: 0 auto; padding: 0 16px 48px; font-family: Arial, Helvetica, sans-serif; }
 .av a { color: #ff6b6b; }
 .av-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .av-topo { padding: 22px 0 14px; }
 .av-selos { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-.av .aovivo-status { background: #2a2a2a; color: #ddd; }
+.av .aovivo-status { background: var(--borda); color: var(--texto2); }
 .av .aovivo-status.no-ar { background: #ff2b2b; color: #fff; }
 .av-bandeira { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 99px; border: 1px solid currentColor; }
-.av-bandeira.verde { color: #22c55e; } .av-bandeira.amarela { color: #facc15; } .av-bandeira.vermelha { color: #ff4d4d; } .av-bandeira.sc { color: #fb923c; } .av-bandeira.quadriculada { color: #e5e5e5; }
+.av-bandeira.verde { color: #22c55e; } .av-bandeira.amarela { color: #facc15; } .av-bandeira.vermelha { color: #ff4d4d; } .av-bandeira.sc { color: #fb923c; } .av-bandeira.quadriculada { color: var(--texto2); }
 .av-circuito { font-size: 13px; color: var(--fraco); }
 .av-topo h1 { font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: 400; text-transform: uppercase; font-size: 52px; line-height: 1; margin: 10px 0 12px; }
 .av-numeros { display: flex; flex-wrap: wrap; gap: 26px; }
@@ -38,30 +40,32 @@ body:has(.av) { background: #050505; }
 .av td.cor span { display: block; width: 4px; height: 24px; border-radius: 2px; }
 .av td.piloto b { display: block; font-size: 15px; }
 .av td.piloto small { color: var(--fraco); font-size: 12px; }
-.av tr.br { background: rgba(255, 43, 43, .10); }
+.av tr.br { background: var(--destaque-br); }
 .av .tag-br { font-size: 10px; font-weight: 700; background: #facc15; color: #050505; padding: 1px 5px; border-radius: 3px; margin-left: 6px; vertical-align: 2px; }
-.av .tag-box { font-size: 10px; font-weight: 700; background: #333; color: #ddd; padding: 1px 5px; border-radius: 3px; margin-left: 6px; vertical-align: 2px; }
+.av .tag-box { font-size: 10px; font-weight: 700; background: var(--borda); color: var(--texto2); padding: 1px 5px; border-radius: 3px; margin-left: 6px; vertical-align: 2px; }
 .av .setores { display: flex; gap: 4px; }
-.av .s { display: inline-block; width: 18px; height: 6px; border-radius: 2px; background: #2a2a2a; }
+.av .s { display: inline-block; width: 18px; height: 6px; border-radius: 2px; background: var(--vazio); }
 .av .s.roxo { background: #a855f7; } .av .s.verde { background: #22c55e; } .av .s.amarelo { background: #eab308; }
 .av .pneu { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--fraco); }
-.av .pneu i { font-style: normal; width: 22px; height: 22px; border-radius: 50%; border: 3px solid #888; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #fff; }
-.av .pneu i.S { border-color: #ff2b2b; } .av .pneu i.M { border-color: #facc15; } .av .pneu i.H { border-color: #e5e5e5; } .av .pneu i.I { border-color: #22c55e; } .av .pneu i.W { border-color: #3b82f6; }
+.av .pneu i { font-style: normal; width: 22px; height: 22px; border-radius: 50%; border: 3px solid #888; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: var(--texto); }
+.av .pneu i.S { border-color: #ff2b2b; } .av .pneu i.M { border-color: #facc15; } .av .pneu i.H { border-color: #e5e5e5; } .av[data-tema="claro"] .pneu i.H { border-color: #9a9a9a; } .av .pneu i.I { border-color: #22c55e; } .av .pneu i.W { border-color: #3b82f6; }
 .av td.recorde { color: #c084fc; }
 .av-mais { display: block; width: 100%; min-height: 44px; background: none; border: 0; border-bottom: 1px solid var(--linha); color: #ff6b6b; font: inherit; font-size: 14px; cursor: pointer; }
 .av-legenda { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0; padding: 10px 16px; font-size: 12px; color: var(--fraco); }
 .av-legenda .s { width: 12px; margin-right: -8px; }
 
 .av-lista { list-style: none; margin: 0; padding: 0 16px; }
+.av[data-tema="claro"] { --linha: #e3e3e3; --fraco: #6b6b6b; --cartao: #fff; --texto: #111; --texto2: #333; --fundo: #f4f4f4;
+  --borda: #d6d6d6; --pista: #d9d9d9; --pista-traco: #999; --vazio: #e6e6e6; --destaque-br: rgba(255, 43, 43, .08); }
 .av-lista li { display: grid; grid-template-columns: 48px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--linha); font-size: 16px; line-height: 1.5; }
 .av-lista time { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; color: var(--fraco); padding-top: 3px; }
 .av-lista .rot { display: block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 3px; color: #ff2b2b; }
-.av-lista li.oficial, .av-lista li.radio { font-size: 14px; color: #d4d4d4; }
+.av-lista li.oficial, .av-lista li.radio { font-size: 14px; color: var(--texto2); }
 .av-lista li.oficial .rot { color: #9a9a9a; }
 .av-lista li.oficial.amarela .rot { color: #facc15; } .av-lista li.oficial.vermelha .rot { color: #ff4d4d; } .av-lista li.oficial.verde .rot { color: #22c55e; }
-.av-lista li.oficial.sc .rot { color: #fb923c; } .av-lista li.oficial.quadriculada .rot { color: #f5f5f5; }
+.av-lista li.oficial.sc .rot { color: #fb923c; } .av-lista li.oficial.quadriculada .rot { color: var(--texto); }
 .av-lista li.oficial.comissarios .rot { color: #c084fc; } .av-lista li.oficial.limites .rot { color: #a3a3a3; }
-.av-lista li.oficial.condicoes .rot { color: #22d3ee; } .av-lista li.oficial.sessao .rot { color: #d4d4d4; }
+.av-lista li.oficial.condicoes .rot { color: #22d3ee; } .av-lista li.oficial.sessao .rot { color: var(--texto2); }
 .av-lista li.oficial.ultrapassagem .rot { color: #60a5fa; } .av-lista li.oficial.incidente .rot { color: #fb7185; }
 .av-lista li.oficial.vermelha { box-shadow: inset 4px 0 0 #ff4d4d; padding-left: 10px; } .av-lista li.oficial.amarela { box-shadow: inset 4px 0 0 #facc15; padding-left: 10px; }
 .av-lista li.oficial.sc { box-shadow: inset 4px 0 0 #fb923c; padding-left: 10px; }
@@ -78,14 +82,14 @@ body:has(.av) { background: #050505; }
 .av-mapa svg { display: block; width: 100%; height: auto; padding: 10px; box-sizing: border-box; }
 .av-ritmo svg { display: block; width: 100%; height: auto; padding: 12px 16px 0; box-sizing: border-box; }
 .av-mini { list-style: none; margin: 0; padding: 0; }
-.av-mini li { padding: 10px 16px; border-bottom: 1px solid var(--linha); font-size: 14px; color: #d4d4d4; }
-.av-mini b { color: #fff; }
+.av-mini li { padding: 10px 16px; border-bottom: 1px solid var(--linha); font-size: 14px; color: var(--texto2); }
+.av-mini b { color: var(--texto); }
 .av-mini small { color: var(--fraco); }
 
 .av-abas { display: none; }
 @media (max-width: 900px) {
-  .av-abas:not([hidden]) { display: flex; gap: 8px; position: sticky; top: 0; z-index: 5; background: #050505; padding: 10px 0; margin-bottom: 8px; }
-  .av-abas button { flex: 1; min-height: 44px; border-radius: 999px; border: 1px solid #2a2a2a; background: transparent; color: #cfcfcf; font: inherit; font-size: 14px; line-height: 1.15; padding: 4px 8px; cursor: pointer; }
+  .av-abas:not([hidden]) { display: flex; gap: 8px; position: sticky; top: 0; z-index: 5; background: var(--fundo); padding: 10px 0; margin-bottom: 8px; }
+  .av-abas button { flex: 1; min-height: 44px; border-radius: 999px; border: 1px solid var(--borda); background: transparent; color: var(--texto2); font: inherit; font-size: 14px; line-height: 1.15; padding: 4px 8px; cursor: pointer; }
   .av-abas button[aria-selected="true"] { background: #ff2b2b; border-color: #ff2b2b; color: #fff; font-weight: 700; }
   .av[data-aba="feed"] .com-dados .av-mapa, .av[data-aba="feed"] .com-dados .av-ritmo, .av[data-aba="feed"] .com-dados .av-box { display: none; }
   .av[data-aba="feed"] .com-dados .av-tabela .av-legenda { display: none; }
@@ -99,3 +103,18 @@ body:has(.av) { background: #050505; }
   .av table { min-width: 0; }
   .av th.so-largo, .av td.so-largo { display: none; }
 }
+
+.av[data-tema="claro"] .av-lista li.oficial.amarela .rot, .av[data-tema="claro"] .av-lista li.tipo-bandeira .rot { color: #a16207; }
+.av[data-tema="claro"] .av-lista li.oficial.verde .rot, .av[data-tema="claro"] .av-bandeira.verde { color: #15803d; }
+.av[data-tema="claro"] .av-lista li.oficial.condicoes .rot { color: #0e7490; }
+.av[data-tema="claro"] .av-lista li.radio .rot { color: #0369a1; }
+.av[data-tema="claro"] .av-lista li.oficial.ultrapassagem .rot { color: #1d4ed8; }
+.av[data-tema="claro"] .av-lista li.oficial.comissarios .rot { color: #7e22ce; }
+.av[data-tema="claro"] .av-lista li.oficial.sc .rot, .av[data-tema="claro"] .av-bandeira.sc { color: #c2410c; }
+.av[data-tema="claro"] .av-bandeira.amarela { color: #a16207; }
+.av[data-tema="claro"] td.recorde { color: #7e22ce; }
+.av[data-tema="claro"] .av-reprise { color: #a16207; }
+.av[data-tema="claro"] a, .av[data-tema="claro"] .av-mais { color: #d61f1f; }
+.av-tema { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; border-radius: 99px;
+  border: 1px solid var(--borda); background: transparent; color: var(--texto2); font: inherit; font-size: 13px; cursor: pointer; }
+.av-tema svg { width: 16px; height: 16px; }

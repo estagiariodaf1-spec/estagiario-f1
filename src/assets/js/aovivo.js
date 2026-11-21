@@ -181,14 +181,14 @@
       var esc_ = Math.min(940 / (maxx - minx || 1), 640 / (maxy - miny || 1));
       caixaMapa = { n: tr.length, f: function (x, y) { return [30 + (x - minx) * esc_ + (940 - (maxx - minx) * esc_) / 2, 670 - (y - miny) * esc_ - (640 - (maxy - miny) * esc_) / 2]; } };
       var d = tr.map(function (p, i) { var q = caixaMapa.f(p[0], p[1]); return (i ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1); }).join(' ') + ' Z';
-      svg.innerHTML = '<path d="' + d + '" fill="none" stroke="#2c2c2c" stroke-width="22" stroke-linejoin="round"></path>' +
-        '<path d="' + d + '" fill="none" stroke="#555" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"></path><g data-carros></g>';
+      svg.innerHTML = '<path d="' + d + '" fill="none" style="stroke:var(--pista)" stroke-width="22" stroke-linejoin="round"></path>' +
+        '<path d="' + d + '" fill="none" style="stroke:var(--pista-traco)" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"></path><g data-carros></g>';
     }
     var g = svg.querySelector('[data-carros]');
     g.innerHTML = (pista.carros || []).map(function (c) {
       var q = caixaMapa.f(c.x, c.y);
-      return '<g transform="translate(' + q[0].toFixed(1) + ' ' + q[1].toFixed(1) + ')"><circle r="13" fill="' + esc(c.cor) + '" stroke="#050505" stroke-width="3"></circle>' +
-        '<text y="-20" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="Arial, sans-serif">' + esc(c.sigla) + '</text></g>';
+      return '<g transform="translate(' + q[0].toFixed(1) + ' ' + q[1].toFixed(1) + ')"><circle r="13" fill="' + esc(c.cor) + '" style="stroke:var(--cartao)" stroke-width="3"></circle>' +
+        '<text y="-20" text-anchor="middle" font-size="20" font-weight="700" style="fill:var(--texto)" font-family="Arial, sans-serif">' + esc(c.sigla) + '</text></g>';
     }).join('');
   }
 
@@ -207,8 +207,8 @@
         s.voltas.map(function (v, i) { return (20 + i * passo).toFixed(0) + ',' + y(v).toFixed(0); }).join(' ') + '"></polyline>';
     }).join('');
     function fmt(v) { var m = Math.floor(v / 60); return m + ':' + (v - m * 60).toFixed(1).padStart(4, '0'); }
-    $('[data-ritmo]').innerHTML = '<line x1="20" x2="520" y1="15" y2="15" stroke="#1c1c1c"></line><line x1="20" x2="520" y1="145" y2="145" stroke="#1c1c1c"></line>' + linhas +
-      '<text x="520" y="12" text-anchor="end" font-size="11" fill="#8a8a8a">' + fmt(lo) + '</text><text x="520" y="162" text-anchor="end" font-size="11" fill="#8a8a8a">' + fmt(hi) + '</text>';
+    $('[data-ritmo]').innerHTML = '<line x1="20" x2="520" y1="15" y2="15" style="stroke:var(--linha)"></line><line x1="20" x2="520" y1="145" y2="145" style="stroke:var(--linha)"></line>' + linhas +
+      '<text x="520" y="12" text-anchor="end" font-size="11" style="fill:var(--fraco)">' + fmt(lo) + '</text><text x="520" y="162" text-anchor="end" font-size="11" style="fill:var(--fraco)">' + fmt(hi) + '</text>';
     $('[data-ritmo-legenda]').innerHTML = series.map(function (s) { return '<span><span class="s" style="background:' + esc(s.cor) + '"></span> ' + esc(s.nome) + '</span>'; }).join(' ');
   }
 
@@ -245,6 +245,18 @@
     desenhaTopo(); desenhaDados(); desenhaFeed();
   }
   var main = $('[data-av]');
+  var botaoTema = $('[data-tema-botao]');
+  function marcaTema() {
+    var claro = main.dataset.tema === 'claro';
+    botaoTema.setAttribute('aria-pressed', claro ? 'true' : 'false');
+    $('[data-tema-txt]').textContent = claro ? 'Modo escuro' : 'Modo claro';
+  }
+  botaoTema.addEventListener('click', function () {
+    main.dataset.tema = main.dataset.tema === 'claro' ? 'escuro' : 'claro';
+    try { localStorage.setItem('av-tema', main.dataset.tema); } catch (e) {}
+    marcaTema();
+  });
+  marcaTema();
   main.dataset.aba = 'feed';
   Array.prototype.forEach.call(document.querySelectorAll('[data-aba-botao]'), function (b) {
     b.addEventListener('click', function () {
