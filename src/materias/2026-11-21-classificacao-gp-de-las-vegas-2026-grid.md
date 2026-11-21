@@ -1,5 +1,5 @@
 ---
-title: "Verstappen herda pole em Las Vegas; Ferrari dá vexame"
+title: "Verstappen herda pole do GP de Las Vegas; Ferrari dá vexame"
 linha_fina: "Antonelli faz o melhor tempo, mas perde cinco posições por punição; Bortoleto e Câmara devem largar em 13º e 15º. Corrida começa à 01h de Brasília"
 date: 2026-11-21T02:02:36-03:00
 categoria: "F1"
