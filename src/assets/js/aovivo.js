@@ -272,7 +272,9 @@
       $('[data-rc]').className = 'av-rc ' + tp[0];
       $('[data-rc-texto]').textContent = (rc.texto_pt || traduz(rc.texto)) + ' (' + hora(rc.quando) + ')';
     }
-    var f = dados.faltam;
+    var f = dados.faltam_fase != null ? dados.faltam_fase : dados.faltam;
+    var rotFaltam = document.querySelector('[data-numeros] div:first-child small');
+    if (rotFaltam) rotFaltam.textContent = dados.fase_rotulo || 'Faltam';
     $('[data-faltam]').textContent = f == null ? '–' : (Math.floor(f / 3600) ? Math.floor(f / 3600) + ':' : '') + String(Math.floor(f % 3600 / 60)).padStart(2, '0') + ':' + String(f % 60).padStart(2, '0');
     var c = dados.clima || {};
     $('[data-pista]').textContent = c.pista != null ? Math.round(c.pista) + '°C' : '–';
