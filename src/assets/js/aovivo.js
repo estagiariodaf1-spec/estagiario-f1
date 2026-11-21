@@ -184,7 +184,8 @@
       var box = p.no_box ? '<span class="tag-box">BOX</span>' : '';
       var gap = p.pos === 1 ? (corrida ? 'Líder' : '–') : num(p.gap);
       return '<tr class="' + (ehBR(p) ? 'br' : '') + '"><td class="pos">' + p.pos + '</td><td class="cor"><span style="background:' + esc(p.cor) + '"></span></td>' +
-        '<td class="piloto"><b>' + esc(p.nome) + br + box + '</b><small>' + esc(p.equipe || '') + '</small></td>' +
+        '<td class="piloto"><b>' + esc(p.nome) + br + box + '</b><small>' + esc(p.equipe || '') + '</small>' +
+          ((p.mini || []).length ? '<span class="mini so-largo" aria-hidden="true">' + p.mini.map(function (m) { return '<i class="' + m + '"></i>'; }).join('') + '</span>' : '') + '</td>' +
         '<td class="so-largo"><span class="setores">' + sets + '</span></td><td>' + pn + '</td>' +
         '<td class="num so-largo">' + (p.pos === 1 ? '–' : num(p.intervalo)) + '</td>' +
         '<td class="num' + (p.recorde ? ' recorde' : '') + '">' + esc(p.melhor_txt || '–') + '</td><td class="num">' + gap + '</td></tr>';
@@ -249,12 +250,66 @@
     $('[data-box]').innerHTML = itens.slice(0, 10).map(function (i) { return '<li>' + i.h + ' <small>' + hora(i.q) + '</small></li>'; }).join('');
   }
 
+  /* ---------- briga pelo vice (o título já está decidido) ---------- */
+  function desenhaVice() {
+    var c = (dados.campeonato || []).filter(function (x) { return x.agora && x.agora >= 2 && x.agora <= 6; });
+    $('[data-bloco-vice]').hidden = !c.length;
+    if (!c.length) return;
+    var vice = c.find(function (x) { return x.agora === 2; }) || c[0];
+    $('[data-vice]').innerHTML = c.map(function (x) {
+      var mud = x.antes && x.antes !== x.agora ? (x.antes > x.agora ? '<span class="sobe">▲ ' + (x.antes - x.agora) + '</span>' : '<span class="cai">▼ ' + (x.agora - x.antes) + '</span>') : '';
+      var dif = x === vice ? 'vice agora' : (vice.pontos != null && x.pontos != null ? '−' + (vice.pontos - x.pontos) + ' pts' : '');
+      return '<li class="' + (x === vice ? 'vice' : '') + '"><span class="p">' + x.agora + 'º</span><span class="c" style="background:' + esc(x.cor) + '"></span>' +
+        '<span><b>' + esc(x.nome) + '</b> ' + mud + '<br><small>' + esc(dif) + '</small></span><b>' + (x.pontos != null ? x.pontos : '–') + '</b><small>pts</small></li>';
+    }).join('');
+  }
+
+  /* ---------- estratégia de pneus ---------- */
+  function desenhaEstrategia() {
+    var e = (dados.estrategia || []).slice(0, 20), total = Math.max(dados.voltas_total || 1, 1);
+    $('[data-bloco-estrategia]').hidden = !e.length;
+    if (!e.length) return;
+    $('[data-estrategia]').innerHTML = e.map(function (p) {
+      return '<div class="linha"><span>' + esc(p.nome) + '</span><span class="barra">' + p.stints.map(function (st) {
+        var n = Math.max(1, st.ate - st.de + 1);
+        return '<span class="' + esc(st.composto) + '" style="width:' + (n / total * 100).toFixed(1) + '%" title="' + esc(st.composto) + ': voltas ' + st.de + ' a ' + st.ate + '">' + (n >= 3 ? esc(st.composto) : '') + '</span>';
+      }).join('') + '</span></div>';
+    }).join('');
+  }
+
+  /* ---------- posições volta a volta (corrida) ---------- */
+  function desenhaPosicoes() {
+    var ps = (dados.posicoes || []).slice(0, 10).filter(function (p) { return (p.serie || []).filter(Boolean).length > 1; });
+    $('[data-bloco-posicoes]').hidden = !ps.length;
+    if (!ps.length) return;
+    var n = Math.max.apply(null, ps.map(function (p) { return p.serie.length; }));
+    function x(i) { return 20 + i / Math.max(1, n - 1) * 440; }
+    function y(pos) { return 15 + (pos - 1) * 14; }
+    $('[data-posicoes]').innerHTML = ps.map(function (p) {
+      var pts = p.serie.map(function (v, i) { return v ? x(i).toFixed(0) + ',' + y(v).toFixed(0) : null; }).filter(Boolean);
+      var ult = p.serie[p.serie.length - 1];
+      return '<polyline fill="none" stroke="' + esc(p.cor) + '" stroke-width="2" points="' + pts.join(' ') + '"></polyline>' +
+        (ult ? '<text x="468" y="' + (y(ult) + 4) + '" font-size="11" style="fill:var(--texto)">' + esc(p.nome) + '</text>' : '');
+    }).join('');
+  }
+
+  /* ---------- velocidade máxima ---------- */
+  function desenhaVelocidade() {
+    var v = dados.velocidades || [];
+    $('[data-bloco-vel]').hidden = !v.length;
+    if (!v.length) return;
+    var max = v[0].kmh, min = v[v.length - 1].kmh - 5;
+    $('[data-vel]').innerHTML = v.map(function (p) {
+      return '<li><span>' + esc(p.nome) + '<span class="bar" style="display:block;background:' + esc(p.cor) + ';width:' + ((p.kmh - min) / (max - min) * 100).toFixed(0) + '%"></span></span><b>' + p.kmh + '</b></li>';
+    }).join('');
+  }
+
   function desenhaDados() {
     grade.classList.toggle('com-dados', !!dados.ativo);
     $('[data-abas]').hidden = !dados.ativo;
     $('[data-bloco-tabela]').hidden = !dados.ativo;
-    if (!dados.ativo) { ['[data-bloco-mapa]', '[data-bloco-ritmo]', '[data-bloco-box]'].forEach(function (s) { $(s).hidden = true; }); return; }
-    desenhaTabela(); desenhaMapa(); desenhaRitmo(); desenhaBox();
+    if (!dados.ativo) { ['[data-bloco-mapa]', '[data-bloco-ritmo]', '[data-bloco-box]', '[data-bloco-vice]', '[data-bloco-estrategia]', '[data-bloco-posicoes]', '[data-bloco-vel]'].forEach(function (s) { $(s).hidden = true; }); return; }
+    desenhaTabela(); desenhaMapa(); desenhaRitmo(); desenhaBox(); desenhaVice(); desenhaEstrategia(); desenhaPosicoes(); desenhaVelocidade();
   }
 
   async function buscaPosts() {
