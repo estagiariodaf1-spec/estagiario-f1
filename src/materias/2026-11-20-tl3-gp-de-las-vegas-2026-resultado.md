@@ -35,7 +35,7 @@ A sessão de Verstappen foi movimentada desde os primeiros minutos. Ainda no in�
 
 Os dois pilotos disputavam espaço na pista enquanto tentavam encontrar uma volta livre. A movimentação foi registrada pela direção de prova, que encaminhou o caso para investigação após a sessão.
 
-https://x.com/estagiariodaf1/status/2123959241518227513?a=lVxTO3VEXndx37O8fxs&s=46
+https://x.com/estagiariodaf1/status/2123952990142763161?a=cRPppfruHLvQosicBy0&s=46
 
 Os problemas do piloto da Red Bull não pararam por aí. Verstappen sofreu diversas travadas de roda e precisou recorrer às áreas de escape, especialmente nas fortes frenagens do circuito de Las Vegas.
 
