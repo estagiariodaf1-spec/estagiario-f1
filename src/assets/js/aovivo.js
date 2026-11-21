@@ -248,7 +248,13 @@
     st.textContent = vivo ? 'AO VIVO' : (posts.titulo ? 'Encerrado' : 'Fora do ar');
     st.className = 'aovivo-status' + (vivo ? ' no-ar' : '');
     var titulo = posts.ativo && posts.titulo ? posts.titulo : (dados.ativo ? dados.sessao : (posts.titulo || 'Ao vivo do Estagiário'));
-    $('[data-titulo]').textContent = titulo;
+    var paises = { 'United States': 'us', USA: 'us', Australia: 'au', China: 'cn', Japan: 'jp', Bahrain: 'bh', 'Saudi Arabia': 'sa',
+      Canada: 'ca', Monaco: 'mc', Spain: 'es', Austria: 'at', 'United Kingdom': 'gb', UK: 'gb', Belgium: 'be', Hungary: 'hu',
+      Netherlands: 'nl', Italy: 'it', Azerbaijan: 'az', Singapore: 'sg', Mexico: 'mx', Brazil: 'br', Qatar: 'qa',
+      'United Arab Emirates': 'ae', UAE: 'ae', Portugal: 'pt', France: 'fr', Germany: 'de', Turkey: 'tr' };
+    var cod = dados.ativo && paises[dados.pais];
+    if (!cod && /las vegas|miami|austin/i.test(dados.circuito || '')) cod = 'us';
+    $('[data-titulo]').innerHTML = esc(titulo) + (cod ? ' <img class="av-bandeira-pais" src="/assets/bandeiras/' + cod + '.svg" alt="" width="40" height="40">' : '');
     document.title = (vivo ? '🔴 ' : '') + titulo + ' · Estagiário da F1';
     var band = $('[data-bandeira]');
     band.hidden = !dados.ativo;

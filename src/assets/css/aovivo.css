@@ -199,3 +199,5 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 .av tr.fora td { opacity: .45; }
 .av tr.fora td.piloto { opacity: .6; }
 .av .tag-fora { font-size: 10px; font-weight: 700; background: var(--borda); color: var(--texto2); padding: 1px 6px; border-radius: 99px; margin-left: 6px; vertical-align: 2px; }
+.av-bandeira-pais { width: .78em; height: .78em; border-radius: 50%; object-fit: cover; vertical-align: -0.04em; margin-left: .18em; box-shadow: 0 0 0 2px rgba(255,255,255,.85); }
+.av[data-tema="claro"] .av-bandeira-pais { box-shadow: 0 0 0 2px rgba(0,0,0,.15); }
