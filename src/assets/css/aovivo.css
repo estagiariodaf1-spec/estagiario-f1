@@ -144,3 +144,4 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 .av-posicoes svg { display: block; width: 100%; height: auto; padding: 10px 16px; box-sizing: border-box; }
 .av-vel li { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
 .av-vel .bar { height: 4px; border-radius: 2px; margin-top: 5px; }
+.av-sem-texto { color: var(--fraco); font-style: italic; }

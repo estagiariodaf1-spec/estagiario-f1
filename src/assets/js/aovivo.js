@@ -112,8 +112,10 @@
           html: '<span class="rot">' + tp[1] + '</span>' + esc(m.texto_pt || traduz(m.texto)) });
       });
       (dados.radio || []).forEach(function (r) {
+        if (!r.texto && r.vazio) return;  // rádio sem fala aproveitável: não entra
         itens.push({ id: 'r' + r.quando + r.piloto, quando: r.quando, classe: 'radio',
-          html: '<span class="rot">Rádio · ' + esc(r.piloto) + '</span>' + (r.audio ? '<audio controls preload="none" src="' + esc(r.audio) + '"></audio>' : '') });
+          // sem tocar o áudio (é da transmissão da F1): só a transcrição traduzida, quando o robô já tiver feito
+          html: '<span class="rot">Rádio · ' + esc(r.piloto) + '</span>' + (r.texto ? '“' + esc(r.texto) + '”' : '<span class="av-sem-texto">Mensagem de rádio da equipe</span>') });
       });
     }
     itens.sort(function (a, b) { return a.quando < b.quando ? 1 : -1; });
