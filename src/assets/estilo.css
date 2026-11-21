@@ -334,3 +334,17 @@ footer.rodape .footer-legal a:hover { color: #ff2b2b; }
 /* Ao vivo destacado na capa */
 .hero-aovivo .tag-aovivo { background: #ff2b2b; color: #fff; }
 .hero-aovivo .hero-credito { font-size: 11px; opacity: .7; margin: 4px 0 10px; }
+
+/* Cor de cada categoria nas etiquetas (capa, listas e matéria) */
+.tag[class*="cat-"] { color: #fff !important; }
+.tag.cat-f1 { background: #e10600 !important; }
+.tag.cat-f2 { background: #0072c6 !important; }
+.tag.cat-f3 { background: #ea580c !important; }
+.tag.cat-formula-e, .tag.cat-formula-e-2 { background: #15803d !important; }
+.tag.cat-indy, .tag.cat-indycar, .tag.cat-formula-indy { background: #6d28d9 !important; }
+.tag.cat-nascar { background: #facc15 !important; color: #111 !important; }
+.tag.cat-stock-car, .tag.cat-stock-car-pro-series { background: #0e7490 !important; }
+.tag.cat-wec, .tag.cat-endurance { background: #be185d !important; }
+.tag.cat-kart, .tag.cat-kartismo { background: #92400e !important; }
+.tag.cat-automotivo { background: #334155 !important; }
+.tag.cat-outras-categorias, .tag.cat-outras, .tag.cat-automobilismo { background: #6b7280 !important; }

@@ -2,7 +2,7 @@
 layout: base.njk
 ---
 <article class="materia">
-  <span class="tag">{{ categoria }}</span>
+  <span class="tag cat-{{ categoria | slugify }}">{{ categoria }}</span>
   <h1>{{ title }}</h1>
   {% if linha_fina %}<p class="linha-fina">{{ linha_fina }}</p>{% endif %}
   <div class="assinatura">
