@@ -95,6 +95,9 @@
   function itensFeed() {
     var itens = (posts.entradas || []).map(function (e) {
       var m = /^\[\[(tuite|torcida)\]\]\s+(https:\/\/(?:x|twitter)\.com\/([A-Za-z0-9_]+)\/status\/(\d+))/.exec(e.texto || '');
+      // link de tuíte colado sozinho no campo do Ao vivo: vira tuíte embutido também
+      var solto = /^\s*(https?:\/\/(?:www\.)?(?:x|twitter)\.com\/([A-Za-z0-9_]+)\/status\/(\d+))\S*\s*$/.exec(e.texto || '');
+      if (!m && solto) m = [solto[0], /^estagiariodaf1$/i.test(solto[2]) ? 'tuite' : 'torcida', solto[1].replace('http://', 'https://').replace('www.', ''), solto[2], solto[3]];
       if (m) {  // tuíte embutido: o vídeo toca aqui mesmo
         var rotulo = m[1] === 'tuite' ? 'No X · @' + m[3] : 'Da torcida · @' + m[3];
         return { id: 'p' + e.id, quando: e.quando, classe: 'tuite ' + (m[1] === 'tuite' ? 'nosso' : 'torcida'), tuite: true,
