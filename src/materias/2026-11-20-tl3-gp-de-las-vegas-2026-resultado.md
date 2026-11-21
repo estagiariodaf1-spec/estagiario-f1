@@ -1,6 +1,6 @@
 ---
-title: "Verstappen é levado aos comissários duas vezes no TL3 de Las Vegas; Russell lidera"
-linha_fina: "Max Verstappen é citado por dirigir de forma errática diante de Colapinto e por um toque de pista com Russell"
+title: "Verstappen é notado por comissários duas vezes no TL3 de Las Vegas; Russell lidera"
+linha_fina: "Max Verstappen foi notado por dirigir de forma errática diante de Colapinto e por um toque de pista com Russell"
 date: 2026-11-20T22:30:11-03:00
 categoria: "F1"
 palavra_chave: "TL3 GP de Las Vegas"
