@@ -32,6 +32,7 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
     <button type="button" role="tab" aria-selected="false" data-aba-botao="mapa">Mapa e ritmo</button>
   </div>
   <div class="av-grade">
+    <div class="av-esq">
     <section class="av-cartao av-tabela" data-bloco-tabela hidden aria-labelledby="av-t-tabela">
       <header><h2 id="av-t-tabela">Classificação</h2><span data-tabela-sub>Atualiza sozinha</span></header>
       <p class="av-rc" data-rc hidden><b>Direção de prova:</b> <span data-rc-texto></span></p>
@@ -43,19 +44,6 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
       </div>
       <button type="button" class="av-mais" data-mais hidden>Ver a tabela completa</button>
       <p class="av-legenda"><span class="s roxo"></span>Melhor da sessão <span class="s verde"></span>Melhor do piloto <span class="s amarelo"></span>Mais lento</p>
-    </section>
-
-    <section class="av-cartao av-feed" aria-labelledby="av-t-feed">
-      <header><h2 id="av-t-feed">Minuto a minuto</h2><span data-feed-sub>Estagiário</span></header>
-      <div class="av-filtros" role="group" aria-label="Filtrar o minuto a minuto" data-filtros hidden>
-        <button type="button" aria-pressed="true" data-filtro="tudo">Tudo</button>
-        <button type="button" aria-pressed="false" data-filtro="estagiario">Estagiário</button>
-        <button type="button" aria-pressed="false" data-filtro="oficial">Direção de prova</button>
-        <button type="button" aria-pressed="false" data-filtro="radio">Rádio</button>
-        <button type="button" aria-pressed="false" data-filtro="torcida">Torcida</button>
-      </div>
-      <ol class="av-lista" data-lista aria-live="polite"></ol>
-      <p class="av-vazio" data-vazio hidden>Nenhuma cobertura no ar agora. Na hora das sessões, o minuto a minuto aparece aqui.</p>
     </section>
 
     <section class="av-cartao av-mapa" data-bloco-mapa hidden aria-labelledby="av-t-mapa">
@@ -93,6 +81,20 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
       <header><h2 id="av-t-box">Pit stops e ultrapassagens</h2></header>
       <ul class="av-mini" data-box></ul>
     </section>
+    </div>
+    <section class="av-cartao av-feed" aria-labelledby="av-t-feed">
+      <header><h2 id="av-t-feed">Minuto a minuto</h2><span data-feed-sub>Estagiário</span></header>
+      <div class="av-filtros" role="group" aria-label="Filtrar o minuto a minuto" data-filtros hidden>
+        <button type="button" aria-pressed="true" data-filtro="tudo">Tudo</button>
+        <button type="button" aria-pressed="false" data-filtro="estagiario">Estagiário</button>
+        <button type="button" aria-pressed="false" data-filtro="oficial">Direção de prova</button>
+        <button type="button" aria-pressed="false" data-filtro="radio">Rádio</button>
+        <button type="button" aria-pressed="false" data-filtro="torcida">Torcida</button>
+      </div>
+      <ol class="av-lista" data-lista aria-live="polite"></ol>
+      <p class="av-vazio" data-vazio hidden>Nenhuma cobertura no ar agora. Na hora das sessões, o minuto a minuto aparece aqui.</p>
+    </section>
+
   </div>
 </main>
 <script>

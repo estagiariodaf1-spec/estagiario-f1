@@ -21,11 +21,12 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 
 .av-grade { display: grid; grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr); gap: 18px; align-items: start; }
 .av-tabela { grid-column: 1; grid-row: 1 / span 2; }
-.av-feed { grid-column: 2; grid-row: 1 / span 12; }
+.av-esq { grid-column: 1; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.av-feed { grid-column: 2; grid-row: 1; }
+.av-grade:not(.com-dados) .av-esq { display: none; }
 /* no computador o minuto a minuto fica preso ao lado e rola por dentro: não estica as linhas da coluna da esquerda */
 @media (min-width: 901px) {
-  .av-grade.com-dados .av-feed { position: sticky; top: 12px; align-self: start; max-height: calc(100vh - 24px); display: flex; flex-direction: column; }
-  .av-grade.com-dados .av-feed .av-lista { overflow-y: auto; flex: 1; overscroll-behavior: contain; }
+  
 }
 .av-mapa { grid-column: 1; }
 .av-ritmo, .av-box, .av-estrategia, .av-posicoes, .av-vel { grid-column: 1; }
@@ -94,6 +95,7 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 
 .av-abas { display: none; }
 @media (max-width: 900px) {
+  .av-esq { display: contents; }
   .av-abas:not([hidden]) { display: flex; gap: 8px; position: sticky; top: 0; z-index: 5; background: var(--fundo); padding: 10px 0; margin-bottom: 8px; }
   .av-abas button { flex: 1; min-height: 44px; border-radius: 999px; border: 1px solid var(--borda); background: transparent; color: var(--texto2); font: inherit; font-size: 14px; line-height: 1.15; padding: 4px 8px; cursor: pointer; }
   .av-abas button[aria-selected="true"] { background: #ff2b2b; border-color: #ff2b2b; color: #fff; font-weight: 700; }
@@ -169,7 +171,7 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 .av-vivo-linha { margin: 10px 0 0; font-size: 12px; color: var(--fraco); }
 .av-vivo-linha [data-sessao-st] { color: var(--texto); font-weight: 700; }
 .av .tag-box { background: #ff2b2b !important; color: #fff !important; border-radius: 99px; padding: 1px 7px; }
-.av-filtros { display: flex; gap: 6px; padding: 10px 16px; overflow-x: auto; border-bottom: 1px solid var(--linha); }
+.av-filtros { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 16px; border-bottom: 1px solid var(--linha); }
 .av-filtros button { flex: none; min-height: 32px; padding: 0 12px; border-radius: 99px; border: 1px solid var(--borda); background: transparent; color: var(--texto2); font: inherit; font-size: 12px; cursor: pointer; }
 .av-filtros button[aria-pressed="true"] { background: var(--texto); color: var(--fundo); border-color: var(--texto); }
 .av-compartilhar { grid-column: 2; justify-self: start; margin-top: 4px; background: none; border: 0; padding: 4px 0; color: var(--fraco); font: inherit; font-size: 12px; cursor: pointer; text-decoration: underline; }
