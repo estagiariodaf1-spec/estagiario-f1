@@ -196,3 +196,6 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 .av-tabela.compacta td.pos { font-size: 16px; }
 .av-tabela.compacta .pneu i { width: 18px; height: 18px; border-width: 2px; font-size: 9px; }
 .av-tabela.compacta table { min-width: 0; }
+.av tr.fora td { opacity: .45; }
+.av tr.fora td.piloto { opacity: .6; }
+.av .tag-fora { font-size: 10px; font-weight: 700; background: var(--borda); color: var(--texto2); padding: 1px 6px; border-radius: 99px; margin-left: 6px; vertical-align: 2px; }

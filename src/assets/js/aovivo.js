@@ -286,14 +286,16 @@
     var ps = dados.pilotos || [], corrida = dados.tipo === 'Race' || dados.tipo === 'Sprint';
     var mostrar = abertaTabela || window.innerWidth > 900 ? ps : ps.slice(0, 5);
     $('[data-mais]').hidden = abertaTabela || window.innerWidth > 900 || ps.length <= 5;
-    $('[data-tabela-sub]').textContent = corrida ? 'Posição na corrida' : 'Pela melhor volta';
+    $('[data-tabela-sub]').textContent = corrida ? 'Posição na corrida' : (dados.fase_atual ? 'Classificação · ' + dados.fase_atual : 'Pela melhor volta');
     $('[data-linhas]').innerHTML = mostrar.map(function (p) {
       var sets = (p.setores || []).map(function (s, i) { return '<span class="s ' + (s.cor || '') + '" title="Setor ' + (i + 1) + (s.tempo ? ': ' + s.tempo.toFixed(3) : '') + '"></span>'; }).join('');
       var pn = p.pneu ? '<span class="pneu"><i class="' + esc(p.pneu.composto) + '">' + esc(p.pneu.composto) + '</i>' + p.pneu.voltas + 'v</span>' : '';
       var br = ehBR(p) ? '<span class="tag-br">BR</span>' : '';
       var box = p.no_box ? '<span class="tag-box">NOS BOXES</span>' : '';
       var gap = p.pos === 1 ? (corrida ? 'Líder' : '–') : num(p.gap);
-      return '<tr class="' + (ehBR(p) ? 'br' : '') + '"><td class="pos">' + p.pos + '</td><td class="cor"><span style="background:' + esc(p.cor) + '"></span></td>' +
+      var fora = /^fora_q(\d)/.exec(p.fase || '');
+      if (fora) box += '<span class="tag-fora">Fora no Q' + fora[1] + '</span>';
+      return '<tr class="' + (ehBR(p) ? 'br' : '') + (fora ? ' fora' : '') + '"><td class="pos">' + p.pos + '</td><td class="cor"><span style="background:' + esc(p.cor) + '"></span></td>' +
         '<td class="piloto"><b>' + esc(p.nome) + br + box + '</b><small>' + esc(p.equipe || '') + '</small>' +
           ((p.mini || []).length ? '<span class="mini so-largo" aria-hidden="true">' + p.mini.map(function (m) { return '<i class="' + m + '"></i>'; }).join('') + '</span>' : '') + '</td>' +
         '<td class="so-largo c-setores"><span class="setores">' + sets + '</span></td><td class="c-pneu">' + pn + '</td>' +
