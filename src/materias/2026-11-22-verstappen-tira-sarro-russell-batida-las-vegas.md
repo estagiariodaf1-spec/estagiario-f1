@@ -46,6 +46,8 @@ E completa: "E, claro, quando cruzei a linha em primeiro, meu dia estava complet
 
 No sábado, o assunto não valia o tempo dele. No domingo, virou aula de karma.
 
+https://www.instagram.com/reel/DgCS-vcJbXl/?knvt=MXVucHhzY3dwZG4zbQ==
+
 ## Como terminou a corrida
 
 Verstappen [venceu a corrida](/materias/verstappen-vence-gp-las-vegas-2026/) com 0s639 de vantagem sobre Lando Norris. Oscar Piastri completou o pódio. Antonelli perdeu potência na penúltima volta e caiu para quarto.
