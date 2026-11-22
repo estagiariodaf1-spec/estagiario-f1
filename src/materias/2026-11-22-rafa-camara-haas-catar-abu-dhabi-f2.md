@@ -1,5 +1,5 @@
 ---
-title: "Rafa Câmara troca título da F2 pela Haas no fim de 2026"
+title: "Haas confirma Rafa Câmara nos GPs do Catar e de Abu Dhabi"
 linha_fina: "Líder da F2 com 7 pontos sobre Tsolov, o brasileiro corre os GPs do Catar e de Abu Dhabi e perde as quatro corridas finais da categoria"
 date: 2026-11-22T16:40:19-03:00
 categoria: "F1"
