@@ -36,6 +36,16 @@ Verstappen minimizou o episódio. Na entrevista depois da classificação, disse
 
 A rixa é antiga. Começou no sprint do GP do Azerbaijão de 2023, passou pelo GP do Catar de 2024 (punição no grid para Verstappen por atrapalhar Russell) e pelo GP da Espanha de 2025, quando o holandês levou 10 segundos de punição por bater no britânico.
 
+## A resposta depois da corrida
+
+Depois de vencer, Verstappen volta ao assunto e não poupa o rival: "Eu quero dizer, o que acontece é que ele fala muito fora da pista. E, sinceramente, pra mim isso não importa, porque ele está tão abaixo do meu nível que não faz sentido nenhum tentar enfrentar isso, então não me incomoda."
+
+O holandês continua: "E hoje o karma é uma vadia. Foi realmente fantástico quando olhei no retrovisor e vi o que estava acontecendo. Aí eu pensei: 'Fantástico! Meu dia só está melhorando.'"
+
+E completa: "E, claro, quando cruzei a linha em primeiro, meu dia estava completo."
+
+No sábado, o assunto não valia o tempo dele. No domingo, virou aula de karma.
+
 ## Como terminou a corrida
 
 Verstappen [venceu a corrida](/materias/verstappen-vence-gp-las-vegas-2026/) com 0s639 de vantagem sobre Lando Norris. Oscar Piastri completou o pódio. Antonelli perdeu potência na penúltima volta e caiu para quarto.
