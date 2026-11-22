@@ -208,3 +208,5 @@ body:has(.av[data-tema="claro"]) { background: #f4f4f4; }
 .av-compartilhar-pagina { margin: 14px 0 0; }
 .av .av-compartilhar-pagina button:first-child { background: #fff; color: #111; border-color: #fff; }
 .av[data-tema="claro"] .av-compartilhar-pagina button:first-child { background: #111; color: #fff; border-color: #111; }
+.av-lista li.ultrapassagem-ev .rot { color: #22c55e; }
+.av[data-tema="claro"] .av-lista li.ultrapassagem-ev .rot { color: #15803d; }

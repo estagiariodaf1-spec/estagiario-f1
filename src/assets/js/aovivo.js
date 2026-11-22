@@ -91,6 +91,28 @@
     xPronto.then(function (tw) { if (tw && tw.widgets) tw.widgets.load(li); });
   }
 
+  /* ---------- ultrapassagens detectadas pela mudança de posição (corrida) ---------- */
+  var ordemAnterior = null, eventosLocais = [];
+  function detectaUltrapassagens() {
+    if (!(dados.tipo === 'Race' || dados.tipo === 'Sprint')) return;
+    var ps = (dados.pilotos || []).filter(function (p) { return p.posicao; });
+    var atual = {}; ps.forEach(function (p) { atual[p.numero] = p; });
+    if (ordemAnterior) {
+      ps.forEach(function (p) {
+        var antes = ordemAnterior[p.numero];
+        if (!antes || p.no_box || antes.no_box || p.posicao >= antes.posicao) return;
+        // quem estava na posição que ele ganhou e caiu (e não foi pro box)
+        var vitima = ps.find(function (q) { var a = ordemAnterior[q.numero]; return a && a.posicao === p.posicao && q.posicao > p.posicao && !q.no_box; });
+        if (!vitima || ps.some(function (q) { return q.no_box && ordemAnterior[q.numero] && ordemAnterior[q.numero].posicao < antes.posicao; })) return;
+        eventosLocais.unshift({ id: 'u' + dados.relogio + p.numero, quando: dados.relogio || new Date().toISOString(), classe: 'ultrapassagem-ev', cat: 'oficial',
+          html: '<span class="rot">Ultrapassagem</span><b>' + esc(p.nome) + '</b> passa <b>' + esc(vitima.nome) + '</b> e assume o ' + p.posicao + 'º lugar' +
+            (ehBR(p) ? ' 🇧🇷' : '') });
+      });
+      eventosLocais = eventosLocais.slice(0, 40);
+    }
+    ordemAnterior = {}; ps.forEach(function (p) { ordemAnterior[p.numero] = { posicao: p.posicao, no_box: p.no_box }; });
+  }
+
   /* ---------- minuto a minuto ---------- */
   function itensFeed() {
     var itens = (posts.entradas || []).map(function (e) {
@@ -123,6 +145,7 @@
             (r.audio && !r.texto ? '<audio controls preload="none" src="' + esc(r.audio) + '"></audio>' : '') });
       });
     }
+    itens = itens.concat(eventosLocais);
     itens.sort(function (a, b) { return a.quando < b.quando ? 1 : -1; });
     return itens.slice(0, 120);
   }
@@ -476,6 +499,7 @@
   async function buscaDados() {
     if (!window.AV_DADOS) return;
     try { dados = await (await fetch(window.AV_DADOS, { cache: 'no-store' })).json(); } catch (e) { return; }
+    detectaUltrapassagens();
     desenhaTopo(); desenhaDados(); desenhaFeed();
   }
   var botaoTema = $('[data-tema-botao]');
