@@ -24,12 +24,6 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
       <div><small>Chuva</small><b data-chuva>–</b></div>
     </div>
     <p class="av-vivo-linha" data-vivo-linha hidden><span data-sessao-st></span> · <span data-atualizado></span></p>
-    <div class="compartilhar av-compartilhar-pagina" data-compartilhar data-titulo="Ao vivo do Estagiário" data-linha="Minuto a minuto, tabela e mapa da pista em tempo real"
-         data-url="{{ page.url | absoluta(site.url) }}" data-slug="ao-vivo" data-imagem="/assets/compartilhar.jpg" data-credito="">
-      <button type="button" data-acao="link">Compartilhar</button>
-      <button type="button" data-acao="card">Card pro story</button>
-      <a class="whats" data-whats href="https://wa.me/?text={{ ('Ao vivo do Estagiário ' + (page.url | absoluta(site.url))) | urlencode }}" target="_blank" rel="noopener" aria-label="Mandar no WhatsApp" title="WhatsApp">{% include "icones/whatsapp.svg" %}</a>
-    </div>
     <p class="av-reprise" data-reprise hidden>Reprise de teste: dados de uma sessão que já aconteceu, tocando como se fosse ao vivo.</p>
   </div>
 
@@ -120,7 +114,6 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
   window.AV_DADOS = {{ site.aovivo_dados_url | dump | safe }};
 </script>
 <script src="/assets/js/aovivo.js?v={{ versao }}" defer></script>
-<script src="/assets/js/components/compartilhar.js?v={{ versao }}" defer></script>
 
 {% else %}
 <main class="container" style="padding:60px 20px;min-height:50vh"><h1>Ao vivo do Estagiário</h1><p>O Ao vivo está em manutenção e volta em breve. Enquanto isso, acompanhe as <a href="/noticias/">últimas notícias</a>.</p></main>
