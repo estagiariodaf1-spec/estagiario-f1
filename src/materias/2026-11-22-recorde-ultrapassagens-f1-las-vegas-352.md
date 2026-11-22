@@ -1,6 +1,6 @@
 ---
-title: "Recorde de ultrapassagens na F1: 352 em Las Vegas"
-linha_fina: "Foram 35 trocas de liderança em 50 voltas e cinco carros em 2,927s na bandeirada. A marca anterior, de Zandvoort em 2023, era de 186"
+title: "GP de Las Vegas bate recorde de ultrapassagens na F1"
+linha_fina: "Foram 352 ultrapassagens, 35 trocas de liderança em 50 voltas e cinco carros separados por 2,927s na bandeirada. A marca anterior, de Zandvoort em 2023, era de 186"
 date: 2026-11-22T09:57:32-03:00
 categoria: "F1"
 palavra_chave: "recorde de ultrapassagens F1"
