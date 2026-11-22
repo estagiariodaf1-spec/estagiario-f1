@@ -14,32 +14,105 @@ fontes:
   - "https://racingnews365.com/live-2026-f1-las-vegas-grand-prix-qualifying"
 ---
 
-Max Verstappen venceu o GP de Las Vegas na madrugada deste domingo (22), no horário de Brasília (noite de sábado em Las Vegas). O piloto da Red Bull largou na pole herdada da punição a Kimi Antonelli, perdeu a liderança várias vezes e sempre pegou de volta.
+Max Verstappen (Red Bull Racing) venceu o GP de Las Vegas de Fórmula 1, disputado na madrugada deste domingo (22), após uma das corridas mais movimentadas da temporada 2026. O neerlandês enfrentou uma disputa intensa pela liderança, resistiu às investidas de George Russell (Mercedes) e Kimi Antonelli (Mercedes) e cruzou a linha de chegada à frente de Lando Norris (McLaren) e Oscar Piastri (McLaren), que completaram o pódio.
 
-Lando Norris e Oscar Piastri completaram o pódio. Os dois são da McLaren.
+A prova de 50 voltas no circuito de rua de Las Vegas foi marcada por sucessivas trocas de posição, um Safety Car, problemas mecânicos e acidentes que alteraram completamente a classificação. Russell, que chegou a disputar a vitória, terminou apenas em nono após bater no muro nas voltas finais, enquanto Antonelli perdeu um possível segundo lugar devido a uma falha de potência nos instantes decisivos. 
 
-## Verstappen segura o ataque na Strip
 
-A corrida foi um festival de vácuo. A reta da Strip deu a quem vinha atrás a chance de passar, e George Russell, Norris e Antonelli tentaram, cada um na sua vez.
+Verstappen larga na frente, mas não consegue escapar
+O neerlandês largou da pole position após herdar a primeira colocação do grid de Antonelli, que havia registrado o melhor tempo da classificação, mas recebeu uma punição de cinco posições pela utilização de um novo motor a combustão.
 
-Não adiantou. O holandês tomava a ultrapassagem numa curva e retomava logo depois, muitas vezes na curva 17, guardando bateria pra isso. Quem tentou uma estratégia diferente também ficou sem resposta.
+Verstappen sustentou a liderança na largada, com Russell em sua perseguição. No entanto, rapidamente ficou claro que abrir vantagem não seria uma tarefa simples.
 
-Perto do fim, Russell escorregou para o muro na curva 5, e o piloto da Red Bull não perdoou no rádio: "Haha, muito bem, meu Deus". Os dois já tinham se estranhado no TL3, [num toque que rendeu até dedo do meio](/materias/verstappen-russell-toque-tl3-las-vegas/). Dessa vez, quem riu por último foi Verstappen.
+As longas retas do circuito de Las Vegas favoreceram o uso do vácuo, permitindo que os pilotos se aproximassem e realizassem ultrapassagens com frequência muito maior do que a observada em outras etapas da temporada.
 
-## McLaren se recupera, Mercedes perde força
+Russell chegou a assumir a primeira colocação em diversas oportunidades, mas Verstappen aproveitava a sequência de curvas para recuperar a liderança. A disputa se transformou em um verdadeiro jogo de gato e rato, com os dois alternando posições e utilizando diferentes pontos do circuito para atacar e defender. 
 
-A McLaren corria risco de ficar fora dos pontos nas primeiras voltas e acabou com dois carros no pódio. Piastri largou em 17º por causa da [punição de 10 posições](/materias/piastri-punicao-10-posicoes-gp-las-vegas/) e escalou o pelotão até o pódio.
 
-Norris comemora: "Dois carros no pódio, quem diria?"
+Safety Car e uma sequência de problemas
+A corrida sofreu uma reviravolta perto de sua metade, quando um incidente envolvendo Sergio Pérez (Cadillac) e Rafael Câmara provocou a entrada do Safety Car.
 
-Antonelli, que largou em sexto, chegou a ameaçar Verstappen pela liderança. Aí apareceu um problema de potência (derate) nas voltas finais, e acabou a chance de brigar pela vitória. Ele ainda segurou o quarto lugar sobre Pierre Gasly, que ficou em quinto.
+A neutralização reorganizou o pelotão, que já apresentava diferenças pequenas entre os primeiros colocados. Arvid Lindblad (Racing Bulls), que havia chegado a ocupar a terceira posição, acabou rodando enquanto tentava aquecer os pneus atrás do carro de segurança, encerrando prematuramente sua participação.
 
-Franco Colapinto foi o sexto e entregou um bom resultado para a Alpine.
+Na relargada, Verstappen continuou na liderança, seguido por Russell e Isack Hadjar (Red Bull Racing), que vinha realizando uma de suas melhores apresentações da temporada.
 
-## Ferrari se enrola sozinha
+O francês chegou a disputar as primeiras posições e até ameaçou seu companheiro de equipe, mas viu sua corrida desmoronar na 26ª volta. A asa dianteira de seu carro sofreu uma quebra aparentemente espontânea, sem contato com outros pilotos ou com o muro.
 
-Charles Leclerc e Lewis Hamilton tinham caído no Q2 na [classificação](/materias/classificacao-gp-de-las-vegas-2026-grid/), e a corrida não melhorou o clima. Os dois carros da Ferrari se tocaram, e Hamilton rodou na curva 7. Leclerc recebeu 10 segundos de punição pelo contato.
+Hadjar precisou retornar aos boxes para substituir a peça, despencou para o fim do pelotão e terminou apenas em 14º. 
 
-O heptacampeão também tinha levado 10 segundos por sair da pista e ganhar vantagem sobre Norris. Mesmo assim, recuperou posições e terminou em sétimo. Carlos Sainz foi o oitavo pela Williams, e Russell e Leclerc fecharam o top 10.
 
-Dois carros da mesma equipe se tocando na Strip, com o mundo inteiro assistindo. A Ferrari não perde uma.
+Mercedes e McLaren entram de vez na briga
+Com a corrida retomada, Russell voltou a pressionar Verstappen, enquanto Norris, Piastri e Antonelli se aproximavam da disputa pela vitória.
+
+Na 34ª volta, Norris aproveitou uma batalha entre Russell e Verstappen para assumir a segunda colocação e, pouco depois, chegou a ultrapassar o neerlandês pela liderança. Entretanto, a Red Bull recuperou a posição ainda na sequência, demonstrando maior eficiência nos pontos decisivos do traçado.
+
+Antonelli também protagonizou uma recuperação importante. Depois de cumprir sua punição no grid, o italiano avançou pelo pelotão e superou Norris, Piastri e Russell para entrar diretamente na disputa pela vitória.
+
+Na 39ª volta, Antonelli ultrapassou Verstappen e assumiu momentaneamente a liderança, mas o piloto da Red Bull respondeu na primeira curva e retomou a posição.
+
+A Mercedes demonstrava vantagem na reta final, particularmente na aproximação da curva 14, enquanto Verstappen conseguia recuperar terreno no início da volta seguinte.
+
+O cenário tornou a disputa especialmente delicada: uma ultrapassagem na última volta poderia impedir o neerlandês de reagir antes da bandeirada. 
+
+
+Russell bate e Antonelli perde o pódio no fim
+
+A disputa teve uma mudança decisiva na 48ª volta, quando Russell tentou ultrapassar Antonelli, travou os pneus e atingiu o muro.
+
+O britânico conseguiu continuar na corrida, mas perdeu diversas posições e terminou apenas em nono, desperdiçando uma oportunidade de conquistar um resultado expressivo em Las Vegas.
+
+Com Russell fora da briga, Antonelli passou a ser o principal adversário de Verstappen nas voltas finais. O italiano parecia ter condições de disputar a vitória até a bandeirada, mas sofreu uma perda de potência na última curva da penúltima volta.
+
+O problema permitiu que Norris e Piastri ultrapassassem o piloto da Mercedes, que caiu para a quarta posição.
+
+Livre da pressão imediata dos adversários, Verstappen completou a última volta em situação bem mais confortável do que enfrentara durante praticamente toda a corrida e garantiu mais uma vitória na temporada. 
+
+
+Ferrari protagoniza mais um capítulo de sua crise
+Se a luta pela vitória foi movimentada, a situação da Ferrari também não passou despercebida.
+
+Lewis Hamilton e Charles Leclerc protagonizaram um contato nas voltas finais, quando o monegasco atingiu o companheiro de equipe e provocou uma rodada do britânico.
+
+Hamilton já carregava uma punição de dez segundos por ultrapassar Norris fora dos limites da pista. Leclerc, por sua vez, também recebeu dez segundos de penalidade pelo incidente com o companheiro.
+
+Apesar dos problemas, Hamilton conseguiu terminar na sétima colocação, enquanto Leclerc fechou a zona de pontuação em décimo.
+
+A equipe italiana deixou Las Vegas com mais um episódio de tensão interna e duas punições em uma corrida na qual nenhum dos seus pilotos conseguiu brigar pelo pódio. 
+
+
+Alpine surpreende com dois carros entre os seis primeiros
+Outro destaque da prova foi a Alpine, que conquistou seu melhor resultado coletivo do fim de semana com Pierre Gasly em quinto e Franco Colapinto em sexto.
+
+Gasly chegou a disputar posições próximas ao pódio durante a corrida e conseguiu se manter competitivo diante dos adversários de equipes tradicionalmente mais fortes.
+
+Colapinto também aproveitou as oportunidades oferecidas pelas disputas e incidentes à frente para garantir pontos importantes.
+
+Carlos Sainz (Williams) terminou em oitavo, enquanto Nico Hülkenberg (Audi) ficou em 11º, à frente de Gabriel Bortoleto (Audi), 12º colocado.
+
+Liam Lawson (Racing Bulls) enfrentou dificuldades antes mesmo da largada. Um vazamento de combustível obrigou o piloto a partir dos boxes, uma volta atrás dos demais competidores. Alex Albon (Williams), por sua vez, sequer conseguiu largar devido a problemas de aquecimento em seu carro. 
+
+
+Resultado do GP de Las Vegas de 2026
+Pos.	Piloto	Equipe
+1º	Max Verstappen	Red Bull Racing
+2º	Lando Norris	McLaren
+3º	Oscar Piastri	McLaren
+4º	Kimi Antonelli	Mercedes
+5º	Pierre Gasly	Alpine
+6º	Franco Colapinto	Alpine
+7º	Lewis Hamilton	Ferrari
+8º	Carlos Sainz	Williams
+9º	George Russell	Mercedes
+10º	Charles Leclerc	Ferrari
+11º	Nico Hülkenberg	Audi
+12º	Gabriel Bortoleto	Audi
+13º	Oliver Bearman	Haas
+14º	Isack Hadjar	Red Bull Racing
+15º	Liam Lawson	Racing Bulls
+
+Classificação conforme publicada pelo GPblog. A tabela original apresenta uma lacuna na 16ª posição; por isso, a relação acima foi limitada às posições confirmadas até o 15º lugar. 
+
+Próxima etapa
+Com a vitória em Las Vegas, Verstappen chegou aos 304 pontos no campeonato e consolidou a segunda posição na classificação dos pilotos. Antonelli, já campeão mundial, segue na liderança com 402 pontos.
+
+A Fórmula 1 retorna no próximo fim de semana para o GP do Catar, penúltima etapa da temporada, antes do encerramento do campeonato em Abu Dhabi, no dia 6 de dezembro.
