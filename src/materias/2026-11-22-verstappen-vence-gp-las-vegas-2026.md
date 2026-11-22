@@ -20,7 +20,7 @@ O resultado, no entanto, esteve longe de refletir a intensidade da disputa. Ao l
 
 Antonelli, que havia registrado o melhor tempo da classificação, mas largou em sexto após uma punição de cinco posições pela utilização de um novo motor a combustão, chegou a liderar a corrida e parecia ter condições de disputar a vitória até a bandeirada. Uma perda de potência na penúltima volta, porém, tirou o italiano da briga pelo triunfo e até do pódio.
 
-Russell, Hadjar e Verstappen transformam primeiras voltas em disputa constante
+## Russell, Hadjar e Verstappen transformam primeiras voltas em disputa constante
 
 Beneficiado pela punição de Antonelli, Verstappen largou da pole position e manteve a liderança na primeira curva, seguido por Russell. A tranquilidade, entretanto, durou pouco.
 
@@ -38,7 +38,7 @@ Na décima volta, os dez primeiros colocados estavam separados por apenas quatro
 
 Russell voltou a assumir a liderança nas voltas 14 e 18, mas novamente foi superado por Verstappen na reta seguinte. Na segunda dessas disputas, Hadjar aproveitou para também ultrapassar o britânico.
 
-Safety Car muda o cenário da corrida
+## Safety Car muda o cenário da corrida
 
 A primeira grande interrupção aconteceu na 19ª volta, após um incidente envolvendo Sergio Pérez (Cadillac) e Rafael Câmara (Haas).
 
@@ -56,7 +56,7 @@ A corrida foi retomada na 26ª volta, mas Hadjar, que havia figurado constanteme
 
 O francês precisou retornar aos boxes e caiu para o fim do pelotão, terminando apenas em 14º.
 
-Norris e Antonelli entram na briga pela vitória
+## Norris e Antonelli entram na briga pela vitória
 
 Com a corrida novamente em bandeira verde, Russell retomou a perseguição a Verstappen, enquanto Norris iniciou uma recuperação impressionante.
 
@@ -74,7 +74,7 @@ Na 38ª volta, Antonelli ultrapassou Russell e assumiu a segunda colocação. Um
 
 A disputa passou a envolver diretamente os dois pilotos, com Antonelli se aproveitando da velocidade da Mercedes nas retas e Verstappen recuperando terreno na sequência de curvas.
 
-Verstappen percebe risco de perder vitória na última volta
+## Verstappen percebe risco de perder vitória na última volta
 
 O duelo atingiu seu ponto mais delicado na 43ª volta, quando Antonelli conseguiu cruzar a linha de chegada apenas 0s001 à frente de Verstappen.
 
@@ -86,11 +86,13 @@ A resposta não foi exatamente tranquilizadora. Os engenheiros informaram que n�
 
 Verstappen, portanto, teria de resolver a situação na pista.
 
-Russell bate, Antonelli perde potência e McLaren herda o pódio
+## Russell bate, Antonelli perde potência e McLaren herda o pódio
 
 A corrida parecia caminhar para um confronto decisivo entre Verstappen e Antonelli, mas duas reviravoltas nas voltas finais mudaram completamente o resultado.
 
 Na 48ª volta, Russell tentou ultrapassar o companheiro de equipe pela segunda posição, travou os pneus e atingiu o muro. O britânico conseguiu continuar, mas despencou para nono, desperdiçando a oportunidade de conquistar um pódio.
+
+https://x.com/EstagiariodaF1/status/2124374732326007194
 
 Com Russell fora da disputa, Antonelli seguiu pressionando Verstappen. O italiano parecia ter condições de tentar mais uma ultrapassagem na volta final, mas uma perda de potência no encerramento da 49ª passagem comprometeu sua corrida.
 
@@ -100,7 +102,7 @@ Depois de passar praticamente toda a prova pressionado, Verstappen finalmente en
 
 O neerlandês recebeu a bandeirada apenas 0s639 à frente de Norris, enquanto Piastri, que havia largado em 15º, completou o pódio a 1s529 do vencedor.
 
-Ferrari coleciona punições e acidente entre companheiros
+## Ferrari coleciona punições e acidente entre companheiros
 
 A Ferrari também protagonizou momentos de tensão em Las Vegas, mas por motivos bem diferentes dos pilotos que disputavam a vitória.
 
@@ -111,6 +113,8 @@ A relação já demonstrava sinais de desgaste durante as primeiras voltas, quan
 O clima piorou na segunda metade da prova.
 
 Enquanto disputavam a sexta posição, Leclerc atingiu Hamilton, provocando uma rodada do heptacampeão mundial, que caiu para décimo.
+
+https://x.com/EstagiariodaF1/status/2124372335071535331
 
 Os comissários consideraram o monegasco responsável pelo incidente e aplicaram uma punição de dez segundos. Hamilton, que já havia recebido penalidade pelo episódio com Norris, terminou em sétimo, enquanto Leclerc ficou apenas em décimo.
 
