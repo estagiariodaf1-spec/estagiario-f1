@@ -258,6 +258,12 @@
     if (!cod && /las vegas|miami|austin/i.test(dados.circuito || '')) cod = 'us';
     $('[data-titulo]').innerHTML = esc(titulo) + (cod ? ' <img class="av-bandeira-pais" src="/assets/bandeiras/' + cod + '.svg" alt="" width="40" height="40">' : '');
     document.title = (vivo ? '🔴 ' : '') + titulo + ' · Estagiário da F1';
+    var comp = document.querySelector('.av-compartilhar-pagina');  // compartilhar leva o nome da cobertura
+    if (comp && comp.dataset.titulo !== titulo) {
+      comp.dataset.titulo = (vivo ? '🔴 ' : '') + titulo;
+      var w = comp.querySelector('[data-whats]');
+      if (w) w.href = 'https://wa.me/?text=' + encodeURIComponent((vivo ? '🔴 ' : '') + titulo + ' ' + comp.dataset.url);
+    }
     var band = $('[data-bandeira]');
     band.hidden = !dados.ativo;
     $('[data-numeros]').hidden = !dados.ativo;
