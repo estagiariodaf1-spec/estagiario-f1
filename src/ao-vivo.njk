@@ -4,6 +4,7 @@ title: Ao vivo do Estagiário
 permalink: /ao-vivo/
 descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa da pista e o Estagiário comentando.
 ---
+{% if site.aovivo_no_site %}
 <link rel="stylesheet" href="/assets/css/aovivo.css?v={{ versao }}">
 <main class="av" data-av data-tema="escuro">
 <script>try { if (localStorage.getItem("av-tema") === "claro") document.currentScript.parentNode.dataset.tema = "claro"; } catch (e) {}</script>
@@ -120,3 +121,7 @@ descricao: Minuto a minuto das sessões da Fórmula 1, com tabela, pneus, mapa d
 </script>
 <script src="/assets/js/aovivo.js?v={{ versao }}" defer></script>
 <script src="/assets/js/components/compartilhar.js?v={{ versao }}" defer></script>
+
+{% else %}
+<main class="container" style="padding:60px 20px;min-height:50vh"><h1>Ao vivo do Estagiário</h1><p>O Ao vivo está em manutenção e volta em breve. Enquanto isso, acompanhe as <a href="/noticias/">últimas notícias</a>.</p></main>
+{% endif %}
