@@ -1,6 +1,6 @@
 /* Faixa do fim de semana de GP na capa: muda sozinha com o momento.
    Antes do GP: todos os horários em Brasília e contagem. Durante: sessão ao vivo / próxima sessão.
-   Depois da corrida (até 2 dias): pódio. Fora disso: só o próximo GP.
+   Depois da corrida: já pula para o próximo GP (o resultado fica no card "Último resultado" da capa).
    Para testar outro momento: ?agora=2026-11-07T15:00:00-03:00 */
 (function (global) {
   'use strict';
@@ -68,17 +68,6 @@
       var passada = ultimo && ultimo.MRData.RaceTable.Races[0];
       if (teste && passada && corrida && data(passada) > agora) { corrida = passada; passada = null; } // teste no passado
 
-      var fimPassada = passada && new Date(data(passada).getTime() + 2 * HORA);
-      if (passada && agora >= fimPassada && agora - fimPassada < 2 * DIA && (!corrida || data(corrida) - agora > 3 * DIA)) {
-        var podio = (passada.Results || []).slice(0, 3).map(function (r, i) {
-          return '<li><b>' + (i + 1) + 'º</b> ' + esc(r.Driver.givenName.charAt(0) + '. ' + r.Driver.familyName) +
-            ' <small>' + esc(r.Constructor.name) + '</small></li>';
-        }).join('');
-        raiz.innerHTML = '<div class="gp-faixa pos"><div class="gp-titulo"><span class="gp-tag">Deu bandeirada</span><strong>' +
-          bandeira(passada) + esc(nome(passada.raceName)) + '</strong></div><ol class="gp-podio">' + podio + '</ol>' +
-          '<a class="gp-link" href="/noticias/">Análise e repercussão ›</a></div>';
-        return;
-      }
       if (!corrida) { raiz.innerHTML = '<div class="gp-faixa longe"><div class="gp-titulo"><span class="gp-tag">Temporada</span><strong>Calendário da F1</strong><em>Horários de Brasília</em></div><a class="gp-link" href="/calendario.html">Ver calendário ›</a></div>'; return; }
 
       var lista = sessoes(corrida);
