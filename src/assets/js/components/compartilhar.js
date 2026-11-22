@@ -129,6 +129,8 @@
   // monta o card em segundo plano quando os botões aparecem na tela (só pra quem chega até eles):
   // assim o toque compartilha na hora
   function adiantar() { if (!pronto && !preparando) preparar().then(function (f) { pronto = f; }).catch(function () {}); }
+  // páginas que mudam (Ao vivo): quando título ou foto mudam, o card é refeito
+  caixa.addEventListener('compartilhar:atualizou', function () { pronto = null; preparando = null; adiantar(); });
   if ('IntersectionObserver' in window) {
     var olho = new IntersectionObserver(function (es) {
       if (es.some(function (e) { return e.isIntersecting; })) { olho.disconnect(); adiantar(); }

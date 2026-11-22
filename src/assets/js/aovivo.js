@@ -259,8 +259,9 @@
     $('[data-titulo]').innerHTML = esc(titulo) + (cod ? ' <img class="av-bandeira-pais" src="/assets/bandeiras/' + cod + '.svg" alt="" width="40" height="40">' : '');
     document.title = (vivo ? '🔴 ' : '') + titulo + ' · Estagiário da F1';
     var comp = document.querySelector('.av-compartilhar-pagina');  // compartilhar leva o nome da cobertura
-    if (comp && comp.dataset.titulo !== titulo) {
+    if (comp && comp.dataset.titulo !== (vivo ? '🔴 ' : '') + titulo) {
       comp.dataset.titulo = (vivo ? '🔴 ' : '') + titulo;
+      comp.dispatchEvent(new Event('compartilhar:atualizou'));
       var w = comp.querySelector('[data-whats]');
       if (w) w.href = 'https://wa.me/?text=' + encodeURIComponent((vivo ? '🔴 ' : '') + titulo + ' ' + comp.dataset.url);
     }
@@ -452,6 +453,21 @@
     if (!dados.ativo) { ['[data-bloco-mapa]', '[data-bloco-ritmo]', '[data-bloco-box]', '[data-bloco-vice]', '[data-bloco-estrategia]', '[data-bloco-posicoes]', '[data-bloco-vel]'].forEach(function (s) { $(s).hidden = true; }); return; }
     desenhaTabela(); desenhaMapa(); desenhaRitmo(); desenhaBox(); desenhaVice(); desenhaEstrategia(); desenhaPosicoes(); desenhaVelocidade();
   }
+
+  // foto do card pro story: a do destaque na capa (com crédito), se tiver
+  function buscaFotoDoCard() {
+    var selo = document.querySelector('[data-aovivo-selo]'), comp = document.querySelector('.av-compartilhar-pagina');
+    if (!selo || !selo.dataset.status || !comp) return;
+    fetch(selo.dataset.status, { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (s) {
+      var dq = s && s.destaque;
+      if (dq && dq.foto && comp.dataset.imagem !== dq.foto) {
+        comp.dataset.imagem = dq.foto; comp.dataset.credito = dq.credito ? 'Foto: ' + dq.credito : '';
+        comp.dispatchEvent(new Event('compartilhar:atualizou'));
+      }
+    }).catch(function () {});
+  }
+  buscaFotoDoCard();
+  setInterval(function () { if (!document.hidden) buscaFotoDoCard(); }, 60000);
 
   async function buscaPosts() {
     try { posts = await (await fetch(window.AV_POSTS, { cache: 'no-store' })).json(); } catch (e) { /* tenta no próximo */ }
