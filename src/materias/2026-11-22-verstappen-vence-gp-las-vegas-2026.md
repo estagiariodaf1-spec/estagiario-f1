@@ -6,7 +6,7 @@ categoria: "F1"
 palavra_chave: "Verstappen vence GP de Las Vegas"
 autor: "Redação Estagiário da F1"
 imagem: "/images/uploads/2026-11-22-verstappen-vence-gp-las-vegas-2026.jpg"
-credito_imagem: "Foto: F1TV"
+credito_imagem: "Foto: F1/reprodução"
 fontes:
   - "https://breakingthenews.net/Article/Verstappen-wins-Las-Vegas-Grand-Prix/67614590"
   - "https://www.autosport.com/f1/live-text/f1-las-vegas-gp-follow-the-race-in-las-vegas-with-live-timing-/1128378/"
