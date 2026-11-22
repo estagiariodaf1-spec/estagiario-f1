@@ -14,82 +14,121 @@ fontes:
   - "https://racingnews365.com/live-2026-f1-las-vegas-grand-prix-qualifying"
 ---
 
-Max Verstappen (Red Bull Racing) venceu o GP de Las Vegas de Fórmula 1, disputado na madrugada deste domingo (22), após uma das corridas mais movimentadas da temporada 2026. O neerlandês enfrentou uma disputa intensa pela liderança, resistiu às investidas de George Russell (Mercedes) e Kimi Antonelli (Mercedes) e cruzou a linha de chegada à frente de Lando Norris (McLaren) e Oscar Piastri (McLaren), que completaram o pódio.
+Max Verstappen (Red Bull Racing) venceu o GP de Las Vegas, disputado na madrugada deste domingo (22), após uma das corridas mais movimentadas da temporada 2026 da Fórmula 1. Em uma prova marcada por ultrapassagens constantes, disputas intensas pela liderança e reviravoltas nas voltas finais, o neerlandês resistiu à pressão de George Russell (Mercedes) e Kimi Antonelli (Mercedes) para conquistar a vitória, com Lando Norris e Oscar Piastri, ambos da McLaren, completando o pódio.
 
-A prova de 50 voltas no circuito de rua de Las Vegas foi marcada por sucessivas trocas de posição, um Safety Car, problemas mecânicos e acidentes que alteraram completamente a classificação. Russell, que chegou a disputar a vitória, terminou apenas em nono após bater no muro nas voltas finais, enquanto Antonelli perdeu um possível segundo lugar devido a uma falha de potência nos instantes decisivos. 
+O resultado, no entanto, esteve longe de refletir a intensidade da disputa. Ao longo das 50 voltas, Verstappen viu sua liderança ser ameaçada repetidamente, principalmente pela dificuldade de abrir vantagem nas longas retas do circuito de rua de Las Vegas, onde os adversários aproveitavam o vácuo para realizar ultrapassagens e recuperar posições.
 
+Antonelli, que havia registrado o melhor tempo da classificação, mas largou em sexto após uma punição de cinco posições pela utilização de um novo motor a combustão, chegou a liderar a corrida e parecia ter condições de disputar a vitória até a bandeirada. Uma perda de potência na penúltima volta, porém, tirou o italiano da briga pelo triunfo e até do pódio.
 
-Verstappen larga na frente, mas não consegue escapar
-O neerlandês largou da pole position após herdar a primeira colocação do grid de Antonelli, que havia registrado o melhor tempo da classificação, mas recebeu uma punição de cinco posições pela utilização de um novo motor a combustão.
+Russell, Hadjar e Verstappen transformam primeiras voltas em disputa constante
 
-Verstappen sustentou a liderança na largada, com Russell em sua perseguição. No entanto, rapidamente ficou claro que abrir vantagem não seria uma tarefa simples.
+Beneficiado pela punição de Antonelli, Verstappen largou da pole position e manteve a liderança na primeira curva, seguido por Russell. A tranquilidade, entretanto, durou pouco.
 
-As longas retas do circuito de Las Vegas favoreceram o uso do vácuo, permitindo que os pilotos se aproximassem e realizassem ultrapassagens com frequência muito maior do que a observada em outras etapas da temporada.
+Já na segunda volta, o britânico ultrapassou o piloto da Red Bull, mas recebeu o troco quase imediatamente. A sequência antecipava o que se tornaria uma característica da corrida: ultrapassagens na aproximação da curva 14, seguidas por contra-ataques na reta principal.
 
-Russell chegou a assumir a primeira colocação em diversas oportunidades, mas Verstappen aproveitava a sequência de curvas para recuperar a liderança. A disputa se transformou em um verdadeiro jogo de gato e rato, com os dois alternando posições e utilizando diferentes pontos do circuito para atacar e defender. 
+Isack Hadjar (Red Bull Racing) também entrou na disputa. Depois de superar Norris ainda na primeira volta, o francês passou a pressionar Russell e o próprio companheiro de equipe, chegando a assumir a liderança momentaneamente.
 
+A situação provocou uma conversa curiosa pelo rádio. Enquanto Hadjar tentava ultrapassar Verstappen, a Red Bull alertou que os pilotos precisavam evitar perder tempo brigando entre si. O francês, por sua vez, questionou por que o companheiro continuava defendendo a posição.
 
-Safety Car e uma sequência de problemas
-A corrida sofreu uma reviravolta perto de sua metade, quando um incidente envolvendo Sergio Pérez (Cadillac) e Rafael Câmara provocou a entrada do Safety Car.
+A disputa prosseguiu e Hadjar chegou a ultrapassar Verstappen, mas pouco depois caiu para terceiro.
 
-A neutralização reorganizou o pelotão, que já apresentava diferenças pequenas entre os primeiros colocados. Arvid Lindblad (Racing Bulls), que havia chegado a ocupar a terceira posição, acabou rodando enquanto tentava aquecer os pneus atrás do carro de segurança, encerrando prematuramente sua participação.
+Arvid Lindblad (Racing Bulls) também surpreendeu ao ultrapassar Norris e Russell em rápida sequência, chegando a participar da disputa pelas primeiras posições.
 
-Na relargada, Verstappen continuou na liderança, seguido por Russell e Isack Hadjar (Red Bull Racing), que vinha realizando uma de suas melhores apresentações da temporada.
+Na décima volta, os dez primeiros colocados estavam separados por apenas quatro segundos, evidenciando o equilíbrio e a dificuldade de qualquer piloto escapar do pelotão.
 
-O francês chegou a disputar as primeiras posições e até ameaçou seu companheiro de equipe, mas viu sua corrida desmoronar na 26ª volta. A asa dianteira de seu carro sofreu uma quebra aparentemente espontânea, sem contato com outros pilotos ou com o muro.
+Russell voltou a assumir a liderança nas voltas 14 e 18, mas novamente foi superado por Verstappen na reta seguinte. Na segunda dessas disputas, Hadjar aproveitou para também ultrapassar o britânico.
 
-Hadjar precisou retornar aos boxes para substituir a peça, despencou para o fim do pelotão e terminou apenas em 14º. 
+Safety Car muda o cenário da corrida
 
+A primeira grande interrupção aconteceu na 19ª volta, após um incidente envolvendo Sergio Pérez (Cadillac) e Rafael Câmara (Haas).
 
-Mercedes e McLaren entram de vez na briga
-Com a corrida retomada, Russell voltou a pressionar Verstappen, enquanto Norris, Piastri e Antonelli se aproximavam da disputa pela vitória.
+O mexicano atingiu o brasileiro, provocando uma rodada e danos à suspensão dianteira de seu carro. O acidente resultou na entrada do Safety Car e levou praticamente todo o pelotão aos boxes.
 
-Na 34ª volta, Norris aproveitou uma batalha entre Russell e Verstappen para assumir a segunda colocação e, pouco depois, chegou a ultrapassar o neerlandês pela liderança. Entretanto, a Red Bull recuperou a posição ainda na sequência, demonstrando maior eficiência nos pontos decisivos do traçado.
+A Red Bull realizou uma parada dupla com Verstappen e Hadjar, mas Russell conseguiu recuperar a segunda colocação durante a sequência de pit stops.
 
-Antonelli também protagonizou uma recuperação importante. Depois de cumprir sua punição no grid, o italiano avançou pelo pelotão e superou Norris, Piastri e Russell para entrar diretamente na disputa pela vitória.
+Lewis Hamilton (Ferrari), que já havia recebido uma punição de dez segundos por ultrapassar Norris fora dos limites da pista, precisou adiar sua parada para a volta seguinte, evitando prejudicar a troca de pneus de Charles Leclerc (Ferrari).
 
-Na 39ª volta, Antonelli ultrapassou Verstappen e assumiu momentaneamente a liderança, mas o piloto da Red Bull respondeu na primeira curva e retomou a posição.
+O britânico retornou à pista apenas em 14º.
 
-A Mercedes demonstrava vantagem na reta final, particularmente na aproximação da curva 14, enquanto Verstappen conseguia recuperar terreno no início da volta seguinte.
+Enquanto os pilotos circulavam atrás do carro de segurança, Lindblad protagonizou um dos episódios mais inesperados da corrida. O estreante perdeu o controle do carro enquanto tentava aquecer os pneus, rodou e precisou abandonar a prova.
 
-O cenário tornou a disputa especialmente delicada: uma ultrapassagem na última volta poderia impedir o neerlandês de reagir antes da bandeirada. 
+A corrida foi retomada na 26ª volta, mas Hadjar, que havia figurado constantemente entre os três primeiros e chegou a liderar, viu suas chances desaparecerem quando a asa dianteira de sua Red Bull quebrou sem qualquer contato aparente.
 
+O francês precisou retornar aos boxes e caiu para o fim do pelotão, terminando apenas em 14º.
 
-Russell bate e Antonelli perde o pódio no fim
+Norris e Antonelli entram na briga pela vitória
 
-A disputa teve uma mudança decisiva na 48ª volta, quando Russell tentou ultrapassar Antonelli, travou os pneus e atingiu o muro.
+Com a corrida novamente em bandeira verde, Russell retomou a perseguição a Verstappen, enquanto Norris iniciou uma recuperação impressionante.
 
-O britânico conseguiu continuar na corrida, mas perdeu diversas posições e terminou apenas em nono, desperdiçando uma oportunidade de conquistar um resultado expressivo em Las Vegas.
+O britânico da McLaren, que havia largado em terceiro e chegou a cair para 11º, aproveitou o ritmo de seu carro para avançar pelo pelotão. Na 31ª volta, superou Pierre Gasly (Alpine) e assumiu a terceira posição.
 
-Com Russell fora da briga, Antonelli passou a ser o principal adversário de Verstappen nas voltas finais. O italiano parecia ter condições de disputar a vitória até a bandeirada, mas sofreu uma perda de potência na última curva da penúltima volta.
+Pouco depois, Norris se aproveitou da batalha entre Russell e Verstappen para entrar diretamente na disputa pela liderança, chegando a assumir a primeira colocação momentaneamente.
 
-O problema permitiu que Norris e Piastri ultrapassassem o piloto da Mercedes, que caiu para a quarta posição.
+Russell, entretanto, voltou à segunda posição e conseguiu ultrapassar Verstappen na curva 1, na 37ª volta. Mesmo atacando em um ponto diferente do circuito, o piloto da Mercedes não conseguiu sustentar a liderança.
 
-Livre da pressão imediata dos adversários, Verstappen completou a última volta em situação bem mais confortável do que enfrentara durante praticamente toda a corrida e garantiu mais uma vitória na temporada. 
+Enquanto isso, Antonelli completava uma recuperação ainda mais impressionante.
 
+O italiano, que havia caído para oitavo na largada, avançou pelo pelotão e chegou à quarta posição ainda na 17ª volta. Na segunda metade da corrida, utilizando pneus macios, passou a representar uma ameaça cada vez maior aos líderes.
 
-Ferrari protagoniza mais um capítulo de sua crise
-Se a luta pela vitória foi movimentada, a situação da Ferrari também não passou despercebida.
+Na 38ª volta, Antonelli ultrapassou Russell e assumiu a segunda colocação. Uma volta depois, superou Verstappen e chegou à liderança, mas também recebeu o troco do neerlandês.
 
-Lewis Hamilton e Charles Leclerc protagonizaram um contato nas voltas finais, quando o monegasco atingiu o companheiro de equipe e provocou uma rodada do britânico.
+A disputa passou a envolver diretamente os dois pilotos, com Antonelli se aproveitando da velocidade da Mercedes nas retas e Verstappen recuperando terreno na sequência de curvas.
 
-Hamilton já carregava uma punição de dez segundos por ultrapassar Norris fora dos limites da pista. Leclerc, por sua vez, também recebeu dez segundos de penalidade pelo incidente com o companheiro.
+Verstappen percebe risco de perder vitória na última volta
 
-Apesar dos problemas, Hamilton conseguiu terminar na sétima colocação, enquanto Leclerc fechou a zona de pontuação em décimo.
+O duelo atingiu seu ponto mais delicado na 43ª volta, quando Antonelli conseguiu cruzar a linha de chegada apenas 0s001 à frente de Verstappen.
 
-A equipe italiana deixou Las Vegas com mais um episódio de tensão interna e duas punições em uma corrida na qual nenhum dos seus pilotos conseguiu brigar pelo pódio. 
+A diferença mínima revelou um problema estratégico para a Red Bull: caso o italiano conseguisse repetir a manobra na última passagem, Verstappen poderia não ter espaço suficiente para recuperar a liderança antes da bandeirada.
 
+Preocupado, o neerlandês pediu à equipe que analisasse uma maneira diferente de distribuir a energia elétrica na volta final, buscando uma alternativa para se defender na última reta.
 
-Alpine surpreende com dois carros entre os seis primeiros
-Outro destaque da prova foi a Alpine, que conquistou seu melhor resultado coletivo do fim de semana com Pierre Gasly em quinto e Franco Colapinto em sexto.
+A resposta não foi exatamente tranquilizadora. Os engenheiros informaram que não havia uma estratégia de gerenciamento de energia melhor disponível.
 
-Gasly chegou a disputar posições próximas ao pódio durante a corrida e conseguiu se manter competitivo diante dos adversários de equipes tradicionalmente mais fortes.
+Verstappen, portanto, teria de resolver a situação na pista.
 
-Colapinto também aproveitou as oportunidades oferecidas pelas disputas e incidentes à frente para garantir pontos importantes.
+Russell bate, Antonelli perde potência e McLaren herda o pódio
 
-Carlos Sainz (Williams) terminou em oitavo, enquanto Nico Hülkenberg (Audi) ficou em 11º, à frente de Gabriel Bortoleto (Audi), 12º colocado.
+A corrida parecia caminhar para um confronto decisivo entre Verstappen e Antonelli, mas duas reviravoltas nas voltas finais mudaram completamente o resultado.
 
-Liam Lawson (Racing Bulls) enfrentou dificuldades antes mesmo da largada. Um vazamento de combustível obrigou o piloto a partir dos boxes, uma volta atrás dos demais competidores. Alex Albon (Williams), por sua vez, sequer conseguiu largar devido a problemas de aquecimento em seu carro. 
+Na 48ª volta, Russell tentou ultrapassar o companheiro de equipe pela segunda posição, travou os pneus e atingiu o muro. O britânico conseguiu continuar, mas despencou para nono, desperdiçando a oportunidade de conquistar um pódio.
+
+Com Russell fora da disputa, Antonelli seguiu pressionando Verstappen. O italiano parecia ter condições de tentar mais uma ultrapassagem na volta final, mas uma perda de potência no encerramento da 49ª passagem comprometeu sua corrida.
+
+O problema permitiu que Norris e Piastri ultrapassassem a Mercedes, deixando Antonelli na quarta posição.
+
+Depois de passar praticamente toda a prova pressionado, Verstappen finalmente encontrou espaço para completar a última volta sem precisar defender a liderança.
+
+O neerlandês recebeu a bandeirada apenas 0s639 à frente de Norris, enquanto Piastri, que havia largado em 15º, completou o pódio a 1s529 do vencedor.
+
+Ferrari coleciona punições e acidente entre companheiros
+
+A Ferrari também protagonizou momentos de tensão em Las Vegas, mas por motivos bem diferentes dos pilotos que disputavam a vitória.
+
+Eliminados ainda no Q2 da classificação, Hamilton e Leclerc passaram boa parte da corrida tentando recuperar posições e acabaram se envolvendo em disputas entre si.
+
+A relação já demonstrava sinais de desgaste durante as primeiras voltas, quando Leclerc reclamou pelo rádio que Hamilton precisava tomar cuidado ao espremê-lo na pista. O britânico respondeu irritado, exigindo que o companheiro recuasse.
+
+O clima piorou na segunda metade da prova.
+
+Enquanto disputavam a sexta posição, Leclerc atingiu Hamilton, provocando uma rodada do heptacampeão mundial, que caiu para décimo.
+
+Os comissários consideraram o monegasco responsável pelo incidente e aplicaram uma punição de dez segundos. Hamilton, que já havia recebido penalidade pelo episódio com Norris, terminou em sétimo, enquanto Leclerc ficou apenas em décimo.
+
+A Ferrari deixou Las Vegas com somente sete pontos e mais um episódio de conflito entre seus pilotos para administrar.
+
+Alpine conquista resultado expressivo; Bortoleto fica fora dos pontos
+
+Longe das disputas pela vitória, a Alpine aproveitou os problemas dos adversários para conquistar um importante resultado coletivo.
+
+Gasly terminou em quinto, enquanto Franco Colapinto completou a corrida em sexto, garantindo 18 pontos para a equipe francesa.
+
+Carlos Sainz (Williams) ficou em oitavo, entre Hamilton e Russell, enquanto Leclerc completou os dez primeiros.
+
+Gabriel Bortoleto (Audi) terminou em 12º, logo atrás de Nico Hülkenberg, companheiro de equipe que ficou a uma posição da zona de pontuação.
+
+Rafael Câmara, envolvido no incidente que provocou o Safety Car, conseguiu continuar na prova e recebeu a bandeirada em 16º, à frente de Lance Stroll (Aston Martin) e Valtteri Bottas (Cadillac).
+
+Liam Lawson (Racing Bulls), que precisou largar dos boxes por conta de um vazamento de combustível, terminou em 15º. Alex Albon (Williams) sequer participou da corrida após enfrentar problemas de superaquecimento dos freios antes da largada.
 
 
 Resultado do GP de Las Vegas de 2026
