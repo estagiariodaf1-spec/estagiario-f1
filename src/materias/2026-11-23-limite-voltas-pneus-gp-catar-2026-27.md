@@ -1,5 +1,5 @@
 ---
-title: "Limite de voltas no GP do Catar: 27 por jogo de pneus"
+title: "GP do Catar terá limite de 27 voltas por jogo de pneus"
 linha_fina: "O teto subiu duas voltas em relação a 2025, mas a corrida tem 57 e uma parada só não fecha a conta. Estourar o limite pode render desclassificação"
 date: 2026-11-23T10:44:20-03:00
 categoria: "F1"
