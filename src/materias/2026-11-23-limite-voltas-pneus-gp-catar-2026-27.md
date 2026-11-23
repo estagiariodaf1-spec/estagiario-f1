@@ -24,7 +24,11 @@ O anúncio saiu do engenheiro-chefe de F1 da Pirelli, Simone Berra, no fim de se
 
 ## Por que o limite existe
 
-O problema é o desgaste localizado, principalmente nos pneus dianteiros. Berra explica: "Sabemos que o problema no Catar é que temos um desgaste localizado muito alto, principalmente na dianteira, com 100% de desgaste facilmente atingido depois de 25, 26 voltas em média."
+O problema não é o pneu gastar por igual. É o desgaste localizado, principalmente nos pneus dianteiros: em vez de a borracha ir embora de forma uniforme, algumas áreas do pneu acabam muito mais rápido que o resto, e o jogo chega ao limite mesmo com parte dele ainda inteira. Berra explica: "Sabemos que o problema no Catar é que temos um desgaste localizado muito alto, principalmente na dianteira, com 100% de desgaste facilmente atingido depois de 25, 26 voltas em média."
+
+O motivo está no traçado de Lusail, cheio de curvas longas e rápidas. Nelas, o carro é jogado com força pro lado e o pneu dianteiro apanha com altas cargas laterais por muito tempo seguido, volta após volta.
+
+As zebras entram nessa conta. O desgaste localizado da dianteira aparece justamente nelas, e a história recente mostra o tamanho do estrago: em 2023, as zebras causaram danos nas laterais dos pneus e a Pirelli teve que impor um teto bem mais curto (leia mais abaixo).
 
 A Pirelli diz que a alta de duas voltas só foi possível porque os carros de 2026 geram menos carga sobre os pneus e a construção do pneu foi reforçada. Mesmo com os compostos mais duros da gama (C1, C2 e C3 nesta etapa), o limite continua.
 
