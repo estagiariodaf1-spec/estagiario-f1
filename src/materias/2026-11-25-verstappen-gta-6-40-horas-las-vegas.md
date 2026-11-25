@@ -22,6 +22,8 @@ O holandês da Red Bull contou tudo em uma live na Twitch, no canal da equipe de
 
 Perguntado se tinha jogado também no voo de volta para casa, o tetracampeão respondeu: "Não, eu estava dormindo no avião. Joguei bastante à noite e de manhã em Vegas. Quer dizer, eu não posso sair e andar por aí de qualquer jeito."
 
+https://x.com/EstagiariodaF1/status/2125620784672411916
+
 Quando um streamer brincou que o tempo tinha sido bem investido, Verstappen concordou: "Sim! Não é como se eu pudesse sair mesmo."
 
 ## 80% das missões e cenas puladas
