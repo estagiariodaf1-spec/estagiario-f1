@@ -1,6 +1,6 @@
 ---
 title: "Bortoleto, sobre reclamações de novo regulamento: \"Que porra eles querem, sabe?\""
-linha_fina: "Brasileiro da Audi critica pilotos reclamam do excesso de ultrapassagens do regulamento de 2026: \"Você precisa pilotar, fazer o seu trabalho e pronto\""
+linha_fina: "Brasileiro da Audi critica pilotos que reclamam do excesso de ultrapassagens do regulamento de 2026: \"Você precisa pilotar, fazer o seu trabalho e pronto\""
 date: 2026-11-26T12:07:45-03:00
 categoria: "F1"
 palavra_chave: "Bortoleto regulamento 2026"
