@@ -1,6 +1,6 @@
 ---
-title: "Antonelli lidera o TL1 do GP do Catar; Bortoleto é 11º"
-linha_fina: "Antonelli fez o melhor tempo (1:23.217) no TL1 em Lusail. Veja os cinco primeiros, o brasileiro e o resultado completo"
+title: "Antonelli lidera o TL1 do GP do Catar; Bortoleto é 11º, Câmara o 15º"
+linha_fina: "Antonelli fez o melhor tempo (1:23.217) no TL1 em Lusail. Veja os cinco primeiros, os brasileiros e o resultado completo"
 date: 2026-11-27T11:30:10-03:00
 categoria: "F1"
 palavra_chave: "TL1 GP do Catar"
