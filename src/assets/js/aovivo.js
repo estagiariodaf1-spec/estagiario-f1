@@ -346,7 +346,66 @@
   }
 
   /* ---------- mapa ---------- */
-  var caixaMapa = null;
+  // Os carros andam POR CIMA do traçado: cada posição nova do OpenF1 vira "quanto já percorreu da volta",
+  // e o carro desliza por essa distância seguindo as curvas (antes ia em linha reta entre dois pontos e cortava a curva).
+  var caixaMapa = null, trilho = null, estadoCarro = {}, animando = false;
+  var semMovimento = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var FORA_DA_PISTA = 25;   // mais longe que isso do traçado (box, área de escape): mostra a posição real, sem seguir a pista
+
+  function montaTrilho(pts) {
+    var acc = [0];
+    for (var i = 1; i <= pts.length; i++) {
+      var a = pts[i - 1], b = pts[i % pts.length];
+      acc.push(acc[i - 1] + Math.hypot(b[0] - a[0], b[1] - a[1]));
+    }
+    return { p: pts, acc: acc, total: acc[pts.length] || 1 };
+  }
+  function frente(de, para) { var T = trilho.total; return ((para - de) % T + T) % T; }
+  // ponto do traçado mais perto da posição real: devolve a distância na volta (s) e o quanto está fora do traçado (d)
+  function projeta(x, y, perto) {
+    var p = trilho.p, n = p.length, T = trilho.total, melhor = null;
+    for (var i = 0; i < n; i++) {
+      var a = p[i], b = p[(i + 1) % n], dx = b[0] - a[0], dy = b[1] - a[1], l2 = dx * dx + dy * dy || 1;
+      var t = Math.max(0, Math.min(1, ((x - a[0]) * dx + (y - a[1]) * dy) / l2));
+      var d = Math.hypot(x - (a[0] + t * dx), y - (a[1] + t * dy)), s = trilho.acc[i] + t * Math.sqrt(l2), custo = d;
+      // trecho longe de onde o carro estava (reta paralela, cruzamento tipo Suzuka) só ganha se for muito mais perto
+      if (perto != null) { var f = frente(perto, s); if (f > T * 0.3 && f < T * 0.97) custo += 60; }
+      if (!melhor || custo < melhor.custo) melhor = { s: s, d: d, custo: custo };
+    }
+    return melhor;
+  }
+  function pontoEm(s) {
+    var acc = trilho.acc, p = trilho.p, lo = 0, hi = p.length;
+    s = frente(0, s);
+    while (hi - lo > 1) { var m = (lo + hi) >> 1; if (acc[m] <= s) lo = m; else hi = m; }
+    var a = p[lo], b = p[(lo + 1) % p.length], t = (s - acc[lo]) / ((acc[lo + 1] - acc[lo]) || 1);
+    return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+  }
+  function sAgora(e, t) { return e.s0 + (e.s1 - e.s0) * Math.min(1, (t - e.t0) / e.dur); }
+  function posiciona(e, t) {
+    var q = e.livre || pontoEm(sAgora(e, t));
+    e.el.style.transform = 'translate(' + q[0].toFixed(1) + 'px,' + q[1].toFixed(1) + 'px)';
+  }
+  function anima() {
+    var t = performance.now();
+    for (var k in estadoCarro) posiciona(estadoCarro[k], t);
+    if (Object.keys(estadoCarro).length) requestAnimationFrame(anima); else animando = false;
+  }
+  function moveCarro(sigla, el, q) {
+    var agora = performance.now(), e = estadoCarro[sigla], pr = projeta(q[0], q[1], e && !e.livre ? e.s1 : null);
+    var fora = pr.d > FORA_DA_PISTA;
+    if (!e || e.el !== el || fora || e.livre || semMovimento || agora - e.ultimo > 15000) {
+      // primeira vez, saiu/voltou da pista ou ficou muito tempo sem dado: aparece direto no lugar
+      estadoCarro[sigla] = { el: el, s0: pr.s, s1: pr.s, t0: agora, dur: 1, ultimo: agora, livre: fora ? q : null };
+      return;
+    }
+    var atual = sAgora(e, agora), andou = frente(atual, pr.s);
+    if (andou > trilho.total * 0.5) andou = 0;              // recuo pequeno é imprecisão do GPS: segura o carro, nunca anda de ré
+    if (andou < 1 && agora - e.t0 < e.dur) return;          // dado repetido: deixa terminar o movimento que já está rolando
+    // leva o tempo que passou desde o último dado (+15%), então quando o próximo chega o carro ainda está andando: nunca para
+    e.s0 = atual; e.s1 = atual + andou; e.t0 = agora; e.dur = Math.max(500, Math.min(8000, (agora - e.ultimo) * 1.15)); e.ultimo = agora;
+  }
+
   function desenhaMapa() {
     var pista = dados.pista || {}, tr = pista.tracado || [], svg = $('[data-mapa]');
     if (tr.length < 10) { $('[data-bloco-mapa]').hidden = true; return; }
@@ -356,11 +415,12 @@
       var minx = Math.min.apply(null, xs), maxx = Math.max.apply(null, xs), miny = Math.min.apply(null, ys), maxy = Math.max.apply(null, ys);
       var esc_ = Math.min(940 / (maxx - minx || 1), 640 / (maxy - miny || 1));
       caixaMapa = { n: tr.length, f: function (x, y) { return [30 + (x - minx) * esc_ + (940 - (maxx - minx) * esc_) / 2, 670 - (y - miny) * esc_ - (640 - (maxy - miny) * esc_) / 2]; } };
-      var d = tr.map(function (p, i) { var q = caixaMapa.f(p[0], p[1]); return (i ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1); }).join(' ') + ' Z';
+      var tela = tr.map(function (p) { return caixaMapa.f(p[0], p[1]); });
+      trilho = montaTrilho(tela); estadoCarro = {};
+      var d = tela.map(function (q, i) { return (i ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1); }).join(' ') + ' Z';
       svg.innerHTML = '<path d="' + d + '" fill="none" style="stroke:var(--pista)" stroke-width="22" stroke-linejoin="round"></path>' +
         '<path d="' + d + '" fill="none" style="stroke:var(--pista-traco)" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"></path><g data-carros></g>';
     }
-    // cada carro é um elemento fixo que desliza até a posição nova (em vez de pular a cada atualização)
     var g = svg.querySelector('[data-carros]'), vistosCarro = {};
     (pista.carros || []).forEach(function (c) {
       var q = caixaMapa.f(c.x, c.y), el = g.querySelector('[data-carro="' + c.sigla + '"]');
@@ -371,14 +431,18 @@
         el.setAttribute('class', 'av-carro');
         el.innerHTML = '<circle r="13" fill="' + esc(c.cor) + '" style="stroke:var(--cartao)" stroke-width="3"></circle>' +
           '<text y="-20" text-anchor="middle" font-size="20" font-weight="700" style="fill:var(--texto)" font-family="Arial, sans-serif">' + esc(c.sigla) + '</text>';
-        el.style.transform = 'translate(' + q[0].toFixed(1) + 'px,' + q[1].toFixed(1) + 'px)';
         g.appendChild(el);
-      } else {
-        el.style.transform = 'translate(' + q[0].toFixed(1) + 'px,' + q[1].toFixed(1) + 'px)';
       }
+      moveCarro(c.sigla, el, q);
     });
-    Array.prototype.forEach.call(g.querySelectorAll('[data-carro]'), function (el) { if (!vistosCarro[el.getAttribute('data-carro')]) el.remove(); });
+    Array.prototype.forEach.call(g.querySelectorAll('[data-carro]'), function (el) {
+      var s = el.getAttribute('data-carro');
+      if (!vistosCarro[s]) { el.remove(); delete estadoCarro[s]; }
+    });
+    posicionaTodos();
+    if (!animando && Object.keys(estadoCarro).length) { animando = true; requestAnimationFrame(anima); }
   }
+  function posicionaTodos() { var t = performance.now(); for (var k in estadoCarro) posiciona(estadoCarro[k], t); }
 
   /* ---------- ritmo ---------- */
   function desenhaRitmo() {
