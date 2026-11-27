@@ -1,6 +1,6 @@
 ---
-title: "Marc Márquez e as 13 cirurgias em 14 temporadas de MotoGP"
-linha_fina: "Contagem do Estagiário a partir dos comunicados: 15 procedimentos desde 2008, 13 deles na era MotoGP. O piloto da Ducati se despede no GP de Valência"
+title: "Marc Márquez fez 13 cirurgias em 14 temporadas de MotoGP"
+linha_fina: "Dez foram do lado direito do corpo, quatro só no úmero. O espanhol se despede neste domingo (29), em Valência, com oito títulos na classe principal"
 date: 2026-11-27T13:36:24-03:00
 categoria: "MotoGP"
 palavra_chave: "cirurgias de Marc Márquez"
