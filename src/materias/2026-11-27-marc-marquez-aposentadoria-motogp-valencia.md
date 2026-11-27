@@ -23,6 +23,8 @@ Chegou o dia... Marc Márquez vai se aposentar da MotoGP. O espanhol de 33 anos 
 
 O anúncio vem cinco dias depois do título de 2026, fechado em Portimão no último domingo (22). O oitavo título na MotoGP deixou Márquez empatado com Giacomo Agostini no recorde da principal categoria. Parar agora, com o troféu ainda quente, foi escolha dele.
 
+https://x.com/MotoGP/status/2126250581199126543
+
 ## Cartaz no box
 
 Márquez mostrou cartazes no box da Ducati pouco antes de a pista abrir. O texto: "Falamos mais tarde, mas antes de tudo, obrigado a quem fez parte desta viagem. Espero que vocês tenham aproveitado tanto quanto eu. Esta será minha última corrida na MotoGP. Fizemos história."
