@@ -6,7 +6,7 @@ categoria: "F1"
 palavra_chave: "TL1 GP do Catar"
 autor: "Redação Estagiário da F1"
 imagem: "/images/uploads/2026-11-27-tl1-gp-do-catar-2026-resultado.jpg"
-credito_imagem: "Arte: Estagiário da F1"
+credito_imagem: "Foto: F1/reprodução"
 fontes:
   - "Cronometragem oficial do TL1 (dados ao vivo)"
 ---
