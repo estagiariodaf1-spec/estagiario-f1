@@ -1,5 +1,5 @@
 ---
-title: "🚨 BREAKING: Marc Márquez anuncia aposentadoria cinco dias após o título"
+title: "🚨 BREAKING: Marc Márquez anuncia aposentadoria da MotoGP"
 linha_fina: "Octacampeão da MotoGP, o espanhol de 33 anos se despede no GP de Valência depois de igualar o recorde de Giacomo Agostini em Portimão"
 date: 2026-11-27T08:48:14-03:00
 categoria: "MotoGP"
