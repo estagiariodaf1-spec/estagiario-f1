@@ -1,6 +1,6 @@
 ---
 title: "Antonelli sobre no TL1 do Catar; Bortoleto é P11, Câmara é P15"
-linha_fina: "Hadjar saiu do box cedo demais em um pit stop de treino e atingiu de leve um mecânico, que não se machucou. Antonelli foi o mais rápido em Lusail, com 1:23.217"
+linha_fina: "Red Bull será investigada após Hadjar sair do box cedo demais em um pit stop de treino e atingir de leve um mecânico, que não se machucou. Antonelli foi o mais rápido em Lusail, com 1:23.217"
 date: 2026-11-27T11:30:10-03:00
 categoria: "F1"
 palavra_chave: "TL1 GP do Catar"
