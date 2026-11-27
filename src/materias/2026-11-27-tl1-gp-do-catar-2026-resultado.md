@@ -23,27 +23,5 @@ Quem mais andou foi Kimi Antonelli e Oscar Piastri, com 29 voltas.
 
 ## Resultado do TL1
 
-| Pos. | Piloto | Equipe | Tempo | Dif. | Voltas |
-| --- | --- | --- | --- | --- | --- |
-| 1º | Kimi Antonelli | Mercedes | 1:23.217 | – | 29 |
-| 2º | George Russell | Mercedes | 1:23.724 | +0.507 | 27 |
-| 3º | Isack Hadjar | Red Bull Racing | 1:23.878 | +0.661 | 23 |
-| 4º | Lando Norris | McLaren | 1:24.067 | +0.850 | 24 |
-| 5º | Oscar Piastri | McLaren | 1:24.077 | +0.860 | 29 |
-| 6º | Max Verstappen | Red Bull Racing | 1:24.133 | +0.916 | 24 |
-| 7º | Charles Leclerc | Ferrari | 1:24.473 | +1.256 | 28 |
-| 8º | Lewis Hamilton | Ferrari | 1:24.575 | +1.358 | 25 |
-| 9º | Arvid Lindblad | Racing Bulls | 1:24.601 | +1.384 | 25 |
-| 10º | Pierre Gasly | Alpine | 1:24.874 | +1.657 | 26 |
-| 11º | Gabriel Bortoleto | Audi | 1:25.053 | +1.836 | 23 |
-| 12º | Franco Colapinto | Alpine | 1:25.409 | +2.192 | 26 |
-| 13º | Nico Hülkenberg | Audi | 1:25.437 | +2.220 | 27 |
-| 14º | Liam Lawson | Racing Bulls | 1:25.593 | +2.376 | 25 |
-| 15º | Rafael Câmara | Haas F1 Team | 1:25.685 | +2.468 | 24 |
-| 16º | Alexander Albon | Williams | 1:25.692 | +2.475 | 24 |
-| 17º | Oliver Bearman | Haas F1 Team | 1:25.766 | +2.549 | 24 |
-| 18º | Carlos Sainz | Williams | 1:25.992 | +2.775 | 25 |
-| 19º | Jak Crawford | Aston Martin | 1:26.306 | +3.089 | 23 |
-| 20º | Lance Stroll | Aston Martin | 1:26.416 | +3.199 | 21 |
-| 21º | Sergio Pérez | Cadillac | 1:26.686 | +3.469 | 23 |
-| 22º | Valtteri Bottas | Cadillac | 1:26.909 | +3.692 | 25 |
+![tl1 resultado](https://fkmywflqajeitcsyxfoa.supabase.co/storage/v1/object/public/fotos/materias/20261127-114102-fdd704.jpg)
+*Foto: Montagem*
