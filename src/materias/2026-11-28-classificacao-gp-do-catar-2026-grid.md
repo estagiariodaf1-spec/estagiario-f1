@@ -15,9 +15,9 @@ George Russell (Mercedes) fez a pole position do GP do Catar, com 1:21.695.
 
 Completaram o top 10: 2º Kimi Antonelli (Mercedes), 3º Lando Norris (McLaren), 4º Oscar Piastri (McLaren), 5º Isack Hadjar (Red Bull Racing), 6º Max Verstappen (Red Bull Racing), 7º Charles Leclerc (Ferrari), 8º Lewis Hamilton (Ferrari), 9º Liam Lawson (Racing Bulls), 10º Arvid Lindblad (Racing Bulls).
 
-Gabriel Bortoleto caiu no Q2 e terminou em 13º (2:15.886).
+Gabriel Bortoleto caiu no Q2 e terminou em 13º (1:23.654).
 
-Rafael Câmara caiu no Q2 e terminou em 15º (1:23.863).
+Rafael Câmara caiu no Q2 e terminou em 15º (1:23.863), atrapalhado por Bortoleto na volta.
 
 Eliminados no Q2: Oliver Bearman (Haas F1 Team), Pierre Gasly (Alpine), Gabriel Bortoleto (Audi), Franco Colapinto (Alpine), Rafael Câmara (Haas F1 Team), Nico Hülkenberg (Audi).
 
@@ -39,13 +39,13 @@ A largada do GP do Catar é domingo (29), às 13h (horário de Brasília).
 | 8 | Lewis Hamilton | Ferrari | 1:23.550 | 1:23.118 | 1:23.727 |
 | 9 | Liam Lawson | Racing Bulls | 1:24.100 | 1:23.127 | 1:46.770 |
 | 10 | Arvid Lindblad | Racing Bulls | 1:23.438 | 1:23.071 | 1:50.867 |
-| 11 | Oliver Bearman | Haas F1 Team | 1:23.819 | 1:23.367 | 1:51.450 |
+| 11 | Oliver Bearman | Haas F1 Team | 1:23.819 | 1:23.367 | - |
 | 12 | Pierre Gasly | Alpine | 1:23.675 | 1:23.568 | - |
-| 13 | Gabriel Bortoleto | Audi | 1:23.985 | 1:23.654 | 2:15.886 |
+| 13 | Gabriel Bortoleto | Audi | 1:23.985 | 1:23.654 | - |
 | 14 | Franco Colapinto | Alpine | 1:24.274 | 1:23.659 | - |
 | 15 | Rafael Câmara | Haas F1 Team | 1:24.026 | 1:23.863 | - |
 | 16 | Nico Hülkenberg | Audi | 1:23.867 | 1:23.899 | - |
-| 17 | Carlos Sainz | Williams | 1:24.370 | 1:56.414 | - |
+| 17 | Carlos Sainz | Williams | 1:24.370 | - | - |
 | 18 | Alexander Albon | Williams | 1:24.552 | - | - |
 | 19 | Fernando Alonso | Aston Martin | 1:24.710 | - | - |
 | 20 | Lance Stroll | Aston Martin | 1:25.250 | - | - |
