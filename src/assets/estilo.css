@@ -407,7 +407,8 @@ footer.rodape .footer-legal a:hover { color: #ff2b2b; }
 .f1-calendar-grid.so-sprint .f1-race-card:not(.tem-sprint) { opacity: .22; filter: grayscale(1); }
 .cal-ano h1.f1-calendar-title { font-weight: 400; }
 .cal-ano .f1-race-name { font-weight: 400; }
-.cal-obs { font-size: 11px; color: #a16207; margin: 3px 0 0; font-weight: 700; }
+.cal-nota { color: #ff2b2b; font-size: .7em; margin-left: 2px; }
+.cal-rodape { display: flex; flex-wrap: wrap; gap: 4px 18px; color: #9a9a9a; font-size: 12px; margin: 12px 2px 0; }
 .cal-texto { margin-top: 18px; }
 .cal-texto h2 { font-family: Impact, Haettenschweiler, sans-serif; text-transform: uppercase; font-size: 24px; font-weight: 400; margin: 22px 0 6px; }
 .cal-texto h2:first-child { margin-top: 0; }
