@@ -1,0 +1,41 @@
+---
+layout: base.njk
+---
+<section class="capacete">
+  {% include "capacete-topo.njk" %}
+  <article class="feed-post post-sozinho">
+    {%- set p = null %}{% include "capacete-etiquetas.njk" %}
+    <h1>{{ title }}</h1>
+    <div class="feed-meta">Postado por <b>{{ autor }}</b> · <time datetime="{{ page.date | iso }}">{{ page.date | dataHora }}</time></div>
+    <div class="compartilhar" data-compartilhar data-titulo="{{ title }}" data-linha="{{ descricao }}" data-url="{{ page.url | absoluta(site.url) }}"
+         data-imagem="{{ imagem }}" data-credito="" data-slug="{{ page.fileSlug }}">
+      <button type="button" data-acao="link">Compartilhar</button>
+      <a class="whats" href="https://wa.me/?text={{ (title + ' ' + (page.url | absoluta(site.url))) | urlencode }}" target="_blank" rel="noopener" aria-label="Mandar no WhatsApp" title="WhatsApp">{% include "icones/whatsapp.svg" %}</a>
+      {% if imagem %}<button type="button" data-acao="card">Card pro story</button>{% endif %}
+    </div>
+    <div class="texto">{{ content | safe }}</div>
+  </article>
+  {%- set vizinhos = collections.capacete | vizinhosCapacete(page.url) %}
+  <nav class="feed-vizinhos">
+    {% if vizinhos.novo %}<a href="{{ vizinhos.novo.url }}">‹ {{ vizinhos.novo.data.title }}</a>{% else %}<span></span>{% endif %}
+    {% if vizinhos.velho %}<a href="{{ vizinhos.velho.url }}">{{ vizinhos.velho.data.title }} ›</a>{% endif %}
+  </nav>
+  <p class="feed-voltar"><a class="see-more" href="/por-tras-do-capacete/">Ver o feed inteiro</a></p>
+</section>
+<script src="/assets/js/components/compartilhar.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ title | dump | safe }},
+  {% if descricao %}"description": {{ descricao | dump | safe }},{% endif %}
+  "datePublished": "{{ page.date | iso }}",
+  "dateModified": "{{ (atualizado or page.date) | iso }}",
+  "inLanguage": "pt-BR",
+  "author": { "@type": "Person", "name": {{ autor | dump | safe }}, "url": "{{ site.url }}/quem-somos/" },
+  "publisher": { "@id": "{{ site.url }}/#org" },
+  "image": ["{{ (imagem | comVersao | absoluta(site.url)) if imagem else (site.url + '/icones/icone-512.png') }}"],
+  "isPartOf": { "@type": "Blog", "name": "Por trás do capacete", "url": "{{ site.url }}/por-tras-do-capacete/" },
+  "mainEntityOfPage": "{{ page.url | absoluta(site.url) }}"
+}
+</script>

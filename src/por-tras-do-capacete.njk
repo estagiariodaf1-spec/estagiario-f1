@@ -1,0 +1,26 @@
+---
+layout: base.njk
+title: Por trás do capacete
+descricao: "O blog do Estagiário da F1: bastidores, memes, opinião, resumo de corrida do nosso jeito e #TBT."
+pagination:
+  data: collections.capacete
+  size: 6
+  alias: posts
+  generatePageOnEmptyData: true
+permalink: "/por-tras-do-capacete/{% if pagination.pageNumber > 0 %}pagina/{{ pagination.pageNumber + 1 }}/{% endif %}"
+eleventyComputed:
+  noindex: "{{ 'sim' if not collections.capacete.length else 'nao' }}"
+eleventyExcludeFromCollections: true
+---
+<section class="capacete">
+  {% include "capacete-topo.njk" %}
+  <div class="feed" data-feed>
+    {% for p in posts %}{% include "post-capacete-item.njk" %}{% else %}
+    <div class="vazio">O primeiro post está saindo do forno.</div>
+    {% endfor %}
+  </div>
+  <div class="feed-mais" data-feed-mais>
+    {% if pagination.href.next %}<a class="see-more" href="{{ pagination.href.next }}">Posts mais antigos ›</a>{% endif %}
+  </div>
+</section>
+<script src="/assets/js/capacete.js?v={{ versao }}" defer></script>

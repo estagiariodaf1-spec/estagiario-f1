@@ -10,6 +10,8 @@
       <nav class="header-nav" aria-label="Menu principal">
         <a href="{{ inicio }}">Home</a>
         <a href="/noticias/">Notícias</a>
+        {%- if collections.capacete.length %}
+        <a href="/por-tras-do-capacete/" title="Por trás do capacete: o blog do Estagiário">Capacete</a>{% endif %}
         <a href="/estatisticas.html">Estatísticas</a>
         <a href="/gp.html">Central do GP</a>
         <a href="/pilotos.html">Pilotos</a>
@@ -33,6 +35,8 @@
         <nav class="site-menu-nav">
           <a href="{{ inicio }}">Home</a>
           <a href="/noticias/">Notícias</a>
+          {%- if collections.capacete.length %}
+          <a href="/por-tras-do-capacete/">Por trás do capacete</a>{% endif %}
         {% if site.aovivo_no_site %}<a href="/ao-vivo/" class="nav-aovivo">Ao vivo</a>{% endif %}
           <a href="/estatisticas.html">Estatísticas</a>
           <a href="/gp.html">Central do GP</a>

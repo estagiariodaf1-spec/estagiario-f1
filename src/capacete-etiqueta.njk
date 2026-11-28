@@ -1,0 +1,21 @@
+---
+layout: base.njk
+pagination:
+  data: capacete.etiquetas
+  size: 1
+  alias: et
+permalink: "/por-tras-do-capacete/etiqueta/{{ et.slug }}/"
+eleventyComputed:
+  title: "{{ et.nome }} · Por trás do capacete"
+  etiquetaAtual: "{{ et.slug }}"
+  noindex: "{{ 'sim' if not (collections.capacete | comEtiqueta(et.slug)).length else 'nao' }}"
+eleventyExcludeFromCollections: true
+---
+<section class="capacete">
+  {% include "capacete-topo.njk" %}
+  <div class="feed">
+    {% for p in collections.capacete | comEtiqueta(et.slug) %}{% include "post-capacete-item.njk" %}{% else %}
+    <div class="vazio">Nada com {{ et.emoji }} {{ et.nome }} ainda.</div>
+    {% endfor %}
+  </div>
+</section>

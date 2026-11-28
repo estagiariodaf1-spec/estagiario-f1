@@ -1,0 +1,2 @@
+{%- set ets = (p.data.etiquetas if p else etiquetas) | etiquetasCapacete(capacete.etiquetas) -%}
+{%- if ets.length %}<div class="feed-etiquetas">{% for e in ets %}<a href="/por-tras-do-capacete/etiqueta/{{ e.slug }}/">{{ e.emoji }} {{ e.nome }}</a>{% endfor %}</div>{% endif %}

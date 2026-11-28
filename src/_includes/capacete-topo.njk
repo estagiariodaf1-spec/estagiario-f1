@@ -1,0 +1,8 @@
+<header class="capacete-topo">
+  <a href="/por-tras-do-capacete/" class="capacete-marca"><span>Por trás do</span> capacete</a>
+  <p>{{ capacete.descricao }}</p>
+  <nav class="feed-etiquetas" aria-label="Etiquetas">
+    <a href="/por-tras-do-capacete/"{% if not etiquetaAtual %} class="ligada"{% endif %}>Tudo</a>
+    {%- for e in capacete.etiquetas %}<a href="/por-tras-do-capacete/etiqueta/{{ e.slug }}/"{% if etiquetaAtual == e.slug %} class="ligada"{% endif %}>{{ e.emoji }} {{ e.nome }}</a>{% endfor %}
+  </nav>
+</header>

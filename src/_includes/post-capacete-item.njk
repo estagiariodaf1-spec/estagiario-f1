@@ -1,0 +1,11 @@
+{#- Um post inteiro no feed (estilo blog: título, texto e imagens na rolagem). Espera "p" = item da coleção. -#}
+<article class="feed-post" id="{{ p.fileSlug }}">
+  {%- include "capacete-etiquetas.njk" %}
+  <h2><a href="{{ p.url }}">{{ p.data.title }}</a></h2>
+  <div class="feed-meta">Postado por <b>{{ p.data.autor }}</b> · <time datetime="{{ p.date | iso }}">{{ p.date | dataHora }}</time></div>
+  <div class="texto">{{ p.content | safe }}</div>
+  <div class="feed-rodape">
+    <a href="{{ p.url }}">🔗 Link do post</a>
+    <a class="whats" href="https://wa.me/?text={{ (p.data.title + ' ' + (p.url | absoluta(site.url))) | urlencode }}" target="_blank" rel="noopener">Mandar no WhatsApp</a>
+  </div>
+</article>

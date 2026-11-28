@@ -12,6 +12,11 @@ eleventyExcludeFromCollections: true
   {%- for a in assuntos %}{% if (collections.materias | materiasDoAssunto(a.slug)).length %}
   <url><loc>{{ site.url }}/{{ a.tipo }}/{{ a.slug }}/</loc></url>
   {%- endif %}{% endfor %}
+  {%- if collections.capacete.length %}
+  <url><loc>{{ site.url }}/por-tras-do-capacete/</loc></url>
+  {%- for m in collections.capacete %}
+  <url><loc>{{ m.url | absoluta(site.url) }}</loc><lastmod>{{ (m.data.atualizado or m.date) | iso }}</lastmod></url>
+  {%- endfor %}{% endif %}
   {%- for m in collections.materias %}
   <url><loc>{{ m.url | absoluta(site.url) }}</loc><lastmod>{{ (m.data.atualizado or m.date) | iso }}</lastmod></url>
   {%- endfor %}

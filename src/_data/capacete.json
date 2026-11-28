@@ -1,0 +1,13 @@
+{
+  "nome": "Por trás do capacete",
+  "descricao": "O blog do Estagiário: bastidores, memes que foram (ou não) pro ar, a criação por trás deles, opinião, resumo de corrida do nosso jeito e #TBT.",
+  "autor": "Pedro Lopes",
+  "porPagina": 6,
+  "etiquetas": [
+    { "slug": "bastidores", "nome": "Bastidores", "emoji": "🎬" },
+    { "slug": "memes", "nome": "Memes", "emoji": "😂" },
+    { "slug": "opiniao", "nome": "Opinião", "emoji": "🗣️" },
+    { "slug": "resumo", "nome": "Resumo da corrida", "emoji": "🏁" },
+    { "slug": "tbt", "nome": "#TBT", "emoji": "📼" }
+  ]
+}

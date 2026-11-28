@@ -72,6 +72,28 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => b.date - a.date)
   );
 
+  // Por trás do capacete (o blog do Estagiário): posts publicados, do mais novo pro mais velho.
+  eleventyConfig.addCollection("capacete", (api) =>
+    api.getFilteredByGlob("src/capacete/*.md")
+      .filter((m) => !m.data.rascunho)
+      .sort((a, b) => b.date - a.date)
+  );
+  eleventyConfig.addFilter("comEtiqueta", (lista, slug) => (lista || []).filter((m) => (m.data.etiquetas || []).includes(slug)));
+  eleventyConfig.addFilter("etiquetasCapacete", (slugs, todas) =>
+    (slugs || []).map((s) => (todas || []).find((e) => e.slug === s)).filter(Boolean));
+  eleventyConfig.addFilter("vizinhosCapacete", (lista, url) => {
+    const i = (lista || []).findIndex((m) => m.url === url);
+    return i < 0 ? {} : { novo: lista[i - 1], velho: lista[i + 1] };
+  });
+  // Imagem no meio do texto carrega só quando chega perto da tela (o feed do blog tem muita foto).
+  eleventyConfig.amendLibrary("md", (md) => {
+    const padrao = md.renderer.rules.image;
+    md.renderer.rules.image = (tokens, idx, options, env, self) => {
+      tokens[idx].attrSet("loading", "lazy");
+      return padrao ? padrao(tokens, idx, options, env, self) : self.renderToken(tokens, idx, options);
+    };
+  });
+
   // Sitemap de notícias: o Google só aceita matérias das últimas 48 horas.
   eleventyConfig.addCollection("materiasRecentes", (api) => {
     const limite = Date.now() - 2 * 24 * 60 * 60 * 1000;
@@ -124,7 +146,7 @@ module.exports = function (eleventyConfig) {
     x: '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>',
   };
   eleventyConfig.addTransform("embeds", function (html) {
-    if (!(this.page.outputPath || "").endsWith(".html") || !this.page.url.startsWith("/materias/")) return html;
+    if (!(this.page.outputPath || "").endsWith(".html") || !/^\/(materias|por-tras-do-capacete)\//.test(this.page.url || "")) return html;
     const usados = new Set();
     const novo = html.replace(/<p>\s*(?:<a [^>]*>)?\s*(https?:\/\/[^\s<]+)\s*(?:<\/a>)?\s*<\/p>/g, (linha, url) => {
       const achado = embedDe(url.replace(/&amp;/g, "&"));
