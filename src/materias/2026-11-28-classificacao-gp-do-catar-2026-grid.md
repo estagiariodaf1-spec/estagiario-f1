@@ -30,6 +30,8 @@ Depois de passar os três treinos livres na sombra de Antonelli, Russell resolve
 
 Antonelli, por sua vez, demonstrou insatisfação com a Mercedes antes da última tentativa de volta rápida. O italiano não gostou de ser o primeiro dos dois carros da equipe a sair dos boxes e questionou a decisão pelo rádio com seu engenheiro de corrida, Peter Bonnington.
 
+https://x.com/EstagiariodaF1/status/2126757191801835874
+
 Na conversa, o atual campeão mundial deu a entender que gostaria de ter a opção de fazer sua última tentativa atrás de Russell, e não à frente do companheiro de equipe.
 
 Antonelli não conseguiu melhorar seu tempo na segunda tentativa. Russell também não, mas nem precisava: a volta da pole já havia sido registrada na primeira saída do Q3.
