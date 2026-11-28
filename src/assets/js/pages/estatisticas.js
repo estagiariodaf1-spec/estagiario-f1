@@ -121,22 +121,35 @@
       return;
     }
 
+    // Sem foto (a base de fotos falha no fim de semana e deixava um quadrado preto): cartão compacto na cor da equipe,
+    // e o cartão inteiro leva pra página do piloto no site, com as matérias sobre ele.
     dom.driversCards.innerHTML = drivers.map(function (driver) {
-      var photo = driver.photo ?
-        '<img class="driver-photo" src="' + escapeHtml(driver.photo) + '" alt="Foto de ' + escapeHtml(driver.name) + '" loading="lazy">' :
-        '<div class="driver-photo" role="img" aria-label="Foto indisponível"></div>';
-
+      var pagina = paginaDoPiloto(driver.name);
+      var tag = pagina ? 'a' : 'article';
       return (
-        '<article class="driver-card" style="--team-color:' + escapeHtml(driver.teamColor) + '">' +
-          photo +
+        '<' + tag + (pagina ? ' href="' + pagina + '"' : '') + ' class="driver-card' + (pagina ? ' com-link' : '') + '" style="--team-color:' + escapeHtml(driver.teamColor) + '">' +
+          '<span class="driver-pos">' + escapeHtml(driver.position) + 'º</span>' +
           '<div class="driver-body">' +
             '<h3>' + escapeHtml(driver.name) + '</h3>' +
-            '<p class="driver-meta"><strong>#' + escapeHtml(driver.number) + '</strong> · ' + escapeHtml(driver.team) + '</p>' +
-            '<p class="driver-meta">' + escapeHtml(driver.nationality) + ' · ' + escapeHtml(driver.points) + ' pts</p>' +
+            '<p class="driver-meta"><strong>#' + escapeHtml(driver.number) + '</strong> · ' + escapeHtml(driver.team) + ' · ' + escapeHtml(driver.nationality) + '</p>' +
           '</div>' +
-        '</article>'
+          '<span class="driver-pts"><b>' + escapeHtml(driver.points) + '</b> pts</span>' +
+          (pagina ? '<span class="driver-seta" aria-hidden="true">›</span>' : '') +
+        '</' + tag + '>'
       );
     }).join('');
+  }
+
+  // páginas /piloto/<slug>/ que o site gera (src/_config/assuntos.js); acha pelo sobrenome
+  var PAGINAS_PILOTOS = ['max-verstappen', 'isack-hadjar', 'charles-leclerc', 'lewis-hamilton', 'george-russell', 'kimi-antonelli',
+    'lando-norris', 'oscar-piastri', 'fernando-alonso', 'lance-stroll', 'pierre-gasly', 'franco-colapinto', 'alex-albon',
+    'carlos-sainz', 'liam-lawson', 'arvid-lindblad', 'esteban-ocon', 'oliver-bearman', 'nico-hulkenberg', 'gabriel-bortoleto',
+    'sergio-perez', 'valtteri-bottas', 'colton-herta', 'rafael-camara'];
+  function paginaDoPiloto(nome) {
+    var partes = String(nome || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(/\s+/);
+    var sobrenome = partes[partes.length - 1];
+    var slug = sobrenome && PAGINAS_PILOTOS.find(function (s) { return s.slice(-sobrenome.length - 1) === '-' + sobrenome; });
+    return slug ? '/piloto/' + slug + '/' : '';
   }
 
   function filterDrivers() {
