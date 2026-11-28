@@ -369,6 +369,22 @@
     };
   }
 
+  // Pódio de cada corrida da temporada: { rodada: ['NOR', 'VER', 'RUS'] } (3 pedidos: 1º, 2º e 3º colocados)
+  async function getPodiums() {
+    var posicoes = await Promise.all([1, 2, 3].map(function (p) {
+      return fetchJson(buildUrl(JOLPICA_BASE, 'current/results/' + p + '.json?limit=100'));
+    }));
+    var podios = {};
+    posicoes.forEach(function (data, i) {
+      get(data, ['MRData', 'RaceTable', 'Races'], []).forEach(function (race) {
+        var d = get(race, ['Results', 0, 'Driver'], {});
+        var sigla = d.code || String(d.familyName || '').slice(0, 3).toUpperCase();
+        (podios[race.round] = podios[race.round] || [])[i] = { sigla: sigla, nome: [d.givenName, d.familyName].filter(Boolean).join(' ') };
+      });
+    });
+    return podios;
+  }
+
   function getNextRace(races) {
     var now = new Date();
     var upcoming = (races || []).filter(function (race) {
@@ -390,6 +406,7 @@
     getOpenF1Sessions: getOpenF1Sessions,
     getSeasonSchedule: getSeasonSchedule,
     getSeasonResults: getSeasonResults,
+    getPodiums: getPodiums,
     getNextRace: getNextRace,
     nomeGP: nomeGP,
     utils: {

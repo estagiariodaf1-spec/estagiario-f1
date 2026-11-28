@@ -40,14 +40,24 @@
     return largada.getTime() + 3 * 3600e3 < agora ? 'feita' : 'futura';
   }
 
-  function cardTemplate(race, estado) {
+  function podioMarkup(podio) {
+    if (!podio || !podio[0]) return '';
+    return '<span class="f1-podio" aria-label="Pódio: ' + escapeHtml(podio.map(function (p, i) { return (i + 1) + 'º ' + (p ? p.nome : '?'); }).join(', ')) + '">' +
+      [0, 1, 2].map(function (i) {
+        var p = podio[i];
+        return '<span class="f1-podio-pos p' + (i + 1) + '"><small>P' + (i + 1) + '</small><b title="' + escapeHtml(p ? p.nome : '') + '">' +
+          escapeHtml(p ? p.sigla : '—') + '</b></span>';
+      }).join('') + '</span>';
+  }
+
+  function cardTemplate(race, estado, podio) {
     var details = getCircuitDetails(race.circuitId);
     var place = race.locality || race.country || 'A definir';
     var selo = estado === 'atual' ? '<span class="f1-race-selo">Próxima</span>' : '';
-    var ok = estado === 'feita' ? '<span class="f1-race-ok" aria-label="Já aconteceu">✓</span>' : '<span></span>';
+    var ok = estado === 'feita' ? (podioMarkup(podio) || '<span class="f1-race-ok" aria-label="Já aconteceu">✓</span>') : '<span></span>';
 
     return (
-      '<article class="f1-race-card ' + estado + '" data-race-card>' +
+      '<article class="f1-race-card ' + estado + (estado === 'feita' && podio && podio[0] ? ' com-podio' : '') + '" data-race-card>' +
         '<button class="f1-race-toggle" type="button" data-race-toggle aria-expanded="false">' +
           '<span class="f1-race-round">' + escapeHtml(String(race.round).padStart(2, '0')) + '</span>' +
           bandeiraMarkup(race) +
@@ -76,7 +86,7 @@
     );
   }
 
-  function cartaoOuNada(r, e) { return cardTemplate(r, e); }
+  function cartaoOuNada(r, e, podios) { return cardTemplate(r, e, podios && podios[r.round]); }
 
   function bindToggles(root) {
     root.querySelectorAll('[data-race-toggle]').forEach(function (button) {
@@ -97,7 +107,10 @@
     root.innerHTML = '<div class="f1-calendar-status">Carregando calendário da temporada…</div>';
 
     try {
+      // o pódio é extra: se a base falhar, o calendário sai sem ele (com o ✓ de sempre)
+      var pedidoPodios = (!proximas && global.F1Api.getPodiums) ? global.F1Api.getPodiums().catch(function () { return {}; }) : Promise.resolve({});
       var data = await global.F1Api.getCurrentSchedule();
+      var podios = await pedidoPodios;
       var races = data.races || [];
       if (!races.length) throw new Error('Calendário vazio');
       var teste = new URLSearchParams(location.search).get('agora');
@@ -108,7 +121,7 @@
       var cartoes = races.map(function (r) {
         var e = estadoDa(r, agora);
         if (e === 'futura' && !achouAtual) { achouAtual = true; e = 'atual'; }
-        return { e: e, html: cartaoOuNada(r, e) };
+        return { e: e, html: cartaoOuNada(r, e, podios) };
       });
       if (proximas) {
         var futuras = cartoes.filter(function (c) { return c.e !== 'feita'; }).slice(0, proximas);

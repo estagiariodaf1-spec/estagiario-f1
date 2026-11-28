@@ -238,3 +238,18 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Pódio nas etapas que já rolaram (P1 ouro, P2 prata, P3 bronze) */
+.f1-race-card.com-podio .f1-race-toggle { grid-template-columns: 44px 30px 1fr auto; padding-right: 10px; }
+.f1-podio { display: inline-flex; gap: 4px; }
+.f1-podio-pos { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.f1-podio-pos small { font-size: 10px; font-weight: 800; color: #bdbdbd; letter-spacing: .02em; }
+.f1-podio-pos b { display: inline-block; min-width: 38px; text-align: center; font-size: 11px; font-weight: 900; letter-spacing: .02em;
+  border-radius: 99px; padding: 3px 6px; color: #111; }
+.f1-podio-pos.p1 b { background: #e8b84a; }
+.f1-podio-pos.p2 b { background: #c9c9c9; }
+.f1-podio-pos.p3 b { background: #c07a45; }
+@media (max-width: 420px) {
+  .f1-race-card.com-podio .f1-race-toggle { grid-template-columns: 34px 26px 1fr auto; gap: 8px; }
+  .f1-podio-pos b { min-width: 34px; padding: 3px 4px; }
+}

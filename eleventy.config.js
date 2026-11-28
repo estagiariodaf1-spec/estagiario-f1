@@ -35,7 +35,9 @@ module.exports = function (eleventyConfig) {
     const fs = require("node:fs"), path = require("node:path");
     const fontes = ["https://api.jolpi.ca/ergast/f1/current.json", "https://api.jolpi.ca/ergast/f1/current/next.json",
       "https://api.jolpi.ca/ergast/f1/current/last/results.json", "https://api.jolpi.ca/ergast/f1/current/driverstandings.json",
-      "https://api.jolpi.ca/ergast/f1/current/constructorstandings.json"];
+      "https://api.jolpi.ca/ergast/f1/current/constructorstandings.json",
+      "https://api.jolpi.ca/ergast/f1/current/results/1.json?limit=100", "https://api.jolpi.ca/ergast/f1/current/results/2.json?limit=100",
+      "https://api.jolpi.ca/ergast/f1/current/results/3.json?limit=100"];
     const pasta = path.join(dir.output, "dados", "f1");
     fs.mkdirSync(pasta, { recursive: true });
     await Promise.all(fontes.map(async (url) => {
