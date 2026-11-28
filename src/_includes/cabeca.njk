@@ -3,6 +3,8 @@
   <meta charset="utf-8">
   <link rel="icon" href="/favicon.ico?v=3" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/icones/favicon-32.png?v=3">
+  {#- O Google usa ícone de pelo menos 48 px no resultado da busca: o de 32 sozinho pode ficar de fora #}
+  <link rel="icon" type="image/png" sizes="192x192" href="/icones/icone-192.png?v=3">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
   <link rel="manifest" href="/site.webmanifest?v=3">
   <meta name="theme-color" content="#0b0b0b">
@@ -32,7 +34,8 @@
     {"@type":"NewsMediaOrganization","@id":"{{ site.url }}/#org","name":{{ site.nome | dump | safe }},"url":"{{ site.url }}/",
      "logo":{"@type":"ImageObject","url":"{{ site.url }}/icones/icone-512.png","width":512,"height":512},
      "sameAs":[{{ site.redes.instagram | dump | safe }},{{ site.redes.x | dump | safe }}]},
-    {"@type":"WebSite","@id":"{{ site.url }}/#site","name":{{ site.nome | dump | safe }},"url":"{{ site.url }}/","inLanguage":"pt-BR",
+    {"@type":"WebSite","@id":"{{ site.url }}/#site","name":{{ site.nome | dump | safe }},
+     "alternateName":["Estagiário","Estagiário da Fórmula 1","estagiariodaf1.com.br"],"url":"{{ site.url }}/","inLanguage":"pt-BR",
      "publisher":{"@id":"{{ site.url }}/#org"}}
   ]}
   </script>
