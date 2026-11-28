@@ -608,3 +608,4 @@ a.driver-card:hover { box-shadow: 0 0 0 2px var(--team-color), var(--shadow); }
   }
   .metric { font-size: 24px; }
 }
+.nome-piloto { color: inherit; text-decoration: none; } .nome-piloto:hover { color: var(--red); text-decoration: underline; }

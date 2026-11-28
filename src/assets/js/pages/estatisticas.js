@@ -2,7 +2,7 @@
   'use strict';
 
   var state = {
-    driversExpanded: false,
+    driversExpanded: true,  // a página é a classificação: abre completa
     allDrivers: []
   };
 
@@ -77,7 +77,8 @@
         return (
           '<div class="table-row">' +
             '<span class="pos">' + escapeHtml(driver.position) + '</span>' +
-            '<span class="strong">' + escapeHtml(driver.name) + '</span>' +
+            (paginaDoPiloto(driver.name) ? '<a class="strong nome-piloto" href="' + paginaDoPiloto(driver.name) + '">' + escapeHtml(driver.name) + '</a>'
+              : '<span class="strong">' + escapeHtml(driver.name) + '</span>') +
             '<span class="team-pill hide-mobile" style="--team-color:' + escapeHtml(driver.teamColor) + '">' + escapeHtml(driver.team) + '</span>' +
             '<span class="strong">' + escapeHtml(driver.points) + '</span>' +
             '<span class="hide-mobile">' + escapeHtml(driver.wins) + '</span>' +
@@ -284,7 +285,7 @@
     if (dom.toggleDrivers) {
       dom.toggleDrivers.addEventListener('click', function () {
         state.driversExpanded = !state.driversExpanded;
-        dom.toggleDrivers.textContent = state.driversExpanded ? 'Ver top 10' : 'Ver completa';
+        dom.toggleDrivers.textContent = state.driversExpanded ? 'Ver só o top 10' : 'Ver completa';
         renderDriverStandings(state.allDrivers);
       });
     }

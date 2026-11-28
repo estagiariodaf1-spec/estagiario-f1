@@ -3,7 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Central de Dados - Estagiário da F1</title>
+  <title>Classificação da F1 2026: pilotos e construtores | Estagiário da F1</title>
+  <meta name="description" content="Classificação do campeonato da F1 2026 atualizada: pontos de todos os pilotos e das equipes no Mundial de Construtores, corrida a corrida." />
+  <link rel="canonical" href="https://estagiariodaf1.com.br/classificacao-f1-2026/" />
+  <meta property="og:title" content="Classificação da F1 2026: pilotos e construtores" />
+  <meta property="og:description" content="Pontos de todos os pilotos e equipes no campeonato da F1 2026, atualizados depois de cada corrida." />
+  <meta property="og:url" content="https://estagiariodaf1.com.br/classificacao-f1-2026/" />
+  <meta property="og:image" content="https://estagiariodaf1.com.br/assets/compartilhar.jpg" />
   <link rel="stylesheet" href="/assets/site-nav.css" />
   <link rel="stylesheet" href="/assets/css/estatisticas.css" />
   <link rel="stylesheet" href="/assets/estilo.css" />
@@ -24,7 +30,7 @@
         <a href="/home.html">Home</a>
         <a href="/noticias/">Notícias</a>
         <a href="/ao-vivo/" class="nav-aovivo">Ao vivo</a>
-        <a href="/estatisticas.html" class="is-active">Estatísticas</a>
+        <a href="/classificacao-f1-2026/">Classificação</a>
         <a href="/gp.html">Central do GP</a>
         <a href="/pilotos.html">Pilotos</a>
         <a href="/equipes.html">Equipes</a>
@@ -48,7 +54,7 @@
           <a href="/home.html">Home</a>
           <a href="/noticias/">Notícias</a>
         <a href="/ao-vivo/" class="nav-aovivo">Ao vivo</a>
-          <a href="/estatisticas.html" class="is-active">Estatísticas</a>
+          <a href="/classificacao-f1-2026/">Classificação</a>
           <a href="/gp.html">Central do GP</a>
           <a href="/pilotos.html">Pilotos</a>
           <a href="/equipes.html">Equipes</a>
@@ -61,9 +67,9 @@
 
     <main>
       <section class="hero">
-        <p class="hero-kicker">Estatísticas F1</p>
-        <h1>Central de Dados</h1>
-        <p>Classificação, calendário, pilotos, equipes e histórico rápido em uma leitura editorial, sem cara de planilha.</p>
+        <p class="hero-kicker">Temporada 2026</p>
+        <h1>Classificação da F1 2026</h1>
+        <p>Pontos de todos os pilotos e das equipes no campeonato, atualizados depois de cada corrida.</p>
       </section>
 
       <section class="quick-grid" aria-label="Resumo da temporada">
@@ -99,9 +105,9 @@
 
       <section class="section" id="classificacao-pilotos">
         <div class="section-head">
-          <h2 class="section-title">Classificação de Pilotos</h2>
+          <h2 class="section-title">Mundial de Pilotos</h2>
           <div class="section-actions">
-            <button type="button" class="ghost-button" id="toggle-drivers">Ver completa</button>
+            <button type="button" class="ghost-button" id="toggle-drivers">Ver só o top 10</button>
           </div>
         </div>
         <div class="data-card">
@@ -113,7 +119,7 @@
 
       <section class="section" id="classificacao-equipes">
         <div class="section-head">
-          <h2 class="section-title">Classificação de Equipes</h2>
+          <h2 class="section-title">Mundial de Construtores</h2>
         </div>
         <div class="data-card">
           <div class="table-list" id="constructors-standings" aria-live="polite" aria-busy="true">
@@ -122,21 +128,9 @@
         </div>
       </section>
 
-      <section class="section" id="pilotos">
-        <div class="section-head">
-          <h2 class="section-title">Pilotos</h2>
-        </div>
-        <div class="drivers-toolbar">
-          <input class="search-input" type="search" id="driver-search" placeholder="Pesquisar piloto, equipe ou nacionalidade" autocomplete="off" />
-        </div>
-        <div class="drivers-grid" id="drivers-cards" aria-live="polite" aria-busy="true">
-          <div class="status">Carregando pilotos…</div>
-        </div>
-      </section>
-
       <section class="section" id="historico">
         <div class="section-head">
-          <h2 class="section-title">Histórico rápido</h2>
+          <h2 class="section-title">Temporadas anteriores</h2>
         </div>
         <div class="history-panel">
           <div class="history-controls">

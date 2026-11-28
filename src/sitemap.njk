@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: true
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>{{ site.url }}/</loc></url>
   <url><loc>{{ site.url }}/noticias/</loc></url>
-  {%- for p in ["/quem-somos/", "/expediente/", "/contato/", "/privacidade/", "/calendario.html", "/calendario-f1-2027/", "/estatisticas.html", "/gp.html", "/pilotos.html", "/equipes.html", "/comparador.html"] %}
+  {%- for p in ["/quem-somos/", "/expediente/", "/contato/", "/privacidade/", "/calendario.html", "/calendario-f1-2027/", "/classificacao-f1-2026/", "/gp.html", "/pilotos.html", "/equipes.html", "/comparador.html"] %}
   <url><loc>{{ site.url }}{{ p }}</loc></url>
   {%- endfor %}
   {%- for a in assuntos %}{% if (collections.materias | materiasDoAssunto(a.slug)).length %}

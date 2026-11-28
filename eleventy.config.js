@@ -26,9 +26,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/icones/favicon.ico": "favicon.ico", "src/icones/apple-touch-icon.png": "apple-touch-icon.png",
     "src/icones/site.webmanifest": "site.webmanifest", "src/icones": "icones" });
   // Páginas de dados do Pedro (pilotos, equipes...): HTML puro, copiado como está.
-  for (const pagina of ["calendario", "comparador", "equipes", "estatisticas", "pilotos"]) {
+  for (const pagina of ["calendario", "comparador", "equipes", "pilotos"]) {
     eleventyConfig.addPassthroughCopy(`src/${pagina}.html`);
   }
+  // Classificação (antiga "Estatísticas"): endereço limpo pro Google, /classificacao-f1-2026/
+  eleventyConfig.addPassthroughCopy({ "src/classificacao.html": "classificacao-f1-2026/index.html" });
 
   // Cópia dos dados da F1 no build: o site usa se a API cair na hora (ver fetchJson em f1-api.js).
   eleventyConfig.on("eleventy.after", async ({ dir }) => {
@@ -202,12 +204,15 @@ module.exports = function (eleventyConfig) {
     const RODAPE = /<footer[\s\S]*?<\/footer>/;
     const rodape = (home.match(RODAPE) || [])[0];
     if (!rodape || !rodape.includes("<svg")) throw new Error("rodapé da home não encontrado para as páginas de dados");
-    for (const pagina of ["calendario", "comparador", "equipes", "estatisticas", "pilotos"]) {
-      const arquivo = path.join(dir.output, `${pagina}.html`);
+    const PAGINAS_DADOS = [["calendario", "calendario.html", "/calendario.html"], ["comparador", "comparador.html", "/comparador.html"],
+      ["equipes", "equipes.html", "/equipes.html"], ["pilotos", "pilotos.html", "/pilotos.html"],
+      ["classificacao", "classificacao-f1-2026/index.html", "/classificacao-f1-2026/"]];
+    for (const [pagina, saida, endereco] of PAGINAS_DADOS) {
+      const arquivo = path.join(dir.output, saida);
       const html = await fs.readFile(arquivo, "utf8");
       if (!BLOCO_TOPO.test(html)) throw new Error(`cabeçalho de ${pagina}.html não encontrado`);
       const icones = '<link rel="icon" href="/favicon.ico?v=3" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/icones/favicon-32.png?v=3"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3"><link rel="manifest" href="/site.webmanifest?v=3">';
-      const ativo = topo.replaceAll(`href="/${pagina}.html"`, `href="/${pagina}.html" class="is-active" aria-current="page"`);
+      const ativo = topo.replaceAll(`href="${endereco}"`, `href="${endereco}" class="is-active" aria-current="page"`);
       const comIcones = html.includes('rel="apple-touch-icon"') ? html : html.replace("</head>", icones + "</head>");
       let pronto = comIcones.replace(BLOCO_TOPO, () => ativo);
       // rodapé igual ao da home (com os ícones das redes); quem não tinha ganha um depois do conteúdo
