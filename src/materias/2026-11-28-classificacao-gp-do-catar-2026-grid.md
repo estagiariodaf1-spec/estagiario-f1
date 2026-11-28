@@ -6,7 +6,7 @@ categoria: "F1"
 palavra_chave: "classificação GP do Catar"
 autor: "Redação Estagiário da F1"
 imagem: "/images/uploads/2026-11-28-classificacao-gp-do-catar-2026-grid.jpg"
-credito_imagem: "Foto: F1"
+credito_imagem: "Foto: Mercedes F1"
 fontes:
   - "Cronometragem oficial da classificação (dados ao vivo)"
   - "https://ge.globo.com/motor/formula-1/noticia/2026/11/28/gp-do-catar-russell-leva-a-pole-bortoleto-e-13o-e-camara-fica-em-15o.ghtml"
