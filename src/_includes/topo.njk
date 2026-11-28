@@ -8,15 +8,14 @@
         {%- else %}<style>.gp-link[href*="ao-vivo"],.gp-btn[href*="ao-vivo"]{display:none!important}.gp-sessoes li.agora a{pointer-events:none}</style>{%- endif %}
       </div>
       <nav class="header-nav" aria-label="Menu principal">
-        <a href="{{ inicio }}">Home</a>
         <a href="/noticias/">Notícias</a>
+        <a href="/calendario.html">Calendário</a>
         {%- if collections.capacete.length %}
         <a href="/por-tras-do-capacete/" title="Por trás do capacete: o blog do Estagiário">Capacete</a>{% endif %}
         <a href="/estatisticas.html">Estatísticas</a>
         <a href="/gp.html">Central do GP</a>
         <a href="/pilotos.html">Pilotos</a>
         <a href="/equipes.html">Equipes</a>
-        <a href="/calendario.html">Calendário</a>
         <a href="/comparador.html">Comparador</a>
       </nav>
       <div class="icons"><a href="{{ site.redes.instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram do Estagiário" title="Instagram">{% include "icones/instagram.svg" %}</a><a href="{{ site.redes.x }}" target="_blank" rel="noopener noreferrer" aria-label="Estagiário no X" title="X">{% include "icones/x.svg" %}</a></div>
@@ -33,8 +32,8 @@
           <button type="button" class="site-menu-close" aria-label="Fechar menu">×</button>
         </div>
         <nav class="site-menu-nav">
-          <a href="{{ inicio }}">Home</a>
           <a href="/noticias/">Notícias</a>
+          <a href="/calendario.html">Calendário</a>
           {%- if collections.capacete.length %}
           <a href="/por-tras-do-capacete/">Por trás do capacete</a>{% endif %}
         {% if site.aovivo_no_site %}<a href="/ao-vivo/" class="nav-aovivo">Ao vivo</a>{% endif %}
@@ -42,7 +41,6 @@
           <a href="/gp.html">Central do GP</a>
           <a href="/pilotos.html">Pilotos</a>
           <a href="/equipes.html">Equipes</a>
-          <a href="/calendario.html">Calendário</a>
           <a href="/comparador.html">Comparador</a>
         </nav>
       </div>
