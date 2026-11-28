@@ -1,0 +1,7 @@
+---
+permalink: /dados/notas-sessoes.json
+eleventyExcludeFromCollections: true
+---
+{#- Notas de treino/classificação/corrida dos últimos 21 dias, pra faixa do GP linkar "Veja como foi".
+    A sessão vem do começo da palavra-chave que o robô grava ("TL2 GP do Catar", "classificação GP de Las Vegas"). -#}
+{{ collections.materias | notasDeSessao(21) | dump | safe }}

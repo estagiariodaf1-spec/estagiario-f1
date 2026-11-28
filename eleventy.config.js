@@ -110,6 +110,20 @@ module.exports = function (eleventyConfig) {
     return `${d} de ${["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"][m - 1]}`;
   });
 
+  // Notas de sessão (TL1, TL2, TL3, classificação, sprint, corrida) pela palavra-chave que o robô grava.
+  const SESSAO_DA_CHAVE = [[/^tl\s*1\b|^treino livre 1\b/i, "TL1"], [/^tl\s*2\b|^treino livre 2\b/i, "TL2"], [/^tl\s*3\b|^treino livre 3\b/i, "TL3"],
+    [/^classifica[cç][aã]o sprint\b|^quali(fying)? sprint\b/i, "QS"], [/^sprint\b/i, "SP"], [/^classifica[cç][aã]o\b|^quali\b/i, "Q"],
+    [/^corrida\b|^resultado\b/i, "R"]];
+  eleventyConfig.addFilter("notasDeSessao", (lista, dias = 21) => {
+    const limite = Date.now() - dias * 24 * 3600e3;
+    return (lista || []).filter((m) => m.date.getTime() >= limite).map((m) => {
+      const chave = String(m.data.palavra_chave || "").trim();
+      const achou = SESSAO_DA_CHAVE.find(([re]) => re.test(chave));
+      const gp = chave.replace(/^(tl\s*[123]|treino livre [123]|classifica[cç][aã]o sprint|quali(fying)? sprint|sprint|classifica[cç][aã]o|quali|corrida|resultado)\s+(d[oa]s?\s+)?/i, "");
+      return achou && /^GP\b/i.test(gp) ? { sessao: achou[1], gp, url: m.url, data: m.date.toISOString() } : null;
+    }).filter(Boolean);
+  });
+
   // Sitemap de notícias: o Google só aceita matérias das últimas 48 horas.
   eleventyConfig.addCollection("materiasRecentes", (api) => {
     const limite = Date.now() - 2 * 24 * 60 * 60 * 1000;

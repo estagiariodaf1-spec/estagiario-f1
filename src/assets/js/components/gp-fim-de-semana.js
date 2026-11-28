@@ -55,7 +55,21 @@
     return -1;
   }
 
-  function chips(lista, agora, link) {
+  // "Veja como foi": nota da sessão já concluída (lista gerada no build em /dados/notas-sessoes.json)
+  var SIGLA = { 'Treino livre 1': 'TL1', 'Treino livre 2': 'TL2', 'Treino livre 3': 'TL3', 'Classificação sprint': 'QS',
+    'Sprint': 'SP', 'Classificação': 'Q', 'Corrida': 'R' };
+  function semAcento(t) { return String(t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim(); }
+  function notaDa(notas, corrida, sessao) {
+    var gp = semAcento(nome(corrida.raceName)), sigla = SIGLA[sessao.nome];
+    var achada = (notas || []).filter(function (n) {
+      var quando = new Date(n.data);
+      return n.sessao === sigla && semAcento(n.gp) === gp && quando >= new Date(sessao.ini.getTime() - 6 * HORA) &&
+        quando <= new Date(sessao.ini.getTime() + 3 * DIA);
+    })[0];
+    return achada && achada.url;
+  }
+
+  function chips(lista, agora, link, notas, corrida) {
     var luz = acesa(lista, agora);
     return '<ol class="gp-sessoes">' + lista.map(function (s, i) {
       var estado = agora >= s.fim ? 'feita' : (agora >= s.ini ? 'agora' : (i === luz ? 'destaque' : ''));
@@ -63,7 +77,9 @@
         return '<li class="agora' + (s.corrida ? ' corrida' : '') + '"><a href="' + esc(link || '/ao-vivo/') + '"><span>' + esc(s.nome) +
           '</span><b>Ao vivo agora</b></a></li>';
       }
-      return '<li class="' + estado + (s.corrida ? ' corrida' : '') + '"><span>' + esc(s.nome) + '</span><b>' + esc(diaHora(s.ini)) + '</b></li>';
+      var nota = estado === 'feita' && corrida ? notaDa(notas, corrida, s) : '';
+      return '<li class="' + estado + (s.corrida ? ' corrida' : '') + '"><span>' + esc(s.nome) + '</span><b>' + esc(diaHora(s.ini)) + '</b>' +
+        (nota ? '<a class="gp-como-foi" href="' + esc(nota) + '">Veja como foi ›</a>' : '') + '</li>';
     }).join('') + '</ol>';
   }
 
@@ -130,6 +146,7 @@
       if (!corrida) { raiz.innerHTML = '<div class="gp-faixa longe"><div class="gp-titulo"><span class="gp-tag">Temporada</span><strong>Calendário da F1</strong><em>Horários de Brasília</em></div><a class="gp-link" href="/calendario.html">Ver calendário ›</a></div>'; return; }
 
       var lista = sessoes(corrida);
+      var notas = await fetch('/dados/notas-sessoes.json').then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; });
       mini(corrida, lista, linkAoVivo, agora.getTime() - Date.now());
       var primeira = lista[0].ini, ultima = lista[lista.length - 1].fim;
       var titulo = bandeira(corrida) + esc(nome(corrida.raceName));
@@ -139,7 +156,7 @@
         var chamada = atual ? '<span class="gp-tag vivo">Ao vivo</span><strong>' + esc(atual.nome) + ' · ' + titulo + '</strong>'
           : '<span class="gp-tag">Fim de semana de GP</span><strong>' + titulo + '</strong>' +
             (prox ? '<em>Próxima: ' + esc(prox.nome) + ' em ' + falta(prox.ini - agora) + '</em>' : '');
-        raiz.innerHTML = '<div class="gp-faixa durante"><div class="gp-titulo">' + chamada + '</div>' + chips(lista, agora, linkAoVivo) +
+        raiz.innerHTML = '<div class="gp-faixa durante"><div class="gp-titulo">' + chamada + '</div>' + chips(lista, agora, linkAoVivo, notas, corrida) +
           '<a class="gp-link" href="' + linkAoVivo + '">Ao vivo do Estagiário ›</a></div>';
         // no celular, rola as sessões até a que importa agora
         var trilho = raiz.querySelector('.gp-sessoes'), alvo = raiz.querySelector('.gp-sessoes .agora') || raiz.querySelector('.gp-sessoes .destaque') ||
@@ -155,7 +172,7 @@
           esc(quando(data(corrida), { hour: '2-digit', minute: '2-digit', hour12: false }).replace(':', 'h')) + ' (Brasília) · ' +
           esc(corrida.Circuit.circuitName) + ' · faltam ' + falta(data(corrida) - agora) + '</em>';
       raiz.innerHTML = '<div class="gp-faixa ' + (dias <= 7 ? 'semana' : 'longe') + '"><div class="gp-titulo">' + cabecalho + '</div>' +
-        chips(lista, agora, linkAoVivo) + '<a class="gp-link" href="/gp.html">Central do GP ›</a></div>';
+        chips(lista, agora, linkAoVivo, notas, corrida) + '<a class="gp-link" href="/gp.html">Central do GP ›</a></div>';
     } catch (e) {
       // sem dados, mantém a faixa (sumir com ela empurraria a página)
       raiz.innerHTML = '<div class="gp-faixa longe"><div class="gp-titulo"><span class="gp-tag">Temporada</span><strong>Calendário da F1</strong><em>Horários de Brasília</em></div><a class="gp-link" href="/calendario.html">Ver calendário ›</a></div>';
