@@ -20,9 +20,10 @@ eleventyExcludeFromCollections: true
         <p class="f1-calendar-subtitle">As datas das {{ cal.etapas.length }} corridas da temporada {{ cal.ano }}, com os {{ (cal.etapas | selectattr("sprint")).length }} fins de semana de sprint. Começa em {{ primeira.fim | diaMes }} no Bahrein e termina em {{ ultima.fim | diaMes }} em Abu Dhabi. Os horários de Brasília entram aqui quando a F1 divulgar.</p>
       </div>
     </div>
-    <div class="f1-calendar-grid">
+    <button type="button" class="cal-filtro-sprint" data-filtro-sprint aria-pressed="false" hidden>⚡ Sprint <span>só as {{ (cal.etapas | selectattr("sprint")).length }} etapas com sprint</span></button>
+    <div class="f1-calendar-grid" data-cal-grade>
       {%- for e in cal.etapas %}
-      <article class="f1-race-card futura">
+      <article class="f1-race-card futura{% if e.sprint %} tem-sprint{% endif %}">
         <div class="f1-race-toggle cal-estatico">
           <span class="f1-race-round">{{ "0" if e.n < 10 }}{{ e.n }}</span>
           <img class="f1-race-flag" src="/assets/bandeiras/{{ e.bandeira }}.svg" alt="" width="28" height="28" loading="lazy" decoding="async" eleventy:ignore>
@@ -52,6 +53,17 @@ eleventyExcludeFromCollections: true
     <p class="meta">Fonte: {{ cal.fonte }}. As datas podem mudar; se mudarem, a gente atualiza aqui.</p>
   </div>
 </section>
+<script>
+(function () {
+  var botao = document.querySelector('[data-filtro-sprint]'), grade = document.querySelector('[data-cal-grade]');
+  if (!botao || !grade) return;
+  botao.hidden = false;
+  botao.addEventListener('click', function () {
+    var ligado = grade.classList.toggle('so-sprint');
+    botao.setAttribute('aria-pressed', ligado ? 'true' : 'false');
+  });
+})();
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
