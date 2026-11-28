@@ -239,7 +239,9 @@
   }
 }
 
-/* Pódio nas etapas que já rolaram (P1 ouro, P2 prata, P3 bronze) */
+/* Pódio nas etapas que já rolaram (P1 ouro, P2 prata, P3 bronze). Com pódio o card precisa de mais largura:
+   3 por linha no PC, pra nome e data não quebrarem em três linhas */
+.f1-calendar-grid:has(.com-podio) { grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); }
 .f1-race-card.com-podio .f1-race-toggle { grid-template-columns: 44px 30px 1fr auto; padding-right: 10px; }
 .f1-podio { display: inline-flex; gap: 4px; }
 .f1-podio-pos { display: flex; flex-direction: column; align-items: center; gap: 2px; }
@@ -249,7 +251,12 @@
 .f1-podio-pos.p1 b { background: #e8b84a; }
 .f1-podio-pos.p2 b { background: #c9c9c9; }
 .f1-podio-pos.p3 b { background: #c07a45; }
-@media (max-width: 420px) {
-  .f1-race-card.com-podio .f1-race-toggle { grid-template-columns: 34px 26px 1fr auto; gap: 8px; }
-  .f1-podio-pos b { min-width: 34px; padding: 3px 4px; }
+@media (max-width: 520px) {
+  .f1-calendar-grid:has(.com-podio) { grid-template-columns: 1fr; }
+  /* celular: o pódio desce pra baixo do nome, em linha (senão nome e data quebram em três linhas) */
+  .f1-calendar-grid:has(.com-podio) .f1-race-toggle { grid-template-columns: 34px 26px minmax(0, 1fr) 18px; gap: 4px 8px; }  /* alinha com os de pódio */
+  .f1-race-card.com-podio .f1-race-toggle { grid-template-columns: 34px 26px minmax(0, 1fr); gap: 4px 8px; }
+  .f1-race-card.com-podio .f1-podio { grid-column: 3; grid-row: 2; gap: 6px; }
+  .f1-race-card.com-podio .f1-podio-pos { flex-direction: row; gap: 3px; }
+  .f1-podio-pos b { min-width: 34px; padding: 2px 4px; }
 }

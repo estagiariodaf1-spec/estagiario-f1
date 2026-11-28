@@ -32,7 +32,7 @@
       var dados = await global.F1Api.getLastRaceResults();
       var corrida = dados.race;
       if (!corrida || !corrida.results.length) throw new Error('sem resultado');
-      var bandeira = global.F1Api.bandeira ? global.F1Api.bandeira(corrida.countryEn) : '';
+      var bandeira = global.F1Api.bandeira ? global.F1Api.bandeira(corrida.countryEn, corrida.raceNameEn) : '';
       var quando = '';
       if (corrida.date) {
         var d = new Date(corrida.date + 'T' + (corrida.time || '12:00:00Z'));

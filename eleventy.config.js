@@ -217,6 +217,10 @@ module.exports = function (eleventyConfig) {
       let pronto = comIcones.replace(BLOCO_TOPO, () => ativo);
       // rodapé igual ao da home (com os ícones das redes); quem não tinha ganha um depois do conteúdo
       pronto = RODAPE.test(pronto) ? pronto.replace(RODAPE, () => rodape) : pronto.replace("</main>", () => "</main>\n    " + rodape);
+      // CSS e JS das páginas de dados com a versão do build: sem isso o navegador ficava com o estilo velho
+      // (28/11: os botões 2026 | 2027 apareciam como link azul cru no calendário)
+      const versao = require("./src/_data/versao.js");
+      pronto = pronto.replace(/(href|src)="(\/assets\/[^"?]+\.(?:css|js))"/g, (_, attr, url) => `${attr}="${url}?v=${versao}"`);
       await fs.writeFile(arquivo, pronto);
     }
   });

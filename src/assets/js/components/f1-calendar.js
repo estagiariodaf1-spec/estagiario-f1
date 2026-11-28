@@ -29,7 +29,7 @@
   }
 
   function bandeiraMarkup(race) {
-    var codigo = global.F1Api.bandeira ? global.F1Api.bandeira(race.countryEn) : '';
+    var codigo = global.F1Api.bandeira ? global.F1Api.bandeira(race.countryEn, race.raceNameEn) : '';
     return codigo
       ? '<img class="f1-race-flag" src="/assets/bandeiras/' + codigo + '.svg" alt="" width="28" height="28" loading="lazy" decoding="async">'
       : '<span class="f1-race-flag"></span>';

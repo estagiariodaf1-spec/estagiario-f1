@@ -22,7 +22,7 @@
   // A Jolpica devolve nomes em inglês. Tradução dos GPs e países para o português.
   var NOMES_GP = {
     'Australian Grand Prix': 'GP da Austrália', 'Chinese Grand Prix': 'GP da China',
-    'Japanese Grand Prix': 'GP do Japão', 'Bahrain Grand Prix': 'GP do Bahrein', 'Bahrain Grand Prix in Malaysia': 'GP do Bahrein (na Malásia)',
+    'Japanese Grand Prix': 'GP do Japão', 'Bahrain Grand Prix': 'GP do Bahrein', 'Bahrain Grand Prix in Malaysia': 'GP do Bahrein',
     'Saudi Arabian Grand Prix': 'GP da Arábia Saudita', 'Miami Grand Prix': 'GP de Miami',
     'Canadian Grand Prix': 'GP do Canadá', 'Monaco Grand Prix': 'GP de Mônaco',
     'Spanish Grand Prix': 'GP da Espanha', 'Barcelona-Catalunya Grand Prix': 'GP de Barcelona-Catalunha',
@@ -82,7 +82,10 @@
     Hungary: 'hu', Netherlands: 'nl', Italy: 'it', Azerbaijan: 'az', Singapore: 'sg', Mexico: 'mx', Brazil: 'br',
     Qatar: 'qa', UAE: 'ae', 'United Arab Emirates': 'ae', Portugal: 'pt', France: 'fr', Germany: 'de', Turkey: 'tr'
   };
-  function bandeira(paisEn) { return BANDEIRAS[paisEn] || ''; }
+  function bandeira(paisEn, nomeGPEn) {
+    if (/^Bahrain Grand Prix/.test(nomeGPEn || '')) return 'bh';  // 2026: o GP do Bahrein foi disputado na Malásia
+    return BANDEIRAS[paisEn] || '';
+  }
 
   function buildUrl(base, path) {
     return base + String(path || '').replace(/^\/+/, '');
@@ -230,6 +233,7 @@
       locality: get(race, ['Circuit', 'Location', 'locality'], ''),
       country: nomePais(get(race, ['Circuit', 'Location', 'country'], '')),
       countryEn: get(race, ['Circuit', 'Location', 'country'], ''),
+      raceNameEn: race.raceName || '',
       date: race.date || '',
       time: race.time || '',
       qualifyingDate: qualifying.date || '',
@@ -323,6 +327,7 @@
       locality: get(race, ['Circuit', 'Location', 'locality'], ''),
       country: nomePais(get(race, ['Circuit', 'Location', 'country'], '')),
       countryEn: get(race, ['Circuit', 'Location', 'country'], ''),
+      raceNameEn: race.raceName || '',
       date: race.date || '',
       time: race.time || '',
       results: results,

@@ -28,11 +28,11 @@ eleventyExcludeFromCollections: true
           <span class="f1-race-round">{{ "0" if e.n < 10 }}{{ e.n }}</span>
           <img class="f1-race-flag" src="/assets/bandeiras/{{ e.bandeira }}.svg" alt="" width="28" height="28" loading="lazy" decoding="async" eleventy:ignore>
           <span class="f1-race-main">
-            <h2 class="f1-race-name">{{ e.gp }} {{ cal.ano }}</h2>
-            <p class="f1-race-meta">{{ e.inicio | periodo(e.fim) }} · {{ e.circuito }}{% if e.sprint %}<span class="f1-race-selo">Sprint</span>{% endif %}</p>
-            {%- if e.obs %}<p class="cal-obs">{{ e.obs | capitalize }}</p>{% endif %}
+            <h2 class="f1-race-name">{{ e.gp }}<span class="so-leitor"> {{ cal.ano }}</span></h2>
+            <p class="f1-race-meta">{{ e.inicio | periodo(e.fim) }} · {{ e.circuito }}</p>
+            {%- if e.obs %}<p class="cal-obs">{{ e.obs }}</p>{% endif %}
           </span>
-          <span></span>
+          {% if e.sprint %}<span class="f1-race-selo cal-selo">Sprint</span>{% else %}<span></span>{% endif %}
         </div>
       </article>
       {%- endfor %}

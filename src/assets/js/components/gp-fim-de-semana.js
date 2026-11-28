@@ -23,7 +23,7 @@
   // bandeira do país do GP ao lado do nome (arquivo em /assets/bandeiras)
   function bandeira(corrida) {
     var pais = corrida && corrida.Circuit && corrida.Circuit.Location && corrida.Circuit.Location.country;
-    var codigo = pais && global.F1Api && global.F1Api.bandeira ? global.F1Api.bandeira(pais) : '';
+    var codigo = pais && global.F1Api && global.F1Api.bandeira ? global.F1Api.bandeira(pais, corrida.raceName) : '';
     return codigo ? '<img class="gp-bandeira" src="/assets/bandeiras/' + codigo + '.svg" alt="" width="24" height="18" decoding="async">' : '';
   }
   function nome(n) { return global.F1Api && global.F1Api.nomeGP ? global.F1Api.nomeGP(n) : n; }

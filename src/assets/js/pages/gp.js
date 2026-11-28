@@ -32,7 +32,7 @@
   }
 
   function renderHero(race) {
-    var codigo = window.F1Api.bandeira(race.countryEn);
+    var codigo = window.F1Api.bandeira(race.countryEn, race.raceNameEn);
     $('gp-hero-flag').innerHTML = codigo ? '<img src="/assets/bandeiras/' + codigo + '.svg" alt="" width="64" height="48" decoding="async">' : '';
     $('gp-hero-title').textContent = race.name;
     $('gp-hero-sub').textContent = [race.circuit, [race.locality, race.country].filter(Boolean).join(', ')].filter(Boolean).join(' · ');
