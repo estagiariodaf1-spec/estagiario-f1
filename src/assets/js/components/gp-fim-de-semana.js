@@ -43,9 +43,22 @@
     return lista.sort(function (a, b) { return a.ini - b.ini; });
   }
 
+  // Qual sessão fica acesa: na semana, a corrida; a partir da 0h (Brasília) do dia do primeiro treino,
+  // a sessão que está rolando ou a próxima (TL1, TL2, TL3, classificação, corrida).
+  function meiaNoite(d) {
+    var dia = new Intl.DateTimeFormat('en-CA', { timeZone: FUSO, year: 'numeric', month: '2-digit', day: '2-digit' }).format(d);
+    return new Date(dia + 'T00:00:00-03:00');
+  }
+  function acesa(lista, agora) {
+    if (agora < meiaNoite(lista[0].ini)) return lista.length - 1;
+    for (var i = 0; i < lista.length; i++) if (agora < lista[i].fim) return i;
+    return -1;
+  }
+
   function chips(lista, agora, link) {
-    return '<ol class="gp-sessoes">' + lista.map(function (s) {
-      var estado = agora >= s.fim ? 'feita' : (agora >= s.ini ? 'agora' : '');
+    var luz = acesa(lista, agora);
+    return '<ol class="gp-sessoes">' + lista.map(function (s, i) {
+      var estado = agora >= s.fim ? 'feita' : (agora >= s.ini ? 'agora' : (i === luz ? 'destaque' : ''));
       if (estado === 'agora') {  // a sessão que está rolando: leva pro Ao vivo
         return '<li class="agora' + (s.corrida ? ' corrida' : '') + '"><a href="' + esc(link || '/ao-vivo/') + '"><span>' + esc(s.nome) +
           '</span><b>Ao vivo agora</b></a></li>';
@@ -86,7 +99,7 @@
         raiz.innerHTML = '<div class="gp-faixa durante"><div class="gp-titulo">' + chamada + '</div>' + chips(lista, agora, linkAoVivo) +
           '<a class="gp-link" href="' + linkAoVivo + '">Ao vivo do Estagiário ›</a></div>';
         // no celular, rola as sessões até a que importa agora
-        var trilho = raiz.querySelector('.gp-sessoes'), alvo = raiz.querySelector('.gp-sessoes .agora') ||
+        var trilho = raiz.querySelector('.gp-sessoes'), alvo = raiz.querySelector('.gp-sessoes .agora') || raiz.querySelector('.gp-sessoes .destaque') ||
           Array.prototype.find.call(raiz.querySelectorAll('.gp-sessoes li'), function (li) { return !li.classList.contains('feita'); });
         if (trilho && alvo) trilho.scrollLeft = Math.max(0, alvo.offsetLeft - trilho.offsetLeft - 8);
         return;

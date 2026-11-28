@@ -199,7 +199,7 @@ a.hero { color: white; }
 .gp-sessoes li.agora a { display: flex; flex-direction: column; padding: 6px 10px; color: inherit; text-decoration: none; }
 .gp-sessoes li.agora b { color: #ff4d4d; display: inline-flex; align-items: center; gap: 6px; }
 .gp-sessoes li.agora b::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #ff2b2b; }
-.gp-sessoes li.corrida { border: 1px solid #ff2b2b; }
+.gp-sessoes li.destaque { border: 1px solid #ff2b2b; } /* a corrida na semana; no fim de semana, a sessão da vez */
 .gp-podio li { flex: none; background: #1c1c1c; border-radius: 10px; padding: 8px 12px; font-size: 14px; }
 .gp-podio li b { color: #ff5a5a; margin-right: 4px; }
 .gp-podio li small { color: #9a9a9a; margin-left: 4px; }
@@ -405,3 +405,12 @@ footer.rodape .footer-legal a:hover { color: #ff2b2b; }
 .cal-texto h2 { font-family: Impact, Haettenschweiler, sans-serif; text-transform: uppercase; font-size: 24px; font-weight: 400; margin: 22px 0 6px; }
 .cal-texto h2:first-child { margin-top: 0; }
 @media (max-width: 900px) { .cal-anos { margin-left: 12px; } .cal-ano .f1-calendar-shell { border-radius: 0; } }
+
+/* PC: cabeçalho fixo no topo ao rolar (pedido do Pedro, 28/11); depois de rolar, cola no topo e encolhe um pouco */
+@media (min-width: 901px) {
+  html { scroll-padding-top: 90px; }
+  header.header { position: sticky; top: 0; z-index: 60; transition: height .2s ease, border-radius .2s ease, box-shadow .2s ease; }
+  html.rolou header.header { height: 64px; min-height: 64px; border-radius: 0 0 18px 18px; box-shadow: 0 8px 24px rgba(0, 0, 0, .28); }
+  html.rolou header.header .logo-img img { height: 52px; width: auto; transition: height .2s ease; }
+}
+@media (min-width: 901px) and (prefers-reduced-motion: reduce) { header.header, html.rolou header.header .logo-img img { transition: none; } }

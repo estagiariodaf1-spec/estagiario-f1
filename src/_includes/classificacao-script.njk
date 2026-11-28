@@ -106,13 +106,26 @@
         renderStandings(ultimaLista);
       });
 
+      // Mesmo buscador do resto do site (guarda 10 min, tenta de novo e cai na cópia do build se a API recusar).
+      // Antes era um fetch seco: quando a base de resultados barrava a rajada da capa, a classificação sumia.
+      async function buscar() {
+        if (window.F1Api && window.F1Api.fetchJson) return window.F1Api.fetchJson(API_URL);
+        for (var tentativa = 0; tentativa < 2; tentativa++) {
+          try {
+            var r = await fetch(API_URL);
+            if (r.ok) return r.json();
+          } catch (e) {}
+          await new Promise(function (ok) { setTimeout(ok, 1500); });
+        }
+        var copia = await fetch('/dados/f1/current_driverstandings_json.json');
+        if (!copia.ok) throw new Error('sem dados');
+        return copia.json();
+      }
+
       async function loadDriverStandings() {
         renderLoading();
         try {
-          var response = await fetch(API_URL);
-          if (!response.ok) throw new Error('HTTP ' + response.status);
-
-          var data = await response.json();
+          var data = await buscar();
           var table = data && data.MRData && data.MRData.StandingsTable;
           var list = table && table.StandingsLists && table.StandingsLists[0];
           var standings = list && list.DriverStandings;
@@ -127,6 +140,8 @@
         }
       }
 
-      loadDriverStandings();
+      // espera o f1-api.js (carrega com defer) pra usar o buscador comum
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', loadDriverStandings);
+      else loadDriverStandings();
     })();
   </script>
