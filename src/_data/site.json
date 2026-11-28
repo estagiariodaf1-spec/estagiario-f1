@@ -13,5 +13,6 @@
   "metricas_url": "https://redacao-estagiario-production.up.railway.app/conta",
   "aovivo_status_url": "https://redacao-estagiario-production.up.railway.app/aovivo-status.json",
   "aovivo_dados_url": "https://redacao-estagiario-production.up.railway.app/aovivo-dados.json",
-  "aovivo_no_site": true
+  "aovivo_no_site": true,
+  "mais_lidas_url": "https://redacao-estagiario-production.up.railway.app/mais-lidas.json"
 }

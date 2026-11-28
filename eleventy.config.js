@@ -26,7 +26,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/icones/favicon.ico": "favicon.ico", "src/icones/apple-touch-icon.png": "apple-touch-icon.png",
     "src/icones/site.webmanifest": "site.webmanifest", "src/icones": "icones" });
   // Páginas de dados do Pedro (pilotos, equipes...): HTML puro, copiado como está.
-  for (const pagina of ["calendario", "comparador", "equipes", "pilotos"]) {
+  for (const pagina of ["calendario", "equipes", "pilotos"]) {
     eleventyConfig.addPassthroughCopy(`src/${pagina}.html`);
   }
   // Classificação (antiga "Estatísticas"): endereço limpo pro Google, /classificacao-f1-2026/
@@ -204,8 +204,7 @@ module.exports = function (eleventyConfig) {
     const RODAPE = /<footer[\s\S]*?<\/footer>/;
     const rodape = (home.match(RODAPE) || [])[0];
     if (!rodape || !rodape.includes("<svg")) throw new Error("rodapé da home não encontrado para as páginas de dados");
-    const PAGINAS_DADOS = [["calendario", "calendario.html", "/calendario.html"], ["comparador", "comparador.html", "/comparador.html"],
-      ["equipes", "equipes.html", "/equipes.html"], ["pilotos", "pilotos.html", "/pilotos.html"],
+    const PAGINAS_DADOS = [["calendario", "calendario.html", "/calendario.html"], ["equipes", "equipes.html", "/equipes.html"], ["pilotos", "pilotos.html", "/pilotos.html"],
       ["classificacao", "classificacao-f1-2026/index.html", "/classificacao-f1-2026/"]];
     for (const [pagina, saida, endereco] of PAGINAS_DADOS) {
       const arquivo = path.join(dir.output, saida);

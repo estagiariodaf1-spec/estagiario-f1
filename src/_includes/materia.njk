@@ -31,6 +31,16 @@ layout: base.njk
   </nav>
   {% endif %}
 </article>
+<aside class="seguir" aria-label="Siga o Estagiário">
+  <div><b>Segue o Estagiário</b><span>Notícia, meme e resenha de F1 todo dia, primeiro nas redes.</span></div>
+  <div class="seguir-botoes">
+    <a href="{{ site.redes.instagram }}" target="_blank" rel="noopener noreferrer">{% include "icones/instagram.svg" %} Instagram</a>
+    <a href="{{ site.redes.x }}" target="_blank" rel="noopener noreferrer">{% include "icones/x.svg" %} X</a>
+  </div>
+</aside>
+<section class="section mais-lidas-materia" data-mais-lidas hidden></section>
+<script src="/assets/js/components/mais-lidas.js?v={{ versao }}" defer></script>
+<script>document.addEventListener('DOMContentLoaded', function () { MaisLidas.mount('[data-mais-lidas]', {{ site.mais_lidas_url | dump | safe }}, { tirando: {{ page.url | dump | safe }} }); });</script>
 {%- set leia = collections.materias | relacionadas(page | itemDaPagina(collections.materias)) -%}
 {% if leia.length %}
 <section class="section leia-tambem">

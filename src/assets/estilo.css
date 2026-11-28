@@ -441,3 +441,29 @@ html.rolou.faixa-fora .gp-mini { transform: none; opacity: 1; pointer-events: au
   .gp-mini { border-radius: 0 0 12px 12px; padding: 12px 14px 8px; gap: 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .gp-mini { transition: none; } .gp-mini-vivo { animation: none; } }
+
+/* ---------- Segue o Estagiário (fim da matéria) ---------- */
+.seguir { max-width: 760px; margin: -20px auto 30px; background: #0b0b0b; color: #fff; border-radius: 14px; padding: 18px 22px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; border-left: 5px solid #ff2b2b; box-sizing: border-box; }
+.seguir b { display: block; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-transform: uppercase; font-size: 22px; font-weight: 400; }
+.seguir span { color: #bdbdbd; font-size: 14px; }
+.seguir-botoes { display: flex; gap: 8px; }
+.seguir-botoes a { display: inline-flex; align-items: center; gap: 7px; background: #fff; color: #0b0b0b; text-decoration: none; font-weight: 800;
+  font-size: 14px; padding: 9px 14px; border-radius: 99px; }
+.seguir-botoes a:hover { background: #ff2b2b; color: #fff; }
+.seguir-botoes svg { width: 16px; height: 16px; }
+
+/* ---------- Mais lidas da semana ---------- */
+.mais-lidas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.mais-lidas a { display: flex; gap: 14px; align-items: flex-start; background: #fff; border-radius: 12px; padding: 14px 16px; color: #0b0b0b; text-decoration: none; height: 100%; box-sizing: border-box; }
+.mais-lidas a:hover .ml-tit { color: #e10600; }
+.ml-num { font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 38px; line-height: .9; color: #ff2b2b; min-width: 26px; }
+.ml-tit { font-weight: 700; font-size: 15px; line-height: 1.35; }
+.mais-lidas { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 1200px) { .mais-lidas { grid-template-columns: 1fr 1fr; } }
+.mais-lidas-materia { max-width: 760px; margin-left: auto; margin-right: auto; }
+.mais-lidas-materia .mais-lidas { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .seguir { border-radius: 0; margin: -20px 0 20px; }
+  .mais-lidas { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,7 @@
+---
+permalink: /dados/materias-indice.json
+eleventyExcludeFromCollections: true
+---
+{#- Título e data das matérias, pro bloco "Mais lidas" (o robô só manda os endereços e quantos leram). -#}
+{%- set lista = [] -%}
+[{% for m in collections.materias | primeiros(300) %}{{ "," if not loop.first }}{"url":{{ m.url | dump | safe }},"titulo":{{ m.data.title | dump | safe }},"categoria":{{ (m.data.categoria or "F1") | dump | safe }}}{% endfor %}]

@@ -35,7 +35,6 @@
         <a href="/pilotos.html">Pilotos</a>
         <a href="/equipes.html">Equipes</a>
         <a href="/calendario.html">Calendário</a>
-        <a href="/comparador.html">Comparador</a>
 
       </nav>
     </header>
@@ -59,7 +58,6 @@
           <a href="/pilotos.html">Pilotos</a>
           <a href="/equipes.html">Equipes</a>
           <a href="/calendario.html">Calendário</a>
-          <a href="/comparador.html">Comparador</a>
 
         </nav>
       </div>
@@ -127,6 +125,26 @@
         </div>
       </section>
 
+      <section class="section" id="comparar">
+        <div class="section-head">
+          <h2 class="section-title">Compare dois pilotos</h2>
+        </div>
+        <div class="compare-controls">
+          <select class="season-select" id="driver-a" aria-label="Selecionar primeiro piloto">
+            <option>Carregando pilotos…</option>
+          </select>
+          <select class="season-select" id="driver-b" aria-label="Selecionar segundo piloto">
+            <option>Carregando pilotos…</option>
+          </select>
+          <button type="button" class="red-button" id="compare-button">Comparar</button>
+        </div>
+        <div id="compare-output" aria-live="polite" aria-busy="true">
+          <div class="data-card">
+            <div class="status">Carregando dados da temporada atual…</div>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="historico">
         <div class="section-head">
           <h2 class="section-title">Temporadas anteriores</h2>
@@ -149,5 +167,6 @@
   <script src="/assets/site-nav.js"></script>
   <script src="/assets/js/api/f1-api.js"></script>
   <script src="/assets/js/pages/estatisticas.js"></script>
+  <script src="/assets/js/pages/comparador.js"></script>
 </body>
 </html>
