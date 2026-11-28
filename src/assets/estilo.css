@@ -414,3 +414,22 @@ footer.rodape .footer-legal a:hover { color: #ff2b2b; }
   html.rolou header.header .logo-img img { height: 52px; width: auto; transition: height .2s ease; }
 }
 @media (min-width: 901px) and (prefers-reduced-motion: reduce) { header.header, html.rolou header.header .logo-img img { transition: none; } }
+
+/* Barrinha do GP grudada embaixo do cabeçalho (aparece quando a faixa do fim de semana sai da tela) */
+.gp-mini-trilho { position: sticky; top: 56px; height: 0; z-index: 59; }
+.gp-mini { position: absolute; left: 0; right: 0; top: 0; display: flex; align-items: center; gap: 14px; background: #161616; color: #fff;
+  text-decoration: none; padding: 12px 18px 8px; border-radius: 0 0 14px 14px; border-left: 4px solid #ff2b2b; font-size: 13px;
+  transform: translateY(-110%); opacity: 0; pointer-events: none; transition: transform .2s ease, opacity .2s ease; box-shadow: 0 8px 20px rgba(0,0,0,.25); }
+html.rolou.faixa-fora .gp-mini { transform: none; opacity: 1; pointer-events: auto; }
+.gp-mini-gp { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: #ddd; }
+.gp-mini-gp .gp-bandeira { width: 18px; height: 13px; border-radius: 2px; object-fit: cover; }
+.gp-mini-sessao { font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-transform: uppercase; font-size: 16px; letter-spacing: .02em; }
+.gp-mini-conta { font-variant-numeric: tabular-nums; color: #bdbdbd; }
+.gp-mini-conta b { color: #fff; font-size: 15px; }
+.gp-mini-vivo { background: #d10f0f; color: #fff; font-weight: 900; font-size: 11px; text-transform: uppercase; letter-spacing: .06em;
+  border-radius: 4px; padding: 3px 7px; animation: pisca 1.6s infinite; }
+@media (max-width: 900px) {
+  .gp-mini-trilho { top: 52px; }
+  .gp-mini { border-radius: 0 0 12px 12px; padding: 12px 14px 8px; gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .gp-mini { transition: none; } .gp-mini-vivo { animation: none; } }

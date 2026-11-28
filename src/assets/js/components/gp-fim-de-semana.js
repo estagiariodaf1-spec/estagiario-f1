@@ -72,6 +72,48 @@
     return d > 0 ? d + (d === 1 ? ' dia' : ' dias') + (h ? ' e ' + h + 'h' : '') : (h > 0 ? h + 'h' : 'menos de 1h');
   }
 
+  // Barrinha que gruda embaixo do cabeçalho quando a faixa sai da tela (como no site da F1):
+  // bandeira, GP, a sessão da vez e a contagem regressiva (ou "Ao vivo").
+  var CURTO = { 'Treino livre 1': 'TL1', 'Treino livre 2': 'TL2', 'Treino livre 3': 'TL3', 'Classificação sprint': 'Quali sprint',
+    'Sprint': 'Sprint', 'Classificação': 'Quali', 'Corrida': 'Corrida' };
+  function dois(n) { return (n < 10 ? '0' : '') + n; }
+  function contagem(ms) {
+    var s = Math.max(0, Math.floor(ms / 1000)), d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600),
+      m = Math.floor(s % 3600 / 60), seg = s % 60;
+    return d > 0 ? '<b>' + d + '</b>d <b>' + dois(h) + '</b>h <b>' + dois(m) + '</b>m'
+      : '<b>' + dois(h) + '</b>h <b>' + dois(m) + '</b>m <b>' + dois(seg) + '</b>s';
+  }
+  var relogio = null;
+  function mini(corrida, lista, link, deslocamento) {
+    var cabecalho = document.querySelector('header.header'), faixa = document.querySelector('[data-gp-faixa]');
+    if (!cabecalho || !faixa) return;
+    var trilho = document.querySelector('.gp-mini-trilho');
+    if (!trilho) {
+      trilho = document.createElement('div');
+      trilho.className = 'gp-mini-trilho';
+      cabecalho.insertAdjacentElement('afterend', trilho);
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (itens) {
+          document.documentElement.classList.toggle('faixa-fora', !itens[0].isIntersecting);
+        }, { rootMargin: '-80px 0px 0px 0px' }).observe(faixa);
+      }
+    }
+    function desenhar() {
+      var agora = new Date(Date.now() + deslocamento);
+      var atual = lista.find(function (s) { return agora >= s.ini && agora < s.fim; });
+      var prox = lista.find(function (s) { return s.ini > agora; });
+      if (!atual && !prox) { trilho.innerHTML = ''; clearInterval(relogio); return; }
+      var s = atual || prox;
+      trilho.innerHTML = '<a class="gp-mini" href="' + esc(atual ? link : (agora >= lista[0].ini ? link : '/gp.html')) + '">' +
+        '<span class="gp-mini-gp">' + bandeira(corrida) + esc(nome(corrida.raceName).replace(/^GP (do |da |de |dos |das )?/, '')) + ' ›</span>' +
+        '<span class="gp-mini-sessao">' + esc(CURTO[s.nome] || s.nome) + '</span>' +
+        (atual ? '<span class="gp-mini-vivo">Ao vivo</span>' : '<span class="gp-mini-conta">' + contagem(s.ini - agora) + '</span>') + '</a>';
+    }
+    desenhar();
+    clearInterval(relogio);
+    relogio = setInterval(desenhar, 1000);
+  }
+
   async function mount(seletor, opcoes) {
     var raiz = document.querySelector(seletor || '[data-gp-faixa]');
     if (!raiz) return;
@@ -88,6 +130,7 @@
       if (!corrida) { raiz.innerHTML = '<div class="gp-faixa longe"><div class="gp-titulo"><span class="gp-tag">Temporada</span><strong>Calendário da F1</strong><em>Horários de Brasília</em></div><a class="gp-link" href="/calendario.html">Ver calendário ›</a></div>'; return; }
 
       var lista = sessoes(corrida);
+      mini(corrida, lista, linkAoVivo, agora.getTime() - Date.now());
       var primeira = lista[0].ini, ultima = lista[lista.length - 1].fim;
       var titulo = bandeira(corrida) + esc(nome(corrida.raceName));
       if (agora >= primeira && agora < ultima) {
