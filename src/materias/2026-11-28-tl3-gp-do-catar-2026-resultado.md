@@ -9,17 +9,25 @@ imagem: "/images/uploads/2026-11-28-tl3-gp-do-catar-2026-resultado.jpg"
 credito_imagem: "Foto: F1/reprodução"
 fontes:
   - "Cronometragem oficial do TL3 (dados ao vivo)"
+  - "https://www.f1mania.net/f1/f1-antonelli-lidera-tl3-e-mercedes-completa-dominio-dos-treinos-no-catar/"
+  - "https://www.terra.com.br/esportes/automobilismo/formula1/f1-kimi-antonelli-lidera-tl3-do-gp-do-catar-bortoleto-e-12-e-camara-15,888038d5b9649ff91c074871c0c0d91ew37kmshj.html"
+  - "https://ge.globo.com/motor/formula-1/noticia/2026/11/28/gp-do-catar-antonelli-fecha-3o-treino-na-frente-bortoleto-e-12o-e-camara-fica-em-15o.ghtml"
+  - "https://racingnews365.com/kimi-antonelli-sets-f1-career-first-as-lewis-hamilton-facing-nervy-fight"
+  - "https://www.autosport.com/f1/live-text/f1-qatar-gp-follow-fp3-with-live-timing/1128450/"
+  - "https://www.skysports.com/f1/news/13617140/qatar-gp-kimi-antonelli-completes-friday-practice-double-as-mercedes-dominate-despite-red-flag-interruptions"
 ---
 
 Kimi Antonelli (Mercedes) foi o mais rápido do treino livre 3 do GP do Catar, neste sábado (28), com 1:22.400.
 
-Completaram os cinco primeiros: George Russell (Mercedes), +0.249, Max Verstappen (Red Bull Racing), +0.510, Isack Hadjar (Red Bull Racing), +0.687, Charles Leclerc (Ferrari), +0.808.
+O campeão mundial já tinha liderado o TL1 e o TL2 de sexta-feira (27) e agora completa os três treinos livres na frente, com a Mercedes fechando a terceira dobradinha seguida, sempre com George Russell em segundo. E tem um detalhe: é a primeira vez na carreira que o italiano lidera todos os treinos livres de um fim de semana, e o último a fazer isso tinha sido Lando Norris, no GP dos Países Baixos de 2025.
+
+Completaram os cinco primeiros: Russell (Mercedes), +0.249, Max Verstappen (Red Bull Racing), +0.510, Isack Hadjar (Red Bull Racing), +0.687, Charles Leclerc (Ferrari), +0.808.
 
 Gabriel Bortoleto terminou em 12º, a 1.831 do líder, depois de 12 voltas.
 
-Rafael Câmara terminou em 15º, a 2.230 do líder, depois de 15 voltas.
+Rafael Câmara ficou em 15º, a 2.230 do líder, depois de 15 voltas. O companheiro de Haas, Oliver Bearman, ficou na frente, em 13º, com 1:24.343, 0.287 mais rápido que o brasileiro.
 
-Quem mais andou foi Pierre Gasly, com 24 voltas.
+Quem mais andou foi Pierre Gasly, com 24 voltas. E isso conta: o francês da Alpine rodou e parou na brita no TL2 de sexta-feira (27), o que provocou bandeira vermelha, e usou o TL3 pra recuperar o tempo perdido.
 
 ## Resultado do TL3
 
