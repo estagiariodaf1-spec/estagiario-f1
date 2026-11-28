@@ -1,12 +1,12 @@
 ---
-title: "Antonelli lidera o TL3 do GP do Catar; Bortoleto é P12, Câmara é P15"
-linha_fina: "Antonelli faz o melhor tempo (1:22.400) no TL3 em Lusail. Bortoleto é 12º e Câmara é 15º"
+title: "Antonelli lidera o TL3 do GP do Catar e a Mercedes fecha com dobradinha"
+linha_fina: "Bortoleto é o 12º, a 1.831 do líder, e Rafael Câmara o 15º, a 2.230, em sessão com a Mercedes na ponta e Verstappen em terceiro"
 date: 2026-11-28T12:30:15-03:00
 categoria: "F1"
 palavra_chave: "TL3 GP do Catar"
 autor: "Redação Estagiário da F1"
 imagem: "/images/uploads/2026-11-28-tl3-gp-do-catar-2026-resultado.jpg"
-credito_imagem: "Arte: Estagiário da F1"
+credito_imagem: "Foto: F1/reprodução"
 fontes:
   - "Cronometragem oficial do TL3 (dados ao vivo)"
 ---
