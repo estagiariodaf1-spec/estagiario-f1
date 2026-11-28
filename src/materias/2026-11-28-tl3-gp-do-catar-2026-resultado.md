@@ -1,6 +1,6 @@
 ---
-title: "Antonelli lidera o TL3 do GP do Catar e a Mercedes fecha com dobradinha"
-linha_fina: "Bortoleto é o 12º, a 1.831 do líder, e Rafael Câmara o 15º, a 2.230, em sessão com a Mercedes na ponta e Verstappen em terceiro"
+title: "GP do Catar: Antonelli lidera TL3 e completa trinca da Mercedes"
+linha_fina: "Italiano liderou os três treinos livres do GP do Catar, sempre com Russell em segundo; Verstappen foi terceiro no TL3, Bortoleto terminou em 12º e Rafa Câmara em 15º"
 date: 2026-11-28T12:30:15-03:00
 categoria: "F1"
 palavra_chave: "TL3 GP do Catar"
@@ -17,41 +17,19 @@ fontes:
   - "https://www.skysports.com/f1/news/13617140/qatar-gp-kimi-antonelli-completes-friday-practice-double-as-mercedes-dominate-despite-red-flag-interruptions"
 ---
 
-Kimi Antonelli (Mercedes) foi o mais rápido do treino livre 3 do GP do Catar, neste sábado (28), com 1:22.400.
+Kimi Antonelli completou o domínio dos treinos livres do GP do Catar neste sábado (28). O italiano da Mercedes marcou 1min22s400 no TL3 e encerrou as três sessões do fim de semana na liderança, sempre acompanhado por George Russell na segunda colocação.
 
-O campeão mundial já tinha liderado o TL1 e o TL2 de sexta-feira (27) e agora completa os três treinos livres na frente, com a Mercedes fechando a terceira dobradinha seguida, sempre com George Russell em segundo. E tem um detalhe: é a primeira vez na carreira que o italiano lidera todos os treinos livres de um fim de semana, e o último a fazer isso tinha sido Lando Norris, no GP dos Países Baixos de 2025.
+O campeão mundial já havia sido o mais rápido no TL1 e no TL2 de sexta-feira (27). A sequência garantiu três dobradinhas consecutivas à Mercedes e confirmou a superioridade da equipe em Lusail. Lando Norris havia conseguido liderar os três treinos livres de uma etapa no GP dos Países Baixos de 2025.
 
-Completaram os cinco primeiros: Russell (Mercedes), +0.249, Max Verstappen (Red Bull Racing), +0.510, Isack Hadjar (Red Bull Racing), +0.687, Charles Leclerc (Ferrari), +0.808.
+No TL3, Russell chegou a comandar a sessão, enquanto Max Verstappen também assumiu provisoriamente a liderança. Mas Antonelli respondeu nos 15 minutos finais, registrando 1min22s400 e abrindo 0s249 sobre o companheiro de equipe.
 
-Gabriel Bortoleto terminou em 12º, a 1.831 do líder, depois de 12 voltas.
+Verstappen terminou em terceiro, a 0s510 do líder, seguido por Isack Hadjar, a 0s687, e Charles Leclerc, a 0s808. A McLaren ficou fora dos cinco primeiros, com Lando Norris em sexto e Oscar Piastri em sétimo.
 
-Rafael Câmara ficou em 15º, a 2.230 do líder, depois de 15 voltas. O companheiro de Haas, Oliver Bearman, ficou na frente, em 13º, com 1:24.343, 0.287 mais rápido que o brasileiro.
+Entre os brasileiros, Gabriel Bortoleto terminou em 12º com a Audi, a 1s831 de Antonelli, após completar 12 voltas. Rafael Câmara ficou em 15º com a Haas, a 2s230 da liderança. O brasileiro completou 15 voltas e terminou 0s287 atrás do companheiro Oliver Bearman, 13º colocado.
 
-Quem mais andou foi Pierre Gasly, com 24 voltas. E isso conta: o francês da Alpine rodou e parou na brita no TL2 de sexta-feira (27), o que provocou bandeira vermelha, e usou o TL3 pra recuperar o tempo perdido.
+Pierre Gasly foi quem mais andou, com 24 voltas. O francês buscou recuperar o tempo perdido após rodar e ficar preso na brita durante o TL2, incidente que provocou uma bandeira vermelha na sexta-feira.
 
-## Resultado do TL3
+Resultado do TL3
 
-| Pos. | Piloto | Equipe | Tempo | Dif. | Voltas |
-| --- | --- | --- | --- | --- | --- |
-| 1º | Kimi Antonelli | Mercedes | 1:22.400 | – | 12 |
-| 2º | George Russell | Mercedes | 1:22.649 | +0.249 | 14 |
-| 3º | Max Verstappen | Red Bull Racing | 1:22.910 | +0.510 | 12 |
-| 4º | Isack Hadjar | Red Bull Racing | 1:23.087 | +0.687 | 13 |
-| 5º | Charles Leclerc | Ferrari | 1:23.208 | +0.808 | 20 |
-| 6º | Lando Norris | McLaren | 1:23.268 | +0.868 | 12 |
-| 7º | Oscar Piastri | McLaren | 1:23.289 | +0.889 | 14 |
-| 8º | Arvid Lindblad | Racing Bulls | 1:23.651 | +1.251 | 21 |
-| 9º | Lewis Hamilton | Ferrari | 1:23.776 | +1.376 | 18 |
-| 10º | Liam Lawson | Racing Bulls | 1:24.059 | +1.659 | 20 |
-| 11º | Nico Hülkenberg | Audi | 1:24.197 | +1.797 | 12 |
-| 12º | Gabriel Bortoleto | Audi | 1:24.231 | +1.831 | 12 |
-| 13º | Oliver Bearman | Haas F1 Team | 1:24.343 | +1.943 | 16 |
-| 14º | Pierre Gasly | Alpine | 1:24.381 | +1.981 | 24 |
-| 15º | Rafael Câmara | Haas F1 Team | 1:24.630 | +2.230 | 15 |
-| 16º | Franco Colapinto | Alpine | 1:24.638 | +2.238 | 20 |
-| 17º | Fernando Alonso | Aston Martin | 1:25.096 | +2.696 | 15 |
-| 18º | Carlos Sainz | Williams | 1:25.177 | +2.777 | 18 |
-| 19º | Alexander Albon | Williams | 1:25.321 | +2.921 | 13 |
-| 20º | Lance Stroll | Aston Martin | 1:25.765 | +3.365 | 17 |
-| 21º | Valtteri Bottas | Cadillac | 1:26.257 | +3.857 | 18 |
-| 22º | Sergio Pérez | Cadillac | 1:26.906 | +4.506 | 15 |
+![f1](https://fkmywflqajeitcsyxfoa.supabase.co/storage/v1/object/public/fotos/materias/20261128-125424-e5ecaf.jpg)
+*Foto: f1*
