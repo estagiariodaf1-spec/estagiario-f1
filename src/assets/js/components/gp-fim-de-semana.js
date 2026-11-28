@@ -27,7 +27,11 @@
     return codigo ? '<img class="gp-bandeira" src="/assets/bandeiras/' + codigo + '.svg" alt="" width="24" height="18" decoding="async">' : '';
   }
   function nome(n) { return global.F1Api && global.F1Api.nomeGP ? global.F1Api.nomeGP(n) : n; }
-  async function json(url) { var r = await fetch(url); if (!r.ok) throw new Error(r.status); return r.json(); }
+  // usa o mesmo buscador do resto do site (guarda 10 min, tenta de novo e cai na cópia do build se a API falhar)
+  async function json(url) {
+    if (global.F1Api && global.F1Api.fetchJson) return global.F1Api.fetchJson(url);
+    var r = await fetch(url); if (!r.ok) throw new Error(r.status); return r.json();
+  }
 
   function sessoes(corrida) {
     var lista = SESSOES.map(function (s) {

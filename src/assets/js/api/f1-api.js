@@ -91,25 +91,39 @@
   // Cópia feita no build (/dados/f1/...): se a API demorar ou cair, a página mostra a última versão boa
   // em vez de "não deu pra carregar". Na mesma visita, guarda 10 min pra não buscar de novo a cada página.
   function chaveCopia(url) { return url.replace(/^https:\/\/[^/]+\/(ergast\/f1\/|v1\/)?/, '').replace(/[^a-z0-9]+/gi, '_') + '.json'; }
+  // Mesma URL pedida por dois quadros ao mesmo tempo (faixa do GP e card da capa) vira um pedido só:
+  // a base de resultados (Jolpica) barra rajada de pedidos (429) e aí a capa mostrava "não foi possível carregar".
+  var emAndamento = {};
+  function esperar(ms) { return new Promise(function (ok) { setTimeout(ok, ms); }); }
+  async function buscar(url) {
+    var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 6000) : null;
+    try {
+      var response = await fetch(url, ctrl ? { signal: ctrl.signal } : undefined);
+      if (!response.ok) { var e = new Error('HTTP ' + response.status + ': ' + url); e.status = response.status; throw e; }
+      return await response.json();
+    } finally { if (timer) clearTimeout(timer); }
+  }
   async function fetchJson(url) {
     try {
       var guardado = JSON.parse(sessionStorage.getItem('f1:' + url) || 'null');
       if (guardado && Date.now() - guardado.t < 600000) return guardado.d;
     } catch (e) {}
-    try {
-      var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
-      var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 6000) : null;
-      var response = await fetch(url, ctrl ? { signal: ctrl.signal } : undefined);
-      if (timer) clearTimeout(timer);
-      if (!response.ok) throw new Error('HTTP ' + response.status + ': ' + url);
-      var dados = await response.json();
-      try { sessionStorage.setItem('f1:' + url, JSON.stringify({ t: Date.now(), d: dados })); } catch (e) {}
-      return dados;
-    } catch (erro) {
-      var copia = await fetch('/dados/f1/' + chaveCopia(url)).catch(function () { return null; });
-      if (copia && copia.ok) return copia.json();
-      throw erro;
-    }
+    if (emAndamento[url]) return emAndamento[url];
+    emAndamento[url] = (async function () {
+      try {
+        var dados;
+        try { dados = await buscar(url); }
+        catch (primeira) { await esperar(1200 + Math.random() * 800); dados = await buscar(url); }  // segunda chance (429/rede)
+        try { sessionStorage.setItem('f1:' + url, JSON.stringify({ t: Date.now(), d: dados })); } catch (e) {}
+        return dados;
+      } catch (erro) {
+        var copia = await fetch('/dados/f1/' + chaveCopia(url)).catch(function () { return null; });
+        if (copia && copia.ok) return copia.json();
+        throw erro;
+      } finally { delete emAndamento[url]; }
+    })();
+    return emAndamento[url];
   }
 
   function get(obj, path, fallback) {
@@ -365,6 +379,7 @@
 
   global.F1Api = {
     bandeira: bandeira,
+    fetchJson: fetchJson,
     nacionalidade: nacionalidade,
     siglaEquipe: siglaEquipe,
     getDriverStandings: getDriverStandings,
