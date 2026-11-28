@@ -22,7 +22,7 @@
   // A Jolpica devolve nomes em inglês. Tradução dos GPs e países para o português.
   var NOMES_GP = {
     'Australian Grand Prix': 'GP da Austrália', 'Chinese Grand Prix': 'GP da China',
-    'Japanese Grand Prix': 'GP do Japão', 'Bahrain Grand Prix': 'GP do Bahrein',
+    'Japanese Grand Prix': 'GP do Japão', 'Bahrain Grand Prix': 'GP do Bahrein', 'Bahrain Grand Prix in Malaysia': 'GP do Bahrein (na Malásia)',
     'Saudi Arabian Grand Prix': 'GP da Arábia Saudita', 'Miami Grand Prix': 'GP de Miami',
     'Canadian Grand Prix': 'GP do Canadá', 'Monaco Grand Prix': 'GP de Mônaco',
     'Spanish Grand Prix': 'GP da Espanha', 'Barcelona-Catalunya Grand Prix': 'GP de Barcelona-Catalunha',

@@ -384,3 +384,17 @@ footer.rodape .footer-legal a:hover { color: #ff2b2b; }
   .feed-post { border-radius: 0; padding: 20px 16px; }
   .feed-post h2, .feed-post h1 { font-size: 30px; }
 }
+
+/* ---------- calendário: botões 2026 | 2027 e a página de 2027 ---------- */
+.cal-anos { display: inline-flex; gap: 4px; background: #0b0b0b; border-radius: 99px; padding: 4px; margin: 0 0 12px; }
+.cal-anos a { color: #ddd; font-weight: 900; font-size: 15px; text-decoration: none; padding: 8px 20px; border-radius: 99px; letter-spacing: .04em; }
+.cal-anos a.ligado { background: #ff2b2b; color: #fff; }
+.cal-anos a:not(.ligado):hover { background: #222; color: #fff; }
+.cal-estatico { cursor: default; }
+.cal-ano h1.f1-calendar-title { font-weight: 400; }
+.cal-ano .f1-race-name { font-weight: 400; }
+.cal-obs { font-size: 11px; color: #a16207; margin: 3px 0 0; font-weight: 700; }
+.cal-texto { margin-top: 18px; }
+.cal-texto h2 { font-family: Impact, Haettenschweiler, sans-serif; text-transform: uppercase; font-size: 24px; font-weight: 400; margin: 22px 0 6px; }
+.cal-texto h2:first-child { margin-top: 0; }
+@media (max-width: 900px) { .cal-anos { margin-left: 12px; } .cal-ano .f1-calendar-shell { border-radius: 0; } }

@@ -1,0 +1,69 @@
+---
+layout: base.njk
+title: "Calendário da F1 2027: datas de todas as corridas"
+chamada: "Calendário da F1 2027: as datas das 24 corridas"
+descricao: "Calendário da F1 2027 com as datas das 24 corridas e os 10 fins de semana com sprint. Começa em 14 de março no Bahrein; o GP de São Paulo é de 5 a 7 de novembro."
+permalink: /calendario-f1-2027/
+css_extra: ["/assets/css/calendar.css"]
+eleventyExcludeFromCollections: true
+---
+{%- set cal = calendario2027 -%}
+{%- set primeira = cal.etapas | first -%}
+{%- set ultima = cal.etapas | last -%}
+<section class="section cal-ano">
+  {% include "calendario-anos.njk" %}
+  <div class="f1-calendar-shell">
+    <div class="f1-calendar-hero">
+      <div>
+        <p class="f1-calendar-kicker">Temporada {{ cal.ano }}</p>
+        <h1 class="f1-calendar-title">Calendário da F1 {{ cal.ano }}</h1>
+        <p class="f1-calendar-subtitle">As datas das {{ cal.etapas.length }} corridas da temporada {{ cal.ano }}, com os {{ (cal.etapas | selectattr("sprint")).length }} fins de semana de sprint. Começa em {{ primeira.fim | diaMes }} no Bahrein e termina em {{ ultima.fim | diaMes }} em Abu Dhabi. Os horários de Brasília entram aqui quando a F1 divulgar.</p>
+      </div>
+    </div>
+    <div class="f1-calendar-grid">
+      {%- for e in cal.etapas %}
+      <article class="f1-race-card futura">
+        <div class="f1-race-toggle cal-estatico">
+          <span class="f1-race-round">{{ "0" if e.n < 10 }}{{ e.n }}</span>
+          <img class="f1-race-flag" src="/assets/bandeiras/{{ e.bandeira }}.svg" alt="" width="28" height="28" loading="lazy" decoding="async" eleventy:ignore>
+          <span class="f1-race-main">
+            <h2 class="f1-race-name">{{ e.gp }} {{ cal.ano }}</h2>
+            <p class="f1-race-meta">{{ e.inicio | periodo(e.fim) }} · {{ e.circuito }}{% if e.sprint %}<span class="f1-race-selo">Sprint</span>{% endif %}</p>
+            {%- if e.obs %}<p class="cal-obs">{{ e.obs | capitalize }}</p>{% endif %}
+          </span>
+          <span></span>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+
+  <div class="institucional cal-texto">
+    <h2>Quando começa a F1 {{ cal.ano }}?</h2>
+    <p>A temporada {{ cal.ano }} da Fórmula 1 começa no fim de semana de {{ primeira.inicio | periodoLongo(primeira.fim) }}, com o GP do Bahrein em Sakhir, que já abre o ano com sprint. Antes, os testes de pré-temporada são de {{ cal.testes.inicio | periodoLongo(cal.testes.fim) }}, também no Bahrein. A última corrida é o GP de Abu Dhabi, em {{ ultima.fim | diaMes }}.</p>
+    <h2>Quando é o GP de São Paulo {{ cal.ano }}?</h2>
+    <p>O GP de São Paulo de {{ cal.ano }} é de 5 a 7 de novembro, em Interlagos, e tem corrida sprint. É a 21ª das 24 etapas.</p>
+    <h2>Quais corridas têm sprint em {{ cal.ano }}?</h2>
+    <p>São 10 fins de semana com sprint, o maior número desde que o formato foi criado:
+      {% for e in cal.etapas | selectattr("sprint") %}{{ e.gp | replace("GP ", "") | replace("do ", "") | replace("da ", "") | replace("de ", "") }}{{ ", " if not loop.last and loop.revindex > 2 }}{{ " e " if loop.revindex == 2 }}{% endfor %}.
+      Bahrein, Austrália, Japão, Mônaco e Abu Dhabi recebem sprint pela primeira vez.</p>
+    <h2>O que muda em relação a 2026?</h2>
+    <p>Portugal (Portimão) e Turquia (Istambul) voltam ao calendário. Holanda e Barcelona saem: a Espanha segue com a corrida em Madri. A etapa da Turquia ainda depende da homologação da pista pela FIA.</p>
+    <p class="meta">Fonte: {{ cal.fonte }}. As datas podem mudar; se mudarem, a gente atualiza aqui.</p>
+  </div>
+</section>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Calendário da F1 {{ cal.ano }}",
+  "itemListElement": [
+    {%- for e in cal.etapas %}
+    { "@type": "ListItem", "position": {{ e.n }}, "item": {
+      "@type": "SportsEvent", "name": {{ (e.gp + " " + cal.ano) | dump | safe }}, "sport": "Fórmula 1",
+      "startDate": "{{ e.inicio }}", "endDate": "{{ e.fim }}", "eventStatus": "https://schema.org/EventScheduled",
+      "location": { "@type": "Place", "name": {{ e.circuito | dump | safe }}, "address": {{ e.pais | dump | safe }} } } }{{ "," if not loop.last }}
+    {%- endfor %}
+  ]
+}
+</script>

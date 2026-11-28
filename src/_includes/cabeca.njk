@@ -43,4 +43,6 @@
   <link rel="stylesheet" href="/assets/site-nav.css">
   <link rel="stylesheet" href="/assets/css/home.css">
   <link rel="stylesheet" href="/assets/estilo.css?v={{ versao }}">
+  {%- for css in css_extra %}
+  <link rel="stylesheet" href="{{ css }}?v={{ versao }}">{% endfor %}
   <script src="/assets/js/conta.js" defer></script>

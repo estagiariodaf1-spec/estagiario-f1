@@ -1,0 +1,31 @@
+{
+  "ano": 2027,
+  "fonte": "Calendário oficial divulgado pela F1 e pela FIA em 16/09/2026",
+  "testes": { "inicio": "2027-02-24", "fim": "2027-02-27", "local": "Sakhir, Bahrein" },
+  "etapas": [
+    { "n": 1,  "gp": "GP do Bahrein",          "inicio": "2027-03-12", "fim": "2027-03-14", "circuito": "Sakhir",                       "pais": "Bahrein",          "bandeira": "bh", "sprint": true },
+    { "n": 2,  "gp": "GP da Arábia Saudita",   "inicio": "2027-03-19", "fim": "2027-03-21", "circuito": "Jeddah",                       "pais": "Arábia Saudita",   "bandeira": "sa", "sprint": false },
+    { "n": 3,  "gp": "GP da Austrália",        "inicio": "2027-04-02", "fim": "2027-04-04", "circuito": "Melbourne",                    "pais": "Austrália",        "bandeira": "au", "sprint": true },
+    { "n": 4,  "gp": "GP do Japão",            "inicio": "2027-04-09", "fim": "2027-04-11", "circuito": "Suzuka",                       "pais": "Japão",            "bandeira": "jp", "sprint": true },
+    { "n": 5,  "gp": "GP da China",            "inicio": "2027-04-16", "fim": "2027-04-18", "circuito": "Xangai",                       "pais": "China",            "bandeira": "cn", "sprint": false },
+    { "n": 6,  "gp": "GP de Miami",            "inicio": "2027-04-30", "fim": "2027-05-02", "circuito": "Miami",                        "pais": "Estados Unidos",   "bandeira": "us", "sprint": false },
+    { "n": 7,  "gp": "GP do Canadá",           "inicio": "2027-05-21", "fim": "2027-05-23", "circuito": "Montreal",                     "pais": "Canadá",           "bandeira": "ca", "sprint": true },
+    { "n": 8,  "gp": "GP de Mônaco",           "inicio": "2027-06-04", "fim": "2027-06-06", "circuito": "Monte Carlo",                  "pais": "Mônaco",           "bandeira": "mc", "sprint": true },
+    { "n": 9,  "gp": "GP de Portugal",         "inicio": "2027-06-18", "fim": "2027-06-20", "circuito": "Portimão",                     "pais": "Portugal",         "bandeira": "pt", "sprint": false },
+    { "n": 10, "gp": "GP da Inglaterra",       "inicio": "2027-07-02", "fim": "2027-07-04", "circuito": "Silverstone",                  "pais": "Reino Unido",      "bandeira": "gb", "sprint": true },
+    { "n": 11, "gp": "GP da Áustria",          "inicio": "2027-07-09", "fim": "2027-07-11", "circuito": "Spielberg",                    "pais": "Áustria",          "bandeira": "at", "sprint": false },
+    { "n": 12, "gp": "GP da Bélgica",          "inicio": "2027-07-23", "fim": "2027-07-25", "circuito": "Spa-Francorchamps",            "pais": "Bélgica",          "bandeira": "be", "sprint": false },
+    { "n": 13, "gp": "GP da Hungria",          "inicio": "2027-07-30", "fim": "2027-08-01", "circuito": "Budapeste",                    "pais": "Hungria",          "bandeira": "hu", "sprint": false },
+    { "n": 14, "gp": "GP da Itália",           "inicio": "2027-09-03", "fim": "2027-09-05", "circuito": "Monza",                        "pais": "Itália",           "bandeira": "it", "sprint": true },
+    { "n": 15, "gp": "GP da Espanha",          "inicio": "2027-09-10", "fim": "2027-09-12", "circuito": "Madri",                        "pais": "Espanha",          "bandeira": "es", "sprint": false },
+    { "n": 16, "gp": "GP do Azerbaijão",       "inicio": "2027-09-24", "fim": "2027-09-26", "circuito": "Baku",                         "pais": "Azerbaijão",       "bandeira": "az", "sprint": false },
+    { "n": 17, "gp": "GP da Turquia",          "inicio": "2027-10-01", "fim": "2027-10-03", "circuito": "Istambul",                     "pais": "Turquia",          "bandeira": "tr", "sprint": false, "obs": "depende da homologação da pista pela FIA" },
+    { "n": 18, "gp": "GP de Singapura",        "inicio": "2027-10-08", "fim": "2027-10-10", "circuito": "Marina Bay",                   "pais": "Singapura",        "bandeira": "sg", "sprint": false },
+    { "n": 19, "gp": "GP dos Estados Unidos",  "inicio": "2027-10-22", "fim": "2027-10-24", "circuito": "Austin",                       "pais": "Estados Unidos",   "bandeira": "us", "sprint": false },
+    { "n": 20, "gp": "GP da Cidade do México", "inicio": "2027-10-29", "fim": "2027-10-31", "circuito": "Autódromo Hermanos Rodríguez", "pais": "México",           "bandeira": "mx", "sprint": false },
+    { "n": 21, "gp": "GP de São Paulo",        "inicio": "2027-11-05", "fim": "2027-11-07", "circuito": "Interlagos",                   "pais": "Brasil",           "bandeira": "br", "sprint": true },
+    { "n": 22, "gp": "GP de Las Vegas",        "inicio": "2027-11-18", "fim": "2027-11-20", "circuito": "Las Vegas",                    "pais": "Estados Unidos",   "bandeira": "us", "sprint": false, "obs": "corrida no sábado" },
+    { "n": 23, "gp": "GP do Catar",            "inicio": "2027-12-03", "fim": "2027-12-05", "circuito": "Lusail",                       "pais": "Catar",            "bandeira": "qa", "sprint": true },
+    { "n": 24, "gp": "GP de Abu Dhabi",        "inicio": "2027-12-10", "fim": "2027-12-12", "circuito": "Yas Marina",                   "pais": "Emirados Árabes",  "bandeira": "ae", "sprint": true }
+  ]
+}

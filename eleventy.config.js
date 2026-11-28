@@ -94,6 +94,22 @@ module.exports = function (eleventyConfig) {
     };
   });
 
+  // Período de um fim de semana de GP: "12 a 14 de mar." ou "30 de abr. a 2 de mai."
+  const MESES = ["jan.", "fev.", "mar.", "abr.", "mai.", "jun.", "jul.", "ago.", "set.", "out.", "nov.", "dez."];
+  eleventyConfig.addFilter("periodo", (inicio, fim) => {
+    const [, m1, d1] = inicio.split("-").map(Number), [, m2, d2] = fim.split("-").map(Number);
+    return m1 === m2 ? `${d1} a ${d2} de ${MESES[m2 - 1]}` : `${d1} de ${MESES[m1 - 1]} a ${d2} de ${MESES[m2 - 1]}`;
+  });
+  const MESES_LONGOS = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+  eleventyConfig.addFilter("periodoLongo", (inicio, fim) => {
+    const [, m1, d1] = inicio.split("-").map(Number), [, m2, d2] = fim.split("-").map(Number);
+    return m1 === m2 ? `${d1} a ${d2} de ${MESES_LONGOS[m2 - 1]}` : `${d1} de ${MESES_LONGOS[m1 - 1]} a ${d2} de ${MESES_LONGOS[m2 - 1]}`;
+  });
+  eleventyConfig.addFilter("diaMes", (iso) => {
+    const [, m, d] = iso.split("-").map(Number);
+    return `${d} de ${["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"][m - 1]}`;
+  });
+
   // Sitemap de notícias: o Google só aceita matérias das últimas 48 horas.
   eleventyConfig.addCollection("materiasRecentes", (api) => {
     const limite = Date.now() - 2 * 24 * 60 * 60 * 1000;
